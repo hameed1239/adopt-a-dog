@@ -1,0 +1,331 @@
+/* ===========================================================================*/
+/* global styles */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;700;900&display=swap');
+
+* {
+  /* resets default browser settings to zero */
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-collapse: collapse;
+
+  /* sets global font */
+  font-family: 'Cairo', sans-serif;
+
+  /* fixes issue of bold text not displaying correctly on Google Chrome */
+  -webkit-font-smoothing: antialiased;
+
+  /* ensures that viewport is 100% after changing orientation, by telling browser not to adjust text size */
+  -webkit-text-size-adjust: 100%;
+
+  --h1: 26px;
+  --h2: 24px;
+  --h3: 22px;
+  --h4: 20px;
+  --h5: 18px;
+  --h6: 16px;
+  --footer: 14px;
+
+  --two: 2px;
+  --four: 4px;
+  --six: 6px;
+  --eight: 8px;
+  --ten: 10px;
+  --twelve: 12px;
+
+  /* uses materialize colors */
+  --red: #f44336;
+  --red-darken-4: #b71c1c;
+  --green: #4caf50;
+  --green-darken-4: #1b5e20;
+  --blue: #2196f3;
+  --blue-darken-4: #0d47a1;
+  --blue-grey: #607d8b;
+  --blue-grey-darken-4: #263238;
+}
+
+body {
+  /* pushes footer to bottom of viewport */
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.container {
+  margin: 0 5%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  text-align: left;
+}
+p {
+  font-weight: 400;
+}
+
+/* ===========================================================================*/
+/* =================== starts xs (<= 768px) - phone styles ================== */
+/* header styles */
+/* nav styles */
+#navbar {
+  position: relative;
+  height: 50px;
+  padding: 0 5%;
+  background-color: var(--blue-darken-4);
+}
+
+#logo {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  vertical-align: middle;
+}
+
+#company-name {
+  display: none;
+}
+
+nav ul {
+  display: inline;
+  margin-left: 40px;
+}
+
+nav ul li {
+  display: inline;
+  margin-left: 20px;
+  font-size: var(--h3);
+  line-height: 50px;
+  list-style-type: none;
+  color: white;
+  font-weight: 700;
+}
+
+nav form {
+  display: inline;
+  margin-left: 40px;
+}
+
+nav form input {
+  padding: 0 10px;
+  line-height: 30px;
+  font-size: var(--h3);
+  border-radius: 5px;
+  color: var(--blue-grey-darken-4);
+}
+
+nav form button,
+#search-img {
+  width: 20px;
+  background-color: var(--blue-darken-4);
+}
+
+/* ===========================================================================*/
+/* hero styles */
+
+/* ===========================================================================*/
+/* main styles */
+h1 {
+  font-size: var(--h1);
+  line-height: 5rem;
+}
+h2 {
+  font-size: var(--h2);
+  line-height: 3rem;
+  color: var(--blue-darken-4);
+}
+h3 {
+  font-size: var(--h3);
+  line-height: 3rem;
+}
+h3:nth-of-type(n+2) {
+  margin-top: 40px;
+}
+h4 {
+  font-size: var(--h4);
+  line-height: 2.5rem;
+  color: var(--green);
+  margin-top: 20px;
+}
+h3 + h4 {
+  margin-top: 0;
+}
+h5 {
+  font-size: var(--h5);
+  line-height: 2rem;
+}
+h6 {
+  font-size: var(--h6);
+  line-height: 2rem;
+}
+p {
+  font-size: var(--p);
+  line-height: 2rem;
+}
+/* ===========================================================================*/
+/* footer styles */
+footer {
+  margin-top: 40px;
+  padding: 10px 0;
+  background-color: var(--blue);
+}
+
+footer p {
+  text-align: center;
+  color: white;
+  font-size: var(--footer);
+}
+/* ========================================================================== */
+/* ==================== ends xs (<= 768px) - phone styles =================== */
+
+/* ================ starts sm (768px < 992px) tablets styles ================ */
+@media screen and (min-width: 768px) {
+  #company-name {
+    display: inline;
+    color: white;
+    margin-left: 40px;
+    font-size: calc(var(--h3) + var(--two));
+    font-weight: 900;
+  }
+  nav form,
+  nav ul li {
+    margin-left: 30px;
+    font-size: calc(var(--h3) + var(--two));
+  }
+  h1 {
+    font-size: calc(var(--h1) + var(--two));
+  }
+  h2 {
+    font-size: calc(var(--h2) + var(--two));
+  }
+  h3 {
+    font-size: calc(var(--h3) + var(--two));
+  }
+  h4 {
+    font-size: calc(var(--h4) + var(--two));
+  }
+  h5 {
+    font-size: calc(var(--h5) + var(--two));
+  }
+  h6 {
+    font-size: calc(var(--h6) + var(--two));
+  }
+  p {
+    font-size: calc(var(--p) + var(--two));
+  }
+  footer p {
+    font-size: calc(var(--footer) + var(--two));
+  }
+}
+/* ================= ends sm (768px < 992px) tablets styles ================= */
+
+/* ============= starts md (992px < 1199px) small laptops styles ============ */
+@media screen and (min-width: 992px) {
+  #navbar {
+    height: 60px;
+  }
+  #logo {
+    height: 40px;
+    width: 40px;
+  }
+  #company-name {
+    margin-left: 50px;
+    font-size: calc(var(--h3) + var(--four));
+  }
+  nav form,
+  nav ul li {
+    margin-left: 40px;
+    line-height: 60px;
+    font-size: calc(var(--h3) + var(--four));
+  }
+  h1 {
+    font-size: calc(var(--h1) + var(--four));
+  }
+  h2 {
+    font-size: calc(var(--h2) + var(--four));
+  }
+  h3 {
+    font-size: calc(var(--h3) + var(--four));
+  }
+  h4 {
+    font-size: calc(var(--h4) + var(--four));
+  }
+  h5 {
+    font-size: calc(var(--h5) + var(--four));
+  }
+  h6 {
+    font-size: calc(var(--h6) + var(--four));
+  }
+  p {
+    font-size: calc(var(--p) + var(--four));
+  }
+  footer p {
+    font-size: calc(var(--footer) + var(--four));
+  }
+}
+/* ============== ends md (992px < 1199px) small laptops styles ============= */
+
+/* ============= starts lg (>= 1200px) laptops & desktops styles ============ */
+@media screen and (min-width: 1200px) {
+  #navbar {
+    height: 70px;
+  }
+  #logo {
+    height: 50px;
+    width: 50px;
+  }
+  #company-name {
+    margin-left: 60px;
+    font-size: calc(var(--h3) + var(--eight));
+  }
+  nav form,
+  nav ul li {
+    margin-left: 50px;
+    line-height: 70px;
+    font-size: calc(var(--h3) + var(--eight));
+  }
+  h1 {
+    font-size: calc(var(--h1) + var(--eight));
+  }
+  h2 {
+    font-size: calc(var(--h2) + var(--eight));
+  }
+  h3 {
+    font-size: calc(var(--h3) + var(--eight));
+  }
+  h4 {
+    font-size: calc(var(--h4) + var(--eight));
+  }
+  h5 {
+    font-size: calc(var(--h5) + var(--eight));
+  }
+  h6 {
+    font-size: calc(var(--h6) + var(--eight));
+  }
+  p {
+    font-size: calc(var(--p) + var(--eight));
+  }
+  footer p {
+    font-size: calc(var(--footer) + var(--eight));
+  }
+}
+/* ============== ends lg (>= 1200px) laptops & desktops styles ============= */
