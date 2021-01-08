@@ -126,13 +126,14 @@ nav ul li {
 
 nav form {
   display: inline;
-  /* margin-left: 40px; */
+  line-height: 30px;
 }
 
 nav form input {
+  /* vertical-align: middle; */
+  /* transform: translateY(-4px); */
   padding: 0 10px;
-  line-height: 30px;
-  font-size: var(--h3);
+  font-size: var(--h5);
   border-radius: 5px;
   color: var(--blue-grey-darken-4);
 }
@@ -152,46 +153,46 @@ nav button {
 
 /* ===========================================================================*/
 /* main styles */
-h1 {
+main h1 {
   font-size: var(--h1);
   line-height: 5rem;
 }
-h2 {
+main h2 {
   font-size: var(--h2);
   line-height: 3rem;
   color: var(--blue-darken-4);
 }
-h3 {
+main h3 {
   font-size: var(--h3);
   line-height: 3rem;
 }
-h3:nth-of-type(n + 2) {
+main h3:nth-of-type(n + 2) {
   margin-top: 40px;
 }
-h4 {
+main h4 {
   font-size: var(--h4);
   line-height: 2.5rem;
   color: var(--green);
   margin-top: 20px;
 }
-h3 + h4 {
+main h3 + main h4 {
   margin-top: 0;
 }
-h5 {
+main h5 {
   font-size: var(--h5);
   line-height: 2rem;
 }
-h5:nth-of-type(n + 2) {
+main h5:nth-of-type(n + 2) {
   margin-top: 20px;
 }
-h4 + h5 {
+main h4 + main h5 {
   margin-top: 0;
 }
-h6 {
+main h6 {
   font-size: var(--h6);
   line-height: 2rem;
 }
-p {
+main p {
   font-size: var(--p);
   line-height: 2rem;
 }
@@ -237,32 +238,31 @@ footer p {
     font-size: calc(var(--h3) + var(--two));
     font-weight: 900;
   }
-  nav form,
   nav ul li {
     font-size: calc(var(--h3) + var(--two));
   }
   .fas {
     font-size: calc(var(--h3) + var(--two));
   }
-  h1 {
+  main h1 {
     font-size: calc(var(--h1) + var(--two));
   }
-  h2 {
+  main h2 {
     font-size: calc(var(--h2) + var(--two));
   }
-  h3 {
+  main h3 {
     font-size: calc(var(--h3) + var(--two));
   }
-  h4 {
+  main h4 {
     font-size: calc(var(--h4) + var(--two));
   }
-  h5 {
+  main h5 {
     font-size: calc(var(--h5) + var(--two));
   }
-  h6 {
+  main h6 {
     font-size: calc(var(--h6) + var(--two));
   }
-  p {
+  main p {
     font-size: calc(var(--p) + var(--two));
   }
   #glossary ul li {
@@ -294,31 +294,33 @@ footer p {
   nav ul li {
     margin-left: 30px;
     line-height: 60px;
+  }
+  nav ul li {
     font-size: calc(var(--h3) + var(--four));
   }
   .fas {
     font-size: calc(var(--h3) + var(--four));
     line-height: 60px;
   }
-  h1 {
+  main h1 {
     font-size: calc(var(--h1) + var(--four));
   }
-  h2 {
+  main h2 {
     font-size: calc(var(--h2) + var(--four));
   }
-  h3 {
+  main h3 {
     font-size: calc(var(--h3) + var(--four));
   }
-  h4 {
+  main h4 {
     font-size: calc(var(--h4) + var(--four));
   }
-  h5 {
+  main h5 {
     font-size: calc(var(--h5) + var(--four));
   }
-  h6 {
+  main h6 {
     font-size: calc(var(--h6) + var(--four));
   }
-  p {
+  main p {
     font-size: calc(var(--p) + var(--four));
   }
   #glossary ul li {
@@ -351,31 +353,33 @@ footer p {
   nav ul li {
     margin-left: 30px;
     line-height: 70px;
+  }
+  nav ul li {
     font-size: calc(var(--h3) + var(--eight));
   }
   .fas {
     font-size: calc(var(--h3) + var(--eight));
     line-height: 70px;
   }
-  h1 {
+  main h1 {
     font-size: calc(var(--h1) + var(--eight));
   }
-  h2 {
+  main h2 {
     font-size: calc(var(--h2) + var(--eight));
   }
-  h3 {
+  main h3 {
     font-size: calc(var(--h3) + var(--eight));
   }
-  h4 {
+  main h4 {
     font-size: calc(var(--h4) + var(--eight));
   }
-  h5 {
+  main h5 {
     font-size: calc(var(--h5) + var(--eight));
   }
-  h6 {
+  main h6 {
     font-size: calc(var(--h6) + var(--eight));
   }
-  p {
+  main p {
     font-size: calc(var(--p) + var(--eight));
   }
   #glossary ul li {
