@@ -126,7 +126,7 @@ nav ul li {
 
 nav form {
   display: inline;
-  margin-left: 40px;
+  /* margin-left: 40px; */
 }
 
 nav form input {
@@ -137,9 +137,13 @@ nav form input {
   color: var(--blue-grey-darken-4);
 }
 
-nav form button,
-#search-img {
-  width: 20px;
+.fas {
+  color: white;
+  font-size: var(--h3);
+  line-height: 50px;
+}
+
+nav button {
   background-color: var(--blue-darken-4);
 }
 
@@ -161,7 +165,7 @@ h3 {
   font-size: var(--h3);
   line-height: 3rem;
 }
-h3:nth-of-type(n+2) {
+h3:nth-of-type(n + 2) {
   margin-top: 40px;
 }
 h4 {
@@ -176,6 +180,12 @@ h3 + h4 {
 h5 {
   font-size: var(--h5);
   line-height: 2rem;
+}
+h5:nth-of-type(n + 2) {
+  margin-top: 20px;
+}
+h4 + h5 {
+  margin-top: 0;
 }
 h6 {
   font-size: var(--h6);
@@ -223,13 +233,15 @@ footer p {
   #company-name {
     display: inline;
     color: white;
-    margin-left: 40px;
+    margin-left: 10px;
     font-size: calc(var(--h3) + var(--two));
     font-weight: 900;
   }
   nav form,
   nav ul li {
-    margin-left: 30px;
+    font-size: calc(var(--h3) + var(--two));
+  }
+  .fas {
     font-size: calc(var(--h3) + var(--two));
   }
   h1 {
@@ -275,14 +287,18 @@ footer p {
     width: 40px;
   }
   #company-name {
-    margin-left: 50px;
+    margin-left: 15px;
     font-size: calc(var(--h3) + var(--four));
   }
   nav form,
   nav ul li {
-    margin-left: 40px;
+    margin-left: 30px;
     line-height: 60px;
     font-size: calc(var(--h3) + var(--four));
+  }
+  .fas {
+    font-size: calc(var(--h3) + var(--four));
+    line-height: 60px;
   }
   h1 {
     font-size: calc(var(--h1) + var(--four));
@@ -328,14 +344,18 @@ footer p {
     width: 50px;
   }
   #company-name {
-    margin-left: 60px;
+    margin-left: 20px;
     font-size: calc(var(--h3) + var(--eight));
   }
   nav form,
   nav ul li {
-    margin-left: 50px;
+    margin-left: 30px;
     line-height: 70px;
     font-size: calc(var(--h3) + var(--eight));
+  }
+  .fas {
+    font-size: calc(var(--h3) + var(--eight));
+    line-height: 70px;
   }
   h1 {
     font-size: calc(var(--h1) + var(--eight));

@@ -4,33 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Bootcamp LLC - Topics</title>
+    <title>Topics - Bootcamp LLC</title>
   </head>
   <body>
     <header>
       <nav id="navbar">
-        <img id="logo" width="30px" height="30px" src="logo.svg" alt="logo" />
-        <p id="company-name">Bootcamp LLC</p>
+        <i class="fas fa-truck"></i>
+        <p id="company-name">Transport LLC</p>
         <ul>
           <li>Topics</li>
           <li>Instructions</li>
-          <li>Logout</li>
+          <li>
+            <form action="">
+              <input type="text" placeholder="Search..." name="search" />
+              <button type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </li>
+          <li><i class="fas fa-user fa"></i></li>
         </ul>
-        <form action="">
-          <input type="text" placeholder="Search..." name="search" />
-          <button type="submit">
-            <img id="search-img" src="search.svg" alt="" />
-          </button>
-        </form>
       </nav>
+
       <div class="hero"></div>
     </header>
 
     <main id="glossary">
-      <div class="container">
+      <section class="container">
         <h1>Employee Handbook</h1>
-        <h2>Browse the topics below</h2>
-        <ul class="mt-20">
+        <h2>Browse by topics below</h2>
+      </section>
+
+      <section class="container mt-20">
+        <ul>
           <li>
             Compensation &amp; Benefits
             <ul>
@@ -69,11 +75,43 @@
               <li>Retaliation</li>
             </ul>
           </li>
-          <li>Hiring</li>
-          <li>HR Management</li>
-          <li>Terminations</li>
+
+          <li>
+            Hiring
+            <ul>
+              <li>Background Checks</li>
+              <li>Immigration</li>
+              <li>Interviewing</li>
+              <li>Recruiting</li>
+              <li>Testing</li>
+            </ul>
+          </li>
+
+          <li>
+            HR Management
+            <ul>
+              <li>HRIS/Technology</li>
+              <li>Metrics</li>
+              <li>Personnel Files</li>
+              <li>Policies/Handbooks</li>
+              <li>Safety/Health</li>
+              <li>Strategic Planning</li>
+              <li>Training</li>
+              <li>Vendor Management</li>
+              <li>Your HR Career</li>
+            </ul>
+          </li>
+
+          <li>
+            Terminations
+            <ul>
+              <li>Firing</li>
+              <li>Layoffs</li>
+              <li>Resignations</li>
+            </ul>
+          </li>
         </ul>
-      </div>
+      </section>
     </main>
 
     <footer>
@@ -81,5 +119,10 @@
         <p>Copyright &copy; 2021 Bootcamp LLC. All rights reserved.</p>
       </div>
     </footer>
+
+    <script
+      src="https://kit.fontawesome.com/7f68d95029.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
