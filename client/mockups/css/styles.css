@@ -85,7 +85,18 @@ p {
 .mt-20 {
   margin-top: 20px;
 }
-
+.admin-color {
+  color: var(--green-darken-4);
+}
+.admin-bg {
+  background-color: var(--green-darken-4);
+}
+.user-color {
+  color: var(--blue-darken-4);
+}
+.user-bg {
+  background-color: var(--blue-darken-4);
+}
 /* ===========================================================================*/
 /* =================== starts xs (<= 768px) - phone styles ================== */
 /* header styles */
@@ -94,12 +105,6 @@ p {
   position: relative;
   height: 50px;
   padding: 0 5%;
-}
-.admin-bg {
-  background-color: var(--green-darken-4);
-}
-.user-bg {
-  background-color: var(--blue-darken-4);
 }
 
 #logo {
@@ -165,7 +170,6 @@ main h1 {
 main h2 {
   font-size: var(--h2);
   line-height: 3rem;
-  color: var(--blue-darken-4);
 }
 main h3 {
   font-size: var(--h3);
