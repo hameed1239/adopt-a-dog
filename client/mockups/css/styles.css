@@ -90,10 +90,15 @@ p {
 /* =================== starts xs (<= 768px) - phone styles ================== */
 /* header styles */
 /* nav styles */
-#navbar {
+.navbar {
   position: relative;
   height: 50px;
   padding: 0 5%;
+}
+.admin-bg {
+  background-color: var(--green-darken-4);
+}
+.user-bg {
   background-color: var(--blue-darken-4);
 }
 
@@ -218,6 +223,11 @@ main p {
 footer {
   margin-top: 40px;
   padding: 10px 0;
+}
+.admin-footer {
+  background-color: var(--green);
+}
+.user-footer {
   background-color: var(--blue);
 }
 
@@ -279,7 +289,7 @@ footer p {
 
 /* ============= starts md (992px < 1199px) small laptops styles ============ */
 @media screen and (min-width: 992px) {
-  #navbar {
+  .navbar {
     height: 60px;
   }
   #logo {
@@ -338,7 +348,7 @@ footer p {
 
 /* ============= starts lg (>= 1200px) laptops & desktops styles ============ */
 @media screen and (min-width: 1200px) {
-  #navbar {
+  .navbar {
     height: 70px;
   }
   #logo {
