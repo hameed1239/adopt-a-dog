@@ -74,9 +74,20 @@ https://github.com/hameed1239/employee-handbook
 
 ## Technologies Used
 
+1. HTML
+1. CSS
+1. JavaScript
 1. Node.js
 1. MongoDB
-1. 
+1. Mongoose ODM
+1. React
+1. Redux
+1. GraphQL
+1. Authentication:
+   1. Sessions
+   1. JWT (Jason Web Tokens)
+1. Stripe (Payment Platform)
+1. PWA
 ## Credits
 
 ### Collaborators
