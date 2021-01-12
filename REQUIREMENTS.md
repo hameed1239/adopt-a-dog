@@ -1,7 +1,4 @@
 # Project Requirements
-
-​
-
 - Use React for the front end.
   ​
 - Use GraphQL with a Node.js and Express.js server.
