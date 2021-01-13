@@ -16,7 +16,24 @@ const breedSchema = new mongoose.Schema({
     maxLife: {
         type: Number,
         required: true,
-    }
+    },
+    hypoallergenic: {
+        type: Boolean,
+        required: true,
+
+    },
+    colors: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: Color
+        }   
+    ],
+    Temperaments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: Temperament
+        }
+    ]
 })
 
 const Breed = mongoose.model("Breed", breedSchema);
