@@ -92,6 +92,10 @@ h6 {
 p {
   font-weight: 400;
 }
+
+.hidden {
+  display: none;
+}
 .mt-20 {
   margin-top: 20px;
 }
@@ -128,21 +132,13 @@ p {
   padding: 0 5%;
 }
 
-#logo {
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  vertical-align: middle;
-}
-
 #company-name {
   display: none;
 }
 
 nav ul {
   display: inline;
-  margin-left: 40px;
+  float: right;
 }
 
 nav ul li {
@@ -155,28 +151,10 @@ nav ul li {
   font-weight: 700;
 }
 
-nav form {
-  display: inline;
-  line-height: 30px;
-}
-
-nav form input {
-  /* vertical-align: middle; */
-  /* transform: translateY(-4px); */
-  padding: 0 10px;
-  font-size: var(--h5);
-  border-radius: 5px;
-  color: var(--blue-grey-darken-4);
-}
-
 .fas {
   color: white;
   font-size: var(--h3);
   line-height: 50px;
-}
-
-nav button {
-  background-color: var(--blue-grey-darken-4-darken-4);
 }
 
 /* ===========================================================================*/
@@ -230,6 +208,18 @@ main h6 {
 main p {
   font-size: var(--p);
   line-height: 2rem;
+}
+
+#breeds label {
+  margin: 10px 0;
+  padding: 0 10px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--lime-darken-4);
+  color: white;
+  font-size: var(--h3);
+  font-weight: 700;
+  text-align: center;
 }
 
 #dog button {
@@ -310,6 +300,16 @@ footer p {
   main h2 {
     font-size: calc(var(--h2) + var(--two));
   }
+
+  #breeds label {
+    width: 47.5%;
+  }
+
+  #breeds label:nth-of-type(2) {
+    margin-left: 5%;
+  }
+
+  #breeds label,
   #dog button,
   main h3 {
     font-size: calc(var(--h3) + var(--two));
@@ -379,6 +379,7 @@ footer p {
   main h2 {
     font-size: calc(var(--h2) + var(--four));
   }
+  #breeds label,
   #dog button,
   main h3 {
     font-size: calc(var(--h3) + var(--four));
@@ -433,6 +434,7 @@ footer p {
   main h2 {
     font-size: calc(var(--h2) + var(--eight));
   }
+  #breeds label,
   #dog button,
   main h3 {
     font-size: calc(var(--h3) + var(--eight));
@@ -448,6 +450,12 @@ footer p {
   }
   main p {
     font-size: calc(var(--p) + var(--eight));
+  }
+  #breeds label {
+    width: 30%;
+  }
+  #breeds label:nth-of-type(2) {
+    margin-left: 0;
   }
   .flex-container article {
     width: 30%;

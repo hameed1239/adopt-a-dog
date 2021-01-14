@@ -28,9 +28,16 @@
         <h1>Select a Breed</h1>
       </section>
 
-      <section class="flex-container">
-        <button>Size <i class="fas fa-sort-down"></i></button>
-        <button>Kid Friendly <i class="fas fa-filter"></i></button>
+      <section class="container flex-container">
+        <label for="size">Size</label>
+        <select name="size" id="size" class="hidden">
+          <option value="large">Large</option>
+          <option value="Medium">Medium</option>
+          <option value="Small">Small</option>
+        </select>
+
+        <input class="hidden" type="checkbox" id="kid-friendly" name="kid-friendly" value="false" />
+        <label for="kid-friendly">Kid-Friendly</label>
       </section>
 
       <!-- ONLY GENERATE THE BREEDS THAT WE HAVE IN THE SHELTER -->
@@ -38,43 +45,83 @@
         <h3>Large Breeds</h3>
         <div class="flex-container">
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Australian Shepherd</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Pembroke Welsh Corgi</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Rottweiler</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>French Bulldog</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Labrador Retriever</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>German Shepherd</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Golden Retriever</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Poodle</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Bulldog</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Yorkshire Terrier</h4>
           </article>
         </div>
@@ -82,31 +129,59 @@
         <h3>Medium Breeds</h3>
         <div class="flex-container">
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Boxer</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Great Dane</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Dalmatian</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Chihuahua</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Doberman Pinscher</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Cocker Spaniel</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Rhodesian Ridgeback</h4>
           </article>
         </div>
@@ -114,31 +189,54 @@
         <h3>Small Breeds</h3>
         <div class="flex-container">
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Siberian Husky</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Dachshund</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Cavalier King Charles Spaniel</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Miniature Schnauzer</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Havanese</h4>
           </article>
           <article>
-            <img src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg" width="100%" alt="">
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              width="100%"
+              alt=""
+            />
             <h4>Mastiff</h4>
           </article>
         </div>
-
       </section>
     </main>
 
