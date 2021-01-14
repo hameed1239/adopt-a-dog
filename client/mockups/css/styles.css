@@ -186,7 +186,7 @@ main h3:nth-of-type(n + 2) {
 main h4 {
   font-size: var(--h4);
   line-height: 2.5rem;
-  color: var(--green);
+  color: var(--lime-darken-3);
   margin-top: 20px;
 }
 main h3 + main h4 {
@@ -221,6 +221,11 @@ main p {
 .flex-container article {
   margin: 5% 0;
   width: 100%;
+}
+
+.flex-container article img {
+  border-radius: 20px;
+  height: 100%;
 }
 
 #glossary ul li {
@@ -299,6 +304,12 @@ footer p {
   .flex-container article {
     width: 50%;
   }
+  .flex-container article:nth-of-type(odd) {
+    padding-right: 2.5%;
+  }
+  .flex-container article:nth-of-type(even) {
+    padding-left: 2.5%;
+  }
   #glossary ul li {
     font-size: calc(var(--h3) + var(--two));
   }
@@ -357,7 +368,7 @@ footer p {
   main p {
     font-size: calc(var(--p) + var(--four));
   }
-  #glossary h5 {
+  #glossary h4 {
     text-align: center;
   }
   #glossary ul li {
@@ -420,7 +431,14 @@ footer p {
     font-size: calc(var(--p) + var(--eight));
   }
   .flex-container article {
-    width: 33%;
+    width: 30%;
+    padding: 0;
+  }
+  .flex-container article:nth-of-type(odd) {
+    padding-right: 0;
+  }
+  .flex-container article:nth-of-type(even) {
+    padding-left: 0;
   }
   #glossary ul li {
     font-size: calc(var(--h3) + var(--eight));
