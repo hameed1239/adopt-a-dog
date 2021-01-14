@@ -37,6 +37,11 @@
   --twelve: 12px;
 
   /* uses materialize colors */
+  --lime: #cddc39;
+  --lime-darken-1: #c0ca33;
+  --lime-darken-2: #afb42b;
+  --lime-darken-3: #9e9d24;
+  --lime-darken-4: #827717;
   --red: #f44336;
   --red-darken-4: #b71c1c;
   --green: #4caf50;
@@ -92,10 +97,10 @@ p {
   background-color: var(--blue-darken-4);
 }
 .user-color {
-  color: var(--green-darken-4);
+  color: var(--lime-darken-2);
 }
 .user-bg {
-  background-color: var(--green-darken-4);
+  background-color: var(--lime-darken-2);
 }
 /* ===========================================================================*/
 /* =================== starts xs (<= 768px) - phone styles ================== */
@@ -229,10 +234,10 @@ footer {
   padding: 10px 0;
 }
 .admin-footer {
-  background-color: var(--green);
+  background-color: var(--blue);
 }
 .user-footer {
-  background-color: var(--blue);
+  background-color: var(--lime-darken-1);
 }
 
 footer p {
