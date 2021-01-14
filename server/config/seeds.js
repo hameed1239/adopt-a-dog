@@ -13,6 +13,10 @@ db.once("open", async () => {
         { name: "Black" },
         { name: "Blue" },
         { name: "White" },
+        { name: "Orange" },
+        { name: "Silver" },
+        { name: "Tan" },
+        { name: "Grey" },
     ]);
     await Temperament.deleteMany();
     const temperament = await Temperament.insertMany([
@@ -98,8 +102,8 @@ db.once("open", async () => {
     await Breed.deleteMany();
 
     const breed = await Breed.insertMany([
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
+        { name: "German Shepard", minLife: 8, maxLife: 10, hypoallergenic: false, colors:[color[5], color[9], color[10], color[11]], temperaments:[temperament[5],temperament[20],temperament[21],temperament[23],temperament[43],temperament[47],temperament[50],temperament[76]] },
+        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: false, colors:[color[7],color[4],color[1],] },
         { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
         { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
         { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },

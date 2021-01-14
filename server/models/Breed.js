@@ -9,14 +9,10 @@ const breedSchema = new mongoose.Schema({
         trim: true
 
     },
-    minLife: {
-        type: Number,
+   size:{
+        type: String,
         required: true,
-    },
-    maxLife: {
-        type: Number,
-        required: true,
-    },
+   },
     hypoallergenic: {
         type: Boolean,
         required: true,
