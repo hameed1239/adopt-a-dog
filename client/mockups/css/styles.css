@@ -48,6 +48,7 @@
   --green-darken-4: #1b5e20;
   --blue: #2196f3;
   --blue-darken-4: #0d47a1;
+  --blue-grey-lighten-4: #cfd8dc;
   --blue-grey: #607d8b;
   --blue-grey-darken-4: #263238;
 }
@@ -245,6 +246,19 @@ main p {
 #search-list span {
   font-weight: 700;
 }
+#dog ul {
+  list-style-type: none;
+}
+#dog ul li {
+  height: 50px;
+  background-color: var(--blue-grey);
+  color: white;
+  margin: 10px 0;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 700;
+  text-align: center;
+}
 /* ===========================================================================*/
 /* footer styles */
 footer {
@@ -316,6 +330,10 @@ footer p {
   }
   #glossary ul li ul li {
     font-size: calc(var(--h5) + var(--two));
+  }
+  #dog {
+    width: 768px;
+    margin: 0 auto;
   }
   footer p {
     font-size: calc(var(--footer) + var(--two));
