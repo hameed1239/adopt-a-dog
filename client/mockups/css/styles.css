@@ -37,6 +37,11 @@
   --twelve: 12px;
 
   /* uses materialize colors */
+  --lime: #cddc39;
+  --lime-darken-1: #c0ca33;
+  --lime-darken-2: #afb42b;
+  --lime-darken-3: #9e9d24;
+  --lime-darken-4: #827717;
   --red: #f44336;
   --red-darken-4: #b71c1c;
   --green: #4caf50;
@@ -68,12 +73,12 @@ h6 {
 }
 
 h1,
-h2 {
+h2,
+h4 {
   text-align: center;
 }
 
 h3,
-h4,
 h5,
 h6 {
   text-align: left;
@@ -86,16 +91,16 @@ p {
   margin-top: 20px;
 }
 .admin-color {
-  color: var(--green-darken-4);
-}
-.admin-bg {
-  background-color: var(--green-darken-4);
-}
-.user-color {
   color: var(--blue-darken-4);
 }
-.user-bg {
+.admin-bg {
   background-color: var(--blue-darken-4);
+}
+.user-color {
+  color: var(--lime-darken-2);
+}
+.user-bg {
+  background-color: var(--lime-darken-2);
 }
 /* ===========================================================================*/
 /* =================== starts xs (<= 768px) - phone styles ================== */
@@ -181,7 +186,7 @@ main h3:nth-of-type(n + 2) {
 main h4 {
   font-size: var(--h4);
   line-height: 2.5rem;
-  color: var(--green);
+  color: var(--lime-darken-3);
   margin-top: 20px;
 }
 main h3 + main h4 {
@@ -204,6 +209,24 @@ main h6 {
 main p {
   font-size: var(--p);
   line-height: 2rem;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  /* align-items: flex-start; */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.flex-container article {
+  margin: 5% 0;
+  width: 100%;
+}
+
+.flex-container article img,
+.br-20 {
+  border-radius: 20px;
+  height: 100%;
 }
 
 #glossary ul li {
@@ -229,10 +252,10 @@ footer {
   padding: 10px 0;
 }
 .admin-footer {
-  background-color: var(--green);
+  background-color: var(--blue);
 }
 .user-footer {
-  background-color: var(--blue);
+  background-color: var(--lime-darken-1);
 }
 
 footer p {
@@ -278,6 +301,15 @@ footer p {
   }
   main p {
     font-size: calc(var(--p) + var(--two));
+  }
+  .flex-container article {
+    width: 50%;
+  }
+  .flex-container article:nth-of-type(odd) {
+    padding-right: 2.5%;
+  }
+  .flex-container article:nth-of-type(even) {
+    padding-left: 2.5%;
   }
   #glossary ul li {
     font-size: calc(var(--h3) + var(--two));
@@ -395,6 +427,16 @@ footer p {
   }
   main p {
     font-size: calc(var(--p) + var(--eight));
+  }
+  .flex-container article {
+    width: 30%;
+    padding: 0;
+  }
+  .flex-container article:nth-of-type(odd) {
+    padding-right: 0;
+  }
+  .flex-container article:nth-of-type(even) {
+    padding-left: 0;
   }
   #glossary ul li {
     font-size: calc(var(--h3) + var(--eight));

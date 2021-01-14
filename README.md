@@ -1,4 +1,4 @@
-# Miharana
+# Adopt A Dog
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/hameed1239/employee-handbook?style=plastic)
 ![GitHub code size](https://img.shields.io/github/languages/code-size/hameed1239/employee-handbook?style=plastic)
@@ -22,7 +22,7 @@
 
 ## Description
 
-**Miharana** is a website for an animal shelter where users (site visitors) can buy and adopt the animals.
+**Adopt A Dog** is a website for an dog shelter where users (site visitors) can buy and adopt the dogs.
 
 ## Table of Contents
 - [Deployment URL](#Deployment-URL)
@@ -49,7 +49,7 @@ https://github.com/hameed1239/employee-handbook
 
 1. Sensitive API key info is protected on the server using `dotenv`
 1. MongoDB Collections:
-   1. Animals
+   1. Dogs
    1. Taxonomy (classification)
    1. Users
    1. Orders
