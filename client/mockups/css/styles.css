@@ -75,12 +75,12 @@ h6 {
 
 h1,
 h2,
-h4 {
+h4,
+h5 {
   text-align: center;
 }
 
 h3,
-h5,
 h6 {
   text-align: left;
 }
@@ -220,7 +220,7 @@ main p {
   justify-content: space-between;
 }
 .flex-container article {
-  margin: 5% 0;
+  margin: 10% 0;
   width: 100%;
 }
 
