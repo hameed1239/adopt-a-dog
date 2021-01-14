@@ -86,16 +86,16 @@ p {
   margin-top: 20px;
 }
 .admin-color {
-  color: var(--green-darken-4);
-}
-.admin-bg {
-  background-color: var(--green-darken-4);
-}
-.user-color {
   color: var(--blue-darken-4);
 }
-.user-bg {
+.admin-bg {
   background-color: var(--blue-darken-4);
+}
+.user-color {
+  color: var(--green-darken-4);
+}
+.user-bg {
+  background-color: var(--green-darken-4);
 }
 /* ===========================================================================*/
 /* =================== starts xs (<= 768px) - phone styles ================== */
