@@ -73,12 +73,12 @@ h6 {
 }
 
 h1,
-h2 {
+h2,
+h4 {
   text-align: center;
 }
 
 h3,
-h4,
 h5,
 h6 {
   text-align: left;
@@ -223,7 +223,8 @@ main p {
   width: 100%;
 }
 
-.flex-container article img {
+.flex-container article img,
+.br-20 {
   border-radius: 20px;
   height: 100%;
 }
@@ -367,9 +368,6 @@ footer p {
   }
   main p {
     font-size: calc(var(--p) + var(--four));
-  }
-  #glossary h4 {
-    text-align: center;
   }
   #glossary ul li {
     margin-left: 3%;
