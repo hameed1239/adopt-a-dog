@@ -27,6 +27,7 @@
   --h4: 20px;
   --h5: 18px;
   --h6: 16px;
+  --p: 18px;
   --footer: 14px;
 
   --two: 2px;
@@ -46,8 +47,13 @@
   --red-darken-4: #b71c1c;
   --green: #4caf50;
   --green-darken-4: #1b5e20;
+  --brown: #795548;
+  --brown-darken-2: #5d4037;
+  --brown-darken-4: #3e2723;
   --blue: #2196f3;
+  --blue-darken-2: #0288d1;
   --blue-darken-4: #0d47a1;
+  --blue-grey-lighten-4: #cfd8dc;
   --blue-grey: #607d8b;
   --blue-grey-darken-4: #263238;
 }
@@ -74,12 +80,12 @@ h6 {
 
 h1,
 h2,
-h4 {
+h3,
+h4,
+h5 {
   text-align: center;
 }
 
-h3,
-h5,
 h6 {
   text-align: left;
 }
@@ -87,9 +93,17 @@ p {
   font-weight: 400;
 }
 
+.hidden {
+  display: none;
+}
 .mt-20 {
   margin-top: 20px;
 }
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+/* color theme settings */
 .admin-color {
   color: var(--blue-darken-4);
 }
@@ -102,6 +116,12 @@ p {
 .user-bg {
   background-color: var(--lime-darken-2);
 }
+.admin-footer {
+  background-color: var(--blue);
+}
+.user-footer {
+  background-color: var(--lime-darken-1);
+}
 /* ===========================================================================*/
 /* =================== starts xs (<= 768px) - phone styles ================== */
 /* header styles */
@@ -112,21 +132,13 @@ p {
   padding: 0 5%;
 }
 
-#logo {
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  vertical-align: middle;
-}
-
 #company-name {
   display: none;
 }
 
 nav ul {
   display: inline;
-  margin-left: 40px;
+  float: right;
 }
 
 nav ul li {
@@ -139,28 +151,10 @@ nav ul li {
   font-weight: 700;
 }
 
-nav form {
-  display: inline;
-  line-height: 30px;
-}
-
-nav form input {
-  /* vertical-align: middle; */
-  /* transform: translateY(-4px); */
-  padding: 0 10px;
-  font-size: var(--h5);
-  border-radius: 5px;
-  color: var(--blue-grey-darken-4);
-}
-
 .fas {
   color: white;
   font-size: var(--h3);
   line-height: 50px;
-}
-
-nav button {
-  background-color: var(--blue-darken-4);
 }
 
 /* ===========================================================================*/
@@ -168,26 +162,33 @@ nav button {
 
 /* ===========================================================================*/
 /* main styles */
+.black-font {
+  color: #000000;
+}
 main h1 {
   font-size: var(--h1);
   line-height: 5rem;
+  text-transform: uppercase;
 }
 main h2 {
   font-size: var(--h2);
   line-height: 3rem;
+  color: var(--lime-darken-3);
 }
 main h3 {
   font-size: var(--h3);
   line-height: 3rem;
+  color: var(--lime-darken-3);
 }
 main h3:nth-of-type(n + 2) {
   margin-top: 40px;
 }
+#admin h3 {
+  color: var(--blue-darken-4);
+}
 main h4 {
   font-size: var(--h4);
   line-height: 2.5rem;
-  color: var(--lime-darken-3);
-  margin-top: 20px;
 }
 main h3 + main h4 {
   margin-top: 0;
@@ -195,6 +196,7 @@ main h3 + main h4 {
 main h5 {
   font-size: var(--h5);
   line-height: 2rem;
+  color: var(--lime-darken-3);
 }
 main h5:nth-of-type(n + 2) {
   margin-top: 20px;
@@ -211,51 +213,65 @@ main p {
   line-height: 2rem;
 }
 
+#breeds label {
+  margin: 10px 0;
+  padding: 0 10px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--lime-darken-4);
+  color: white;
+  font-size: var(--h3);
+  font-weight: 700;
+  text-align: center;
+}
+
+#dog button {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0px 20px;
+  font-size: var(--h3);
+  font-weight: 700;
+  background-color: var(--lime-darken-2);
+  color: white;
+  border-radius: 10px;
+}
+#admin ul {
+  list-style-type: none;
+}
+#admin ul li {
+  height: 50px;
+  background-color: var(--blue-darken-2);
+  color: white;
+  margin: 10px 0;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 700;
+  text-align: center;
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;
-  /* align-items: flex-start; */
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .flex-container article {
-  margin: 5% 0;
+  margin: 20px 0;
   width: 100%;
 }
 
 .flex-container article img,
 .br-20 {
   border-radius: 20px;
-  height: 100%;
 }
 
-#glossary ul li {
-  margin-left: 5%;
-  font-size: var(--h3);
-  font-weight: 700;
-}
-#glossary ul li ul li {
-  font-size: var(--h5);
-  font-weight: 400;
-}
-#search-list {
-  margin-left: 5%;
-  font-size: var(--h3);
-}
-#search-list span {
-  font-weight: 700;
-}
 /* ===========================================================================*/
 /* footer styles */
 footer {
   margin-top: 40px;
   padding: 10px 0;
-}
-.admin-footer {
-  background-color: var(--blue);
-}
-.user-footer {
-  background-color: var(--lime-darken-1);
 }
 
 footer p {
@@ -287,6 +303,17 @@ footer p {
   main h2 {
     font-size: calc(var(--h2) + var(--two));
   }
+
+  #breeds label {
+    width: 47.5%;
+  }
+
+  #breeds label:nth-of-type(2) {
+    margin-left: 5%;
+  }
+
+  #breeds label,
+  #dog button,
   main h3 {
     font-size: calc(var(--h3) + var(--two));
   }
@@ -311,11 +338,12 @@ footer p {
   .flex-container article:nth-of-type(even) {
     padding-left: 2.5%;
   }
-  #glossary ul li {
-    font-size: calc(var(--h3) + var(--two));
+  #admin {
+    width: 768px;
+    margin: 0 auto;
   }
-  #glossary ul li ul li {
-    font-size: calc(var(--h5) + var(--two));
+  #dog button {
+    width: 50%;
   }
   footer p {
     font-size: calc(var(--footer) + var(--two));
@@ -354,6 +382,8 @@ footer p {
   main h2 {
     font-size: calc(var(--h2) + var(--four));
   }
+  #breeds label,
+  #dog button,
   main h3 {
     font-size: calc(var(--h3) + var(--four));
   }
@@ -368,13 +398,7 @@ footer p {
   }
   main p {
     font-size: calc(var(--p) + var(--four));
-  }
-  #glossary ul li {
-    margin-left: 3%;
-    font-size: calc(var(--h3) + var(--four));
-  }
-  #glossary ul li ul li {
-    font-size: calc(var(--h5) + var(--four));
+    line-height: 2.5rem;
   }
   footer p {
     font-size: calc(var(--footer) + var(--four));
@@ -413,6 +437,8 @@ footer p {
   main h2 {
     font-size: calc(var(--h2) + var(--eight));
   }
+  #breeds label,
+  #dog button,
   main h3 {
     font-size: calc(var(--h3) + var(--eight));
   }
@@ -428,6 +454,12 @@ footer p {
   main p {
     font-size: calc(var(--p) + var(--eight));
   }
+  #breeds label {
+    width: 30%;
+  }
+  #breeds label:nth-of-type(2) {
+    margin-left: 0;
+  }
   .flex-container article {
     width: 30%;
     padding: 0;
@@ -437,12 +469,6 @@ footer p {
   }
   .flex-container article:nth-of-type(even) {
     padding-left: 0;
-  }
-  #glossary ul li {
-    font-size: calc(var(--h3) + var(--eight));
-  }
-  #glossary ul li ul li {
-    font-size: calc(var(--h5) + var(--eight));
   }
   footer p {
     font-size: calc(var(--footer) + var(--eight));
