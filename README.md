@@ -32,7 +32,7 @@
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [Technologies Used](#Technologies-Used)
-- [Tests](#Tests)
+- [Credits](#Credits)
 - [Roadmap](#Roadmap)
 - [Questions](#Questions)
 - [License](#License)
