@@ -87,7 +87,6 @@ h6 {
 p {
   font-weight: 400;
 }
-
 .mt-20 {
   margin-top: 20px;
 }
@@ -176,6 +175,7 @@ main h1 {
 main h2 {
   font-size: var(--h2);
   line-height: 3rem;
+  color: var(--lime-darken-3);
 }
 main h3 {
   font-size: var(--h3);
@@ -211,16 +211,28 @@ main p {
   font-size: var(--p);
   line-height: 2rem;
 }
+main button {
+  width: 300px;
+  padding: 0px 20px;
+  font-size: var(--h4);
+  font-weight: 700;
+  color: white;
+  background-color: var(--lime);
+  border-radius: 10px;
+}
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .flex-container {
   display: flex;
   flex-direction: row;
-  /* align-items: flex-start; */
   flex-wrap: wrap;
   justify-content: space-between;
 }
 .flex-container article {
-  margin: 10% 0;
+  margin: 5% 0;
   width: 100%;
 }
 
@@ -230,17 +242,7 @@ main p {
   height: 100%;
 }
 
-#glossary ul li {
-  margin-left: 5%;
-  font-size: var(--h3);
-  font-weight: 700;
-}
-#glossary ul li ul li {
-  font-size: var(--h5);
-  font-weight: 400;
-}
 #search-list {
-  margin-left: 5%;
   font-size: var(--h3);
 }
 #search-list span {
@@ -325,12 +327,6 @@ footer p {
   .flex-container article:nth-of-type(even) {
     padding-left: 2.5%;
   }
-  #glossary ul li {
-    font-size: calc(var(--h3) + var(--two));
-  }
-  #glossary ul li ul li {
-    font-size: calc(var(--h5) + var(--two));
-  }
   #dog {
     width: 768px;
     margin: 0 auto;
@@ -386,13 +382,6 @@ footer p {
   }
   main p {
     font-size: calc(var(--p) + var(--four));
-  }
-  #glossary ul li {
-    margin-left: 3%;
-    font-size: calc(var(--h3) + var(--four));
-  }
-  #glossary ul li ul li {
-    font-size: calc(var(--h5) + var(--four));
   }
   footer p {
     font-size: calc(var(--footer) + var(--four));
