@@ -9,6 +9,7 @@
 | HAMEED KAZEEM       | Back-end Developer  | Repo, MongoDB, Mongoose ODM, GraphQL & Database API & Deployment     |
 | RONGBANG (BRYAN) YE | Front-end Developer | React and Redux                                                      |
 | SOLOMON MERESA      | Front-end Developer | Search algorithms and integration & PWA                              |
+| SHAWNA GOHEL      | Front-end Developer | Wireframe Stripe                            |
 
 ## Other Requirements
 

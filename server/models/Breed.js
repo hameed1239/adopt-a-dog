@@ -9,7 +9,7 @@ const breedSchema = new mongoose.Schema({
         trim: true
 
     },
-   size:{
+    size:{
         type: String,
         required: true,
    },

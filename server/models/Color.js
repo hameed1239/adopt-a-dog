@@ -1,3 +1,22 @@
+"Brown"
+"Red"
+"Gold"
+"Cream"
+"Fawn"
+"Black"
+"Blue"
+"White"
+"Orange"
+"Silver"
+"Tan"
+"Grey"
+"Piebald"
+"Brindle"
+"Tricolor"
+"Yellow"
+"Sable"
+
+
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
