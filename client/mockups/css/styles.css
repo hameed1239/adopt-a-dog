@@ -211,6 +211,18 @@ main p {
   line-height: 2rem;
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  /* align-items: flex-start; */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.flex-container article {
+  margin: 5% 0;
+  width: 100%;
+}
+
 #glossary ul li {
   margin-left: 5%;
   font-size: var(--h3);
@@ -284,6 +296,9 @@ footer p {
   main p {
     font-size: calc(var(--p) + var(--two));
   }
+  .flex-container article {
+    width: 50%;
+  }
   #glossary ul li {
     font-size: calc(var(--h3) + var(--two));
   }
@@ -341,6 +356,9 @@ footer p {
   }
   main p {
     font-size: calc(var(--p) + var(--four));
+  }
+  #glossary h5 {
+    text-align: center;
   }
   #glossary ul li {
     margin-left: 3%;
@@ -400,6 +418,9 @@ footer p {
   }
   main p {
     font-size: calc(var(--p) + var(--eight));
+  }
+  .flex-container article {
+    width: 33%;
   }
   #glossary ul li {
     font-size: calc(var(--h3) + var(--eight));
