@@ -19,7 +19,7 @@ const dogSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    age: {
+    yearOfBirth: {
         type: Number        
     },
     colors: [
