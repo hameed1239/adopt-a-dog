@@ -15,6 +15,10 @@
 "Tricolor"
 "Yellow"
 "Sable"
+"Harlequin"
+"Mantle"
+"Mahogany"
+"Rust"
 
 
 const mongoose = require("mongoose");

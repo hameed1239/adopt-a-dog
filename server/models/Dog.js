@@ -22,6 +22,13 @@ const dogSchema = new mongoose.Schema({
     yearOfBirth: {
         type: Number        
     },
+    story: {
+        type: String
+    },
+    size: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: User,
+    },
     colors: [
         {
             type: mongoose.Schema.Types.ObjectId, 
@@ -32,7 +39,7 @@ const dogSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: Breed,  
     },
-    temperament: {
+    temperaments: {
         type: mongoose.Schema.Types.ObjectId, 
         ref: Temperament,
     },
@@ -40,10 +47,6 @@ const dogSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: Status,
     },
-    adoptedBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: User,
-    }
 })
 
 const Dog = mongoose.model('Dog', dogSchema);
