@@ -22,6 +22,14 @@ const dogSchema = new mongoose.Schema({
     yearOfBirth: {
         type: Number        
     },
+    gender: {
+        type: String,
+        required: true,
+    },
+    hypoallergenic: {
+        type: Boolean,
+        required: true
+    },
     story: {
         type: String
     },
