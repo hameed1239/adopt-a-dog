@@ -19,7 +19,7 @@
 
 const { Schema, model } = require("mongoose");
 
-const breedSchema = new mongoose.Schema({
+const breedSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -40,13 +40,15 @@ const breedSchema = new mongoose.Schema({
     colors: [
         {
             type: Schema.Types.ObjectId,
-            ref: Color
+            ref: "Color",
+            required: true
         }   
     ],
     Temperaments: [
         {
             type: Schema.Types.ObjectId,
-            ref: Temperament
+            ref: "Temperament",
+            required: true
         }
     ]
 })

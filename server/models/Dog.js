@@ -1,9 +1,10 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+const Status = require("./Status");
 const User = require("./User");
 
-const { Schema } = mongoose;
+const { Schema, model } = require("mongoose");
 
-const dogSchema = new mongoose.Schema({
+const dogSchema = new Schema({
     name: {
         type: String, 
         required: true,
@@ -34,29 +35,31 @@ const dogSchema = new mongoose.Schema({
         type: String
     },
     size: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: User,
+        type: String,
+        required: true,
     },
     colors: [
         {
-            type: mongoose.Schema.Types.ObjectId, 
-            ref: Color,
+            type: Schema.Types.ObjectId, 
+            ref: "Color",
         }
     ],
     breed: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Breed,  
+        type: Schema.Types.ObjectId,
+        ref: "Breed",  
     },
-    temperaments: {
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: Temperament,
-    },
+    temperaments: [
+        {
+        type: Schema.Types.ObjectId, 
+        ref: "Temperament",
+        }
+    ],
     status: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Status,
+        type: Schema.Types.ObjectId,
+        ref: "Status",
     },
 })
 
-const Dog = mongoose.model('Dog', dogSchema);
+const Dog = model('Dog', dogSchema);
 
 module.exports = Dog;
