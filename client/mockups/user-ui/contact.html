@@ -22,52 +22,69 @@
     </header>
 
     <main id="contact">
-      <section class="container">
-        <h1>Contact Us</h1>
-      </section>
-
+      
       <section class="container mt-20">
-        <form id="contact-form" onSubmit="{" handleSubmit }>
+        <h1>Contact Us</h1>
+        <form id="contact-form">
           <div>
-            <label htmlFor="name">Name:</label>
+            <label for="name">Name:</label>
             <input
               type="text"
               name="name"
-              placeholder="Please type your full
-            name here"
-              defaultValue="name"
-              onBlur="handleChange"
+              id="name"
+              placeholder="Please type your full name here"
             />
           </div>
           <div>
-            <label htmlFor="email">Email:</label>
+            <label for="email">Email:</label>
             <input
               type="email"
               name="email"
+              id="email"
               autocomplete="email"
               class="validate"
               placeholder="Please type your email address here"
-              defaultValue="email"
-              onBlur="handleChange"
             />
           </div>
           <div>
-            <label htmlFor="message">Message:</label>
+            <label for="message">Message:</label>
             <textarea
-              id="message-input"
-              type="text"
+              id="message"
               name="message"
               rows="7"
               placeholder="Please type your message here"
-              defaultValue="message"
-              onBlur="handleChange"
-            />
+            >
+            </textarea>
           </div>
           <button id="contact-submit" type="submit" value="send">Submit</button>
           <div>
             <p id="contact-form-error-message">errorMessage</p>
           </div>
         </form>
+      </section>
+
+      <section class="container mt-20">
+        <div class="flex-container">
+          <article>
+            <h3>Why rescue a dog?</h3>
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              alt=""
+            />
+            <p class="center">
+              Find out the most common reasons people rescue a dog
+            </p>
+          </article>
+
+          <article>
+            <h3>Your first days with a dog</h3>
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              alt=""
+            />
+            <p class="center">How to bond with your dog in the first month</p>
+          </article>
+        </div>
       </section>
     </main>
 
