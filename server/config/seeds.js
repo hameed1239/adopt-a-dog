@@ -3,6 +3,13 @@ const db = require("./connection");
 const { Dog, Breed, Color, Status, Temperament, User } = require("../models");
 
 db.once("open", async () => {
+    await Status.deleteMany();
+    const status = await Status.insertMany([
+        { name: "Available" },
+        { name: "Not Available" }
+    ]);
+    console.log("Status seeded");
+
     await Color.deleteMany();
     const color = await Color.insertMany([
         { name: "Brown" },
@@ -19,7 +26,17 @@ db.once("open", async () => {
         { name: "Grey" },
         { name: "Piebald" },
         { name: "Brindle" },
+        { name: "Tricolor" },
+        { name: "Yellow" },
+        { name: "Sable" },
+        { name: "Harlequin" },
+        { name: "Mantle" },
+        { name: "Mahogany" },
+        { name: "Rust" },
     ]);
+
+    console.log("Colors seeded");
+
     await Temperament.deleteMany();
     const temperament = await Temperament.insertMany([
         { name: "Active" },
@@ -100,60 +117,659 @@ db.once("open", async () => {
         { name: "Vocal" },
         { name: "Watchful" },
         { name: "Willful" },
+        { name: "Joyful" },
     ]);
+    console.log("Temperaments seeded");
+
     await Breed.deleteMany();
 
     const breed = await Breed.insertMany([
-        { name: "German Shepard", size: "Medium", hypoallergenic: false, colors:[color[5], color[9], color[10], color[11]], temperaments:[temperament[5],temperament[20],temperament[21],temperament[23],temperament[43],temperament[47],temperament[50],temperament[76]] },
-        { name: "Bulldog", size: "medium", hypoallergenic: false, colors: [color[7], color[4], color[12], color[14], color[1]], temperaments: [temperament[25], temperament[35], temperament[39], temperament[77]] },
-        { name: "Beagle", size: "small", hypoallergenic: false, colors: [color[7], color[10], color[8], color[1], color[14]], temperaments: [temperament[30], temperament[7], temperament[24], temperament[43], temperament[31], temperament[37]] },
-        { name: "Labrador Retriever", size: "Medium", hypoallergenic: false, colors: [color[5], color[0], color[15]], temperaments: [temperament[30], temperament[4], temperament[45], temperament[43], temperament[52], temperament[74], temperament[37]] },
-        { name: "Golden Retriever", size: "Medium", hypoallergenic: false, colors: [color[2]], temperaments: [temperament[35], temperament[43], temperament[59], temperament[45], temperament[21], temperament[74]] },
-        { name: "Chihuahua", size: "small", hypoallergenic: false, colors: [color[5], color[7], color[4], color[0], color[3], color[2]], temperaments: [temperament[25], temperament[46], temperament[5], temperament[20], temperament[57]] },
-        { name: "Siberian Husky", size: "Medium", hypoallergenic: false, colors: [color[5], color[7], color[10], color[16], color[11], color[9], color[1]], temperaments: [temperament[35], temperament[43], temperament[52], temperament[5], temperament[37]] },
-        { name: "Dachshund", size: "small", hypoallergenic: false, colors: [color[5], color[10], color[0], color[3], color[6], color[1]], temperaments: [temperament[18], temperament[68], temperament[25], temperament[46], temperament[54], temperament[20]]},
-        { name: "French Bulldog", size: 10, hypoallergenic: colors: [color[7], color[10], color[8], color[1], color[14]], temperaments: [temperament[30], temperament[7], temperament[24], temperament[43], temperament[31], temperament[37]]},
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: colors: [color[7], color[10], color[8], color[1], color[14]], temperaments: [temperament[30], temperament[7], temperament[24], temperament[43], temperament[31], temperament[37]]},
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: colors: [color[7], color[10], color[8], color[1], color[14]], temperaments: [temperament[30], temperament[7], temperament[24], temperament[43], temperament[31], temperament[37]]},
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: colors: [color[7], color[10], color[8], color[1], color[14]], temperaments: [temperament[30], temperament[7], temperament[24], temperament[43], temperament[31], temperament[37]]},
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: colors: [color[7], color[10], color[8], color[1], color[14]], temperaments: [temperament[30], temperament[7], temperament[24], temperament[43], temperament[31], temperament[37]]},
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: colors: [color[7], color[10], color[8], color[1], color[14]], temperaments: [temperament[30], temperament[7], temperament[24], temperament[43], temperament[31], temperament[37]]},
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: colors: [color[7], color[10], color[8], color[1], color[14]], temperaments: [temperament[30], temperament[7], temperament[24], temperament[43], temperament[31], temperament[37]]},
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: colors: [color[7], color[10], color[8], color[1], color[14]], temperaments: [temperament[30], temperament[7], temperament[24], temperament[43], temperament[31], temperament[37]]},
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: colors: [color[7], color[10], color[8], color[1], color[14]], temperaments: [temperament[30], temperament[7], temperament[24], temperament[43], temperament[31], temperament[37]]},
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Bulldog", minLife: 8, maxLife: 10, hypoallergenic: },
-        { name: "Jack Russell Terrier", minLife: 13, maxLife: 16, hypoallergenic: false },
-        { name: "Curly-coated retriever", minLife: 9, maxLife: 14, hypoallergenic: false },
-        { name: "Afghan Hound", minLife: 12, maxLife: 14, hypoallergenic: true },
-        { name: "American Eskimo", minLife: 13, maxLife: 15, hypoallergenic: false },
-        { name: "Sheltie", minLife: 12, maxLife: 13 hypoallergenic: false },
-        { name: "Airedale Terrier", minLife: 10, maxLife: 12, hypoallergenic: true },
-        { name: "Bull Terrier", minLife: 10, maxLife: 14, hypoallergenic: false },
-        { name: "Irish Wolfhound", minLife: 6, maxLife: 10, hypoallergenic: false },
-    ])
+        {
+            name: "German Shepard",
+            size: "Medium",
+            hypoallergenic: false,
+            colors: [color[5]._id, color[9]._id, color[10]._id, color[11]._id],
+            temperaments: [temperament[5]._id, temperament[20]._id, temperament[21]._id, temperament[23]._id, temperament[43]._id, temperament[47]._id, temperament[50]._id, temperament[76]._id]
+        },
+        {
+            name: "Bulldog",
+            size: "Medium",
+            hypoallergenic: false,
+            colors: [color[7]._id, color[4]._id, color[12]._id, color[14]._id, color[1]._id],
+            temperaments: [temperament[25]._id, temperament[35]._id, temperament[39]._id, temperament[77]._id]
+        },
+        {
+            name: "Beagle",
+            size: "Small",
+            hypoallergenic: false,
+            colors: [color[7]._id, color[10]._id, color[8]._id, color[1]._id, color[14]._id],
+            temperaments: [temperament[30]._id, temperament[7]._id, temperament[24]._id, temperament[43]._id, temperament[31]._id, temperament[37]._id]
+        },
+        {
+            name: "Labrador Retriever",
+            size: "Medium",
+            hypoallergenic: false,
+            colors: [color[5]._id, color[0]._id, color[15]._id],
+            temperaments: [temperament[30]._id, temperament[4]._id, temperament[45]._id, temperament[43]._id, temperament[52]._id, temperament[74]._id, temperament[37]._id]
+        },
+        {
+            name: "Golden Retriever",
+            size: "Medium",
+            hypoallergenic: false,
+            colors: [color[2]._id],
+            temperaments: [temperament[35]._id, temperament[43]._id, temperament[59]._id, temperament[45]._id, temperament[21]._id, temperament[74]._id]
+        },
+        {
+            name: "Chihuahua",
+            size: "Small",
+            hypoallergenic: false,
+            colors: [color[5]._id, color[7]._id, color[4]._id, color[0]._id, color[3]._id, color[2]._id],
+            temperaments: [temperament[25]._id, temperament[46]._id, temperament[5]._id, temperament[20]._id, temperament[57]._id]
+        },
+        {
+            name: "Siberian Husky",
+            size: "Medium",
+            hypoallergenic: false,
+            colors: [color[5]._id, color[7]._id, color[10]._id, color[16]._id, color[11]._id, color[9]._id, color[1]._id],
+            temperaments: [temperament[35]._id, temperament[43]._id, temperament[52]._id, temperament[5]._id, temperament[37]._id]
+        },
+        {
+            name: "Dachshund",
+            size: "Small",
+            hypoallergenic: false,
+            colors: [color[5]._id, color[10]._id, color[0]._id, color[3]._id, color[6]._id, color[1]._id],
+            temperaments: [temperament[18]._id, temperament[68]._id, temperament[25]._id, temperament[46]._id, temperament[54]._id, temperament[20]._id]
+        },
+        {
+            name: "French Bulldog",
+            size: "Small",
+            hypoallergenic: false,
+            colors: [color[4]._id, color[13]._id, color[7]._id, color[10]._id],
+            temperaments: [temperament[28]._id, temperament[2]._id, temperament[46]._id, temperament[64]._id, temperament[44]._id, temperament[13]._id, temperament[53]._id, temperament[5]._id, temperament[54]._id, temperament[8]._id]
+        },
+        {
+            name: "Great Dane",
+            size: "Large",
+            hypoallergenic: false,
+            colors: [color[5]._id, color[13]._id, color[4]._id, color[18]._id, color[6]._id, color[17]._id],
+            temperaments: [temperament[25]._id, temperament[35]._id, temperament[61]._id, temperament[21]._id, temperament[48]._id, temperament[37]._id]
+        },
+        {
+            name: "Greyhound",
+            size: "Large",
+            hypoallergenic: false,
+            colors: [color[5]._id, color[13]._id, color[4]._id, color[7]._id, color[6]._id, color[1]._id],
+            temperaments: [temperament[30]._id, temperament[2]._id, temperament[43]._id, temperament[37]._id, temperament[8]._id, temperament[57]._id]
+        },
+        {
+            name: "Rottweiler",
+            size: "Large",
+            hypoallergenic: false,
+            colors: [color[5]._id, color[10]._id, color[19]._id],
+            temperaments: [temperament[38]._id, temperament[25]._id, temperament[50]._id, temperament[34]._id, temperament[66]._id, temperament[5]._id, temperament[62]._id, temperament[21]._id, temperament[20]._id, temperament[14]._id]
+        },
+        {
+            name: "Dobermann",
+            size: "Large",
+            hypoallergenic: false,
+            colors: [color[7]._id, color[5]._id, color[4]._id, color[1]._id, color[6]._id, color[20]._id],
+            temperaments: [temperament[29]._id, temperament[50]._id, temperament[43]._id, temperament[34]._id, temperament[5]._id, temperament[48]._id, temperament[21]._id]
+        },
+        {
+            name: "Basenji",
+            size: "Small",
+            hypoallergenic: true,
+            colors: [color[5]._id, color[13]._id, color[14]._id, color[10]._id, color[7]._id, color[1]._id],
+            temperaments: [temperament[2]._id, temperament[29]._id, temperament[43]._id, temperament[23]._id, temperament[5]._id, temperament[54]._id, temperament[21]._id, temperament[58]._id]
+        },
+        {
+            name: "Giant Schnauzer",
+            size: "Large",
+            hypoallergenic: true,
+            colors: [color[5]._id, color[7]._id, color[11]._id],
+            temperaments: [temperament[67]._id, temperament[43]._id, temperament[45]._id, temperament[47]._id, temperament[56]._id]
+        },
+        {
+            name: "Maltese",
+            size: "Small",
+            hypoallergenic: true,
+            colors: [color[7]._id, color[3]._id],
+            temperaments: [temperament[27]._id, temperament[28]._id, temperament[2]._id, temperament[43]._id, temperament[46]._id, temperament[34]._id, temperament[70]._id, temperament[61]._id, temperament[54]._id, temperament[37]._id, temperament[0]._id]
+        },
+        {
+            name: "Barbet",
+            size: "Medium",
+            hypoallergenic: true,
+            colors: [color[7]._id, color[10]._id, color[8]._id, color[1]._id, color[14]._id],
+            temperaments: [temperament[50]._id, temperament[43]._id]
+        }
+    ]);
+    console.log("Breeds seeded");
+
+    await Dog.deleteMany();
+    const dog = await Dog.insertMany(
+        [
+            {
+                name: "Austin",
+                height: "28 inches",
+                weight: "159 lbs",
+                yearOfBirth: 2019,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Austin is easy-going, he loves taking walks and running in the park. He is protective loyal and very friendly with kids. Austin is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Austin as a member of your family",
+                size: "Large",
+                colors: [color[5]._id, color[2]._id, color[5]._id,],
+                breed: [breed[9]._id],
+                temperaments: [temperament[35]._id, temperament[61]._id, temperament[21]._id, temperament[48]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Mya",
+                height: "21 inches",
+                weight: "48 lbs",
+                yearOfBirth: 2015,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Mya is a very intelligent and gentle dog. She loves showing out her beautiful fur. Mya would be a great walk buddy. She enjoys playing outside especially when it snows. Mya is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Mya as a member of your family",
+                size: "Medium",
+                colors: [color[5]._id, color[10]._id, color[11]._id, color[7]._id,],
+                breed: [breed[6]._id],
+                temperaments: [temperament[52]._id, temperament[43]._id, temperament[5]._id, temperament[35]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Jack",
+                height: "13 inches",
+                weight: "20 lbs",
+                yearOfBirth: 2017,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Jack is a very intelligent and gentle dog. He enjoys taking walks and running in the park. Jack is even tempered and great with kids. Jack is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Jack as a member of your family",
+                size: "Small",
+                colors: [color[5]._id, color[7]._id, color[10]._id,],
+                breed: [breed[2]._id],
+                temperaments: [temperament[30]._id, temperament[7]._id, temperament[43]._id, temperament[37]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Khloe",
+                height: "21 inches",
+                weight: "62 lbs",
+                yearOfBirth: 2017,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Are you looking for a reliable and confident dog, then Khloe is a match. She is intelligent, and friendly. She enjoys taking walks. Khloe is great with kids and would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Khloe as a member of your family",
+                size: "Medium",
+                colors: [color[2]._id],
+                breed: [breed[4]._id],
+                temperaments: [temperament[59]._id, temperament[21]._id, temperament[43]._id, temperament[35]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Jasper",
+                height: "26 inches",
+                weight: "20 lbs",
+                yearOfBirth: 2015,
+                gender: "Male",
+                hypoallergenic: true,
+                story: "Jasper is a very kind and loyal dog. He enjoys taking walks. Jasper is very intelligent great with kids. Despite his dominant stance, Jasper is soft at heart. Jasper is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Jasper as a new member of your family",
+                size: "Large",
+                colors: [color[5]._id],
+                breed: [breed[14]._id],
+                temperaments: [temperament[67]._id, temperament[43]._id, temperament[45]._id, temperament[47]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Daisy",
+                height: "7 inches",
+                weight: "5 lbs",
+                yearOfBirth: 2016,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Daisy is quick on her feet and could run a whopping 20mph. She is devoted, alert and courageous. She enjoys taking walks and running in the park. Daisy is the comic of any gathering and kids have fun with her. Daisy is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Daisy as a member of your family",
+                size: "Small",
+                colors: [color[7]._id, color[2]._id,],
+                breed: [breed[5]._id],
+                temperaments: [temperament[25]._id, temperament[46]._id, temperament[5]._id, temperament[20]._id, temperament[27]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Pluto",
+                height: "25 inches",
+                weight: "70 lbs",
+                yearOfBirth: 2017,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Pluto is a very intelligent and Obedient dog. He is active and enjoys chasing squirrels. Pluto is always alert and would stand up to unfamiliar faces but listens when given commands by familiar faces Are you looking for a well trained guard dog, Pluto would be a great addition to your family. Pluto is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Mya as a member of your family",
+                size: "Medium",
+                colors: [color[16]._id, color[5]._id, color[0]._id],
+                breed: [breed[0]._id],
+                temperaments: [temperament[50]._id, temperament[43]._id, temperament[5]._id, temperament[21]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Kelsey",
+                height: "8 inches",
+                weight: "7 lbs",
+                yearOfBirth: 2015,
+                gender: "Female",
+                hypoallergenic: true,
+                story: "Kelsey is a an easy going and playful dog. She is active and enjoys running in the park. Kelsey is sweet-tempered and great with kids. Belly rubs are an absolute delight. Kelsey would keep you smiling from the first day you meet her. Kelsy is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Kelsey as a member of your family",
+                size: "Small",
+                colors: [color[7]._id],
+                breed: [breed[15]._id],
+                temperaments: [temperament[27]._id, temperament[28]._id, temperament[2]._id, temperament[37]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Rufus",
+                height: "30 inches",
+                weight: "140 lbs",
+                yearOfBirth: 2018,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Rufus is a a loving and gentle dog. He is active and enjoys running in the park. Rufus is great with kids. Some might say he's shy, but only amongst familiar faces. He is very confident around strangers. Rufus would melt your heart with kisses. Rufus is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Rufus as a member of your family",
+                size: "Large",
+                colors: [color[5]._id, color[7]._id],
+                breed: [breed[9]._id],
+                temperaments: [temperament[21]._id, temperament[37]._id, temperament[48]._id, temperament[25]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Shelby",
+                height: "32 inches",
+                weight: "138 lbs",
+                yearOfBirth: 2017,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Shelby is a a loving and devoted dog. She is active and enjoys running in the park. Shelby is great with kids. Shelby is reserved and plays well with other dogs. She is very confident around strangers. Shelby would melt your heart with kisses. Shelby is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Shelby as a member of your family",
+                size: "Large",
+                colors: [color[7]._id, color[17]._id, color[12]._id],
+                breed: [breed[9]._id],
+                temperaments: [temperament[21]._id, temperament[37]._id, temperament[48]._id, temperament[25]._id, temperament[60]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Max",
+                height: "26 inches",
+                weight: "72 lbs",
+                yearOfBirth: 2017,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Max is a confident and loyal dog. He is active and enjoys chasing squirrels. Max is always alert and would stand up to unfamiliar faces but listens when given commands by familiar faces Are you looking for a well trained guard dog, Max would be a great addition to your family. Max is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Max as a member of your family",
+                size: "Medium",
+                colors: [color[9]._id, color[5]._id, color[0]._id],
+                breed: [breed[0]._id],
+                temperaments: [temperament[50]._id, temperament[43]._id, temperament[5]._id, temperament[21]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Tessa",
+                height: "15 inches",
+                weight: "42 lbs",
+                yearOfBirth: 2016,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Tessa is a friendly dog. She is active and enjoys taking walks and running in the park. Tessa is socialble and enjoys company. Tessa is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Tessa as a member of your family",
+                size: "Medium",
+                colors: [color[0]._id, color[7]._id],
+                breed: [breed[1]._id],
+                temperaments: [temperament[27]._id, temperament[77]._id, temperament[35]._id, temperament[39]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Stanley",
+                height: "23 inches",
+                weight: "69 lbs",
+                yearOfBirth: 2015,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Stanley is a reliable and confident dog. He would make a good walk or hiking buddy. He is intelligent, and friendly. He recognizes threats and can be calm around people. Stanley is even tempered and great with kids. He would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Stanley as a member of your family",
+                size: "Medium",
+                colors: [color[15]._id],
+                breed: [breed[3]._id],
+                temperaments: [temperament[37]._id, temperament[30]._id, temperament[43]._id, temperament[45]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Spencer",
+                height: "15 inches",
+                weight: "23 lbs",
+                yearOfBirth: 2015,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Spencer is an exciting dog. He enjoys taking walks and running in the park. Spencer is even tempered and great with kids. Spencer is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Spencer as a member of your family",
+                size: "Small",
+                colors: [color[5]._id, color[0]._id, color[8]._id, color[14]._id],
+                breed: [breed[2]._id],
+                temperaments: [temperament[31]._id, temperament[31]._id, temperament[43]._id, temperament[30]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Shiloh",
+                height: "15 inches",
+                weight: "49 lbs",
+                yearOfBirth: 2014,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Shiloh is a friendly dog. She is active and enjoys taking walks and running in the park. Shiloh is socialble and enjoys company. Shiloh is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Shiloh as a member of your family",
+                size: "Medium",
+                colors: [color[0]._id, color[3]._id],
+                breed: [breed[1]._id],
+                temperaments: [temperament[27]._id, temperament[77]._id, temperament[35]._id, temperament[39]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Spike",
+                height: "23 inches",
+                weight: "70 lbs",
+                yearOfBirth: 2015,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Are you looking for a reliable and confident dog, then Spike is a match. He is intelligent, and friendly. He enjoys taking walks. Spike is great with kids and would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Spike as a member of your family",
+                size: "Medium",
+                colors: [color[2]._id],
+                breed: [breed[4]._id],
+                temperaments: [temperament[59]._id, temperament[21]._id, temperament[43]._id, temperament[35]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Storm",
+                height: "23 inches",
+                weight: "100 lbs",
+                yearOfBirth: 2015,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Storm is steady and confident. She is good with other dogs. Under that fierce look is a warm heart that is devoted and obedient. She is intelligent, and friendly. She enjoys taking walks. Storm would stay alert while you sleep. Storm would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Storm as a member of your family",
+                size: "Large",
+                colors: [color[5]._id, color[1]._id],
+                breed: [breed[11]._id],
+                temperaments: [temperament[50]._id, temperament[25]._id, temperament[66]._id, temperament[5]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Thunder",
+                height: "25 inches",
+                weight: "110 lbs",
+                yearOfBirth: 2016,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Fear?!, Thunder is fearless and confident. He is good with other dogs and very protective of kids. Under that fierce look is a warm heart that is devoted and obedient. He is intelligent, and friendly. She enjoys taking walks. Storm would stay alert while you sleep. If you're ever stranded in unknown territories, uou would want Thunder by your side. Thunder would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Thunder as a member of your family",
+                size: "Large",
+                colors: [color[5]._id, color[1]._id],
+                breed: [breed[11]._id],
+                temperaments: [temperament[50]._id, temperament[25]._id, temperament[66]._id, temperament[5]._id, temperament[34]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Snoopy",
+                height: "13 inches",
+                weight: "30 lbs",
+                yearOfBirth: 2017,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Snoopy is a loving and devoted dog. She is active and enjoys running in the park. Snoopy is great with kids. Snoopy is reserved and plays well with other dogs. She is very confident around strangers. Snoopy would melt your heart with kisses. Snoopy is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Snoopy as a member of your family",
+                size: "Small",
+                colors: [color[1]._id],
+                breed: [breed[7]._id],
+                temperaments: [temperament[25]._id, temperament[46]._id, temperament[54]._id, temperament[20]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Miles",
+                height: "23 inches",
+                weight: "69 lbs",
+                yearOfBirth: 2015,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Miles is a reliable and confident dog. He would make a good walk or hiking buddy. He is intelligent, and friendly. He recognizes threats and can be calm around people. Miles is even tempered and great with kids. He would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Miles as a member of your family",
+                size: "Medium",
+                colors: [color[5]._id],
+                breed: [breed[3]._id],
+                temperaments: [temperament[37]._id, temperament[30]._id, temperament[43]._id, temperament[45]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Norm",
+                height: "22 inches",
+                weight: "49 lbs",
+                yearOfBirth: 2015,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Norm is a very intelligent and gentle dog. He loves showing out his beautiful fur. Norm would be a great walk buddy. He enjoys playing outside especially when it snows. Norm is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Norm as a member of your family",
+                size: "Medium",
+                colors: [color[5]._id, color[10]._id, color[11]._id, color[7]._id,],
+                breed: [breed[6]._id],
+                temperaments: [temperament[52]._id, temperament[43]._id, temperament[5]._id, temperament[35]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Marty",
+                height: "23 inches",
+                weight: "69 lbs",
+                yearOfBirth: 2015,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Marty is a reliable and confident dog. He would make a good walk or hiking buddy. He is intelligent, and friendly. He recognizes threats and can be calm around people. Marty is even tempered and great with kids. He would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Marty as a member of your family",
+                size: "Medium",
+                colors: [color[15]._id],
+                breed: [breed[3]._id],
+                temperaments: [temperament[37]._id, temperament[30]._id, temperament[43]._id, temperament[45]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Lexi",
+                height: "11 inches",
+                weight: "21 lbs",
+                yearOfBirth: 2014,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Lexi is a friendly dog. She is active and enjoys taking walks and running in the park. Lexi is socialble and enjoys company. Lexi is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Lexi as a member of your family",
+                size: "Small",
+                colors: [color[0]._id],
+                breed: [breed[8]._id],
+                temperaments: [temperament[28]._id, temperament[64]._id, temperament[46]._id, temperament[8]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Logan",
+                height: "25 inches",
+                weight: "75 lbs",
+                yearOfBirth: 2015,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Logan is steady and confident. She is good with other dogs. Under that fierce look is a warm heart that is devoted and obedient. She is intelligent, and friendly. She enjoys taking walks. Logan would stay alert while you sleep. Logan would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Logan as a member of your family",
+                size: "Large",
+                colors: [color[5]._id, color[1]._id],
+                breed: [breed[11]._id],
+                temperaments: [temperament[50]._id, temperament[25]._id, temperament[66]._id, temperament[5]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Rose",
+                height: "25 inches",
+                weight: "65 lbs",
+                yearOfBirth: 2015,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Rose is steady and Fast on her feet. She is good with other dogs. Rose is quite atheletic and requires frequent walks and if possible big space to run around. She is intelligent, and affectionate. She enjoys taking walks is even-tempered and great with kids. Rose would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Rose as a member of your family",
+                size: "Medium",
+                colors: [color[7]._id, color[0]._id],
+                breed: [breed[10]._id],
+                temperaments: [temperament[30]._id, temperament[2]._id, temperament[43]._id, temperament[8]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Leo",
+                height: "17 inches",
+                weight: "23 lbs",
+                yearOfBirth: 2017,
+                gender: "Male",
+                hypoallergenic: true,
+                story: "Leo is a very intelligent and gentle dog. He enjoys taking walks and running in the park. Leo is even tempered and great with kids. Leo is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Leo as a member of your family",
+                size: "Small",
+                colors: [color[10]._id, color[7]._id],
+                breed: [breed[13]._id],
+                temperaments: [temperament[2]._id, temperament[23]._id, temperament[43]._id, temperament[29]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Bart",
+                height: "21 inches",
+                weight: "40 lbs",
+                yearOfBirth: 2017,
+                gender: "Female",
+                hypoallergenic: true,
+                story: "Bart is a loving and devoted dog. She is active and enjoys running in the park. Bart is great with kids. Bart is reserved and plays well with other dogs. She is very Joyful around strangers. Bart would melt your heart with kisses. Bart is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Bart as a member of your family",
+                size: "Medium",
+                colors: [color[5]._id],
+                breed: [breed[16]._id],
+                temperaments: [temperament[50]._id, temperament[43]._id, temperament[78]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Logan",
+                height: "13 inches",
+                weight: "30 lbs",
+                yearOfBirth: 2017,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Logan is a loving and devoted dog. She is active and enjoys running in the park. Logan is great with kids. Logan is reserved and plays well with other dogs. She is very confident around strangers. Logan would melt your heart with kisses. Logan is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Logan as a member of your family",
+                size: "Small",
+                colors: [color[0]._id],
+                breed: [breed[7]._id],
+                temperaments: [temperament[25]._id, temperament[46]._id, temperament[54]._id, temperament[20]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Jake",
+                height: "8 inches",
+                weight: "7 lbs",
+                yearOfBirth: 2015,
+                gender: "Male",
+                hypoallergenic: true,
+                story: "Jake is a an easy going and playful dog. He is active and enjoys running in the park. Jake is sweet-tempered and great with kids. Belly rubs are an absolute delight. Jake would keep you smiling from the first day you meet her. Jake is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Jake as a member of your family",
+                size: "Small",
+                colors: [color[7]._id],
+                breed: [breed[15]._id],
+                temperaments: [temperament[27]._id, temperament[28]._id, temperament[2]._id, temperament[37]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Bud",
+                height: "13 inches",
+                weight: "23 lbs",
+                yearOfBirth: 2014,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Bud is a friendly dog. He is active and enjoys taking walks and running in the park. Bud is socialble and enjoys company. Bud is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Bud as a member of your family",
+                size: "Small",
+                colors: [color[5]._id, color[7]._id],
+                breed: [breed[8]._id],
+                temperaments: [temperament[28]._id, temperament[64]._id, temperament[46]._id, temperament[8]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Lucky",
+                height: "25 inches",
+                weight: "75 lbs",
+                yearOfBirth: 2015,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Lucky is steady and confident. He is good with other dogs. Under that fierce look is a warm heart that is devoted and obedient. He is intelligent, and friendly. He enjoys taking walks. Lucky would stay alert while you sleep. Lucky would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Lucky as a member of your family",
+                size: "Large",
+                colors: [color[5]._id, color[1]._id],
+                breed: [breed[11]._id],
+                temperaments: [temperament[50]._id, temperament[25]._id, temperament[66]._id, temperament[5]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Juno",
+                height: "23 inches",
+                weight: "45 lbs",
+                yearOfBirth: 2017,
+                gender: "Female",
+                hypoallergenic: true,
+                story: "Juno is a loving and devoted dog. She is active and enjoys running in the park. Juno is great with kids. Juno is reserved and plays well with other dogs. She is very Joyful around strangers. Juno would melt your heart with kisses. Juno is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Juno as a member of your family",
+                size: "Medium",
+                colors: [color[5]._id, color[7]._id],
+                breed: [breed[16]._id],
+                temperaments: [temperament[50]._id, temperament[43]._id, temperament[78]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Koda",
+                height: "15 inches",
+                weight: "21 lbs",
+                yearOfBirth: 2018,
+                gender: "Male",
+                hypoallergenic: true,
+                story: "Koda is a very intelligent and gentle dog. He enjoys taking walks and running in the park. Koda is even tempered and great with kids. Koda is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Koda as a member of your family",
+                size: "Small",
+                colors: [color[10]._id, color[7]._id],
+                breed: [breed[13]._id],
+                temperaments: [temperament[2]._id, temperament[23]._id, temperament[43]._id, temperament[29]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Jessie",
+                height: "15 inches",
+                weight: "27 lbs",
+                yearOfBirth: 2017,
+                gender: "Male",
+                hypoallergenic: false,
+                story: "Jessie is a loving and devoted dog. He is active and enjoys running in the park. Jessie is great with kids. Jessie is reserved and plays well with other dogs. He is very confident around strangers. Jessie would melt your heart with kisses. Jessie is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Jessie as a member of your family",
+                size: "Small",
+                colors: [color[0]._id],
+                breed: [breed[7]._id],
+                temperaments: [temperament[25]._id, temperament[46]._id, temperament[54]._id, temperament[20]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Mickey",
+                height: "8 inches",
+                weight: "7 lbs",
+                yearOfBirth: 2015,
+                gender: "Male",
+                hypoallergenic: true,
+                story: "Mickey is a an easy going and playful dog. He is active and enjoys running in the park. Mickey is sweet-tempered and great with kids. Belly rubs are an absolute delight. Mickey would keep you smiling from the first day you meet her. Mickey is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Mickey as a member of your family",
+                size: "Small",
+                colors: [color[7]._id],
+                breed: [breed[15]._id],
+                temperaments: [temperament[27]._id, temperament[28]._id, temperament[2]._id, temperament[37]._id],
+                status: status[0]._id
+            },
+            {
+                name: "Holly",
+                height: "7 inches",
+                weight: "5 lbs",
+                yearOfBirth: 2016,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Holly is quick on her feet and could run a whopping 20mph. She is devoted, alert and courageous. She enjoys taking walks and running in the park. Holly is the comic of any gathering and kids have fun with her. Holly is looking for a good home to be a part of. Be sure to click the adopt me now button if you would like to have Holly as a member of your family",
+                size: "Small",
+                colors: [color[7]._id, color[2]._id,],
+                breed: [breed[5]._id],
+                temperaments: [temperament[25]._id, temperament[46]._id, temperament[5]._id, temperament[20]._id, temperament[27]._id],
+                status: status[0]._id
+            },
+        ]
+    );
+    console.log("Dogs seeded");
+    await User.deleteMany();
+    const user = User.insertMany([
+        {
+            userName: "tester1",
+            email: "test1@gmail.com",
+            password: "password"
+        },
+        {
+            userName: "tester2",
+            email: "test2@gmail.com",
+            password: "password"
+        },
+    ]);
+    console.log("Users seeded");
+
+    process.exit();
 })

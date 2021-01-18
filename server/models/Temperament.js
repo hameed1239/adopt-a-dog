@@ -76,6 +76,7 @@
 "Vocal"
 "Watchful"
 "Willful"
+"Joyful"
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 

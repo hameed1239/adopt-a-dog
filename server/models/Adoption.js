@@ -1,17 +1,33 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const { Schema, model } = require("mongoose");
 
-const adoptionSchema = new mongoose.Schema({
+const adoptionSchema = new Schema({
     dog: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: Dog
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: "Dog"
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: User
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: "User"
+    },
+    requestDate: {
+        type: Date,
+        default: Date.now
+    },
+    isApproved: {
+        type: Boolean,
+        default: false
+    },
+    approvedBy: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
+    approvalDate: {
+        type: Date,
     }
 })
 
-const Adoption = mongoose.model("Adoption", adoptionSchema);
+const Adoption = model("Adoption", adoptionSchema);
 
 module.exports = Adoption;
