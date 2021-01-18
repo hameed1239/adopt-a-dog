@@ -3,16 +3,19 @@ const { User, Breed, Adoption, Dog, Color, Status, Temperament } = require("../m
 const resolvers = {
     Query: {
         breeds: async () => {
-            return await Breed.find();
+            return await Breed.find().populate("dogs");
         },
         dogs: async (parent, { breed, name }) => {
             const params = {};
-
             if (breed) {
-                params.breed = breed;
+                params.breed = breed
             }
+            if (name){
+                params.name = name
+            }
+        
 
-            return await Dog.find(params).populate("breed")
+            return await Dog.find(params).populate("temperaments").populate("breed").populate("colors")
         }
     }
 }

@@ -442,7 +442,7 @@ db.once("open", async () => {
                 size: "Small",
                 colors: [color[5]._id, color[0]._id, color[8]._id, color[14]._id],
                 breed: [breed[2]._id],
-                temperaments: [temperament[31]._id, temperament[31]._id, temperament[43]._id, temperament[30]._id],
+                temperaments: [temperament[31]._id, temperament[43]._id, temperament[30]._id],
                 status: status[0]._id
             },
             {
@@ -581,7 +581,7 @@ db.once("open", async () => {
                 story: "Logan is steady and confident. She is good with other dogs. Under that fierce look is a warm heart that is devoted and obedient. She is intelligent, and friendly. She enjoys taking walks. Logan would stay alert while you sleep. Logan would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Logan as a member of your family",
                 size: "Large",
                 colors: [color[5]._id, color[1]._id],
-                breed: [breed[11]._id],
+                breed: [breed[12]._id],
                 temperaments: [temperament[50]._id, temperament[25]._id, temperament[66]._id, temperament[5]._id],
                 status: status[0]._id
             },
@@ -679,7 +679,7 @@ db.once("open", async () => {
                 story: "Lucky is steady and confident. He is good with other dogs. Under that fierce look is a warm heart that is devoted and obedient. He is intelligent, and friendly. He enjoys taking walks. Lucky would stay alert while you sleep. Lucky would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Lucky as a member of your family",
                 size: "Large",
                 colors: [color[5]._id, color[1]._id],
-                breed: [breed[11]._id],
+                breed: [breed[12]._id],
                 temperaments: [temperament[50]._id, temperament[25]._id, temperament[66]._id, temperament[5]._id],
                 status: status[0]._id
             },
@@ -753,22 +753,51 @@ db.once("open", async () => {
                 temperaments: [temperament[25]._id, temperament[46]._id, temperament[5]._id, temperament[20]._id, temperament[27]._id],
                 status: status[0]._id
             },
+            {
+                name: "Sandy",
+                height: "27 inches",
+                weight: "70 lbs",
+                yearOfBirth: 2014,
+                gender: "Female",
+                hypoallergenic: false,
+                story: "Sandy is steady and Fast on her feet. She is good with other dogs. Sandy is quite atheletic and requires frequent walks and if possible big space to run around. She is intelligent, and affectionate. She enjoys taking walks is even-tempered and great with kids. Sandy would be an amazing addition to any home. Be sure to click the adopt me now button if you would like to have Sandy as a member of your family",
+                size: "Medium",
+                colors: [color[7]._id, color[11]._id],
+                breed: [breed[10]._id],
+                temperaments: [temperament[30]._id, temperament[2]._id, temperament[43]._id, temperament[8]._id],
+                status: status[0]._id
+            },
         ]
     );
     console.log("Dogs seeded");
     await User.deleteMany();
-    const user = User.insertMany([
+    await User.create(
         {
             userName: "tester1",
             email: "test1@gmail.com",
-            password: "password"
-        },
+            password: "password",
+            firstName: "Hameed",
+            lastName: "Kazeem",
+            address: "123 abc st",
+            city: "Seattle",
+            state: "Washington",
+            zip: "1234",
+            phone: 123456789
+        });
+    await User.create(
         {
             userName: "tester2",
             email: "test2@gmail.com",
-            password: "password"
-        },
-    ]);
+            password: "password",
+            firstName: "Hameed",
+            lastName: "Kazeem",
+            address: "123 abc st",
+            city: "Seattle",
+            state: "Washington",
+            zip: "1234",
+            phone: 123456789
+        });
+
     console.log("Users seeded");
 
     process.exit();

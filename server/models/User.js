@@ -1,6 +1,5 @@
 const {Schema, model} = require('mongoose');
 const bcrypt = require('bcrypt');
-const Adoption = require('./Adoption');
 
 const userSchema = new Schema({
     userName: {
@@ -20,10 +19,44 @@ const userSchema = new Schema({
         required: true,
         minlength: 5
     },
+    firstName: {
+        type: String,
+        required: true
+    }, 
+    lastName: {
+        type: String,
+        required: true,
+    },
+    address:{
+        type: String,
+        required: true
+    },
+    city: {
+        type: String,
+        required: true
+    },
+    state: {
+        type: String,
+        required: true
+    },
+    zip:{
+        type: String,
+        required: true
+    },
+    phone: {
+        type: Number,
+        required: true
+    },
     isAdmin: {
         type: Boolean,
         default: false
-    }
+    },
+    adoption: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "adoption"
+        }
+    ]
 
 });
 

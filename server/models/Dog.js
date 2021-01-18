@@ -58,6 +58,10 @@ const dogSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Status",
     },
+    adoption: {
+        type: Schema.Types.ObjectId,
+        ref "adoption"
+    }
 })
 
 const Dog = model('Dog', dogSchema);
