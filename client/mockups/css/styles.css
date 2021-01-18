@@ -238,24 +238,34 @@ main p {
   border-radius: 10px;
 }
 
-#donate form {
+#donate form,
+#contact form {
   border: 1px solid;
   border-radius: 15px;
   padding: 10px;
   background-color: var(--lime-darken-1);
 }
 #donate label,
+#contact label,
 #donate input,
-#donate button {
+#contact input,
+#contact textarea,
+#donate button,
+#contact button {
   width: 100%;
   margin-bottom: 10px;
 }
 #donate input,
-#donate button {
+#donate button,
+#contact input,
+#contact textarea,
+#contact button {
   border-radius: 5px;
   padding: 5px 10px;
+  font-size: var(--p);
 }
-#donate button {
+#donate button,
+#contact button {
   margin-top: 15px;
 }
 
@@ -369,7 +379,8 @@ footer p {
   #dog button {
     width: 50%;
   }
-  #donate form {
+  #donate form,
+  #contact form {
     width: 640px;
     margin: 0 auto;
   }
