@@ -1,6 +1,6 @@
 /* ===========================================================================*/
 /* global styles */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;700;900&display=swap");
 
 * {
   /* resets default browser settings to zero */
@@ -13,7 +13,7 @@
   border-collapse: collapse;
 
   /* sets global font */
-  font-family: 'Cairo', sans-serif;
+  font-family: "Cairo", sans-serif;
 
   /* fixes issue of bold text not displaying correctly on Google Chrome */
   -webkit-font-smoothing: antialiased;
@@ -218,16 +218,21 @@ main p {
   line-height: 2rem;
 }
 
-#breeds .label {
-  margin: 10px 0;
+#breeds .label,
+.breed-labels {
+  margin: 10px 10px;
   padding: 0 10px;
-  width: 100%;
+  /* width: 25%; */
   border-radius: 10px;
   background-color: var(--lime-darken-4);
   color: white;
   font-size: var(--h3);
   font-weight: 700;
   text-align: center;
+}
+
+.breed-labels:hover {
+  cursor: pointer;
 }
 
 #dog button {

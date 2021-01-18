@@ -1,55 +1,23 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-const Dog = () => {
+const Dog = (dog) => {
+  const state = useSelector((state) => {
+    return state;
+  });
+
+  const dispatch = useDispatch();
+
+  const { image, name, _id } = dog;
+
   return (
     <>
       <article>
-        <img
-          src='https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg'
-          alt='pet img'
-          style={{ width: '100%' }}
-        />
-        <h4>Australian Shepherd</h4>
-      </article>
-      <article>
-        <img
-          src='https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg'
-          alt='pet img'
-          style={{ width: '100%' }}
-        />
-        <h4>Australian Shepherd</h4>
-      </article>
-      <article>
-        <img
-          src='https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg'
-          alt='pet img'
-          style={{ width: '100%' }}
-        />
-        <h4>Australian Shepherd</h4>
-      </article>
-      <article>
-        <img
-          src='https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg'
-          alt='pet img'
-          style={{ width: '100%' }}
-        />
-        <h4>Australian Shepherd</h4>
-      </article>
-      <article>
-        <img
-          src='https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg'
-          alt='pet img'
-          style={{ width: '100%' }}
-        />
-        <h4>Australian Shepherd</h4>
-      </article>
-      <article>
-        <img
-          src='https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg'
-          alt='pet img'
-          style={{ width: '100%' }}
-        />
-        <h4>Australian Shepherd</h4>
+        <Link to={`/dogs/${_id}`}>
+          <img src={`${image}`} alt="pet img" style={{ width: "100%" }} />
+        </Link>
+        <h4>{name}</h4>
       </article>
     </>
   );

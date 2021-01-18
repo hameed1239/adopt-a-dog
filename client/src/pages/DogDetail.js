@@ -1,43 +1,63 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+
+import { QUERY_DOGS } from "../utils/queries";
+import { UPDATE_DOGS } from "../utils/actions";
+
+import { useDispatch, useSelector } from "react-redux";
+import { useQuery } from "@apollo/react-hooks";
 
 const DogDetail = () => {
+  const state = useSelector((state) => {
+    return state;
+  });
+
+  const dispatch = useDispatch();
+
   const { id } = useParams();
 
+  const [currentDog, setCurrentDog] = useState({});
+
+  const { loading, data } = useQuery(QUERY_DOGS);
+
+  const { dogs } = state;
+
+  console.log(dogs);
+
+  useEffect(() => {
+    if (dogs.length) {
+      setCurrentDog(dogs.find((dog) => dog._id === id));
+    } else if (data) {
+      dispatch({
+        type: UPDATE_DOGS,
+        dogs: data.dogs,
+      });
+    }
+  }, [dogs, data, loading, dispatch, id]);
+
   return (
-    <main id='dog'>
-      <section class='container'>
-        <h1>Rottweiler 7</h1>
+    <main id="dog">
+      <section className="container">
+        <h1>{currentDog.name}</h1>
         <h2>
-          Color: <span class='black-font'>Black</span> | Age:
-          <span class='black-font'>6 Months</span>
+          Size: <span className="black-font">{currentDog.size}</span> | Born:
+          <span className="black-font">{currentDog.yearOfBirth}</span>
         </h2>
       </section>
 
-      <section class='container mt-20'>
+      <section className="container mt-20">
         <img
-          class='br-20 mb-20'
-          src='https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg'
-          width='100%'
-          alt=''
+          className="br-20 mb-20"
+          src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+          width="100%"
+          alt=""
         />
 
         <button>Suggested Donation: $150</button>
 
-        <h3 class='mt-20'>Description</h3>
+        <h3 className="mt-20">Story</h3>
         <p>
-          <span>SALES PITCH!</span> Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. At quisquam, quas, fugiat quam hic id repellendus
-          animi temporibus saepe nam vel obcaecati! Illum, eum magni alias nulla
-          suscipit amet consectetur voluptate eveniet perspiciatis, nisi
-          consequatur id molestias quasi, odio doloremque quisquam sapiente
-          maiores? Similique accusamus molestiae voluptates facere dolor
-          incidunt ex libero quos minus id, iure eum explicabo suscipit sit
-          molestias cupiditate quam maxime laboriosam maiores ad, corporis
-          voluptas! Soluta quasi, non ad, labore nulla animi ipsa illum repellat
-          eum aliquid vero numquam aut ratione laborum! Quam ipsam dolorum,
-          exercitationem corporis, modi similique aut provident corrupti quos
-          perferendis tenetur maxime!
+          <span>SALES PITCH!</span> {currentDog.story}
         </p>
       </section>
     </main>
