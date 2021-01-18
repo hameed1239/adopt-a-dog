@@ -9,7 +9,7 @@ function Nav() {
   // function showNavigation() {}
 
   return (
-    <nav class='navbar user-bg'>
+    <nav className='navbar user-bg'>
       <Link to='/' className='text-link'>
         <span role='img' aria-label='logo' id='company-name'>
           <FontAwesomeIcon icon={faDog} />
@@ -24,8 +24,8 @@ function Nav() {
           </Link>
         </li>
         <li>
-          <Link to='/pets' className='text-link'>
-            Pets
+          <Link to='/dogs' className='text-link'>
+            Dogs
           </Link>
         </li>
         <li>
