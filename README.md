@@ -25,6 +25,7 @@
 **Adopt A Dog** is a website for an dog shelter where users (site visitors) can buy and adopt the dogs.
 
 ## Table of Contents
+
 - [Deployment URL](#Deployment-URL)
 - [Repo URL](#Repo-URL)
 - [Features](#Features)
@@ -43,7 +44,7 @@ Heroku
 
 ## Repo URL
 
-https://github.com/hameed1239/employee-handbook
+https://github.com/hameed1239/adopt-a-dog.
 
 ## Features
 
@@ -56,20 +57,24 @@ https://github.com/hameed1239/employee-handbook
    1. Shopping Cart (DB or local storage?)
 
 ## Pre-Requisites
+
 1. Install `node.js`
 1. Install `MongoDB`
 
 ## Installation
 
-1. 
+1.
+
 ## Usage
 
-1. 
+1.
 
 ### Screenshot / Gif Animation
+
 ![Screenshot / Gif Animation]()
 
 ### Video Demo
+
 [Video Link]()
 
 ## Technologies Used
@@ -88,25 +93,31 @@ https://github.com/hameed1239/employee-handbook
    1. JWT (Jason Web Tokens)
 1. Stripe (Payment Platform)
 1. PWA
+
 ## Credits
 
 ### Collaborators
 
-| Developer           | Role                | Responsibilities                                                 |
+| DEVELOPER           | ROLE                | RESPONSIBILITIES                                                 |
 | ------------------- | ------------------- | ---------------------------------------------------------------- |
 | AADITI PAI          | Project Manager     | User/Admin authentication (JWT) & account services               |
 | AHMAD EL GAMAL      | Front-end Developer | UI Design (HTML & CSS)                                           |
 | HAMEED KAZEEM       | Back-end Developer  | Repo, MongoDB, Mongoose ODM, GraphQL & Database API & Deployment |
 | RONGBANG (BRYAN) YE | Front-end Developer | React and Redux                                                  |
-| SHAWNA GOHEL        | Back-end Developer  | Payment platform                                                 |
+| SHAWNA GOHEL        | Back-end Developer  | Wireframes, Stripe Payment platform and React & Redux            |
 | SOLOMON MERESA      | Front-end Developer | GraphQL & PWA                                                    |
 
-
 ## Roadmap
-1. 
+
+1. Add application form for adopters.
+1. Add `About` page.
+1. Optimize Picture Sizes.
+1. Add `rootAdmin` in addition to existing `admin`.
 
 ## Questions
+
 Please send your questions and / or comments to any of the [collaborators](#collaborators) listed above.
 
 ## License
+
 This project is licensed under the terms of the [ISC](https://opensource.org/licenses/ISC) license.
