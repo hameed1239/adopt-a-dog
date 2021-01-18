@@ -1,84 +1,83 @@
-import React, { useEffect } from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import Dog from '../Dog';
+import React, { useEffect } from "react";
+import { useQuery } from "@apollo/react-hooks";
+import Dog from "../Dog";
 
-import { UPDATE_DOGS } from '../../utils/actions';
-import { useDispatch, useSelector } from 'react-redux';
+import { QUERY_DOGS } from "../../utils/queries";
+
+import { UPDATE_DOGS } from "../../utils/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const DogsList = () => {
   const state = useSelector((state) => {
     return state;
   });
 
-  console.log(state);
   const dispatch = useDispatch();
 
+  const { currentBreed } = state;
+
+  const { loading, data } = useQuery(QUERY_DOGS);
+
+  const dogs = data?.dogs || [];
+
+  console.log(dogs);
+
   useEffect(() => {
-    dispatch({
-      type: UPDATE_DOGS,
-      dogs: [
-        {
-          id: '1',
-          name: 'bulldog',
-          description: 'kid-friendly',
-          size: 'large',
-          image: 'https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg',
-        },
-      ],
-    });
-  }, [dispatch]);
+    if (data) {
+      dispatch({
+        type: UPDATE_DOGS,
+        dogs: data.dogs,
+      });
+    } else if (!loading) {
+      console.log(loading);
+    }
+  }, [dispatch, data, loading]);
 
   // console.log(state.dogs[0].name);
+  function filterDogsSize() {
+    if (!currentBreed) {
+      return state.dogs;
+    }
+    return state.dogs.filter((dog) => dog.breed._id === currentBreed);
+  }
 
   return (
-    <main id='breeds' className='main'>
-      <div className='container'>
-        <h1>Select a Breed</h1>
+    <main id="breeds">
+      <div className="container mt-20">
+        {dogs.length ? (
+          <div className="flex-container">
+            {filterDogsSize().map((dog) => {
+              return (
+                <Dog
+                  key={dog._id}
+                  _id={dog._id}
+                  image={
+                    "https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+                  }
+                  name={dog.name}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <h3>No dogs in the data</h3>
+        )}
+        {loading ? "loading dogs " : null}
       </div>
 
-      <div className='container flex-container'>
-        <label className='label' htmlFor='size'>
-          Size
-        </label>
-        <select name='size' id='size' className='hidden'>
-          <option value='large'>Large</option>
-          <option value='Medium'>Medium</option>
-          <option value='Small'>Small</option>
-        </select>
-
-        <input
-          className='hidden'
-          type='checkbox'
-          id='kid-friendly'
-          name='kid-friendly'
-          value='false'
-        />
-        <label className='label' htmlFor='kid-friendly'>
-          Kid-Friendly
-        </label>
-      </div>
-
-      <div className='container mt-20'>
-        <h3>Large Breeds</h3>
-        <div className='flex-container'>
-          {/* {state.dogs.map((dog) => dog.description)} */}
-          <Dog />
-        </div>
-      </div>
-
-      <div className='container mt-20'>
+      {/* <div className="container mt-20">
         <h3>Medium Breeds</h3>
-        <div className='flex-container'>
+        <div className="flex-container">
           <Dog />
         </div>
       </div>
 
-      <div className='container mt-20'>
+      <div className="container mt-20">
         <h3>Small Breeds</h3>
-        <div className='flex-container'>
+        <div className="flex-container">
           <Dog />
         </div>
-      </div>
+      </div> */}
     </main>
   );
 };

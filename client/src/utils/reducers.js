@@ -1,4 +1,4 @@
-import { UPDATE_DOGS } from './actions';
+import { UPDATE_DOGS, UPDATE_BREEDS, UPDATE_CURRENT_BREED } from "./actions";
 
 const defaultState = {
   dogs: [],
@@ -12,6 +12,18 @@ const reducer = (state = defaultState, action) => {
       return {
         ...state,
         dogs: [...action.dogs],
+      };
+
+    case UPDATE_BREEDS:
+      return {
+        ...state,
+        breeds: [...action.breeds],
+      };
+
+    case UPDATE_CURRENT_BREED:
+      return {
+        ...state,
+        currentBreed: action.currentBreed,
       };
 
     default:
