@@ -180,12 +180,12 @@ main h2 {
   line-height: 3rem;
   color: var(--lime-darken-3);
 }
-.main h3 {
+main h3 {
   font-size: var(--h3);
   line-height: 3rem;
   color: var(--lime-darken-3);
 }
-.main h3:nth-of-type(n + 2) {
+main h3:nth-of-type(n + 2) {
   margin-top: 40px;
 }
 #admin h3 {
@@ -195,7 +195,7 @@ main h4 {
   font-size: var(--h4);
   line-height: 2.5rem;
 }
-.main h3 + main h4 {
+main h3 + main h4 {
   margin-top: 0;
 }
 main h5 {
@@ -284,6 +284,7 @@ footer p {
   color: white;
   font-size: var(--footer);
 }
+
 /* ========================================================================== */
 /* ==================== ends xs (<= 768px) - phone styles =================== */
 
@@ -319,7 +320,7 @@ footer p {
 
   #breeds .label,
   #dog button,
-  .main h3 {
+  main h3 {
     font-size: calc(var(--h3) + var(--two));
   }
   main h4 {
@@ -389,7 +390,7 @@ footer p {
   }
   #breeds .label,
   #dog button,
-  .main h3 {
+  main h3 {
     font-size: calc(var(--h3) + var(--four));
   }
   main h4 {
