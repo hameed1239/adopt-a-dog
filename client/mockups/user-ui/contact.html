@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Contact Us - Adopt A Dog</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar user-bg">
+        <i class="fas fa-dog"></i>
+        <p id="company-name">Adopt A Dog</p>
+        <ul>
+          <li>Home</li>
+          <li>Dogs</li>
+          <li>Donate</li>
+          <li>Contact</li>
+          <li><i class="fas fa-user fa"></i></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="contact">
+      <section class="container">
+        <h1>Contact Us</h1>
+      </section>
+
+      <section class="container mt-20">
+        <form id="contact-form">
+          <div>
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Please type your full name here"
+            />
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              autocomplete="email"
+              class="validate"
+              placeholder="Please type your email address here"
+            />
+          </div>
+          <div>
+            <label for="message">Message:</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="7"
+              placeholder="Please type your message here"
+            >
+            </textarea>
+          </div>
+          <button id="contact-submit" type="submit" value="send">Submit</button>
+          <div>
+            <p id="contact-form-error-message">errorMessage</p>
+          </div>
+        </form>
+      </section>
+
+      <section class="container mt-20">
+        <div class="flex-container">
+          <article>
+            <h3>Why rescue a dog?</h3>
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              alt=""
+            />
+            <p class="center">
+              Find out the most common reasons people rescue a dog
+            </p>
+          </article>
+
+          <article>
+            <h3>Your first days with a dog</h3>
+            <img
+              src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+              alt=""
+            />
+            <p class="center">How to bond with your dog in the first month</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="user-footer">
+      <div class="container">
+        <p>Copyright &copy; 2021 Adopt A Dog LLC. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/7f68d95029.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
