@@ -58,17 +58,22 @@ const typeDefs = gql`
 
     type Query {
         breeds: [Breed]
+        breed(_id: ID): Breed
         dogs(breed: ID, name: String): [Dog]
         dog(_id: ID!): Dog
         adoptions: [Adoption]
         adoption(_id: ID!): Adoption
         user: User
+        temperaments: [Temperament]
+        colors: [Color]
+        status: [Status]
     }
 
     type Mutation {
         addBreed(name: String!, size: String!, hypoallergenic: Boolean!, colors:[ID]!, temperaments:[ID]! ): Breed
         updateBreed(_id: ID!, name: String, size: String, hypoallergenic: Boolean, colors:[ID], temperaments:[ID] ) :Breed
         addDog(name: String!, height: String!, weight: String!, yearOfBirth: Int, gender: String!, hypoallergenic: Boolean!, story: String!, size: String!, colors: [ID]!, breed: ID!, temperaments: [ID]!, status: [ID]): Dog
+        updateDog(_id:ID!, name: String, height: String, weight: String, yearOfBirth: Int, gender: String, hypoallergenic: Boolean, story: String, size: String, colors: [ID], breed: ID, temperaments: [ID], status: [ID]): Dog
     }
 `;
 
