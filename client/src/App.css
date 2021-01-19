@@ -1,6 +1,7 @@
 /* ===========================================================================*/
 /* global styles */
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;700;900&display=swap");
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 * {
   /* resets default browser settings to zero */
@@ -70,9 +71,9 @@ body {
   color: white;
 }
 
-.container {
+/* .container {
   margin: 0 5%;
-}
+} */
 
 h1,
 h2,
@@ -225,7 +226,7 @@ main p {
   /* width: 25%; */
   border-radius: 10px;
   background-color: var(--lime-darken-4);
-  color: white;
+  color: white !important;
   font-size: var(--h3);
   font-weight: 700;
   text-align: center;
