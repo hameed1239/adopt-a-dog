@@ -26,6 +26,7 @@ export const QUERY_BREEDS = gql`
       _id
       name
       size
+    
     }
   }
 `;
