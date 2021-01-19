@@ -47,6 +47,15 @@ const userSchema = new Schema({
         type: Number,
         required: true
     },
+    otherDogs:{
+        type: Number
+    },
+    noOfKids: {
+        type: Number
+    },
+    houseOrApartment:{
+        type: String
+    },
     isAdmin: {
         type: Boolean,
         default: false

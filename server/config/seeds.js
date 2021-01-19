@@ -261,7 +261,9 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[2]._id, color[5]._id,],
                 breed: [breed[9]._id],
                 temperaments: [temperament[35]._id, temperament[61]._id, temperament[21]._id, temperament[48]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "0.jpg"
+
             },
             {
                 name: "Mya",
@@ -275,7 +277,8 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[10]._id, color[11]._id, color[7]._id,],
                 breed: [breed[6]._id],
                 temperaments: [temperament[52]._id, temperament[43]._id, temperament[5]._id, temperament[35]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "1.jpg"
             },
             {
                 name: "Jack",
@@ -289,7 +292,8 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[7]._id, color[10]._id,],
                 breed: [breed[2]._id],
                 temperaments: [temperament[30]._id, temperament[7]._id, temperament[43]._id, temperament[37]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "2.jpg"
             },
             {
                 name: "Khloe",
@@ -303,7 +307,8 @@ db.once("open", async () => {
                 colors: [color[2]._id],
                 breed: [breed[4]._id],
                 temperaments: [temperament[59]._id, temperament[21]._id, temperament[43]._id, temperament[35]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "3.jpg"
             },
             {
                 name: "Jasper",
@@ -317,7 +322,8 @@ db.once("open", async () => {
                 colors: [color[5]._id],
                 breed: [breed[14]._id],
                 temperaments: [temperament[67]._id, temperament[43]._id, temperament[45]._id, temperament[47]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "4.jpg"
             },
             {
                 name: "Daisy",
@@ -331,7 +337,8 @@ db.once("open", async () => {
                 colors: [color[7]._id, color[2]._id,],
                 breed: [breed[5]._id],
                 temperaments: [temperament[25]._id, temperament[46]._id, temperament[5]._id, temperament[20]._id, temperament[27]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "5.jpg"
             },
             {
                 name: "Pluto",
@@ -345,7 +352,8 @@ db.once("open", async () => {
                 colors: [color[16]._id, color[5]._id, color[0]._id],
                 breed: [breed[0]._id],
                 temperaments: [temperament[50]._id, temperament[43]._id, temperament[5]._id, temperament[21]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "6.jpg"
             },
             {
                 name: "Kelsey",
@@ -359,7 +367,8 @@ db.once("open", async () => {
                 colors: [color[7]._id],
                 breed: [breed[15]._id],
                 temperaments: [temperament[27]._id, temperament[28]._id, temperament[2]._id, temperament[37]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "7.jpg"
             },
             {
                 name: "Rufus",
@@ -373,7 +382,8 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[7]._id],
                 breed: [breed[9]._id],
                 temperaments: [temperament[21]._id, temperament[37]._id, temperament[48]._id, temperament[25]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "8.jpg"
             },
             {
                 name: "Shelby",
@@ -387,7 +397,8 @@ db.once("open", async () => {
                 colors: [color[7]._id, color[17]._id, color[12]._id],
                 breed: [breed[9]._id],
                 temperaments: [temperament[21]._id, temperament[37]._id, temperament[48]._id, temperament[25]._id, temperament[60]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "9.jpg"
             },
             {
                 name: "Max",
@@ -401,7 +412,8 @@ db.once("open", async () => {
                 colors: [color[9]._id, color[5]._id, color[0]._id],
                 breed: [breed[0]._id],
                 temperaments: [temperament[50]._id, temperament[43]._id, temperament[5]._id, temperament[21]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "10.jpg"
             },
             {
                 name: "Tessa",
@@ -415,7 +427,8 @@ db.once("open", async () => {
                 colors: [color[0]._id, color[7]._id],
                 breed: [breed[1]._id],
                 temperaments: [temperament[27]._id, temperament[77]._id, temperament[35]._id, temperament[39]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "11.jpg"
             },
             {
                 name: "Stanley",
@@ -429,7 +442,8 @@ db.once("open", async () => {
                 colors: [color[15]._id],
                 breed: [breed[3]._id],
                 temperaments: [temperament[37]._id, temperament[30]._id, temperament[43]._id, temperament[45]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "12.jpg"
             },
             {
                 name: "Spencer",
@@ -443,7 +457,8 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[0]._id, color[8]._id, color[14]._id],
                 breed: [breed[2]._id],
                 temperaments: [temperament[31]._id, temperament[43]._id, temperament[30]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "13.jpg"
             },
             {
                 name: "Shiloh",
@@ -457,7 +472,8 @@ db.once("open", async () => {
                 colors: [color[0]._id, color[3]._id],
                 breed: [breed[1]._id],
                 temperaments: [temperament[27]._id, temperament[77]._id, temperament[35]._id, temperament[39]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "14.jpg"
             },
             {
                 name: "Spike",
@@ -471,7 +487,8 @@ db.once("open", async () => {
                 colors: [color[2]._id],
                 breed: [breed[4]._id],
                 temperaments: [temperament[59]._id, temperament[21]._id, temperament[43]._id, temperament[35]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "15.jpg"
             },
             {
                 name: "Storm",
@@ -485,7 +502,8 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[1]._id],
                 breed: [breed[11]._id],
                 temperaments: [temperament[50]._id, temperament[25]._id, temperament[66]._id, temperament[5]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "16.jpg"
             },
             {
                 name: "Thunder",
@@ -499,7 +517,8 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[1]._id],
                 breed: [breed[11]._id],
                 temperaments: [temperament[50]._id, temperament[25]._id, temperament[66]._id, temperament[5]._id, temperament[34]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "17.jpg"
             },
             {
                 name: "Snoopy",
@@ -513,7 +532,8 @@ db.once("open", async () => {
                 colors: [color[1]._id],
                 breed: [breed[7]._id],
                 temperaments: [temperament[25]._id, temperament[46]._id, temperament[54]._id, temperament[20]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "18.jpg"
             },
             {
                 name: "Miles",
@@ -527,7 +547,8 @@ db.once("open", async () => {
                 colors: [color[5]._id],
                 breed: [breed[3]._id],
                 temperaments: [temperament[37]._id, temperament[30]._id, temperament[43]._id, temperament[45]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "19.jpg"
             },
             {
                 name: "Norm",
@@ -541,7 +562,8 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[10]._id, color[11]._id, color[7]._id,],
                 breed: [breed[6]._id],
                 temperaments: [temperament[52]._id, temperament[43]._id, temperament[5]._id, temperament[35]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "20.jpg"
             },
             {
                 name: "Marty",
@@ -555,7 +577,8 @@ db.once("open", async () => {
                 colors: [color[15]._id],
                 breed: [breed[3]._id],
                 temperaments: [temperament[37]._id, temperament[30]._id, temperament[43]._id, temperament[45]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "21.jpg"
             },
             {
                 name: "Lexi",
@@ -569,7 +592,8 @@ db.once("open", async () => {
                 colors: [color[0]._id],
                 breed: [breed[8]._id],
                 temperaments: [temperament[28]._id, temperament[64]._id, temperament[46]._id, temperament[8]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "22.jpg"
             },
             {
                 name: "Logan",
@@ -583,7 +607,8 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[1]._id],
                 breed: [breed[12]._id],
                 temperaments: [temperament[50]._id, temperament[25]._id, temperament[66]._id, temperament[5]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "23.jpg"
             },
             {
                 name: "Rose",
@@ -597,7 +622,8 @@ db.once("open", async () => {
                 colors: [color[7]._id, color[0]._id],
                 breed: [breed[10]._id],
                 temperaments: [temperament[30]._id, temperament[2]._id, temperament[43]._id, temperament[8]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "24.jpg"
             },
             {
                 name: "Leo",
@@ -611,7 +637,8 @@ db.once("open", async () => {
                 colors: [color[10]._id, color[7]._id],
                 breed: [breed[13]._id],
                 temperaments: [temperament[2]._id, temperament[23]._id, temperament[43]._id, temperament[29]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "25.jpg"
             },
             {
                 name: "Bart",
@@ -625,7 +652,8 @@ db.once("open", async () => {
                 colors: [color[5]._id],
                 breed: [breed[16]._id],
                 temperaments: [temperament[50]._id, temperament[43]._id, temperament[78]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "26.jpg"
             },
             {
                 name: "Logan",
@@ -639,7 +667,8 @@ db.once("open", async () => {
                 colors: [color[0]._id],
                 breed: [breed[7]._id],
                 temperaments: [temperament[25]._id, temperament[46]._id, temperament[54]._id, temperament[20]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "27.jpg"
             },
             {
                 name: "Jake",
@@ -653,7 +682,8 @@ db.once("open", async () => {
                 colors: [color[7]._id],
                 breed: [breed[15]._id],
                 temperaments: [temperament[27]._id, temperament[28]._id, temperament[2]._id, temperament[37]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "28.jpg"
             },
             {
                 name: "Bud",
@@ -667,7 +697,8 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[7]._id],
                 breed: [breed[8]._id],
                 temperaments: [temperament[28]._id, temperament[64]._id, temperament[46]._id, temperament[8]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "29.jpg"
             },
             {
                 name: "Lucky",
@@ -681,7 +712,8 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[1]._id],
                 breed: [breed[12]._id],
                 temperaments: [temperament[50]._id, temperament[25]._id, temperament[66]._id, temperament[5]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "30.jpg"
             },
             {
                 name: "Juno",
@@ -695,7 +727,8 @@ db.once("open", async () => {
                 colors: [color[5]._id, color[7]._id],
                 breed: [breed[16]._id],
                 temperaments: [temperament[50]._id, temperament[43]._id, temperament[78]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "31.jpg"
             },
             {
                 name: "Koda",
@@ -709,7 +742,8 @@ db.once("open", async () => {
                 colors: [color[10]._id, color[7]._id],
                 breed: [breed[13]._id],
                 temperaments: [temperament[2]._id, temperament[23]._id, temperament[43]._id, temperament[29]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "32.jpg"
             },
             {
                 name: "Jessie",
@@ -723,7 +757,8 @@ db.once("open", async () => {
                 colors: [color[0]._id],
                 breed: [breed[7]._id],
                 temperaments: [temperament[25]._id, temperament[46]._id, temperament[54]._id, temperament[20]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "33.jpg"
             },
             {
                 name: "Mickey",
@@ -737,7 +772,8 @@ db.once("open", async () => {
                 colors: [color[7]._id],
                 breed: [breed[15]._id],
                 temperaments: [temperament[27]._id, temperament[28]._id, temperament[2]._id, temperament[37]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "34.jpg"
             },
             {
                 name: "Holly",
@@ -751,7 +787,8 @@ db.once("open", async () => {
                 colors: [color[7]._id, color[2]._id,],
                 breed: [breed[5]._id],
                 temperaments: [temperament[25]._id, temperament[46]._id, temperament[5]._id, temperament[20]._id, temperament[27]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "35.jpg"
             },
             {
                 name: "Sandy",
@@ -765,7 +802,8 @@ db.once("open", async () => {
                 colors: [color[7]._id, color[11]._id],
                 breed: [breed[10]._id],
                 temperaments: [temperament[30]._id, temperament[2]._id, temperament[43]._id, temperament[8]._id],
-                status: status[0]._id
+                status: status[0]._id,
+                imgUrl: "36.jpg"
             },
         ]
     );

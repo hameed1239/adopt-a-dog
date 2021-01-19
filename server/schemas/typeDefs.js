@@ -42,6 +42,7 @@ const typeDefs = gql`
     }
 
     type Adoption {
+        _id:ID
         dog: Dog
         user: User
         requestDate: String
@@ -51,9 +52,21 @@ const typeDefs = gql`
     }
 
     type User {
+        _id: ID
         userName: String
         email: String
         isAdmin: Boolean
+        firstName: String
+        lastName: String
+        address: String
+        city: String
+        state: String
+        zip: String
+        phone: Int
+        otherDogs: Int
+        noOfKids: Int
+        houseOrApartment: String
+        adoption: ID
     }
 
     type Query {
@@ -70,11 +83,53 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        addBreed(name: String!, size: String!, hypoallergenic: Boolean!, colors:[ID]!, temperaments:[ID]! ): Breed
-        updateBreed(_id: ID!, name: String, size: String, hypoallergenic: Boolean, colors:[ID], temperaments:[ID] ) :Breed
-        addDog(name: String!, height: String!, weight: String!, yearOfBirth: Int, gender: String!, hypoallergenic: Boolean!, story: String!, size: String!, colors: [ID]!, breed: ID!, temperaments: [ID]!, status: [ID]): Dog
-        updateDog(_id:ID!, name: String, height: String, weight: String, yearOfBirth: Int, gender: String, hypoallergenic: Boolean, story: String, size: String, colors: [ID], breed: ID, temperaments: [ID], status: [ID]): Dog
-        removeDog
+        addBreed(
+            name: String!, 
+            size: String!, 
+            hypoallergenic: Boolean!, 
+            colors:[ID]!, 
+            temperaments:[ID]! 
+            ): Breed
+        updateBreed(
+            _id: ID!, 
+            name: String, 
+            size: String, 
+            hypoallergenic: Boolean, 
+            colors:[ID], 
+            temperaments:[ID] 
+            ) :Breed
+        addDog(
+            name: String!, 
+            height: String!, 
+            weight: String!, 
+            yearOfBirth: Int, 
+            gender: String!, 
+            hypoallergenic: Boolean!, 
+            story: String!, 
+            size: String!, 
+            colors: [ID]!, 
+            breed: ID!, 
+            temperaments: [ID]!, 
+            status: [ID]
+            ): Dog
+        updateDog(
+            _id:ID!, 
+            name: String, 
+            height: String, 
+            weight: String, 
+            yearOfBirth: Int, 
+            gender: String, 
+            hypoallergenic: Boolean, 
+            story: String, 
+            size: String, 
+            colors: [ID], 
+            breed: ID, 
+            temperaments: [ID], 
+            status: [ID]
+            ): Dog
+        removeDog(
+            _id:ID!
+        ): Dog
     }
 `;
 

@@ -15,10 +15,10 @@ const resolvers = {
             }
         
 
-            return await Dog.find(params).populate("temperaments").populate("breed").populate("colors").populated("status");
+            return await Dog.find(params).populate("temperaments").populate("breed").populate("colors").populate("status");
         },
         dog: async (parent, {_id}) => {
-            return  await Dog.findById(_id).populate("temperaments").populate("breed").populate("colors").populated("status");
+            return  await Dog.findById(_id).populate("temperaments").populate("breed").populate("colors").populate("status");
         } ,
         adoptions: async()=>{
             return await Adoption.find().populate("dog").populate("user");
@@ -55,6 +55,9 @@ const resolvers = {
             const {_id} = args
             return await Dog.findByIdAndUpdate(_id, {...args}, {new:true});
         },
+        removeDog: async(parent, {_id}) => {
+            return await Dog.findByIdAndDelete(_id);
+        }
     }
 }
 
