@@ -103,7 +103,7 @@ section{
   }
   
   .buttons a button{
-    ${'' /* display:block; */}
+  font-family: "Alegreya Sans", sans-serif;
     padding:.6rem 3rem !important;
     margin:.6rem .3rem !important;
     text-decoration: none !important;
@@ -143,6 +143,8 @@ section{
     line-height:1.9rem;
   }
 }
+
+
 
 
 
