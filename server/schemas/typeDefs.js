@@ -74,6 +74,7 @@ const typeDefs = gql`
         updateBreed(_id: ID!, name: String, size: String, hypoallergenic: Boolean, colors:[ID], temperaments:[ID] ) :Breed
         addDog(name: String!, height: String!, weight: String!, yearOfBirth: Int, gender: String!, hypoallergenic: Boolean!, story: String!, size: String!, colors: [ID]!, breed: ID!, temperaments: [ID]!, status: [ID]): Dog
         updateDog(_id:ID!, name: String, height: String, weight: String, yearOfBirth: Int, gender: String, hypoallergenic: Boolean, story: String, size: String, colors: [ID], breed: ID, temperaments: [ID], status: [ID]): Dog
+        removeDog
     }
 `;
 

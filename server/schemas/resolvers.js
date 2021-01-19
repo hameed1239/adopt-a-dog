@@ -51,8 +51,9 @@ const resolvers = {
             const dog = await Dog.create(args)
             return await Dog.findById(dog._id).populate("temperaments").populate("colors").populate("breed").populate("status")
         },
-        updateDog: async() =>{
-            
+        updateDog: async(parent, args) =>{
+            const {_id} = args
+            return await Dog.findByIdAndUpdate(_id, {...args}, {new:true});
         },
     }
 }
