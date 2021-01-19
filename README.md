@@ -113,6 +113,8 @@ https://github.com/hameed1239/adopt-a-dog.
 1. Add `About` page.
 1. Optimize Picture Sizes.
 1. Add `rootAdmin` in addition to existing `admin`.
+1. Allow admin sign up for separate admin accounts, pending `rootAdmin` approval, or by receiving a link from the `rootAdmin`.
+1. Add OAuth2 for login options.
 
 ## Questions
 
