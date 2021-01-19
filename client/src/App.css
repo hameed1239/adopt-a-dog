@@ -1,7 +1,10 @@
 /* ===========================================================================*/
 /* global styles */
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Nunito:ital,wght@0,400;1,300&family=Roboto:ital,wght@0,100;0,400;0,500;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,700;1,100;1,500&display=swap");
 @import "bootstrap/dist/css/bootstrap.min.css";
+
 
 * {
   /* resets default browser settings to zero */
@@ -14,14 +17,17 @@
   border-collapse: collapse;
 
   /* sets global font */
-  font-family: "Cairo", sans-serif;
+  font-family: "Lato", sans-serif;
+
+  /* font-family: "Alegreya Sans", sans-serif; */
 
   /* fixes issue of bold text not displaying correctly on Google Chrome */
   -webkit-font-smoothing: antialiased;
 
   /* ensures that viewport is 100% after changing orientation, by telling browser not to adjust text size */
   -webkit-text-size-adjust: 100%;
-
+  font-size: 16px;
+  /* 
   --h1: 26px;
   --h2: 24px;
   --h3: 22px;
@@ -36,7 +42,7 @@
   --six: 6px;
   --eight: 8px;
   --ten: 10px;
-  --twelve: 12px;
+  --twelve: 12px; */
 
   /* uses materialize colors */
   --lime: #cddc39;
@@ -68,7 +74,6 @@ body {
 
 .text-link {
   text-decoration: none;
-  color: white;
 }
 
 /* .container {
@@ -82,6 +87,7 @@ h4,
 h5,
 h6 {
   font-weight: 700;
+  color: #383737;
 }
 
 h1,
@@ -135,11 +141,12 @@ p {
 .navbar {
   position: relative;
   height: 50px;
-  padding: 0 5%;
+  padding: 0 2%;
 }
 
 #company-name {
   display: none;
+  /* color: rgb(180, 74, 91); */
 }
 
 nav ul {
@@ -236,7 +243,7 @@ main p {
   cursor: pointer;
 }
 
-#dog button {
+/* #dog button {
   display: block;
   margin: 0 auto;
   width: 100%;
@@ -246,7 +253,7 @@ main p {
   background-color: var(--lime-darken-2);
   color: white;
   border-radius: 10px;
-}
+} */
 #admin ul {
   list-style-type: none;
 }
@@ -298,9 +305,7 @@ footer p {
 @media screen and (min-width: 768px) {
   #company-name {
     display: inline;
-    color: white;
     margin-left: 10px;
-    font-size: calc(var(--h3) + var(--two));
     font-weight: 900;
   }
   nav ul li {
@@ -354,9 +359,7 @@ footer p {
     width: 768px;
     margin: 0 auto;
   }
-  #dog button {
-    width: 50%;
-  }
+
   footer p {
     font-size: calc(var(--footer) + var(--two));
   }
@@ -374,7 +377,6 @@ footer p {
   }
   #company-name {
     margin-left: 15px;
-    font-size: calc(var(--h3) + var(--four));
   }
   nav form,
   nav ul li {
@@ -429,7 +431,6 @@ footer p {
   }
   #company-name {
     margin-left: 20px;
-    font-size: calc(var(--h3) + var(--eight));
   }
   nav form,
   nav ul li {
