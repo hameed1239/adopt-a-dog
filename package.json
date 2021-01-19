@@ -21,6 +21,10 @@
   },
   "homepage": "https://github.com/hameed1239/encyclopedia#readme",
   "dependencies": {
+    "@apollo/react-hooks": "^4.0.0",
+    "apollo-boost": "^0.4.9",
+    "graphql": "^15.4.0",
+    "graphql-tag": "^2.11.0",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1"
   },

@@ -44,6 +44,11 @@ function Nav() {
           </Link>
         </li>
         <li>
+          <Link to='/login' className='text-link'>
+            Login
+          </Link>
+        </li>
+        <li>
           <FontAwesomeIcon icon={faUser} />
         </li>
         {/* <li className='mx-1'>
