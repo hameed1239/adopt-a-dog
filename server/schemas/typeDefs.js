@@ -54,6 +54,12 @@ const typeDefs = gql`
     userName: String
     email: String
     isAdmin: Boolean
+    
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type Query {
@@ -63,6 +69,7 @@ const typeDefs = gql`
     adoptions: [Adoption]
     adoption(_id: ID!): Adoption
     user: User
+    me: User
   }
 
   type Mutation {
@@ -95,6 +102,15 @@ const typeDefs = gql`
       temperaments: [ID]!
       status: [ID]
     ): Dog
+    login(
+      email: String!,
+      password: String!
+    ): Auth
+    addUser(
+      userName: String!, 
+      email: String!, 
+      password: String!
+    ): Auth
   }
 `;
 
