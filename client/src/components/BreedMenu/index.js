@@ -6,6 +6,8 @@ import { UPDATE_BREEDS, UPDATE_CURRENT_BREED } from "../../utils/actions";
 
 import { useDispatch, useSelector } from "react-redux";
 
+import { DropdownButton, ButtonGroup, Dropdown } from "react-bootstrap";
+
 const BreedMenu = () => {
   const state = useSelector((state) => {
     return state;
@@ -43,18 +45,33 @@ const BreedMenu = () => {
       </div>
 
       <div className="container">
-        <button className="breed-labels" onClick={() => handleClick()}>
-          All Breeds
-        </button>
-        {breeds.map((breed) => (
-          <button
-            key={breed._id}
+        <Dropdown>
+          <Dropdown.Toggle
+            id="dropdown-basic"
             className="breed-labels"
-            onClick={() => handleClick(breed._id)}
+            variant="none"
           >
-            {breed.name}
-          </button>
-        ))}
+            Breeds
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item
+              // className="breed-labels"
+              onClick={() => handleClick()}
+            >
+              All Breeds
+            </Dropdown.Item>
+
+            {breeds.map((breed) => (
+              <Dropdown.Item
+                key={breed._id}
+                onClick={() => handleClick(breed._id)}
+              >
+                {breed.name}
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
     </main>
   );
