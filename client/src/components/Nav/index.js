@@ -1,5 +1,5 @@
 import React from 'react';
-// import Auth from "../../utils/auth";
+import Auth from "../../utils/auth";
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,11 @@ import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import styled from "styled-components";
 
 
+
+const logout = event => {
+  event.preventDefault();
+  Auth.logout();
+};
 
 function Nav() {
   // function showNavigation() {}
@@ -42,20 +47,24 @@ function Nav() {
             Contact
           </Link>
         </li>
-        <li>
-          <Link to='/donate' className='text-link'>
-            Donate
-          </Link>
-        </li>
-        
-        <li>
-          <FontAwesomeIcon icon={faUser} />
-        </li>
-        {/* <li className='mx-1'>
-          <a href='/' onClick={() => Auth.logout()}>
-            Logout
-          </a>
-        </li> */}
+        {Auth.loggedIn() ? (
+            <>
+              <a href="/" className='text-link' onClick={logout}>
+                 Logout
+              </a>
+            </>
+         ) : (
+            <>
+               <li>
+                   <Link to='/login' className='text-link'>
+                      Login
+                  </Link>
+                </li>
+            </>
+          )}
+          <li>
+               <FontAwesomeIcon icon={faUser} />
+          </li>
       </ul>
 
       {/* <nav>{showNavigation()}</nav> */}
