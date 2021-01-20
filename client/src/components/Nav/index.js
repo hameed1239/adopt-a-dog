@@ -2,7 +2,6 @@ import React from 'react';
 // import Auth from "../../utils/auth";
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDog } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import styled from "styled-components";
@@ -48,6 +47,7 @@ function Nav() {
             Donate
           </Link>
         </li>
+        
         <li>
           <FontAwesomeIcon icon={faUser} />
         </li>
@@ -70,39 +70,36 @@ const NavbarEl = styled.nav`
     
   .brand-logo{
     text-decoration:none;
-    font-size:3rem !important;
+    font-size:0rem !important;
+    margin-bottom:1.5rem;
+    text-shadow:0px 0px  39px rgba(13,12,34,0.7);
+
 
   }
     .brand-logo p #campany-name{     
       font-family: "Alegreya Sans", sans-serif;
       font-weight:100;
-      ${'' /* color:black !important; */}
+      color:black !important;
       padding:1rem 0;
     }
     .brand-logo p {
       font-weight:100;
-      
       font-size:1.4rem !important; 
-      color:black !important;
+      color:black;
     }
     .brand-logo span{
       margin-right:.8rem;
-
-
       font-size:2rem !important;
-      color: rgb(51, 94, 160);
-
-
-
+      color: #11be8b;
     }
     .text-link{
-     
-  color: rgb(51, 94, 160);
-  ${'' /* font-weight: bold; */}
-  text-shadow:0px 0px 19px rgba(13,12,34,0.3);
-      font-family: "lato", sans-serif;
+        color: rgb(51, 94, 160);
 
-      ${'' /* font-weight:lighter; */}
+        ${'' /* font-weight: bold; */}
+        text-shadow:0px 0px 19px rgba(13,12,34,0.3);
+        font-family: "lato", sans-serif;
+${'' /* 
+      font-weight:lighter; */}
 
 
     }

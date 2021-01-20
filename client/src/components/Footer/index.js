@@ -55,7 +55,7 @@ export default Footer;
 const FooterEl = styled.footer`
 background-color:#e5ecf0;
 background-color:black;
-  height: 35vh; 
+  height: 42vh; 
 
   ul li a{
     color:#7f9195;

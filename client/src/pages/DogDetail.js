@@ -92,9 +92,7 @@ section{
   img{
     margin-top:3rem;
         box-shadow: 2px 1px 57px -3px rgba(128,144,170,0.75);
-    -webkit-box-shadow: 2px 1px 57px -3px rgba(128,144,170,0.75);
-    -moz-box-shadow: 2px 1px 57px -3px rgba(128,144,170,0.75);
-  }
+     }
   .buttons{
     align-content:center;
     text-align:center;
@@ -126,8 +124,8 @@ section{
     
     margin-top:2rem;
     box-shadow: 2px 1px 37px 1px rgba(141,159,193,0.75);
--webkit-box-shadow: 2px 1px 37px 1px rgba(141,159,193,0.75);
--moz-box-shadow: 2px 1px 37px 1px rgba(141,159,193,0.75);
+    -webkit-box-shadow: 2px 1px 37px 1px rgba(141,159,193,0.75);
+    -moz-box-shadow: 2px 1px 37px 1px rgba(141,159,193,0.75);
     color:white;
     background: rgb(68,223,115);
     background: linear-gradient(90deg, rgba(68,223,115,1) 50%, rgba(97,232,129,1) 100%);
