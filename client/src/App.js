@@ -12,20 +12,22 @@ import About from "./pages/About";
 import Donate from "./pages/Donate";
 import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import "./App.css";
 
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
 const client = new ApolloClient({
-  // request: (operation) => {
-  //   const token = localStorage.getItem('id_token')
-  //   operation.setContext({
-  //     headers: {
-  //       authorization: token ? `Bearer ${token}` : ''
-  //     }
-  //   })
-  // },
+   request: (operation) => {
+     const token = localStorage.getItem('id_token')
+     operation.setContext({
+       headers: {
+         authorization: token ? `Bearer ${token}` : ''
+       }
+     })
+   },
   uri: "/graphql",
 });
 
@@ -44,6 +46,8 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/dogs" component={Dogs} />
               <Route exact path="/dogs/:id" component={DogDetail} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
               <Route exact path="/about" component={About} />
               <Route exact path="/donate" component={Donate} />
               <Route exact path="/contact" component={Contact} />
