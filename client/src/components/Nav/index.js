@@ -47,10 +47,9 @@ function Nav() {
             Contact
           </Link>
         </li>
-<<<<<<< HEAD
         {Auth.loggedIn() ? (
             <>
-              <a href="/" onClick={logout}>
+              <a href="/" className='text-link' onClick={logout}>
                  Logout
               </a>
             </>
@@ -58,30 +57,14 @@ function Nav() {
             <>
                <li>
                    <Link to='/login' className='text-link'>
-                   Login
+                      Login
                   </Link>
                 </li>
-                </>
-             )}
+            </>
+          )}
           <li>
                <FontAwesomeIcon icon={faUser} />
           </li>
-=======
-        <li>
-          <Link to='/donate' className='text-link'>
-            Donate
-          </Link>
-        </li>
-        
-        <li>
-          <FontAwesomeIcon icon={faUser} />
-        </li>
-        {/* <li className='mx-1'>
-          <a href='/' onClick={() => Auth.logout()}>
-            Logout
-          </a>
-        </li> */}
->>>>>>> a7e8349e495c4d278aa90d639b56819193651067
       </ul>
 
       {/* <nav>{showNavigation()}</nav> */}
