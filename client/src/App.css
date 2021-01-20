@@ -146,7 +146,7 @@ p {
 
 #company-name {
   display: none;
-  /* color: rgb(180, 74, 91); */
+  
 }
 
 nav ul {
@@ -288,7 +288,7 @@ main p {
 /* ===========================================================================*/
 /* footer styles */
 footer {
-  margin-top: 40px;
+  /* margin-top: 40px; */
   padding: 10px 0;
 }
 
