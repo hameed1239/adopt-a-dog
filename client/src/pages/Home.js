@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components"
+import styled, { keyframes } from 'styled-components';
 import bgLogo from "../assets/dog-bg.jpg"
 import { faBone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
@@ -15,7 +17,7 @@ const Home = () => {
         <h1>Dont't Buy<span>Adopt</span></h1>
         <p>"Before you get a dog, you can't quite imagine what living with one might be like; afterward, you can't imagine living any other way."
         <span className="quote-name">Caroline Knapp</span></p>
-        <Link to="/dogs"><button className="btn-find">Find dog 	</button></Link>
+        <Link to="/dogs"><button className="btn-find">Find dog 	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
       </div>
 
       <div className="home-img">
@@ -28,6 +30,7 @@ const Home = () => {
 };
 
 export default Home;
+
 
 
 const HomeContainer = styled.div`
@@ -100,6 +103,12 @@ const HomeContainer = styled.div`
       }
   }
 
+
+.shake-paw{
+  color:white;
+  align-self:right;
+  margin-left:1rem;
+}
 
    
  }

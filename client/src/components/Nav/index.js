@@ -47,6 +47,7 @@ function Nav() {
             Donate
           </Link>
         </li>
+        
         <li>
           <FontAwesomeIcon icon={faUser} />
         </li>
