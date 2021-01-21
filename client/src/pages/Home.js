@@ -136,6 +136,4 @@ const HomeContainer = styled.div`
       }
  }
 
-  
-
 `
