@@ -8,6 +8,8 @@ import { UPDATE_DOGS } from "../utils/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "@apollo/react-hooks";
 
+import AdoptionFeeButton from "../components/Stripe/AdoptionFeeButton"
+
 const DogDetail = () => {
   const state = useSelector((state) => {
     return state;
@@ -68,7 +70,9 @@ const DogDetail = () => {
         <div className="buttons">
           
           <Link to="/donate"><button className="btn-adopt"> Adopt Me </button></Link>
+          <AdoptionFeeButton/>
           <Link to="/donate"><button className="btn-donate"> Donate </button></Link>
+     
         </div>
 
       </section>
