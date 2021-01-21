@@ -141,13 +141,7 @@ const HomeContainer = styled.div`
         box-shadow: 2px 1px 39px 6px rgba(186,201,227,0.55);
        
       }
-      .btn-find:hover{
-        color:white;
-          box-shadow: 2px 1px 9px 0px rgba(186,201,227,0.75);
-          transform:scale(1.01);
-          background: rgb(130,246,165);
-          background: linear-gradient(90deg, rgba(130,246,165,1) 50%, rgba(147,238,169,1) 100%);
-        }
+      
       p{
        font-family: "Alegreya Sans", sans-serif;
        font-size:1.1rem;
@@ -192,6 +186,13 @@ const HomeContainer = styled.div`
         background: linear-gradient(90deg, rgba(130,246,165,1) 50%, rgba(147,238,169,1) 100%);
         box-shadow: 2px 1px 39px 6px rgba(186,201,227,0.55);
        
+      }
+      .btn-find:hover{
+        color:white;
+          box-shadow: 2px 1px 9px 0px rgba(186,201,227,0.75);
+          transform:scale(1.01);
+          background: rgb(130,246,165);
+          background: linear-gradient(90deg, rgba(130,246,165,1) 50%, rgba(147,238,169,1) 100%);
       }
  }
 
