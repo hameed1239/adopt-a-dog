@@ -17,6 +17,7 @@ export const QUERY_DOGS = gql`
         _id
         name
       }
+      imgUrl
     }
   }
 `;
