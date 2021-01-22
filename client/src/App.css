@@ -2,9 +2,9 @@
 /* global styles */
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Nunito:ital,wght@0,400;1,300&family=Roboto:ital,wght@0,100;0,400;0,500;1,300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,700;1,100;1,500&display=swap");
 @import "bootstrap/dist/css/bootstrap.min.css";
-
 
 * {
   /* resets default browser settings to zero */
@@ -65,24 +65,12 @@
   --blue-grey-darken-4: #263238;
 }
 
+html,
 body {
   /* pushes footer to bottom of viewport */
   min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
+  margin: 0;
+  padding: 0;
 }
 
 .text-link {
@@ -135,7 +123,7 @@ p {
 .admin-bg {
   background-color: var(--blue-darken-4);
 }
-.user-color {
+/* .user-color {
   color: var(--lime-darken-2);
 }
 .user-bg {
@@ -146,42 +134,11 @@ p {
 }
 .user-footer {
   background-color: var(--lime-darken-1);
-}
+} */
 /* ===========================================================================*/
 /* =================== starts xs (<= 768px) - phone styles ================== */
 /* header styles */
 /* nav styles */
-.navbar {
-  position: relative;
-  height: 50px;
-  padding: 0 2%;
-}
-
-#company-name {
-  display: none;
-  
-}
-
-nav ul {
-  display: inline;
-  float: right;
-}
-
-nav ul li {
-  display: inline;
-  margin-left: 20px;
-  font-size: var(--h3);
-  line-height: 50px;
-  list-style-type: none;
-  color: white;
-  font-weight: 700;
-}
-
-.fas {
-  color: white;
-  font-size: var(--h3);
-  line-height: 50px;
-}
 
 /* ===========================================================================*/
 /* hero styles */
@@ -292,8 +249,6 @@ main p {
   width: 100%;
 }
 
-
-
 /* ===========================================================================*/
 /* footer styles */
 footer {
@@ -312,14 +267,6 @@ footer p {
 
 /* ================ starts sm (768px < 992px) tablets styles ================ */
 @media screen and (min-width: 768px) {
-  #company-name {
-    display: inline;
-    margin-left: 10px;
-    font-weight: 900;
-  }
-  nav ul li {
-    font-size: calc(var(--h3) + var(--two));
-  }
   .fas {
     font-size: calc(var(--h3) + var(--two));
   }
@@ -377,24 +324,6 @@ footer p {
 
 /* ============= starts md (992px < 1199px) small laptops styles ============ */
 @media screen and (min-width: 992px) {
-  .navbar {
-    height: 60px;
-  }
-  #logo {
-    height: 40px;
-    width: 40px;
-  }
-  #company-name {
-    margin-left: 15px;
-  }
-  nav form,
-  nav ul li {
-    margin-left: 30px;
-    line-height: 60px;
-  }
-  nav ul li {
-    font-size: calc(var(--h3) + var(--four));
-  }
   .fas {
     font-size: calc(var(--h3) + var(--four));
     line-height: 60px;
@@ -431,24 +360,11 @@ footer p {
 
 /* ============= starts lg (>= 1200px) laptops & desktops styles ============ */
 @media screen and (min-width: 1200px) {
-  .navbar {
-    height: 70px;
-  }
   #logo {
     height: 50px;
     width: 50px;
   }
-  #company-name {
-    margin-left: 20px;
-  }
-  nav form,
-  nav ul li {
-    margin-left: 30px;
-    line-height: 70px;
-  }
-  nav ul li {
-    font-size: calc(var(--h3) + var(--eight));
-  }
+
   .fas {
     font-size: calc(var(--h3) + var(--eight));
     line-height: 70px;

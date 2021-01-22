@@ -63,19 +63,6 @@ const DogsList = () => {
         {loading ? "loading dogs " : null}
       </div>
 
-      {/* <div className="container mt-20">
-        <h3>Medium Breeds</h3>
-        <div className="flex-container">
-          <Dog />
-        </div>
-      </div>
-
-      <div className="container mt-20">
-        <h3>Small Breeds</h3>
-        <div className="flex-container">
-          <Dog />
-        </div>
-      </div> */}
     </main>
   );
 };
