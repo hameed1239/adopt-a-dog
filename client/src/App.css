@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,700;1,100;1,500&display=swap");
 @import "bootstrap/dist/css/bootstrap.min.css";
 
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 * {
   /* resets default browser settings to zero */
@@ -79,6 +80,12 @@ body {
 /* .container {
   margin: 0 5%;
 } */
+
+.container-flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 
 h1,
 h2,

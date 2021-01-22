@@ -1,19 +1,68 @@
-import React from 'react';
-
+import React, { useState } from "react";
+import { Button, Collapse } from "react-bootstrap";
+import AddBreed from "../AddBreed";
+import DogsListAdmin from "../DogsListAdmin";
+import BreedListAdmin from "../BreedListAdmin";
+import EditBreed from "../EditBreedAdmin";
 const Admin = () => {
+  const [openAddBreed, setopenAddBreed] = useState(false);
+  const [openEditBreed, setopenEditBreed] = useState(false);
+  const [openViewBreed, setopenViewBreed] = useState(false);
+
   return (
-    <main id='admin'>
-      <section className='container'>
+    <main id="admin">
+      <section className="container">
         <h1>Admin Data Management</h1>
       </section>
 
-      <section className='container mt-20'>
+      <section className="container mt-20 container-flex-col">
         <h3>BREEDS</h3>
-        <ul>
-          <li>Add a Breed</li>
-          <li>Find, Edit and/or Delete a Breed</li>
-          <li>View breeds</li>
-        </ul>
+
+        <>
+          <Button
+            onClick={() => setopenAddBreed(!openAddBreed)}
+            aria-controls="example-collapse-text"
+            aria-expanded={openAddBreed}
+          >
+            Add A Breed
+          </Button>
+          <Collapse in={openAddBreed}>
+            <div>
+              <AddBreed />
+            </div>
+          </Collapse>
+        </>
+
+        <>
+          <Button
+            onClick={() => setopenEditBreed(!openEditBreed)}
+            aria-controls="example-collapse-text"
+            aria-expanded={openEditBreed}
+          >
+            Find/Edit/Remove Breed
+          </Button>
+          <Collapse in={openEditBreed}>
+            <div id="example-collapse-text">
+              <EditBreed />
+            </div>
+          </Collapse>
+        </>
+
+        <>
+          <Button
+            onClick={() => setopenViewBreed(!openViewBreed)}
+            aria-controls="example-collapse-text"
+            aria-expanded={openViewBreed}
+          >
+            View Breed
+          </Button>
+          <Collapse in={openViewBreed}>
+            <div id="example-collapse-text">
+              View Breeds
+              <BreedListAdmin />
+            </div>
+          </Collapse>
+        </>
 
         <h3>DOGS</h3>
         <ul>

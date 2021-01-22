@@ -6,7 +6,7 @@ import { UPDATE_BREEDS, UPDATE_CURRENT_BREED } from "../../utils/actions";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { DropdownButton, ButtonGroup, Dropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 
 const BreedMenu = () => {
   const state = useSelector((state) => {
@@ -15,7 +15,7 @@ const BreedMenu = () => {
 
   const dispatch = useDispatch();
 
-  const { breeds } = state;
+  const { breeds, temperaments } = state;
   const { loading, data: breedsData } = useQuery(QUERY_BREEDS);
 
   useEffect(() => {
@@ -27,8 +27,6 @@ const BreedMenu = () => {
     } else if (!loading) {
     }
   }, [breedsData, loading, dispatch]);
-
-  console.log(breeds);
 
   const handleClick = (id) => {
     dispatch({

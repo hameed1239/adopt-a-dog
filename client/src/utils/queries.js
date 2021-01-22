@@ -16,6 +16,18 @@ export const QUERY_DOGS = gql`
         _id
         name
       }
+      colors {
+        _id
+        name
+      }
+      temperaments {
+        _id
+        name
+      }
+      status {
+        _id
+        name
+      }
     }
   }
 `;
@@ -26,7 +38,43 @@ export const QUERY_BREEDS = gql`
       _id
       name
       size
-    
+      hypoallergenic
+      colors {
+        _id
+        name
+      }
+      temperament {
+        name
+      }
+    }
+  }
+`;
+
+export const QUERY_BREED = gql`
+  query getBreed($_id: ID) {
+    breed(_id: $_id) {
+      _id
+      name
+      size
+      hypoallergenic
+    }
+  }
+`;
+
+export const QUERY_COLORS = gql`
+  {
+    colors {
+      _id
+      name
+    }
+  }
+`;
+
+export const QUERY_TEMPERAMENTS = gql`
+  {
+    temperaments {
+      _id
+      name
     }
   }
 `;
