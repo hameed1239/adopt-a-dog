@@ -40,7 +40,7 @@
 
 ## Deployment URL
 
-Heroku
+https://ucb-adoptme.herokuapp.com/.
 
 ## Repo URL
 
@@ -60,10 +60,13 @@ https://github.com/hameed1239/adopt-a-dog.
 
 1. Install `node.js`
 1. Install `MongoDB`
+1. Create a database in a service such as `Atlas` on [mongodb](https://cloud.mongodb.com/).
 
 ## Installation
 
-1.
+1. In the root directory of the app, run `npm i`.
+1. OPTIONAL: run `npm run seed` to seed the database.
+1. Run `npm start`.
 
 ## Usage
 
@@ -105,7 +108,7 @@ https://github.com/hameed1239/adopt-a-dog.
 | HAMEED KAZEEM       | Back-end Developer  | Repo, MongoDB, Mongoose ODM, GraphQL & Database API & Deployment |
 | RONGBANG (BRYAN) YE | Front-end Developer | React and Redux                                                  |
 | SHAWNA GOHEL        | Back-end Developer  | Wireframes, Stripe Payment platform and React & Redux            |
-| SOLOMON MERESA      | Front-end Developer | GraphQL & PWA                                                    |
+| SOLOMON MERESA      | Front-end Developer | UI, GraphQL & PWA                                                    |
 
 ## Roadmap
 

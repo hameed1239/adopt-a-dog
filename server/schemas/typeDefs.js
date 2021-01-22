@@ -44,6 +44,7 @@ const typeDefs = gql`
     breed: Breed
     temperaments: [Temperament]
     status: Status
+    imgUrl: String
   }
 
     type Adoption {
