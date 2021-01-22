@@ -26,11 +26,10 @@ export default BurgerMenu
 
 const Burger = styled.div`
   display:none;
-  ${'' /* padding:.3rem; */}
     width:2.3rem;
     height:1.6rem;
     position:fixed;
-    top:1.3rem;
+    top:1rem;
     right:1rem;
     clip-path: ${({open}) => open ? 'inset(0 0 0 0)' : 'polygon(26% 0, 59% 0, 100% 0, 100% 100%, 12% 100%, 12% 69%, 0 68%, 0 36%, 25% 36%)'};
     z-index:20;

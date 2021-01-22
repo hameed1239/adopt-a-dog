@@ -1,12 +1,10 @@
-import React,{useState} from 'react';
-
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import styled from "styled-components";
 import BurgerMenu from './BurgerMenu';
-import Sidebar from './Sidebar';
 
 
 
@@ -38,7 +36,7 @@ const NavbarEl = styled.nav`
     background-color:#e5ecf0;
     position: relative;
     height: 70px;
-    padding: 0 2%;
+    padding:1% 2%;
     z-index:10;
     display:flex;
     justify-content:space-between;
@@ -47,15 +45,14 @@ const NavbarEl = styled.nav`
       text-decoration:none;
       text-shadow:0px 0px  49px rgba(13,12,34,0.6);
       
+      
     
     }
     .brand-logo p {     
       font-family: "Alegreya Sans", sans-serif;
       font-size:1.9rem !important; 
       color:black;
-     
-      margin-bottom :0rem;
-      font-weight:bold;
+      font-weight:600;
     } 
    
     .brand-logo span{

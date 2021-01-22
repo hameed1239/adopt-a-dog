@@ -3,8 +3,6 @@ import { useMutation } from '@apollo/react-hooks';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { Form } from 'react-bootstrap';
-import { Link } from "react-router-dom";
-import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import styled, { keyframes } from 'styled-components';

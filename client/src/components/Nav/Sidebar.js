@@ -52,9 +52,7 @@ const Sidebar = ({open, onClick}) => {
                 </li>
             </>
             )}
-            <li onClick={onClick}>
-                <FontAwesomeIcon icon={faUser} />
-            </li>
+            
     </UlContainer>
 
     )
@@ -71,13 +69,16 @@ const UlContainer = styled.ul`
         color: rgb(51, 94, 160);
        
         text-shadow:0px 0px 39px rgba(13,12,34,0.3);
-        font-family: "lato", sans-serif;
+        font-family:"Source Sans Pro",sans-serif;
+    }
+    .text-link:hover{
+        text-decoration:none;
     }
 
     li {
       list-style-type: none;
-      font-weight: 700;
-      padding:1rem 1rem;
+      font-weight: 600;
+      padding:1rem 1.4rem;
     }
 
  
