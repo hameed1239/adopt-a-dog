@@ -41,7 +41,7 @@ const DogDetail = () => {
       <section className="container">
       <img
           className="mb-20"
-          src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+          src={`/images/${currentDog.imgUrl}`}
           width="100%"
           alt=""
         />

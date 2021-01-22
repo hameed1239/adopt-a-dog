@@ -1,11 +1,11 @@
 {
-  "name": "encyclopedia",
+  "name": "adopt-me",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "cd server && npm start",
+    "start:prod": "cd server && npm run seed && npm start",
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "heroku-postbuild": "cd client && npm run build"
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/hameed1239/encyclopedia.git"
   },
-  "author": "Aaditi Pai, Ahmad El Gamal, Hameed Kazeem, Rongbang Ye, Solomon Meresa",
+  "author": "Aaditi Pai, Ahmad El Gamal, Hameed Kazeem, Rongbang Ye, Solomon Meresa, Shawna A Goehl",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hameed1239/encyclopedia/issues"
