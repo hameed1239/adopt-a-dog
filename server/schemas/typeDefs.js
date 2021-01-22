@@ -29,7 +29,7 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
-  
+
   type Dog {
     _id: ID
     name: String
@@ -86,6 +86,7 @@ const typeDefs = gql`
         colors: [Color]
         status: [Status]
         me: User
+        users: [User]
     }
 
     type Mutation {
@@ -145,6 +146,19 @@ const typeDefs = gql`
           email: String!, 
           password: String!
         ): Auth
+        updateUser(
+          _id: ID!
+          firstName: String!
+          lastName: String!
+          address: String!
+          city: String!
+          state: String!
+          zip: String!
+          phone: Int!
+          otherDogs: Int!
+          noOfKids: Int!
+          houseOrApartment: String!
+       ):User
     }
 `;
 

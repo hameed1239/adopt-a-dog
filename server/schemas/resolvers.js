@@ -13,6 +13,9 @@ const resolvers = {
             
               throw new AuthenticationError('Not logged in');
         },
+        users: async() => {
+            return await User.find();
+        },
         breeds: async () => {
             return await Breed.find();
         },
@@ -56,8 +59,9 @@ const resolvers = {
         },
         updateBreed: async(parent, args) =>{
             const {_id} = args
-           return await Breed.findByIdAndUpdate(_id, {...args}, {new: true});
+            return await Breed.findByIdAndUpdate(_id, {...args}, {new: true});
         },
+
         addDog: async(parent, args) =>{
             const dog = await Dog.create(args)
             return await Dog.findById(dog._id).populate("temperaments").populate("colors").populate("breed").populate("status")
@@ -90,6 +94,10 @@ const resolvers = {
             }
             const token = signToken(user);
             return {token,user};
+        },
+        updateUser: async(parent,args) => {
+            const {_id} = args
+            return await User.findByIdAndUpdate(_id, {...args}, {new: true}); 
         }
     }
 }
