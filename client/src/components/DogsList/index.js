@@ -50,9 +50,7 @@ const DogsList = () => {
                 <Dog
                   key={dog._id}
                   _id={dog._id}
-                  image={
-                    "https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
-                  }
+                  image={`/images/${dog.imgUrl}`}
                   name={dog.name}
                 />
               );

@@ -16,18 +16,7 @@ export const QUERY_DOGS = gql`
         _id
         name
       }
-      colors {
-        _id
-        name
-      }
-      temperaments {
-        _id
-        name
-      }
-      status {
-        _id
-        name
-      }
+      imgUrl
     }
   }
 `;
