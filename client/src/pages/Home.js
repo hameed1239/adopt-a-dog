@@ -208,6 +208,4 @@ const HomeContainer = styled.div`
   }      
 }
 
-  
-
 `
