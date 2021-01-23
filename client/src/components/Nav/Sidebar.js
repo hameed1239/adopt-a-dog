@@ -39,9 +39,11 @@ const Sidebar = ({open, onClick}) => {
         </li>
         {Auth.loggedIn() ? (
             <>
-                <a href="/" className='text-link' onClick={logout}>
+            <li onClick={onClick}>
+                <Link to='/login' className='text-link' onClick={logout}>
                 Logout
-                </a>
+                </Link>
+                </li>
             </>
         ) : (
             <>
