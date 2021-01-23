@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import Dog from "../Dog";
 
 import { QUERY_DOGS } from "../../utils/queries";
 
@@ -21,8 +20,6 @@ const DogsListAdmin = () => {
   const { loading, data } = useQuery(QUERY_DOGS);
 
   const dogs = data?.dogs || [];
-
-  console.log(dogs);
 
   useEffect(() => {
     if (data) {

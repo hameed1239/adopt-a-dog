@@ -7,7 +7,7 @@ import { UPDATE_BREEDS } from "../../utils/actions";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { Container, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Col, Form, Button } from "react-bootstrap";
 
 const EditBreed = () => {
   const state = useSelector((state) => {
@@ -31,7 +31,7 @@ const EditBreed = () => {
     temperaments: "",
   });
 
-  const [updateBreed, { error }] = useMutation(UPDATE_A_BREED);
+  const [updateBreed] = useMutation(UPDATE_A_BREED);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

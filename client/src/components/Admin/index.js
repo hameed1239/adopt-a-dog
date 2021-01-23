@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Collapse } from "react-bootstrap";
 import AddBreed from "../AddBreed";
-import DogsListAdmin from "../DogsListAdmin";
+// import DogsListAdmin from "../DogsListAdmin";
 import BreedListAdmin from "../BreedListAdmin";
 import EditBreed from "../EditBreedAdmin";
 const Admin = () => {

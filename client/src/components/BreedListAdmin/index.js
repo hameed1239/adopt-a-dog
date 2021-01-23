@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_BREEDS } from "../../utils/queries";
-import { UPDATE_BREEDS, UPDATE_CURRENT_BREED } from "../../utils/actions";
+import { UPDATE_BREEDS } from "../../utils/actions";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -15,7 +15,7 @@ const BreedListAdmin = () => {
 
   const dispatch = useDispatch();
 
-  const { breeds, temperaments } = state;
+  const { breeds } = state;
   const { loading, data: breedsData } = useQuery(QUERY_BREEDS);
 
   useEffect(() => {
@@ -27,17 +27,6 @@ const BreedListAdmin = () => {
     } else if (!loading) {
     }
   }, [breedsData, loading, dispatch]);
-
-  console.log(breeds);
-  console.log(temperaments);
-
-  const handleClick = (id) => {
-    dispatch({
-      type: UPDATE_CURRENT_BREED,
-      currentBreed: id,
-    });
-    console.log(id);
-  };
 
   return (
     <div className="container mt-20">
@@ -54,7 +43,7 @@ const BreedListAdmin = () => {
           <tbody>
             {breeds.map((breed) => {
               return (
-                <tr>
+                <tr key={breed._id}>
                   <td>{breed._id}</td>
                   <td>{breed.name}</td>
                   <td>{breed.size}</td>

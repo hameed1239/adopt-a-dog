@@ -15,7 +15,6 @@ const AddBreed = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     setFormState({
       ...formState,
       [name]: value,
@@ -24,8 +23,6 @@ const AddBreed = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-    console.log(formState.hypoallergenic);
 
     try {
       const mutationResponse = await addBreed({
