@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import ReactDOM from "react-dom";
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(
@@ -21,6 +20,7 @@ const CheckoutForm = () => {
         "Content-type": "application/json",
       },
       body: JSON.stringify({
+        product_data: 'Donation',
         amount: amtRef.current.value,
       }),
     });
@@ -39,9 +39,19 @@ const CheckoutForm = () => {
 
   return (
     <>
-      <h6>Amount</h6>
-      <input type="text" ref={amtRef}></input>
-      <button role="link" onClick={handleClick}>
+      <input type="text" placeholder="Amount" ref={amtRef} style={{
+        border: "solid 1px grey",
+        padding: "8px 20px",
+        borderRadius: "5px"
+      }}></input>
+      <button role="link" onClick={handleClick} style={{
+        border: "none",
+        padding: "8px 20px",
+        borderRadius: "5px",
+        backgroundColor: "#ADD8E6",
+        color: "green",
+        background: "linear-gradient(90deg,rgba(130,246,165,1) 50%,rgba(147,238,169,1) 100%)"
+      }}>
         Pay
       </button>
     </>
