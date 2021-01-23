@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import Dog from "../Dog";
 
 import { QUERY_DOGS } from "../../utils/queries";
 
 import { UPDATE_DOGS } from "../../utils/actions";
 import { useDispatch, useSelector } from "react-redux";
 
-const DogsList = () => {
+import { Table } from "react-bootstrap";
+
+const DogsListAdmin = () => {
   const state = useSelector((state) => {
     return state;
   });
@@ -19,8 +20,6 @@ const DogsList = () => {
   const { loading, data } = useQuery(QUERY_DOGS);
 
   const dogs = data?.dogs || [];
-
-  console.log(dogs);
 
   useEffect(() => {
     if (data) {
@@ -45,16 +44,34 @@ const DogsList = () => {
       <div className="container mt-20">
         {dogs.length ? (
           <div className="flex-container">
-            {filterDogsBreed().map((dog) => {
-              return (
-                <Dog
-                  key={dog._id}
-                  _id={dog._id}
-                  image={`/images/${dog.imgUrl}`}
-                  name={dog.name}
-                />
-              );
-            })}
+            <Table striped bordered hover size="sm">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Size</th>
+                  <th>Hypoallergenic</th>
+                  <th>Colors</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filterDogsBreed().map((dog) => {
+                  return (
+                    <tr>
+                      <td>{dog._id}</td>
+                      <td>{dog.name}</td>
+                      <td>{dog.size}</td>
+                      <td>{dog.hypoallergenic.toString()}</td>
+                      <td>
+                        {dog.colors.map((color) => {
+                          return color.name + ", ";
+                        })}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
           </div>
         ) : (
           <h3>No dogs in the data</h3>
@@ -64,4 +81,4 @@ const DogsList = () => {
     </main>
   );
 };
-export default DogsList;
+export default DogsListAdmin;
