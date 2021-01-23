@@ -12,8 +12,15 @@ export const QUERY_DOGS = gql`
       hypoallergenic
       story
       size
-      imgUrl
       breed {
+        _id
+        name
+      }
+      colors {
+        _id
+        name
+      }
+      temperaments {
         _id
         name
       }

@@ -38,6 +38,8 @@ const BreedListAdmin = () => {
               <th>Name</th>
               <th>Size</th>
               <th>Hypoallergenic</th>
+              <th>Colors</th>
+              <th>Temperaments</th>
             </tr>
           </thead>
           <tbody>
@@ -47,6 +49,16 @@ const BreedListAdmin = () => {
                   <td>{breed.name}</td>
                   <td>{breed.size}</td>
                   <td>{breed.hypoallergenic.toString()}</td>
+                  <td>
+                    {breed.colors.map((color) => {
+                      return color.name + ", ";
+                    })}
+                  </td>
+                  <td>
+                    {breed.temperaments.map((temperament) => {
+                      return temperament.name + ", ";
+                    })}
+                  </td>
                 </tr>
               );
             })}

@@ -32,6 +32,7 @@ const DogsListAdmin = () => {
     }
   }, [dispatch, data, loading]);
 
+  console.log(dogs);
   function filterDogsBreed() {
     if (!currentBreed) {
       return state.dogs;
@@ -47,24 +48,28 @@ const DogsListAdmin = () => {
             <Table striped bordered hover size="sm">
               <thead>
                 <tr>
-                  <th>ID</th>
                   <th>Name</th>
                   <th>Size</th>
                   <th>Hypoallergenic</th>
                   <th>Colors</th>
+                  <th>Temperaments</th>
                 </tr>
               </thead>
               <tbody>
                 {filterDogsBreed().map((dog) => {
                   return (
                     <tr>
-                      <td>{dog._id}</td>
                       <td>{dog.name}</td>
                       <td>{dog.size}</td>
                       <td>{dog.hypoallergenic.toString()}</td>
                       <td>
                         {dog.colors.map((color) => {
                           return color.name + ", ";
+                        })}
+                      </td>
+                      <td>
+                        {dog.temperaments.map((temperament) => {
+                          return temperament.name + ", ";
                         })}
                       </td>
                     </tr>
