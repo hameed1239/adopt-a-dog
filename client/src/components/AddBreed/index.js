@@ -22,6 +22,7 @@ const AddBreed = () => {
   const temperamentsID = temperamentsData?.temperaments || [];
 
   const handleChange = (event) => {
+    console.log(event.target.value)
     const { name, value } = event.target;
     setFormState({
       ...formState,
@@ -94,7 +95,6 @@ const AddBreed = () => {
             <label className="grey-text">hypoallergenic</label>
             <select
               className="browser-default custom-select"
-              value={formState.size}
               onChange={handleChange}
               type="hypoallergenic"
               name="hypoallergenic"
@@ -108,7 +108,6 @@ const AddBreed = () => {
             <label className="grey-text">Colors</label>
             <select
               className="browser-default custom-select"
-              value={formState.colors}
               onChange={handleChange}
               type="colors"
               name="colors"
@@ -116,14 +115,13 @@ const AddBreed = () => {
             >
               <option>Choose your option</option>
               {colorsData.map((color) => {
-                return <option value={color._id}>{color._id}</option>;
+                return <option key={color._id} value={color._id}>{color._id}</option>;
               })}
             </select>
 
             <label className="grey-text">Temperaments</label>
             <select
               className="browser-default custom-select"
-              value={formState.temperaments}
               onChange={handleChange}
               type="temperaments"
               name="temperaments"
