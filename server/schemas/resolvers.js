@@ -20,7 +20,7 @@ const resolvers = {
             return await User.findOne(args);
         },
         breeds: async () => {
-            return await Breed.find();
+            return await Breed.find().populate("colors").populate("temperaments");
         },
         dogs: async (parent, { breed, name }) => {
             const params = {};
@@ -58,7 +58,7 @@ const resolvers = {
         addBreed: async(parent, args ) =>{
             const breed = await Breed.create(args);
 
-            return {breed};
+            return await Breed.findById(breed._id).populate("colors").populate("temperaments");
         },
         updateBreed: async(parent, args) =>{
             const {_id} = args

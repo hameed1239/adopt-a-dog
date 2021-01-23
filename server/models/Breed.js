@@ -44,7 +44,7 @@ const breedSchema = new Schema({
             required: true
         }   
     ],
-    Temperaments: [
+    temperaments: [
         {
             type: Schema.Types.ObjectId,
             ref: "Temperament",

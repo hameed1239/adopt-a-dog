@@ -12,7 +12,7 @@ const typeDefs = gql`
     size: String
     hypoallergenic: Boolean
     colors: [Color]
-    temperament: [Temperament]
+    temperaments: [Temperament]
   }
 
   type Color {
