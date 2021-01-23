@@ -28,23 +28,22 @@ const BreedListAdmin = () => {
     }
   }, [breedsData, loading, dispatch]);
 
+  console.log(breeds);
   return (
     <div className="container mt-20">
       <div className="flex-container">
         <Table striped bordered hover size="sm">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Name</th>
               <th>Size</th>
               <th>Hypoallergenic</th>
             </tr>
           </thead>
           <tbody>
-            {breeds.map((breed) => {
+            {breeds.map((breed, index) => {
               return (
                 <tr key={breed._id}>
-                  <td>{breed._id}</td>
                   <td>{breed.name}</td>
                   <td>{breed.size}</td>
                   <td>{breed.hypoallergenic.toString()}</td>

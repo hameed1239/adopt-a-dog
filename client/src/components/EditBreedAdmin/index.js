@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
-import { QUERY_BREEDS } from "../../utils/queries";
+import {
+  QUERY_BREEDS,
+  QUERY_COLORS,
+  QUERY_TEMPERAMENTS,
+} from "../../utils/queries";
 import { UPDATE_A_BREED } from "../../utils/mutations";
 import { UPDATE_BREEDS } from "../../utils/actions";
 
 import { useDispatch, useSelector } from "react-redux";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 
 import { Container, Col, Form, Button } from "react-bootstrap";
 
@@ -19,19 +24,25 @@ const EditBreed = () => {
   const { breeds } = state;
 
   const { loading, data: breedsData } = useQuery(QUERY_BREEDS);
+  const [updateBreed] = useMutation(UPDATE_A_BREED);
+  const { data } = useQuery(QUERY_COLORS);
+  const { data: temperamentsData } = useQuery(QUERY_TEMPERAMENTS);
+
+  const colorsData = data?.colors || [];
+  const temperamentsID = temperamentsData?.temperaments || [];
+  const breedsDataID = breedsData?.breeds || [];
 
   const [searchInput, setSearchInput] = useState("");
   const [searchedBreed, setSearchedBreed] = useState([]);
 
   const [formState, setFormState] = useState({
+    _id: "",
     name: "",
     size: "",
-    hypoallergenic: false,
+    hypoallergenic: "",
     colors: "",
     temperaments: "",
   });
-
-  const [updateBreed] = useMutation(UPDATE_A_BREED);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -43,6 +54,12 @@ const EditBreed = () => {
 
   const handleEditFormSubmit = async (event) => {
     event.preventDefault();
+
+    if (formState.hypoallergenic === "true") {
+      formState.hypoallergenic = true;
+    } else if (formState.hypoallergenic === "false") {
+      formState.hypoallergenic = false;
+    }
 
     try {
       const mutationResponse = await updateBreed({
@@ -65,7 +82,9 @@ const EditBreed = () => {
         _id: "",
         name: "",
         size: "",
-        hypoallergenic: true,
+        hypoallergenic: "",
+        colors: "",
+        temperaments: "",
       });
     }
   };
@@ -96,6 +115,8 @@ const EditBreed = () => {
         return breed._id === searchInput;
       });
 
+      console.log(response);
+
       setSearchedBreed(response);
     } catch (err) {
       console.log(err);
@@ -103,106 +124,131 @@ const EditBreed = () => {
   };
 
   return (
-    <Container>
-      <h1>Search for Breed!</h1>
-      <Form onSubmit={handleFormSubmit}>
-        <Form.Row>
-          <Col xs={12} md={8}>
-            <Form.Control
-              name="searchInput"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              type="text"
-              size="lg"
-              placeholder="Search for a Breed"
-            />
-          </Col>
-          <Col xs={12} md={4}>
-            <Button type="submit" variant="success" size="lg">
-              Find Breed
-            </Button>
-
-            {/* <Button type="" variant="danger" size="lg">
-              Delete
-            </Button> */}
-          </Col>
-        </Form.Row>
-      </Form>
-      {searchedBreed.length > 0 && (
-        <Form onSubmit={handleEditFormSubmit}>
-          <Form.Row>
-            <Col xs={12} md={8}>
-              ID:
-              <Form.Control
-                name="_id"
-                value={formState._id}
-                onChange={handleChange}
-                type="text"
-                size="lg"
-                required="required"
-              />
-            </Col>
-
-            <Col xs={12} md={8}>
-              Name:
-              <Form.Control
-                name="name"
-                value={formState.name}
-                onChange={handleChange}
-                type="text"
-                size="lg"
-                required="required"
-              />
-            </Col>
-
-            <Col xs={12} md={8}>
-              Size:
-              <Form.Control
-                name="size"
-                value={formState.size}
-                onChange={handleChange}
-                type="text"
-                size="lg"
-                required="required"
-              />
-            </Col>
-
-            <Col xs={12} md={8}>
-              Color ID:
-              <Form.Control
-                name="colors"
+    <>
+      <MDBContainer>
+        <MDBRow>
+          <MDBCol md="6">
+            <form onSubmit={handleFormSubmit}>
+              <p className="h4 text-center mb-4">Find a Breed</p>
+              <select
+                className="browser-default custom-select"
                 value={formState.colors}
-                onChange={handleChange}
-                type="text"
-                size="lg"
-                required="required"
-              />
-            </Col>
+                // onChange={handleChange}
+                onChange={(e) => setSearchInput(e.target.value)}
+                type="searchInput"
+                name="searchInput"
+                value={searchInput}
+              >
+                <option>Choose your option</option>
+                {breedsDataID.map((breed) => {
+                  return <option value={breed._id}>{breed.name}</option>;
+                })}
+              </select>
 
-            <Col xs={12} md={8}>
-              Temperament ID:
-              <Form.Control
-                name="temperaments"
-                value={formState.temperaments}
-                onChange={handleChange}
-                type="text"
-                size="lg"
-                required="required"
-              />
-            </Col>
-          </Form.Row>
+              <div className="text-center mt-4">
+                <MDBBtn color="success" type="submit">
+                  Submit
+                </MDBBtn>
+              </div>
+            </form>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
 
-          <Col xs={12} md={4}>
-            <Button type="submit" variant="success" size="lg">
-              Update Breed
-            </Button>
-          </Col>
-        </Form>
+      {searchedBreed.length > 0 && (
+        <MDBContainer>
+          <MDBRow>
+            <MDBCol md="6">
+              <form onSubmit={handleEditFormSubmit}>
+                <label className="grey-text">Breed's ID</label>
+                <input
+                  name="_id"
+                  type="_id"
+                  id="_id"
+                  className="form-control"
+                  value={formState._id}
+                  onChange={handleChange}
+                  placeholder={searchedBreed._id}
+                />
+                <label className="grey-text">Update Breed name</label>
+                <input
+                  name="name"
+                  type="name"
+                  id="breed"
+                  className="form-control"
+                  value={formState.name}
+                  onChange={handleChange}
+                  required="required"
+                />
+                <label className="grey-text">Size</label>
+                <input
+                  type="size"
+                  name="size"
+                  value={formState.size}
+                  onChange={handleChange}
+                  className="form-control"
+                  required="required"
+                />
+
+                <label className="grey-text">hypoallergenic</label>
+                <select
+                  className="browser-default custom-select"
+                  value={formState.size}
+                  onChange={handleChange}
+                  type="hypoallergenic"
+                  name="hypoallergenic"
+                  value={formState.hypoallergenic}
+                >
+                  <option>Choose your option</option>
+                  <option value={"true"}>True</option>
+                  <option value={"false"}>False</option>
+                </select>
+
+                <label className="grey-text">Colors</label>
+                <select
+                  className="browser-default custom-select"
+                  value={formState.colors}
+                  onChange={handleChange}
+                  type="colors"
+                  name="colors"
+                  value={formState.colors}
+                >
+                  <option>Choose your option</option>
+                  {colorsData.map((color) => {
+                    return <option value={color._id}>{color._id}</option>;
+                  })}
+                </select>
+
+                <label className="grey-text">Temperaments</label>
+                <select
+                  className="browser-default custom-select"
+                  value={formState.temperaments}
+                  onChange={handleChange}
+                  type="temperaments"
+                  name="temperaments"
+                  value={formState.temperaments}
+                >
+                  <option>Choose your option</option>
+                  {temperamentsID.map((temperament) => {
+                    return (
+                      <option value={temperament._id}>
+                        {temperament.name}
+                      </option>
+                    );
+                  })}
+                </select>
+
+                <div className="text-center mt-4">
+                  <MDBBtn color="success" type="submit">
+                    Submit
+                  </MDBBtn>
+                </div>
+              </form>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
       )}
-      {/* <section className="container mt-20"> */}
-
-      {/* </section> */}
-    </Container>
+    </>
   );
 };
 

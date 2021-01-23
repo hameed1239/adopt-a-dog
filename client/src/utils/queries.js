@@ -12,6 +12,7 @@ export const QUERY_DOGS = gql`
       hypoallergenic
       story
       size
+      imgUrl
       breed {
         _id
         name
@@ -51,7 +52,7 @@ export const QUERY_BREED = gql`
 `;
 
 export const QUERY_COLORS = gql`
-  {
+  query getColors {
     colors {
       _id
       name
@@ -60,7 +61,7 @@ export const QUERY_COLORS = gql`
 `;
 
 export const QUERY_TEMPERAMENTS = gql`
-  {
+  query getTemperaments {
     temperaments {
       _id
       name

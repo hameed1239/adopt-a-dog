@@ -68,9 +68,7 @@ const resolvers = {
         },
         removeDog: async(parent, {_id}) => {
             return await Dog.findByIdAndDelete(_id);
-        }
-    },
-    Mutation: {
+        },
         addUser: async (parent, args) => {
            const user = await User.create(args);
            const token = signToken(user);
@@ -78,7 +76,7 @@ const resolvers = {
         },
         login: async (parent,{email, password}) => {
             const user = await User.findOne({ email });
-
+    
             if (!user) {
               throw new AuthenticationError('Incorrect credentials');
             }
