@@ -43,7 +43,7 @@ const BreedMenu = () => {
   return (
     <BreedMenuEL>
       <div className="container">
-        <h1>Filter</h1>
+        <h1>Filter By</h1>
       </div>
 
       <div className="container">
@@ -103,6 +103,6 @@ h1{
   margin:1rem 0;
   padding:.3rem;
   line-height:2rem;
-  font-weight:normal;
+  font-weight:bold;
 }
 `

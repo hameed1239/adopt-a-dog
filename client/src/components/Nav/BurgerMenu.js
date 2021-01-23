@@ -16,7 +16,7 @@ const BurgerMenu = () => {
                 <div></div>
                     
             </Burger>
-            <Sidebar open={open}  onClick={() => setOpen(!open)}/>
+            <Sidebar open={open} onClick={() => setOpen(!open)}/>
         </>
     )
 }
@@ -34,13 +34,10 @@ const Burger = styled.div`
     clip-path: ${({open}) => open ? 'inset(0 0 0 0)' : 'polygon(26% 0, 59% 0, 100% 0, 100% 100%, 12% 100%, 12% 69%, 0 68%, 0 36%, 25% 36%)'};
     z-index:20;
     @media only screen and (max-width: 768px) { 
-    
-    
     display:flex;
     justify-content:space-around;
     flex-flow:column nowrap;
     
-
     div{
         width:1.7rem;
         height:.2rem; 

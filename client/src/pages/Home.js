@@ -14,7 +14,7 @@ const Home = () => {
     <HomeContainer>
       <div className="home-content">
         <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
-        <h1>Dont't Buy<span>Adopt</span></h1>
+        <h1>Don't Buy<span> Adopt</span></h1>
         <p>"Before you get a dog, you can't quite imagine what living with one might be like; afterward, you can't imagine living any other way."
         <span className="quote-name">Caroline Knapp</span></p>
         <Link to="/dogs"><button className="btn-find">Find dog 	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
