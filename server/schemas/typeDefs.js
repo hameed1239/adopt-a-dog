@@ -25,6 +25,11 @@ const typeDefs = gql`
     name: String
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+  
   type Dog {
     _id: ID
     name: String
@@ -81,6 +86,7 @@ const typeDefs = gql`
         temperaments: [Temperament]
         colors: [Color]
         status: [Status]
+        me: User
     }
 
     type Mutation {
@@ -98,7 +104,7 @@ const typeDefs = gql`
             hypoallergenic: Boolean, 
             colors:[ID], 
             temperaments:[ID] 
-            ) :Breed
+            ): Breed
         addDog(
             name: String!, 
             height: String!, 
@@ -131,6 +137,15 @@ const typeDefs = gql`
         removeDog(
             _id:ID!
         ): Dog
+        login(
+          email: String!,
+          password: String!
+        ): Auth
+        addUser(
+          userName: String!, 
+          email: String!, 
+          password: String!
+        ): Auth
     }
 `;
 
