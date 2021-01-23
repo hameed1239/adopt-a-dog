@@ -16,6 +16,9 @@ const resolvers = {
         users: async() => {
             return await User.find();
         },
+        user: async(parent,args) =>{
+            return await User.findOne(args);
+        },
         breeds: async () => {
             return await Breed.find();
         },

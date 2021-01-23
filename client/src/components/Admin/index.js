@@ -4,11 +4,13 @@ import AddBreed from "../AddBreed";
 // import DogsListAdmin from "../DogsListAdmin";
 import BreedListAdmin from "../BreedListAdmin";
 import EditBreed from "../EditBreedAdmin";
+import EditUser from "../EditUser";
+
 const Admin = () => {
   const [openAddBreed, setopenAddBreed] = useState(false);
   const [openEditBreed, setopenEditBreed] = useState(false);
   const [openViewBreed, setopenViewBreed] = useState(false);
-
+  const [openEditUser, setopenEditUser] = useState(false);
   return (
     <main id="admin">
       <section className="container">
@@ -81,7 +83,21 @@ const Admin = () => {
         <h3>USERS</h3>
         <ul>
           <li>Add a user</li>
-          <li>Find, Edit & Delete a user</li>
+          
+          <>
+          <Button
+            onClick={() => setopenEditUser(!openEditUser)}
+            aria-controls="example-collapse-text"
+            aria-expanded={openEditUser}
+          >
+              Find, Edit & Delete a user
+          </Button>
+          <Collapse in={openEditUser}>
+            <div id="example-collapse-text">
+              <EditUser />
+            </div>
+          </Collapse>
+          </>
           <li>View users</li>
         </ul>
       </section>

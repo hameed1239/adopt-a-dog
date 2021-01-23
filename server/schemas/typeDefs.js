@@ -88,6 +88,7 @@ const typeDefs = gql`
         status: [Status]
         me: User
         users: [User]
+        user: [User]
     }
 
     type Mutation {
@@ -159,6 +160,7 @@ const typeDefs = gql`
           otherDogs: Int!
           noOfKids: Int!
           houseOrApartment: String!
+          isAdmin: Boolean
        ):User
     }
 `;

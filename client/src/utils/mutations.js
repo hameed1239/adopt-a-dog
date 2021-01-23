@@ -91,6 +91,7 @@ export const UPDATE_USER = gql`
     $otherDogs: Int!
     $noOfKids: Int!
     $houseOrApartment: String!
+    $isAdmin: Boolean
   ){
     updateUser(
       _id: $_id
@@ -104,6 +105,7 @@ export const UPDATE_USER = gql`
       otherDogs: $otherDogs
       noOfKids: $noOfKids
       houseOrApartment: $houseOrApartment
+      isAdmin: $isAdmin
     )
     {
       _id
@@ -117,6 +119,7 @@ export const UPDATE_USER = gql`
       otherDogs
       noOfKids
       houseOrApartment
+      isAdmin
     }
   }
 `

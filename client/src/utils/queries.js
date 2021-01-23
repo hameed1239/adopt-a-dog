@@ -68,3 +68,22 @@ export const QUERY_TEMPERAMENTS = gql`
     }
   }
 `;
+
+export const QUERY_USER = gql`
+  query getUser($_id: ID) {
+    user(_id: $_id) {
+      _id
+      firstName
+      lastName
+      address
+      city
+      state
+      zip
+      phone
+      otherDogs
+      noOfKids
+      houseOrApartment
+      isAdmin
+    }
+  }
+`;
