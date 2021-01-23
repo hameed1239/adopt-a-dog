@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const logout = event => {
     event.preventDefault();
     Auth.logout();
-  };
+};
 
 const Sidebar = ({open, onClick}) => {
     return (
