@@ -14,7 +14,7 @@ const Home = () => {
     <HomeContainer>
       <div className="home-content">
         <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
-        <h1>Dont't Buy<span>Adopt</span></h1>
+        <h1>Don't Buy<span> Adopt</span></h1>
         <p>"Before you get a dog, you can't quite imagine what living with one might be like; afterward, you can't imagine living any other way."
         <span className="quote-name">Caroline Knapp</span></p>
         <Link to="/dogs"><button className="btn-find">Find dog 	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
@@ -32,12 +32,12 @@ const Home = () => {
 export default Home;
 
 
-
+//background: rgb(231, 230, 226);
 const HomeContainer = styled.div`
- min-height:100vh;
- display:flex;
- justify-content:space-between;
-  background: rgb(231,242,247);
+min-height:100vh;
+display:flex;
+justify-content:space-between;
+background: rgb(231,242,247);
   background: linear-gradient(0deg, rgba(231,242,247,1) 0%, rgba(255,255,255,1) 40%, rgba(229,236,240,1) 100%);
  div{
    margin:0 2rem;
