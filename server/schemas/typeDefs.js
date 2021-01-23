@@ -105,7 +105,7 @@ const typeDefs = gql`
             hypoallergenic: Boolean, 
             colors:[ID], 
             temperaments:[ID] 
-            ) :Breed
+            ): Breed
         addDog(
             name: String!, 
             height: String!, 

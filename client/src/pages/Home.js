@@ -14,7 +14,7 @@ const Home = () => {
     <HomeContainer>
       <div className="home-content">
         <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
-        <h1>Don't Buy<span>Adopt</span></h1>
+        <h1>Don't Buy<span> Adopt</span></h1>
         <p>"Before you get a dog, you can't quite imagine what living with one might be like; afterward, you can't imagine living any other way."
         <span className="quote-name">Caroline Knapp</span></p>
         <Link to="/dogs"><button className="btn-find">Find dog 	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
@@ -32,12 +32,12 @@ const Home = () => {
 export default Home;
 
 
-
+//background: rgb(231, 230, 226);
 const HomeContainer = styled.div`
- min-height:100vh;
- display:flex;
- justify-content:space-between;
-  background: rgb(231,242,247);
+min-height:100vh;
+display:flex;
+justify-content:space-between;
+background: rgb(231,242,247);
   background: linear-gradient(0deg, rgba(231,242,247,1) 0%, rgba(255,255,255,1) 40%, rgba(229,236,240,1) 100%);
  div{
    margin:0 2rem;
@@ -125,7 +125,7 @@ const HomeContainer = styled.div`
 
     img{
       height:90%;
-      width:60%;
+      width:70%;
       box-shadow: 2px 1px 21px 20px rgba(255,255,255,0.75);
     }
     .icon{
@@ -135,5 +135,77 @@ const HomeContainer = styled.div`
 
       }
  }
+ 
+ @media only screen and (max-width: 1080px){
+
+  .home-content {
+    .btn-find{
+        padding:.6rem 3rem !important; 
+    }
+
+  }
+  .home-img {
+  margin:2rem 0;
+  padding:2rem 0;
+    img{
+      height:70%;
+      width:90%;
+      box-shadow: 2px 1px 21px 20px rgba(255,255,255,0.75);
+    }
+   
+ }
+
+      
+}
+ @media only screen and (max-width: 880px){
+
+  .home-content {
+    .btn-find{
+        padding:.6rem 2rem !important;
+    }
+
+  }
+
+      
+}
+ @media only screen and (max-width: 768px){
+  display:block;
+  div{
+   padding:3rem 1rem;
+
+ }
+  .home-content{
+    width:90%;
+    .btn-find{
+        font-family: "Alegreya Sans", sans-serif;
+        padding:.6rem 5rem !important;
+        margin:2.6rem .3rem !important;
+        }
+  }
+  .home-img{
+    width:60%;
+    text-align:center;
+    margin:0 auto;
+      
+  }      
+}
+ @media only screen and (max-width: 400px){
+  display:block;
+
+  .home-content{
+    width:92%;
+    .btn-find{
+        font-family: "Alegreya Sans", sans-serif;
+        padding:.6rem 2.4rem !important;
+        margin:2.6rem .3rem !important;
+        }
+  }
+  .home-img{
+    width:60%;
+    text-align:center;
+    margin:0 auto;
+      
+  }      
+}
 
 `

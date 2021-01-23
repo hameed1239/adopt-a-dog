@@ -12,6 +12,7 @@ export const QUERY_DOGS = gql`
       hypoallergenic
       story
       size
+      imgUrl
       breed {
         _id
         name
@@ -27,7 +28,43 @@ export const QUERY_BREEDS = gql`
       _id
       name
       size
-    
+      hypoallergenic
+      colors {
+        _id
+        name
+      }
+      temperament {
+        name
+      }
+    }
+  }
+`;
+
+export const QUERY_BREED = gql`
+  query getBreed($_id: ID) {
+    breed(_id: $_id) {
+      _id
+      name
+      size
+      hypoallergenic
+    }
+  }
+`;
+
+export const QUERY_COLORS = gql`
+  query getColors {
+    colors {
+      _id
+      name
+    }
+  }
+`;
+
+export const QUERY_TEMPERAMENTS = gql`
+  query getTemperaments {
+    temperaments {
+      _id
+      name
     }
   }
 `;

@@ -16,9 +16,107 @@ export const ADD_USER = gql`
     addUser(userName: $userName, email: $email, password: $password) {
       token
       user {
-       
         userName
       }
     }
   }
 `;
+
+export const ADD_BREED = gql`
+  mutation addBreed(
+    $name: String!
+    $size: String!
+    $hypoallergenic: Boolean!
+    $colors: [ID]!
+    $temperaments: [ID]!
+  ) {
+    addBreed(
+      name: $name
+      size: $size
+      hypoallergenic: $hypoallergenic
+      colors: $colors
+      temperaments: $temperaments
+    ) {
+      _id
+      name
+      size
+      hypoallergenic
+      colors {
+        name
+      }
+      temperament {
+        name
+      }
+    }
+  }
+`;
+
+export const UPDATE_A_BREED = gql`
+  mutation updateBreed(
+    $_id: ID!
+    $name: String
+    $size: String
+    $hypoallergenic: Boolean
+    $colors: [ID]
+    $temperaments: [ID]
+  ) {
+    updateBreed(
+      _id: $_id
+      name: $name
+      size: $size
+      hypoallergenic: $hypoallergenic
+      colors: $colors
+      temperaments: $temperaments
+    ) {
+      _id
+      name
+      size
+      colors {
+        name
+      }
+    }
+  }
+`;
+
+export const UPDATE_USER = gql`
+  mutation updateUser(
+    $_id: ID!
+    $firstName: String!
+    $lastName: String!
+    $address: String!
+    $city: String!
+    $state: String!
+    $zip: String!
+    $phone: Int!
+    $otherDogs: Int!
+    $noOfKids: Int!
+    $houseOrApartment: String!
+  ){
+    updateUser(
+      _id: $_id
+      firstName: $firstName
+      lastName: $lastName
+      address: $address
+      city: $city
+      state: $state
+      zip: $zip
+      phone: $phone
+      otherDogs: $otherDogs
+      noOfKids: $noOfKids
+      houseOrApartment: $houseOrApartment
+    )
+    {
+      _id
+      firstName
+      lastName
+      address
+      city
+      state
+      zip
+      phone
+      otherDogs
+      noOfKids
+      houseOrApartment
+    }
+  }
+`

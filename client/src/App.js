@@ -6,6 +6,7 @@ import ApolloClient from "apollo-boost";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import AdminPage from "./pages/Admin";
 import Dogs from "./pages/Dogs";
 import DogDetail from "./pages/DogDetail";
 import About from "./pages/About";
@@ -44,6 +45,7 @@ function App() {
             <Nav />
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/admin" component={AdminPage} />
               <Route exact path="/dogs" component={Dogs} />
               <Route exact path="/dogs/:id" component={DogDetail} />
               <Route exact path="/login" component={Login} />
