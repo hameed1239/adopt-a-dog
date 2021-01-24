@@ -39,6 +39,11 @@ const Sidebar = ({open,onClick}) => {
             Contact
             </Link>
         </li>
+        <li>
+            <Link to='/donate' className='text-link'>
+            Donate
+            </Link>
+        </li>
         {Auth.loggedIn() ? (
             <>
                 <li>
