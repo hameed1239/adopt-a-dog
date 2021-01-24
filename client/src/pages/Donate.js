@@ -41,7 +41,7 @@ justify-content:space-between;
   .home-content{
     align-content:center;
     width:50%;
-    padding: 1rem 8rem;
+    padding: 2rem 8rem;
     margin:2rem;
 
       h2{

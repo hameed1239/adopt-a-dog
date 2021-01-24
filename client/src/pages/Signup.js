@@ -42,6 +42,7 @@ const Signup = () => {
 
                     <div >
                         <HomeContainer>
+                        
                             
                             <div className="home-img">
                                 <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
@@ -88,11 +89,7 @@ const HomeContainer = styled.div`
  justify-content:center;
   background: rgb(231,242,247);
   background: linear-gradient(0deg, rgba(231,242,247,1) 0%, rgba(255,255,255,1) 40%, rgba(229,236,240,1) 100%);
- div{
-   margin:0 2rem;
-   padding:3rem;
 
- }
  
   }
 
@@ -106,22 +103,24 @@ const HomeContainer = styled.div`
    
  }
  .home-img {
-    width:35%;
+    width:32%;
     height: 10%;
-    margin:1rem;
-    padding:0.2rem;
-    border: 2px solid grey;
+    margin:4rem;
+    padding:1rem 4rem;
   align-items:left;
-   text-align:center !important;
+   text-align:left !important;
+   background-color:white !important;
+box-shadow: 2px 1px 89px 0px rgba(56,101,167,.3);
    a{
      ${'' /* width:80%; */}
      
    }
 
    .btn-find{
+       width:100%;
     font-family: "Alegreya Sans", sans-serif;
-    padding:.6rem 5rem !important;
-    margin:2.6rem .3rem !important;
+    padding:.6rem 2rem !important;
+    margin:2.6rem 0 !important;
     text-decoration: none !important;
     border-radius:none;
     transition:ease-in-out .2s;
