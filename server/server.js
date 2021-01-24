@@ -34,7 +34,7 @@ const stripe = Stripe('sk_test_51IB2FYDWlFXjkhsbjkzqTRKrbh9B69KDfMtE5g30PQhOmNFI
 
 app.post('/create-checkout-session', async (req, res) => {
 
-  let { amount } = req.body 
+  let { amount, product_data } = req.body 
   amount *= 100
 
   const session = await stripe.checkout.sessions.create({
@@ -44,7 +44,7 @@ app.post('/create-checkout-session', async (req, res) => {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: 'Donation',
+            name: product_data,
           },
           unit_amount: amount,
         },

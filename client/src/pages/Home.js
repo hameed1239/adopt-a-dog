@@ -33,12 +33,12 @@ const Home = () => {
 export default Home;
 
 
-
+//background: rgb(231, 230, 226);
 const HomeContainer = styled.div`
- min-height:100vh;
- display:flex;
- justify-content:space-between;
-  background: rgb(231,242,247);
+min-height:100vh;
+display:flex;
+justify-content:space-between;
+background: rgb(231,242,247);
   background: linear-gradient(0deg, rgba(231,242,247,1) 0%, rgba(255,255,255,1) 40%, rgba(229,236,240,1) 100%);
  div{
    margin:0 2rem;
