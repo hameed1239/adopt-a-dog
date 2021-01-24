@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import styled from "styled-components";
 import BurgerMenu from './BurgerMenu';
@@ -11,7 +10,6 @@ import BurgerMenu from './BurgerMenu';
 
 
 function Nav() {
-  // function showNavigation() {}
 
   return (
     <NavbarEl>
