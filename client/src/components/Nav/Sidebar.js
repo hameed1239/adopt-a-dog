@@ -1,8 +1,6 @@
-import React from 'react'
+import React ,{useState,useEffect }from 'react'
 import styled from 'styled-components';
 import Auth from "../../utils/auth";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 
@@ -10,42 +8,48 @@ import { Link } from 'react-router-dom';
 const logout = event => {
     event.preventDefault();
     Auth.logout();
-  };
+};
 
-const Sidebar = ({open, onClick}) => {
+const Sidebar = ({open,onClick}) => {
+
+
+
+
     return (
         
-      <UlContainer open={open}>
-        <li onClick={onClick}>
+      <UlContainer open={open}  onClick={onClick}>
+        <li>
             <Link to='/' className='text-link'>
             Home
             </Link>
         </li>
-        <li onClick={onClick}>
+        <li>
             <Link to='/dogs' className='text-link'>
             Dogs
             </Link>
         </li>
         
-        <li onClick={onClick}>
+        <li>
             <Link to='/about' className='text-link'>
             About
             </Link>
         </li>
-        <li onClick={onClick}>
+        <li>
             <Link to='/contact' className='text-link'>
             Contact
             </Link>
         </li>
         {Auth.loggedIn() ? (
             <>
-                <a href="/" className='text-link' onClick={logout}>
-                Logout
-                </a>
+                <li>
+                    <Link to='/login' className='text-link' onClick={logout}>
+                        Logout
+                    </Link>
+                </li>
             </>
         ) : (
             <>
-                <li onClick={onClick}>
+                <li>
                     <Link to='/login' className='text-link'>
                         Login
                     </Link>
@@ -89,7 +93,7 @@ const UlContainer = styled.ul`
    
       flex-flow:column nowrap;
       background:white;
-        position:fixed;
+      position:fixed;
       border:none;
       top:0;
       right:0;
