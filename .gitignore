@@ -2,6 +2,7 @@
 .env
 .DS_Store
 package-lock.json
+.eslintcache
 
 #folders
 node_modules
