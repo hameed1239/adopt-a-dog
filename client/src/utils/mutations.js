@@ -44,7 +44,7 @@ export const ADD_BREED = gql`
       colors {
         name
       }
-      temperament {
+      temperaments {
         name
       }
     }
@@ -74,6 +74,129 @@ export const UPDATE_A_BREED = gql`
       colors {
         name
       }
+    }
+  }
+`;
+
+export const ADD_DOG = gql`
+  mutation addDog(
+    $name: String!
+    $height: String!
+    $weight: String!
+    $yearOfBirth: Int
+    $size: String!
+    $gender: String!
+    $hypoallergenic: Boolean!
+    $story: String!
+    $colors: [ID]!
+    $breed: ID!
+    $temperaments: [ID]!
+    $status: [ID]
+  ) {
+    addDog(
+      name: $name
+      height: $height
+      weight: $weight
+      yearOfBirth: $yearOfBirth
+      size: $size
+      gender: $gender
+      story: $story
+      hypoallergenic: $hypoallergenic
+      colors: $colors
+      breed: $breed
+      temperaments: $temperaments
+      status: $status
+    ) {
+      _id
+      name
+      height
+      weight
+      yearOfBirth
+      gender
+      hypoallergenic
+      story
+      size
+      colors {
+        name
+      }
+      breed {
+        name
+      }
+      temperaments {
+        name
+      }
+      status {
+        name
+      }
+    }
+  }
+`;
+
+export const UPDATE_A_DOG = gql`
+  mutation updateDog(
+    $_id: ID!
+    $name: String
+    $height: String
+    $weight: String
+    $yearOfBirth: Int
+    $size: String
+    $gender: String
+    $Story: String
+    $hypoallergenic: Boolean
+    $colors: [ID]
+    $temperaments: [ID]
+    $status: [ID]
+    $breed: ID
+  ) {
+    updateDog(
+      _id: $_id
+      name: $name
+      height: $height
+      weight: $weight
+      yearOfBirth: $yearOfBirth
+      size: $size
+      gender: $gender
+      story: $Story
+      hypoallergenic: $hypoallergenic
+      colors: $colors
+      breed: $breed
+      temperaments: $temperaments
+      status: $status
+    ) {
+      _id
+      name
+      height
+      weight
+      yearOfBirth
+      gender
+      hypoallergenic
+      story
+      size
+      colors {
+        _id
+        name
+      }
+      breed {
+        _id
+        name
+      }
+      temperaments {
+        _id
+        name
+      }
+      status {
+        _id
+        name
+      }
+    }
+  }
+`;
+
+export const REMOVE_A_DOG = gql`
+  mutation removeDog($_id: ID!) {
+    removeDog(_id: $_id) {
+      _id
+      name
     }
   }
 `;

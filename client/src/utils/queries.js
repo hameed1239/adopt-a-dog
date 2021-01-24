@@ -40,7 +40,7 @@ export const QUERY_BREEDS = gql`
         _id
         name
       }
-      temperament {
+      temperaments {
         name
       }
     }

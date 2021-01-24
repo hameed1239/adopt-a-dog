@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
@@ -21,14 +21,14 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 
 const client = new ApolloClient({
-   request: (operation) => {
-     const token = localStorage.getItem('id_token')
-     operation.setContext({
-       headers: {
-         authorization: token ? `Bearer ${token}` : ''
-       }
-     })
-   },
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : "",
+      },
+    });
+  },
   uri: "/graphql",
 });
 

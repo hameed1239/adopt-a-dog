@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Button, Collapse } from "react-bootstrap";
 import AddBreed from "../AddBreed";
+import AddDog from "../AddDog";
+import EditDog from "../EditDogAdmin";
 import DogsListAdmin from "../DogsListAdmin";
 import BreedListAdmin from "../BreedListAdmin";
 import EditBreed from "../EditBreedAdmin";
+
 const Admin = () => {
   const [openAddBreed, setopenAddBreed] = useState(false);
   const [openEditBreed, setopenEditBreed] = useState(false);
@@ -79,7 +82,7 @@ const Admin = () => {
           </Button>
           <Collapse in={openAddDog}>
             <div>
-              <AddBreed />
+              <AddDog />
             </div>
           </Collapse>
         </>
@@ -94,7 +97,7 @@ const Admin = () => {
           </Button>
           <Collapse in={openEditDog}>
             <div id="example-collapse-text">
-              <EditBreed />
+              <EditDog />
             </div>
           </Collapse>
         </>

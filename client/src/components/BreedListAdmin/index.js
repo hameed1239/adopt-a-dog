@@ -28,7 +28,6 @@ const BreedListAdmin = () => {
     }
   }, [breedsData, loading, dispatch]);
 
-  console.log(breeds);
   return (
     <div className="container mt-20">
       <div className="flex-container">
