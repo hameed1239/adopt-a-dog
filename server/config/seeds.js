@@ -814,7 +814,7 @@ db.once("open", async () => {
     await User.create(
         {
             userName: "tester1",
-            email: "test1@gmail.com",
+            email: "test1@test.com",
             password: "password",
             firstName: "Hameed",
             lastName: "Kazeem",
@@ -822,12 +822,26 @@ db.once("open", async () => {
             city: "Seattle",
             state: "Washington",
             zip: "1234",
-            phone: 123456789
+            phone: 123456789,
+        });
+    await User.create(
+        {
+            userName: "admin1",
+            email: "admin1@test.com",
+            password: "password",
+            firstName: "Hameed",
+            lastName: "Kazeem",
+            address: "123 abc st",
+            city: "Seattle",
+            state: "Washington",
+            zip: "1234",
+            phone: 123456789,
+            isAdmin: true
         });
     await User.create(
         {
             userName: "tester2",
-            email: "test2@gmail.com",
+            email: "test2@test.com",
             password: "password",
             firstName: "Hameed",
             lastName: "Kazeem",

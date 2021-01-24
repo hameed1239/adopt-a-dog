@@ -3,15 +3,15 @@ const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
-        me: async (parent, args) => {
+        me: async (parent, args, context) => {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
-                  .select('-__v -password')
-                
+                    .select('-__v -password')
+
                 return userData;
-              }
-            
-              throw new AuthenticationError('Not logged in');
+            }
+
+            throw new AuthenticationError('Not logged in');
         },
         users: async() => {
             return await User.find();
@@ -25,39 +25,55 @@ const resolvers = {
             if (breed) {
                 params.breed = breed
             }
-            if (name){
+            if (name) {
                 params.name = name
             }
-        
+
 
             return await Dog.find(params).populate("temperaments").populate("breed").populate("colors").populate("status");
         },
-        dog: async (parent, {_id}) => {
-            return  await Dog.findById(_id).populate("temperaments").populate("breed").populate("colors").populate("status");
-        } ,
-        adoptions: async()=>{
-            return await Adoption.find().populate("dog").populate("user");
+        dog: async (parent, { _id }) => {
+            return await Dog.findById(_id).populate("temperaments").populate("breed").populate("colors").populate("status");
         },
-        adoption: async(parent, {_id})=>{
-            return await Adoption.findById(_id).populate("dog").populate("user");
+        adoptions: async (parent, context) => {
+            if (context.user.isAdmin) {
+                return await Adoption.find().populate("dog").populate("user");
+            }
+            throw new AuthenticationError('Not logged in');
         },
-        temperaments: async()=>{
+        adoption: async (parent, { _id }, context) => {
+            if (context.user.isAdmin) {
+                return await Adoption.findById(_id).populate("dog").populate("user");
+            }
+            throw new AuthenticationError('Not logged in');
+        },
+        temperaments: async () => {
             return await Temperament.find();
         },
-        colors: async()=>{
+        colors: async () => {
             return await Color.find();
         },
-        status: async()=>{
+        status: async () => {
             return await Status.find();
         }
 
     },
     Mutation: {
-        addBreed: async(parent, args ) =>{
-            const breed = await Breed.create(args);
+        addBreed: async (parent, args, context) => {
+            if (context.user) {
+                // console.log(context.user)
+                if (context.user.isAdmin) {
+                    const breed = await Breed.create(args);
 
-            return await Breed.findById(breed._id).populate("colors").populate("temperaments");
+                    return await Breed.findById(breed._id).populate("colors").populate("temperaments");
+                }
+                throw new AuthenticationError('Unauthorized User. Your login information is being reported to sysAdmin');
+            }
+
+            throw new AuthenticationError('Not logged in');
+
         },
+<<<<<<< HEAD
         updateBreed: async(parent, args) =>{
             const {_id} = args
             return await Breed.findByIdAndUpdate(_id, {...args}, {new: true});
@@ -74,28 +90,66 @@ const resolvers = {
         updateDog: async(parent, args) =>{
             const {_id} = args
             return await Dog.findByIdAndUpdate(_id, {...args}, {new:true});
+=======
+        updateBreed: async (parent, args, context) => {
+            if (context.user.isAdmin) {
+                if (context.user.isAdmin) {
+                    const { _id } = args
+                    return await Breed.findByIdAndUpdate(_id, { ...args }, { new: true });
+                }
+                throw new AuthenticationError('Unauthorized User. Your login information is beign reported to sysAdmin');
+            }
+            throw new AuthenticationError('Not logged in');
         },
-        removeDog: async(parent, {_id}) => {
-            return await Dog.findByIdAndDelete(_id);
+        addDog: async (parent, args, context) => {
+            if (context.user) {
+                if (context.user.isAdmin) {
+                    const dog = await Dog.create(args)
+                return await Dog.findById(dog._id).populate("temperaments").populate("colors").populate("breed").populate("status")
+                }
+                throw new AuthenticationError('Unauthorized User. Your login information is beign reported to sysAdmin');
+            }
+            throw new AuthenticationError('Not logged in');
+        },
+        updateDog: async (parent, args, context) => {
+            if (context.user) {
+                if (context.user.isAdmin) {
+                    const { _id } = args
+                return await Dog.findByIdAndUpdate(_id, { ...args }, { new: true });
+                }
+                throw new AuthenticationError('Unauthorized User. Your login information is beign reported to sysAdmin');
+            }
+            throw new AuthenticationError('Not logged in');
+>>>>>>> d0f5738609c8ebf18c561867d5480c646f23ed5d
+        },
+        removeDog: async (parent, { _id }, context) => {
+            if (context.user) {
+                if (context.user.isAdmin) {
+                    return await Dog.findByIdAndDelete(_id);
+                }
+                throw new AuthenticationError('Unauthorized User. Your login information is beign reported to sysAdmin');
+            }
+            throw new AuthenticationError('Not logged in');
         },
         addUser: async (parent, args) => {
-           const user = await User.create(args);
-           const token = signToken(user);
-           return {token,user};
+            const user = await User.create(args);
+            const token = signToken(user);
+            return { token, user };
         },
-        login: async (parent,{email, password}) => {
+        login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
-    
+            console.log(user)
             if (!user) {
-              throw new AuthenticationError('Incorrect credentials');
+                throw new AuthenticationError('Incorrect credentials');
             }
-          
+
             const correctPw = await user.isCorrectPassword(password);
-          
+
             if (!correctPw) {
-              throw new AuthenticationError('Incorrect credentials');
+                throw new AuthenticationError('Incorrect credentials');
             }
             const token = signToken(user);
+<<<<<<< HEAD
             return {token,user};
         },
         updateUser: async(parent,args) => {
@@ -109,6 +163,9 @@ const resolvers = {
         deleteUser: async(parent,args) => {
             const {_id} = args
             return await User.findByIdAndDelete(_id);
+=======
+            return { token, user };
+>>>>>>> d0f5738609c8ebf18c561867d5480c646f23ed5d
         }
     }
 }
