@@ -9,8 +9,11 @@ import EditUser from "../EditUser";
 import DeleteUser from "../DeleteUser";
 import AddAdoption from "../AddAdoption";
 import UpdateAdoption from "../UpdateAdoption";
+import Auth from "../../utils/auth";
+import {Redirect} from "react-router-dom";
 
 const Admin = () => {
+  
   const [openAddBreed, setopenAddBreed] = useState(false);
   const [openAddAdoption, setopenAddAdoption] = useState(false);
   const [openEditBreed, setopenEditBreed] = useState(false);
@@ -19,6 +22,9 @@ const Admin = () => {
   const [openEditUser, setopenEditUser] = useState(false);
   const [openEditAdoption, setopenEditAdoption] = useState(false);
   const [openDeleteUser,setopenDeleteUser] = useState(false);
+  if(!Auth.loggedIn()){
+    return <Redirect to = "/"/>
+  }
   return (
     <main id="admin">
       <section className="container">

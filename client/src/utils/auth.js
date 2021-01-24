@@ -11,9 +11,15 @@ class AuthService {
     return !!token && !this.isTokenExpired(token);
   }
 
+  isAdmin(token){
+    const decoded = decode(token);
+    console.log(decoded);
+  }
+
   isTokenExpired(token) {
     try {
       const decoded = decode(token);
+      console.log(decoded);
       if (decoded.exp < Date.now() / 1000) {
         return true;
       } else return false;
