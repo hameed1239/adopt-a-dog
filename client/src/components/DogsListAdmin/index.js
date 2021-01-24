@@ -28,7 +28,6 @@ const DogsListAdmin = () => {
         dogs: data.dogs,
       });
     } else if (!loading) {
-      console.log(loading);
     }
   }, [dispatch, data, loading]);
 
@@ -47,24 +46,30 @@ const DogsListAdmin = () => {
             <Table striped bordered hover size="sm">
               <thead>
                 <tr>
-                  <th>ID</th>
                   <th>Name</th>
                   <th>Size</th>
+                  <th>Breed</th>
                   <th>Hypoallergenic</th>
                   <th>Colors</th>
+                  <th>Temperaments</th>
                 </tr>
               </thead>
               <tbody>
                 {filterDogsBreed().map((dog) => {
                   return (
-                    <tr>
-                      <td>{dog._id}</td>
+                    <tr key={dog._id}>
                       <td>{dog.name}</td>
                       <td>{dog.size}</td>
+                      <td>{dog.breed.name}</td>
                       <td>{dog.hypoallergenic.toString()}</td>
                       <td>
                         {dog.colors.map((color) => {
                           return color.name + ", ";
+                        })}
+                      </td>
+                      <td>
+                        {dog.temperaments.map((temperament) => {
+                          return temperament.name + ", ";
                         })}
                       </td>
                     </tr>
