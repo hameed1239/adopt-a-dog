@@ -38,8 +38,8 @@ const EditUser = () => {
     state: "",
     zip: "",
     phone: "",
-    otherDogs: "",
-    noOfKids: "",
+    otherDogs: 0,
+    noOfKids: 0,
     houseOrApartment: "",
     isAdmin: ""
   });
@@ -56,6 +56,12 @@ const EditUser = () => {
     event.preventDefault();
 
     try {
+        if (formState.isAdmin === "true"){
+            formState.isAdmin = true;
+        }
+        else{
+            formState.isAdmin = false;
+        }
       const mutationResponse = await updateUser({
       variables: {
         _id: formState._id,
@@ -65,9 +71,9 @@ const EditUser = () => {
         city: formState.city,
         state: formState.state,
         zip: formState.zip,
-        phone: formState.phone,
-        otherDogs: formState.otherDogs,
-        noOfKids: formState.noOfKids,
+        phone: parseInt(formState.phone),
+        otherDogs: parseInt(formState.otherDogs),
+        noOfKids: parseInt(formState.noOfKids),
         houseOrApartment: formState.houseOrApartment,
         isAdmin: formState.isAdmin
     },
@@ -121,7 +127,7 @@ const EditUser = () => {
     console.log(users);
     console.log(state);
     try {
-      
+       
       if (!users) {
         throw new Error("Unable to Find any User");
       }
@@ -196,15 +202,7 @@ const EditUser = () => {
                   className="form-control"
                   required="required"
                 />
-                <label className="grey-text">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                  className="form-control"
-                  required="required"
-                />
+                
                 <label className="grey-text">Address</label>
                 <input
                   type="address"
@@ -244,7 +242,7 @@ const EditUser = () => {
                 />
                 <label className="grey-text">Phone</label>
                 <input
-                  type="phone"
+                  type="number"
                   name="phone"
                   value={formState.phone}
                   onChange={handleChange}
@@ -253,9 +251,18 @@ const EditUser = () => {
                 />
                 <label className="grey-text">Other Dogs</label>
                 <input
-                  type="otherDogs"
+                  type="number"
                   name="otherDogs"
                   value={formState.otherDogs}
+                  onChange={handleChange}
+                  className="form-control"
+                  required="required"
+                />
+                <label className="grey-text">Number of Kids</label>
+                <input
+                  type="number"
+                  name="noOfKids"
+                  value={formState.noOfKids}
                   onChange={handleChange}
                   className="form-control"
                   required="required"

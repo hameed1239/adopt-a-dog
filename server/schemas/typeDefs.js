@@ -170,17 +170,15 @@ const typeDefs = gql`
         user: ID!
         requestDate: String
         isApproved: Boolean
-        approvedBy: ID
         approvalDate: String
        ):Adoption
        updateAdoption(
         _id: ID!
         dog: ID!
         user: ID!
-        requestDate: String!
-        isApproved: Boolean!
-        approvedBy: ID
-        approvalDate: String!
+        requestDate: String
+        isApproved: Boolean
+        approvalDate: String
        ):Adoption
     }
 `;

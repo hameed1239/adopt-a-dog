@@ -36,10 +36,7 @@ const resolvers = {
             return await Dog.findById(_id).populate("temperaments").populate("breed").populate("colors").populate("status");
         },
         adoptions: async (parent, context) => {
-            if (context.user.isAdmin) {
-                return await Adoption.find().populate("dog").populate("user");
-            }
-            throw new AuthenticationError('Not logged in');
+            return await Adoption.find().populate("dog").populate("user");
         },
         adoption: async (parent, { _id }, context) => {
             if (context.user.isAdmin) {
@@ -73,24 +70,20 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
 
         },
-<<<<<<< HEAD
-        updateBreed: async(parent, args) =>{
-            const {_id} = args
-            return await Breed.findByIdAndUpdate(_id, {...args}, {new: true});
-        },
+       
 
-        addDog: async(parent, args) =>{
-            const dog = await Dog.create(args)
-            return await Dog.findById(dog._id).populate("temperaments").populate("colors").populate("breed").populate("status")
+        
+        addAdoption: async(parent,args,context) => {
+            if (context.user.isAdmin) {
+                if (context.user.isAdmin) {
+                  const adoptedDog  = await Adoption.create(args)
+                  return await Adoption.findById(adoptedDog._id).populate("dog").populate("user")
+                }
+                throw new AuthenticationError('Unauthorized User. Your login information is beign reported to sysAdmin');
+            }
+            throw new AuthenticationError('Not logged in');
         },
-        addAdoption: async(parent,args) => {
-            const adoptedDog  = await Adoption.create(args)
-            return await Adoption.findById(adoptedDog._id).populate("dog").populate("user")
-        },
-        updateDog: async(parent, args) =>{
-            const {_id} = args
-            return await Dog.findByIdAndUpdate(_id, {...args}, {new:true});
-=======
+        
         updateBreed: async (parent, args, context) => {
             if (context.user.isAdmin) {
                 if (context.user.isAdmin) {
@@ -120,7 +113,6 @@ const resolvers = {
                 throw new AuthenticationError('Unauthorized User. Your login information is beign reported to sysAdmin');
             }
             throw new AuthenticationError('Not logged in');
->>>>>>> d0f5738609c8ebf18c561867d5480c646f23ed5d
         },
         removeDog: async (parent, { _id }, context) => {
             if (context.user) {
@@ -149,23 +141,32 @@ const resolvers = {
                 throw new AuthenticationError('Incorrect credentials');
             }
             const token = signToken(user);
-<<<<<<< HEAD
             return {token,user};
         },
-        updateUser: async(parent,args) => {
+        updateUser: async(parent,args,context) => {
+            
             const {_id} = args
             return await User.findByIdAndUpdate(_id, {...args}, {new: true}); 
         },
-        updateAdoption: async(parent,args) => {
-            const {_id} = args
-            return await Adoption.findByIdAndUpdate(_id, {...args}, {new: true}); 
+        updateAdoption: async(parent,args,context) => {
+            if (context.user) {
+                if (context.user.isAdmin) {
+                   const {_id} = args
+                   return await Adoption.findByIdAndUpdate(_id, {...args}, {new: true}); 
+                }
+                throw new AuthenticationError('Unauthorized User. Your login information is beign reported to sysAdmin');
+            }
+            throw new AuthenticationError('Not logged in');
         },
-        deleteUser: async(parent,args) => {
-            const {_id} = args
-            return await User.findByIdAndDelete(_id);
-=======
-            return { token, user };
->>>>>>> d0f5738609c8ebf18c561867d5480c646f23ed5d
+        deleteUser: async(parent,args,context) => {
+            if (context.user) {
+                if (context.user.isAdmin) {
+                   const {_id} = args
+                   return await User.findByIdAndDelete(_id);
+                }
+                throw new AuthenticationError('Unauthorized User. Your login information is beign reported to sysAdmin');
+            }
+            throw new AuthenticationError('Not logged in');``
         }
     }
 }

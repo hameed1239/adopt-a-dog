@@ -11,6 +11,7 @@ import AddAdoption from "../AddAdoption";
 import UpdateAdoption from "../UpdateAdoption";
 import Auth from "../../utils/auth";
 import {Redirect} from "react-router-dom";
+import AdoptionListAdmin from "../AdoptionListAdmin";
 
 const Admin = () => {
   
@@ -22,7 +23,9 @@ const Admin = () => {
   const [openEditUser, setopenEditUser] = useState(false);
   const [openEditAdoption, setopenEditAdoption] = useState(false);
   const [openDeleteUser,setopenDeleteUser] = useState(false);
-  if(!Auth.loggedIn()){
+  const [openViewAdoption, setopenViewAdoption] = useState(false);
+
+  if(!Auth.loggedIn() || !Auth.isAdmin()){
     return <Redirect to = "/"/>
   }
   return (
@@ -120,15 +123,15 @@ const Admin = () => {
           
           <>
           <Button
-            onClick={() => setopenAddAdoption(!openAddAdoption)}
+            onClick={() => setopenViewAdoption(!openViewAdoption)}
             aria-controls="example-collapse-text"
-            aria-expanded={openAddAdoption}
+            aria-expanded={openViewAdoption}
           >
               View all adoptions
           </Button>
-          <Collapse in={openViewUser}>
+          <Collapse in={openViewAdoption}>
             <div id="example-collapse-text">
-              <UserListAdmin />
+              <AdoptionListAdmin />
             </div>
           </Collapse>
           </>

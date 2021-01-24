@@ -15,6 +15,8 @@ import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ApplicationForm from "./pages/ApplicationForm";
+
 import "./App.css";
 
 import { Provider } from "react-redux";
@@ -53,6 +55,7 @@ function App() {
               <Route exact path="/about" component={About} />
               <Route exact path="/donate" component={Donate} />
               <Route exact path="/contact" component={Contact} />
+              <Route exact path="/application-form" component={ApplicationForm} />
               <Route component={NoMatch} />
             </Switch>
           </Provider>

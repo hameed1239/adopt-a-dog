@@ -59,10 +59,8 @@ const UpdateAdoption = () => {
                     _id: formState._id,
                     dog: formState.dog,
                     user: formState.user,
-                    requestDate: Date.parse(formState.requestDate),
-                    isApproved: formState.isApproved,
-                    approvedBy: formState.approvedBy,
-                    approvalDate: Date.parse(formState.approvalDate),
+                    isApproved: formState.isApproved
+                    
                 },
             });
 
@@ -119,8 +117,7 @@ const UpdateAdoption = () => {
             });
 
             console.log(response);
-            response.requestDate = parseInt(response.requestDate)
-            console.log(response);
+           
             setFormState(...response);
             setSearchedAdoption(response);
         } catch (err) {
@@ -195,15 +192,7 @@ const UpdateAdoption = () => {
                                             return <option value={user._id}>{user.firstName} {user.lastName}</option>;
                                         })}
                                     </select>
-                                    <label className="grey-text">Request Date</label>
-                                    <input
-                                        type="requestDate"
-                                        name="requestDate"
-                                        value={formState.requestDate}
-                                        onChange={handleChange}
-                                        className="form-control"
-                                        required="required"
-                                    />
+                                    
                                     <label className="grey-text">isApproved</label>
                                     <input
                                         type="isApproved"
@@ -213,28 +202,8 @@ const UpdateAdoption = () => {
                                         className="form-control"
                                         required="required"
                                     />
-                                    <label className="grey-text">Approval Date</label>
-                                    <input
-                                        type="approvalDate"
-                                        name="approvalDate"
-                                        value={formState.approvalDate}
-                                        onChange={handleChange}
-                                        className="form-control"
-                                        required="required"
-                                    />
-                                    <label className="grey-text">Approved By</label>
-                                    <select
-                                        className="browser-default custom-select"
-                                        onChange={handleChange}
-                                        type="approvedBy"
-                                        name="approvedBy"
-                                        value={formState.approvedBy}
-                                    >
-                                        <option>Choose your option</option>
-                                        {userDataID.map((user) => {
-                                            return <option value={user._id}>{user.firstName} {user.lastName}</option>;
-                                        })}
-                                    </select>
+                                    
+                                    
                                     <div className="text-center mt-4">
                                         <MDBBtn color="success" type="submit">
                                             Submit

@@ -57,7 +57,6 @@ export const ADD_ADOPTION = gql`
     $user: ID!
     $requestDate: String
     $isApproved: Boolean
-    $approvedBy: ID
     $approvalDate: String
   ) {
     addAdoption(
@@ -65,7 +64,6 @@ export const ADD_ADOPTION = gql`
       user:$user
       requestDate: $requestDate
       isApproved: $isApproved
-      approvedBy: $approvedBy
       approvalDate: $approvalDate
     ) {
       _id
@@ -84,12 +82,6 @@ export const ADD_ADOPTION = gql`
       }
       requestDate
       isApproved
-      approvedBy{
-        _id
-        
-        firstName
-        lastName
-      }
       approvalDate
     }
   }
@@ -127,7 +119,6 @@ export const UPDATE_USER = gql`
     $_id: ID!
     $firstName: String!
     $lastName: String!
-    $email: String!
     $address: String!
     $city: String!
     $state: String!
@@ -142,7 +133,7 @@ export const UPDATE_USER = gql`
       _id: $_id
       firstName: $firstName
       lastName: $lastName
-      email: $email
+      
       address: $address
       city: $city
       state: $state
@@ -157,7 +148,7 @@ export const UPDATE_USER = gql`
       _id
       firstName
       lastName
-      email
+     
       address
       city
       state
@@ -176,10 +167,9 @@ export const UPDATE_AN_ADOPTION = gql`
     $_id: ID!
     $dog: ID!
     $user: ID!
-    $requestDate: String!
-    $isApproved: Boolean!
-    $approvedBy: ID
-    $approvalDate: String!
+    $requestDate: String
+    $isApproved: Boolean
+    $approvalDate: String
   ){
     updateAdoption(
     _id: $_id
@@ -187,7 +177,7 @@ export const UPDATE_AN_ADOPTION = gql`
     user: $user
     requestDate: $requestDate
     isApproved: $isApproved
-    approvedBy: $approvedBy
+
     approvalDate: $approvalDate
     )
     {
@@ -203,11 +193,6 @@ export const UPDATE_AN_ADOPTION = gql`
     }
     requestDate
     isApproved
-    approvedBy{
-      _id
-      firstName
-      lastName
-    }
     approvalDate
     }
   }

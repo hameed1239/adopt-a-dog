@@ -13,7 +13,6 @@ const AddAdoption = () => {
     user : "",
     requestDate : "",
     isApproved : "",
-    approvedBy : "",
     approvalDate : "",
   });
 
@@ -54,7 +53,6 @@ const AddAdoption = () => {
             user : formState.user,
             requestDate : Date.parse(formState.requestDate).toString(),
             isApproved : formState.isApproved,
-            approvedBy : formState.approvedBy,
             approvalDate : Date.parse(formState.approvalDate).toString()
         },
       });
@@ -141,19 +139,6 @@ const AddAdoption = () => {
                   className="form-control"
                   required="required"
             />
-            <label className="grey-text">Approved By</label>
-            <select
-              className="browser-default custom-select"
-              onChange={handleChange}
-              type="approvedBy"
-              name="approvedBy"
-              value={formState.approvedBy}
-            >
-              <option>Choose your option</option>
-              {userDataID.map((user) => {
-                return <option value={user._id}>{user.firstName} {user.lastName}</option>;
-              })}
-            </select>
             <div className="text-center mt-4">
               <MDBBtn color="success" type="submit">
                 Submit
