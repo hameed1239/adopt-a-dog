@@ -40,7 +40,7 @@
 
 ## Deployment URL
 
-https://ucb-adoptme.herokuapp.com/.
+https://adopt-me-hameed1239.herokuapp.com/.
 
 ## Repo URL
 
@@ -98,7 +98,6 @@ https://github.com/hameed1239/adopt-a-dog.
 1. PWA
 
 ## Credits
-- freepik.com (@macrovector_official) for letting us use their vectors with attribution.
 
 ### Collaborators
 
