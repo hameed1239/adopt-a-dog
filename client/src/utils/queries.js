@@ -110,14 +110,25 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_ADOPTION = gql`
-   {
+query {
     adoptions {
       _id
-      dog
-      user
+      dog{
+        _id
+        name
+      }
+      user{
+        _id
+        firstName
+        lastName
+      }
       requestDate
       isApproved
-      approvedBy
+      approvedBy{
+        _id
+        firstName
+        lastName
+      }
       approvalDate
     }
   }

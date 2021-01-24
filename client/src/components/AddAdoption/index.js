@@ -47,20 +47,22 @@ const AddAdoption = () => {
       else{
           formState.isApproved = false;
       }
+      console.log(formState);
       const mutationResponse = await addAdoption({
         variables: {
             dog : formState.dog,
             user : formState.user,
-            requestDate : formState.requestDate,
+            requestDate : Date.parse(formState.requestDate).toString(),
             isApproved : formState.isApproved,
             approvedBy : formState.approvedBy,
-            approvalDate : formState.approvalDate
+            approvalDate : Date.parse(formState.approvalDate).toString()
         },
       });
       console.log(mutationResponse);
       if (mutationResponse) {
         alert("You have successfully Added a dog that got adopted");
-        
+        console.log(formState);
+        console.log(mutationResponse);
       }
     } catch (e) {
       console.error(e);
@@ -108,7 +110,7 @@ const AddAdoption = () => {
                 return <option value={user._id}>{user.firstName} {user.lastName}</option>;
               })}
             </select>
-            <label className="grey-text">Request Date</label>
+            <label className="grey-text">Request Date(January 01, 1970)</label>
             <input
                   type="requestDate"
                   name="requestDate"
@@ -130,7 +132,7 @@ const AddAdoption = () => {
                   <option value='true'>True</option>
                   <option value='false'>False</option>
                 </select>
-            <label className="grey-text">Approval Date</label>
+            <label className="grey-text">Approval Date(January 01, 1970)</label>
             <input
                   type="approvalDate"
                   name="approvalDate"

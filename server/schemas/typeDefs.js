@@ -168,10 +168,10 @@ const typeDefs = gql`
        addAdoption(
         dog: ID!
         user: ID!
-        requestDate: String!
-        isApproved: Boolean!
-        approvedBy: ID!
-        approvalDate: String!
+        requestDate: String
+        isApproved: Boolean
+        approvedBy: ID
+        approvalDate: String
        ):Adoption
        updateAdoption(
         _id: ID!
@@ -179,7 +179,7 @@ const typeDefs = gql`
         user: ID!
         requestDate: String!
         isApproved: Boolean!
-        approvedBy: ID!
+        approvedBy: ID
         approvalDate: String!
        ):Adoption
     }

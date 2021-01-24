@@ -69,7 +69,7 @@ const resolvers = {
         },
         addAdoption: async(parent,args) => {
             const adoptedDog  = await Adoption.create(args)
-            return await Adoption.findById(Adoption._id).populate("dog").populate("user").populate("requestDate").populate("isApproved").populate("ApprovedBy").populate("ApprovalDate")
+            return await Adoption.findById(adoptedDog._id).populate("dog").populate("user")
         },
         updateDog: async(parent, args) =>{
             const {_id} = args

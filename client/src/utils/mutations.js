@@ -55,10 +55,10 @@ export const ADD_ADOPTION = gql`
   mutation addAdoption(
     $dog: ID!
     $user: ID!
-    $requestDate: String!
-    $isApproved: Boolean!
-    $approvedBy: ID!
-    $approvalDate: String!
+    $requestDate: String
+    $isApproved: Boolean
+    $approvedBy: ID
+    $approvalDate: String
   ) {
     addAdoption(
       dog:$dog
@@ -178,7 +178,7 @@ export const UPDATE_AN_ADOPTION = gql`
     $user: ID!
     $requestDate: String!
     $isApproved: Boolean!
-    $approvedBy: ID!
+    $approvedBy: ID
     $approvalDate: String!
   ){
     updateAdoption(
@@ -192,11 +192,22 @@ export const UPDATE_AN_ADOPTION = gql`
     )
     {
     _id
-    dog
-    user
+    dog{
+      _id
+      name
+    }
+    user {
+      _id
+      firstName
+      lastName
+    }
     requestDate
     isApproved
-    approvedBy
+    approvedBy{
+      _id
+      firstName
+      lastName
+    }
     approvalDate
     }
   }

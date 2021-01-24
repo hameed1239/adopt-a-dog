@@ -5,7 +5,6 @@ import {
   ADD_BREED,
   UPDATE_A_USER,
   DELETE_A_USER,
-  ADD_ADOPTION,
   UPDATE_ADOPTION
 } from "./actions";
 
@@ -44,11 +43,7 @@ const reducer = (state = defaultState, action) => {
         ...state,
         breeds: [...action.breeds],
       };
-      case ADD_ADOPTION:
-        return {
-          ...state,
-          adoptions: [...action.adoptions],
-        };
+      
   
     case UPDATE_A_USER:
       

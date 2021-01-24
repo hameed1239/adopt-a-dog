@@ -3,6 +3,8 @@ const db = require("./connection");
 const { Dog, Breed, Adoption, Color, Status, Temperament, User } = require("../models");
 
 db.once("open", async () => {
+
+    await Adoption.deleteMany();
     await Status.deleteMany();
     const status = await Status.insertMany([
         { name: "Available" },
