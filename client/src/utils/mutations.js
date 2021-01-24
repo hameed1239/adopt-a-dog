@@ -51,6 +51,50 @@ export const ADD_BREED = gql`
   }
 `;
 
+export const ADD_ADOPTION = gql`
+  mutation addAdoption(
+    $dog: ID!
+    $user: ID!
+    $requestDate: String!
+    $isApproved: Boolean!
+    $approvedBy: ID!
+    $approvalDate: String!
+  ) {
+    addAdoption(
+      dog:$dog
+      user:$user
+      requestDate: $requestDate
+      isApproved: $isApproved
+      approvedBy: $approvedBy
+      approvalDate: $approvalDate
+    ) {
+      _id
+      dog{
+        _id
+        name
+        
+      }
+      user{
+        _id
+        
+        firstName
+        lastName
+        
+        
+      }
+      requestDate
+      isApproved
+      approvedBy{
+        _id
+        
+        firstName
+        lastName
+      }
+      approvalDate
+    }
+  }
+`;
+
 export const UPDATE_A_BREED = gql`
   mutation updateBreed(
     $_id: ID!
@@ -83,6 +127,7 @@ export const UPDATE_USER = gql`
     $_id: ID!
     $firstName: String!
     $lastName: String!
+    $email: String!
     $address: String!
     $city: String!
     $state: String!
@@ -97,6 +142,7 @@ export const UPDATE_USER = gql`
       _id: $_id
       firstName: $firstName
       lastName: $lastName
+      email: $email
       address: $address
       city: $city
       state: $state
@@ -111,6 +157,7 @@ export const UPDATE_USER = gql`
       _id
       firstName
       lastName
+      email
       address
       city
       state
@@ -122,4 +169,48 @@ export const UPDATE_USER = gql`
       isAdmin
     }
   }
+`
+
+export const UPDATE_AN_ADOPTION = gql`
+  mutation updateAdoption(
+    $_id: ID!
+    $dog: ID!
+    $user: ID!
+    $requestDate: String!
+    $isApproved: Boolean!
+    $approvedBy: ID!
+    $approvalDate: String!
+  ){
+    updateAdoption(
+    _id: $_id
+    dog: $dog
+    user: $user
+    requestDate: $requestDate
+    isApproved: $isApproved
+    approvedBy: $approvedBy
+    approvalDate: $approvalDate
+    )
+    {
+    _id
+    dog
+    user
+    requestDate
+    isApproved
+    approvedBy
+    approvalDate
+    }
+  }
+`
+
+export const DELETE_USER = gql`
+    mutation deleteUser(
+      $_id: ID!
+    ){
+      deleteUser(
+        _id: $_id
+      )
+      {
+        _id
+      }
+    }
 `

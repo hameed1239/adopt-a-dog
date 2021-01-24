@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
 import {
+  QUERY_USERS,
   QUERY_USER
 } from "../../utils/queries";
+import { UPDATE_A_USER } from "../../utils/actions";
 import { UPDATE_USER } from "../../utils/mutations";
 import { useDispatch, useSelector } from "react-redux";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
@@ -18,8 +20,8 @@ const EditUser = () => {
 
   const { users } = state;
 
-  const { loading, data: userData } = useQuery(QUERY_USER);
- 
+  const { loading, data: userData } = useQuery(QUERY_USERS);
+  const { singleUserLoad, data: singleUser } = useQuery(QUERY_USER);
   const [updateUser] = useMutation(UPDATE_USER);
 
   const userDataID = userData?.users || [];
@@ -95,33 +97,42 @@ const EditUser = () => {
 
   useEffect(() => {
     console.log(userData);
+    //console.log(userDataID);
+    
     if (userData) {
+      console.log(userData.users);
       dispatch({
-        type: UPDATE_USER,
+        type: UPDATE_A_USER,
         users: userData.users,
       });
+      console.log(state);
     } else if (!loading) {
     }
   }, [userData, loading, dispatch]);
 
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(event);
     if (!searchInput) {
       return false;
     }
-
+    console.log(searchInput);
+    console.log(users);
+    console.log(state);
     try {
+      
       if (!users) {
         throw new Error("Unable to Find any User");
       }
-
+      
       const response = users.filter((user) => {
+    
         return user._id === searchInput;
       });
 
       console.log(response);
-
+      setFormState(...response);
       setSearchedUser(response);
     } catch (err) {
       console.log(err);
@@ -185,6 +196,15 @@ const EditUser = () => {
                   className="form-control"
                   required="required"
                 />
+                <label className="grey-text">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                  className="form-control"
+                  required="required"
+                />
                 <label className="grey-text">Address</label>
                 <input
                   type="address"
@@ -194,6 +214,7 @@ const EditUser = () => {
                   className="form-control"
                   required="required"
                 />
+                
                 <label className="grey-text">City</label>
                 <input
                   type="city"

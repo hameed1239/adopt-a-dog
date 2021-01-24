@@ -23,7 +23,7 @@ export const QUERY_DOGS = gql`
 `;
 
 export const QUERY_BREEDS = gql`
-  {
+query{
     breeds {
       _id
       name
@@ -33,7 +33,8 @@ export const QUERY_BREEDS = gql`
         _id
         name
       }
-      temperament {
+      temperaments {
+        _id
         name
       }
     }
@@ -84,6 +85,40 @@ export const QUERY_USER = gql`
       noOfKids
       houseOrApartment
       isAdmin
+    }
+  }
+`;
+
+export const QUERY_USERS = gql`
+   {
+    users {
+      _id
+      firstName
+      lastName
+      address
+      email
+      city
+      state
+      zip
+      phone
+      otherDogs
+      noOfKids
+      houseOrApartment
+      isAdmin
+    }
+  }
+`;
+
+export const QUERY_ADOPTION = gql`
+   {
+    adoptions {
+      _id
+      dog
+      user
+      requestDate
+      isApproved
+      approvedBy
+      approvalDate
     }
   }
 `;

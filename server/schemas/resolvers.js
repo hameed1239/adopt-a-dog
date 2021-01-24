@@ -16,9 +16,7 @@ const resolvers = {
         users: async() => {
             return await User.find();
         },
-        user: async(parent,args) =>{
-            return await User.findOne(args);
-        },
+    
         breeds: async () => {
             return await Breed.find().populate("colors").populate("temperaments");
         },
@@ -69,6 +67,10 @@ const resolvers = {
             const dog = await Dog.create(args)
             return await Dog.findById(dog._id).populate("temperaments").populate("colors").populate("breed").populate("status")
         },
+        addAdoption: async(parent,args) => {
+            const adoptedDog  = await Adoption.create(args)
+            return await Adoption.findById(Adoption._id).populate("dog").populate("user").populate("requestDate").populate("isApproved").populate("ApprovedBy").populate("ApprovalDate")
+        },
         updateDog: async(parent, args) =>{
             const {_id} = args
             return await Dog.findByIdAndUpdate(_id, {...args}, {new:true});
@@ -99,6 +101,14 @@ const resolvers = {
         updateUser: async(parent,args) => {
             const {_id} = args
             return await User.findByIdAndUpdate(_id, {...args}, {new: true}); 
+        },
+        updateAdoption: async(parent,args) => {
+            const {_id} = args
+            return await Adoption.findByIdAndUpdate(_id, {...args}, {new: true}); 
+        },
+        deleteUser: async(parent,args) => {
+            const {_id} = args
+            return await User.findByIdAndDelete(_id);
         }
     }
 }

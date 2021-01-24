@@ -1,6 +1,6 @@
 const db = require("./connection");
 
-const { Dog, Breed, Color, Status, Temperament, User } = require("../models");
+const { Dog, Breed, Adoption, Color, Status, Temperament, User } = require("../models");
 
 db.once("open", async () => {
     await Status.deleteMany();

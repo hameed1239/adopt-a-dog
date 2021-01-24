@@ -82,13 +82,13 @@ const typeDefs = gql`
         dog(_id: ID!): Dog
         adoptions: [Adoption]
         adoption(_id: ID!): Adoption
-        user: User
+        user(_id: ID): User
         temperaments: [Temperament]
         colors: [Color]
         status: [Status]
         me: User
         users: [User]
-        user: [User]
+        
     }
 
     type Mutation {
@@ -162,6 +162,26 @@ const typeDefs = gql`
           houseOrApartment: String!
           isAdmin: Boolean
        ):User
+       deleteUser(
+         _id: ID!
+       ):User
+       addAdoption(
+        dog: ID!
+        user: ID!
+        requestDate: String!
+        isApproved: Boolean!
+        approvedBy: ID!
+        approvalDate: String!
+       ):Adoption
+       updateAdoption(
+        _id: ID!
+        dog: ID!
+        user: ID!
+        requestDate: String!
+        isApproved: Boolean!
+        approvedBy: ID!
+        approvalDate: String!
+       ):Adoption
     }
 `;
 
