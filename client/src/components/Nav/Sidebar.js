@@ -25,43 +25,43 @@ const Sidebar = ({ open, onClick }) => {
 
             <>
 
-
-                <li>
                     <Link to='/admin' className='text-link ' onClick={logout}>
+                    <li>
                         Admin
+                    </li>
                     </Link>
-                </li>
+                
             </>
 
             ) : (
             <>
           
-            <li>
-            <Link to='/' className='text-link'>
-                Home
+           
+                <Link to='/' className='text-link'>
+                <li>Home</li>
                 </Link>
-            </li>
-            <li>
-                <Link to='/dogs' className='text-link'>
-                Dogs
-                </Link>
-            </li>
             
-            <li>
+           
+                <Link to='/dogs' className='text-link'>
+                <li> Dogs</li>
+                </Link>
+            
+            
+           
                 <Link to='/about' className='text-link'>
-                About
+                <li>About</li>
                 </Link>
-            </li>
-            <li>
+            
+           
                 <Link to='/contact' className='text-link'>
-                Contact
+                <li>Contact</li>
                 </Link>
-            </li>
-            <li>
-                <Link to='/donate' className='text-link '>
-                    Donate
+            
+           
+                <Link to='/donate' className='text-link'>
+                <li> Donate</li>
                 </Link>
-            </li>
+            
           
             </>
             )}
@@ -70,20 +70,21 @@ const Sidebar = ({ open, onClick }) => {
 
             <>
 
-                <li>
+               
                     <Link to='/login' className='text-link donate' onClick={logout}>
-                        Logout
+                    <li>Logout</li>
+                        
                     </Link>
-                </li>
+                
             </>
 
             ) : (
             <>
-                <li>
+               
                     <Link to='/login' className='text-link donate'>
-                        Login
+                        <li>Login</li>
                     </Link>
-                </li>
+                
             </>
 )}
 
@@ -118,13 +119,14 @@ const UlContainer = styled.ul`
     li {
       list-style-type: none;
       font-weight: 600;
-      padding:1rem 1.4rem;
+      padding:1rem 1.5rem;
     }
-    .donate{
+    .donate li{
         background:#11be8b;
         color:white;
-        padding:.4rem 1.3rem;
+        padding:.4rem 1.5rem;
         font-weight:normal;
+        margin-top:.4rem;
         box-shadow:0px 0px 50px 0px rgba(13,12,34,0.2);
     }
     .donate:hover{
