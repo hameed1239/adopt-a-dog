@@ -89,7 +89,7 @@ const Admin = () => {
         </>
 
         <>
-          <h3>Dogs</h3>
+          <h3>DOGS</h3>
           <Button
             onClick={() => setopenAddDog(!openAddDog)}
             aria-controls="example-collapse-text"
@@ -141,7 +141,7 @@ const Admin = () => {
           <li>View dogs</li>
         </ul> */}
 
-        <h3>Adoptions</h3>
+        <h3>ADOPTIONS</h3>
 
         <>
           <Button
