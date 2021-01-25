@@ -14,16 +14,14 @@ const AddBreed = () => {
     temperaments: "",
   });
 
-  const [addBreed, { error }] = useMutation(ADD_BREED);
+  const [addBreed] = useMutation(ADD_BREED);
   const { data } = useQuery(QUERY_COLORS);
   const { data: temperamentsData } = useQuery(QUERY_TEMPERAMENTS);
 
   const colorsData = data?.colors || [];
-  // console.log(colorsData);
   const temperamentsID = temperamentsData?.temperaments || [];
 
   const handleChange = (event) => {
-    // console.log(event.target.value);
     const { name, value } = event.target;
     setFormState({
       ...formState,

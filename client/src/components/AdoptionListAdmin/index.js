@@ -1,25 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useQuery } from "@apollo/react-hooks";
-import { QUERY_ADOPTION } from "../../utils/queries";
-
-
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { Table } from "react-bootstrap";
-
 
 const AdoptionListAdmin = () => {
     const state = useSelector((state) => {
       return state;
     });
   
-  
     const { adoptions } = state;
-    const { loading, data: adoptionData } = useQuery(QUERY_ADOPTION);
-  
-    
-  
  
     return (
       <div className="container mt-20">

@@ -50,7 +50,7 @@ const Admin = () => {
             aria-controls="example-collapse-text"
             aria-expanded={ openAddBreed }
           >
-            Add A Breed
+            Add a Breed
           </Button>
           <Collapse in={ openAddBreed }>
             <div>
@@ -65,7 +65,7 @@ const Admin = () => {
             aria-controls="example-collapse-text"
             aria-expanded={ openEditBreed }
           >
-            Find/Edit/Remove Breed
+            Find and/or Edit a Breed
           </Button>
           <Collapse in={ openEditBreed }>
             <div id="example-collapse-text">
@@ -80,7 +80,7 @@ const Admin = () => {
             aria-controls="example-collapse-text"
             aria-expanded={ openViewBreed }
           >
-            View Breed
+            View all Breed
           </Button>
           <Collapse in={ openViewBreed }>
             <div id="example-collapse-text">
@@ -112,7 +112,7 @@ const Admin = () => {
             aria-controls="example-collapse-text"
             aria-expanded={ openEditDog }
           >
-            Find/Edit/Remove Dog
+            Find/Edit/Remove a Dog
           </Button>
           <Collapse in={ openEditDog }>
             <div id="example-collapse-text">
@@ -127,7 +127,7 @@ const Admin = () => {
             aria-controls="example-collapse-text"
             aria-expanded={ openViewDog }
           >
-            View Dogs
+            View all Dogs
           </Button>
           <Collapse in={ openViewDog }>
             <div id="example-collapse-text">
@@ -144,7 +144,7 @@ const Admin = () => {
             aria-controls="example-collapse-text"
             aria-expanded={ openAddAdoption }
           >
-            Add a dog that got adopted.
+            Add Adoption Details to a Dog
           </Button>
           <Collapse in={ openAddAdoption }>
             <div id="example-collapse-text">
@@ -158,7 +158,7 @@ const Admin = () => {
             aria-controls="example-collapse-text"
             aria-expanded={ openEditAdoption }
           >
-            Find, Edit & Delete an adoption
+            Find and/or Edit an Adoption
           </Button>
           <Collapse in={ openEditAdoption }>
             <div id="example-collapse-text">
@@ -173,7 +173,7 @@ const Admin = () => {
             aria-controls="example-collapse-text"
             aria-expanded={ openViewAdoption }
           >
-            View all adoptions
+            View all Adoptions
           </Button>
           <Collapse in={ openViewAdoption }>
             <div id="example-collapse-text">
@@ -191,7 +191,7 @@ const Admin = () => {
             aria-controls="example-collapse-text"
             aria-expanded={ openEditUser }
           >
-            View users
+            View all Users
           </Button>
           <Collapse in={ openViewUser }>
             <div id="example-collapse-text">
@@ -207,7 +207,7 @@ const Admin = () => {
             aria-controls="example-collapse-text"
             aria-expanded={ openEditUser }
           >
-            Find & Edit a user
+            Find and/or Edit a User
           </Button>
           <Collapse in={ openEditUser }>
             <div id="example-collapse-text">
@@ -223,7 +223,7 @@ const Admin = () => {
             aria-controls="example-collapse-text"
             aria-expanded={ openDeleteUser }
           >
-            Delete A User
+            Delete a User
           </Button>
           <Collapse in={ openDeleteUser }>
             <div id="example-collapse-text">
