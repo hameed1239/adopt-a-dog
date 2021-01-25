@@ -63,7 +63,7 @@ const dogSchema = new Schema({
     },
     adoption: {
         type: Schema.Types.ObjectId,
-        ref: "adoption"
+        ref: "Adoption"
     }
 })
 

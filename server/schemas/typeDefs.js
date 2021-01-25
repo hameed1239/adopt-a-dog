@@ -12,7 +12,7 @@ const typeDefs = gql`
     size: String
     hypoallergenic: Boolean
     colors: [Color]
-    temperament: [Temperament]
+    temperaments: [Temperament]
   }
 
   type Color {
@@ -23,6 +23,11 @@ const typeDefs = gql`
   type Temperament {
     _id: ID
     name: String
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type Dog {
@@ -77,10 +82,13 @@ const typeDefs = gql`
         dog(_id: ID!): Dog
         adoptions: [Adoption]
         adoption(_id: ID!): Adoption
-        user: User
+        user(_id: ID): User
         temperaments: [Temperament]
         colors: [Color]
         status: [Status]
+        me: User
+        users: [User]
+        
     }
 
     type Mutation {
@@ -98,7 +106,7 @@ const typeDefs = gql`
             hypoallergenic: Boolean, 
             colors:[ID], 
             temperaments:[ID] 
-            ) :Breed
+            ): Breed
         addDog(
             name: String!, 
             height: String!, 
@@ -131,6 +139,47 @@ const typeDefs = gql`
         removeDog(
             _id:ID!
         ): Dog
+        login(
+          email: String!,
+          password: String!
+        ): Auth
+        addUser(
+          userName: String!, 
+          email: String!, 
+          password: String!
+        ): Auth
+        updateUser(
+          _id: ID!
+          firstName: String!
+          lastName: String!
+          address: String!
+          city: String!
+          state: String!
+          zip: String!
+          phone: Int!
+          otherDogs: Int!
+          noOfKids: Int!
+          houseOrApartment: String!
+          isAdmin: Boolean
+       ):User
+       deleteUser(
+         _id: ID!
+       ):User
+       addAdoption(
+        dog: ID!
+        user: ID!
+        requestDate: String
+        isApproved: Boolean
+        approvalDate: String
+       ):Adoption
+       updateAdoption(
+        _id: ID!
+        dog: ID!
+        user: ID!
+        requestDate: String
+        isApproved: Boolean
+        approvalDate: String
+       ):Adoption
     }
 `;
 

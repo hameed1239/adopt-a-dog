@@ -8,6 +8,8 @@ import { UPDATE_DOGS } from "../utils/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "@apollo/react-hooks";
 
+import AdoptionFeeButton from "../components/Stripe/AdoptionFeeButton"
+
 const DogDetail = () => {
   const state = useSelector((state) => {
     return state;
@@ -23,7 +25,7 @@ const DogDetail = () => {
 
   const { dogs } = state;
 
-  console.log(dogs);
+  // console.log(dogs);
 
   useEffect(() => {
     if (dogs.length) {
@@ -41,7 +43,7 @@ const DogDetail = () => {
       <section className="container">
       <img
           className="mb-20"
-          src="https://images.dog.ceo/breeds/rottweiler/n02106550_8887.jpg"
+          src={`/images/${currentDog.imgUrl}`}
           width="100%"
           alt=""
         />
@@ -67,8 +69,10 @@ const DogDetail = () => {
         
         <div className="buttons">
           
-          <Link to="/donate"><button className="btn-adopt"> Adopt Me </button></Link>
+          <Link to="/application-form"><button className="btn-adopt"> Adopt Me </button></Link>
+         
           <Link to="/donate"><button className="btn-donate"> Donate </button></Link>
+     
         </div>
 
       </section>
@@ -81,12 +85,14 @@ background-color:white;
 display:flex;
 flex-wrap:wrap;
 justify-content:space-between;
+padding-bottom:3rem;
 
 section{
   width:40%; 
   margin-top:3rem;
   h1{
-    font-size:2rem;
+    font-size:1.4rem;
+
   }
 
   img{
@@ -108,7 +114,7 @@ section{
     border-radius:none;
     transition:ease-in-out .2s;
     cursor:pointer;
-    
+    width:48%;
     }
   .buttons a button:hover{
     box-shadow: 2px 1px 9px 0px rgba(186,201,227,0.75);
@@ -123,9 +129,7 @@ section{
   .btn-donate{
     
     margin-top:2rem;
-    box-shadow: 2px 1px 37px 1px rgba(141,159,193,0.75);
-    -webkit-box-shadow: 2px 1px 37px 1px rgba(141,159,193,0.75);
-    -moz-box-shadow: 2px 1px 37px 1px rgba(141,159,193,0.75);
+    box-shadow: 2px 1px 37px 1px rgba(141,159,193,0.5);
     color:white;
     background: rgb(68,223,115);
     background: linear-gradient(90deg, rgba(68,223,115,1) 50%, rgba(97,232,129,1) 100%);
@@ -141,7 +145,48 @@ section{
     line-height:1.9rem;
   }
 }
-
+@media only screen and (max-width: 876px) {
+ 
+  section .buttons a button{
+    width:80%;
+    
+    }
+}
+@media only screen and (max-width: 576px) {
+  display:block;
+  section{
+    width:70%;
+    margin-top:1rem;
+  }
+  section .buttons a button{
+    padding:.6rem 4rem !important;
+    width:80%;
+    
+    }
+}
+@media only screen and (max-width: 476px) {
+  
+  section{
+    width:80%;
+  }
+  section .buttons a button{
+    width:90%;
+    
+    }
+  
+}
+@media only screen and (max-width: 376px) {
+  
+  section{
+    width:90%;
+  }
+  section .buttons a button{
+    padding:.6rem 4rem !important;
+    width:100%;
+    
+    }
+ 
+}
 
 
 

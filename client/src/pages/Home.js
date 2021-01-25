@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled, { keyframes } from 'styled-components';
-import bgLogo from "../assets/dog-bg.jpg"
+import styled from 'styled-components';
+import bgLogo from "../assets/dog-bg-5.jpg"
 import { faBone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
@@ -10,20 +10,23 @@ import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
 
 const Home = () => {
+  // console.log(navigator);
   return (
     <HomeContainer>
       <div className="home-content">
         <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
-        <h1>Dont't Buy<span>Adopt</span></h1>
+        <h1>Don't Buy<span> Adopt</span></h1>
         <p>"Before you get a dog, you can't quite imagine what living with one might be like; afterward, you can't imagine living any other way."
-        <span className="quote-name">Caroline Knapp</span></p>
+        <span className="quote-name"><br></br>Caroline Knapp</span></p>
+        <p>"If you don't own a dog, at least one, there may not necessarily be anything wrong with you, but there may be something wrong with your life."
+        <span className="quote-name"><br></br> RogerCaras</span></p>
         <Link to="/dogs"><button className="btn-find">Find dog 	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
       </div>
 
       <div className="home-img">
       <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
      
-      <a href='https://www.freepik.com/vectors/dog' target="_blank"> <img src={bgLogo} style={{backgroundColor:"rgb(231,242,247)",opacity:".8"}}/></a>
+      <a href='https://www.freepik.com/vectors/dog' target="_blank"> <img src={bgLogo} style={{backgroundColor:"rgb(231,242,247)",opacity:"1"}}/></a>
       </div>
     </HomeContainer>
   );
@@ -32,22 +35,22 @@ const Home = () => {
 export default Home;
 
 
-
+//background: rgb(231, 230, 226);
 const HomeContainer = styled.div`
- min-height:100vh;
- display:flex;
- justify-content:space-between;
-  background: rgb(231,242,247);
+min-height:100vh;
+display:flex;
+justify-content:space-between;
+background: rgb(231,242,247);
   background: linear-gradient(0deg, rgba(231,242,247,1) 0%, rgba(255,255,255,1) 40%, rgba(229,236,240,1) 100%);
  div{
-   margin:0 2rem;
-   padding:3rem;
+   margin:0 3rem;
+   padding:0 3rem;
 
  }
  
   .home-content{
     align-content:center;
-    width:35%;
+    width:40%;
       h1{
         text-align:left !important;
         margin:2rem 0;
@@ -115,7 +118,7 @@ const HomeContainer = styled.div`
  .home-img {
   width:55%;
   margin:2rem;
-  padding:2rem;
+  padding: 2rem;
   align-items:left;
    text-align:center !important;
    a{
@@ -126,16 +129,87 @@ const HomeContainer = styled.div`
     img{
       height:90%;
       width:60%;
-      box-shadow: 2px 1px 21px 20px rgba(255,255,255,0.75);
+      box-shadow: 2px 1px 51px 32px rgba(255,255,255,1);
     }
     .icon{
         color: #c7d2d9;
         font-size:3rem;
         transform:rotate(-20deg);
+        margin-left:-15rem;
 
       }
  }
+ 
+ @media only screen and (max-width: 1080px){
 
-  
+  .home-content {
+    .btn-find{
+        padding:.6rem 3rem !important; 
+    }
+
+  }
+  .home-img {
+  margin:2rem 0;
+  padding:2rem 0;
+    img{
+      height:70%;
+      width:90%;
+      ${'' /* box-shadow: 2px 1px 21px 20px rgba(255,255,255,0.75); */}
+    }
+   
+ }
+
+      
+}
+ @media only screen and (max-width: 880px){
+
+  .home-content {
+    .btn-find{
+        padding:.6rem 2rem !important;
+    }
+
+  }
+
+      
+}
+ @media only screen and (max-width: 768px){
+  display:block;
+  div{
+   padding:3rem 1rem;
+
+ }
+  .home-content{
+    width:90%;
+    .btn-find{
+        font-family: "Alegreya Sans", sans-serif;
+        padding:.6rem 5rem !important;
+        margin:2.6rem .3rem !important;
+        }
+  }
+  .home-img{
+    width:60%;
+    text-align:center;
+    margin:0 auto;
+      
+  }      
+}
+ @media only screen and (max-width: 400px){
+  display:block;
+
+  .home-content{
+    width:92%;
+    .btn-find{
+        font-family: "Alegreya Sans", sans-serif;
+        padding:.6rem 2.4rem !important;
+        margin:2.6rem .3rem !important;
+        }
+  }
+  .home-img{
+    width:60%;
+    text-align:center;
+    margin:0 auto;
+      
+  }      
+}
 
 `

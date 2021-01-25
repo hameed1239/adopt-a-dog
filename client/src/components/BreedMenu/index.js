@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import styled from 'styled-components';
-
+import styled from "styled-components";
 
 import { useQuery } from "@apollo/react-hooks";
 import { QUERY_BREEDS } from "../../utils/queries";
@@ -8,7 +7,7 @@ import { UPDATE_BREEDS, UPDATE_CURRENT_BREED } from "../../utils/actions";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { DropdownButton, ButtonGroup, Dropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 
 const BreedMenu = () => {
   const state = useSelector((state) => {
@@ -30,20 +29,18 @@ const BreedMenu = () => {
     }
   }, [breedsData, loading, dispatch]);
 
-  console.log(breeds);
-
   const handleClick = (id) => {
     dispatch({
       type: UPDATE_CURRENT_BREED,
       currentBreed: id,
     });
-    console.log(id);
+    // console.log(id);
   };
 
   return (
     <BreedMenuEL>
       <div className="container">
-        <h1>Filter</h1>
+        <h1>Filter By</h1>
       </div>
 
       <div className="container">
@@ -103,6 +100,6 @@ h1{
   margin:1rem 0;
   padding:.3rem;
   line-height:2rem;
-  font-weight:normal;
+  font-weight:bold;
 }
-`
+`;

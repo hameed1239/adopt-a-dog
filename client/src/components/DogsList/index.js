@@ -20,7 +20,7 @@ const DogsList = () => {
 
   const dogs = data?.dogs || [];
 
-  console.log(dogs);
+  // console.log(dogs);
 
   useEffect(() => {
     if (data) {
@@ -33,8 +33,7 @@ const DogsList = () => {
     }
   }, [dispatch, data, loading]);
 
-  // console.log(state.dogs[0].name);
-  function filterDogsSize() {
+  function filterDogsBreed() {
     if (!currentBreed) {
       return state.dogs;
     }
@@ -46,7 +45,7 @@ const DogsList = () => {
       <div className="container mt-20">
         {dogs.length ? (
           <div className="flex-container">
-            {filterDogsSize().map((dog) => {
+            {filterDogsBreed().map((dog) => {
               return (
                 <Dog
                   key={dog._id}
@@ -62,20 +61,6 @@ const DogsList = () => {
         )}
         {loading ? "loading dogs " : null}
       </div>
-
-      {/* <div className="container mt-20">
-        <h3>Medium Breeds</h3>
-        <div className="flex-container">
-          <Dog />
-        </div>
-      </div>
-
-      <div className="container mt-20">
-        <h3>Small Breeds</h3>
-        <div className="flex-container">
-          <Dog />
-        </div>
-      </div> */}
     </main>
   );
 };
