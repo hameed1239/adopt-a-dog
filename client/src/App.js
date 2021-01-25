@@ -22,6 +22,7 @@ import "./App.css";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
+
 const client = new ApolloClient({
   request: (operation) => {
     const token = localStorage.getItem("id_token");
@@ -43,6 +44,7 @@ function App() {
         <div>
           <Provider store={store}>
             <Nav />
+
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/admin" component={AdminPage} />
@@ -59,6 +61,7 @@ function App() {
             </Switch>
    
           </Provider>
+          
           <Footer />
         </div>
       </Router>

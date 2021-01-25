@@ -277,6 +277,7 @@ const EditUser = () => {
                   required="required"
                 />
                <label className="grey-text">Is the User an admin</label>
+
                 <select
                   className="browser-default custom-select"
                   value={formState.isAdmin}
