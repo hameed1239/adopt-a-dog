@@ -1,22 +1,22 @@
 # Adopt A Dog
 
-![GitHub repo size](https://img.shields.io/github/repo-size/hameed1239/employee-handbook?style=plastic)
-![GitHub code size](https://img.shields.io/github/languages/code-size/hameed1239/employee-handbook?style=plastic)
-![GitHub language count](https://img.shields.io/github/languages/count/hameed1239/employee-handbook?style=plastic)
-![GitHub top language](https://img.shields.io/github/languages/top/hameed1239/employee-handbook?style=plastic)
+![GitHub repo size](https://img.shields.io/github/repo-size/hameed1239/adopt-me?style=plastic)
+![GitHub code size](https://img.shields.io/github/languages/code-size/hameed1239/adopt-me?style=plastic)
+![GitHub language count](https://img.shields.io/github/languages/count/hameed1239/adopt-me?style=plastic)
+![GitHub top language](https://img.shields.io/github/languages/top/hameed1239/adopt-me?style=plastic)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/hameed1239/employee-handbook?style=plastic)
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/hameed1239/employee-handbook?color=green&style=plastic)
-![GitHub open pull requests](https://img.shields.io/github/issues-pr-raw/hameed1239/employee-handbook?color=red&style=plastic)
-![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/hameed1239/employee-handbook?color=green&style=plastic)
-![GitHub open issues](https://img.shields.io/github/issues-raw/hameed1239/employee-handbook?color=red&style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/hameed1239/adopt-me?style=plastic)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/hameed1239/adopt-me?color=green&style=plastic)
+![GitHub open pull requests](https://img.shields.io/github/issues-pr-raw/hameed1239/adopt-me?color=red&style=plastic)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/hameed1239/adopt-me?color=green&style=plastic)
+![GitHub open issues](https://img.shields.io/github/issues-raw/hameed1239/adopt-me?color=red&style=plastic)
 
-![GitHub stars](https://img.shields.io/github/stars/hameed1239/employee-handbook?style=social)
-![GitHub forks](https://img.shields.io/github/forks/hameed1239/employee-handbook?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/hameed1239/employee-handbook?style=social)
+![GitHub stars](https://img.shields.io/github/stars/hameed1239/adopt-me?style=social)
+![GitHub forks](https://img.shields.io/github/forks/hameed1239/adopt-me?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/hameed1239/adopt-me?style=social)
 ![GitHub followers](https://img.shields.io/github/followers/hameed1239?style=social)
 
-![GitHub version](https://img.shields.io/github/package-json/v/hameed1239/employee-handbook?color=red&style=plastic)
+![GitHub version](https://img.shields.io/github/package-json/v/hameed1239/adopt-me?color=red&style=plastic)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
