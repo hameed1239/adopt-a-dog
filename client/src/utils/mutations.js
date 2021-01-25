@@ -198,8 +198,7 @@ export const DELETE_USER = gql`
     deleteUser(_id: $_id) {
       _id
     }
-  }
-`;
+
 export const ADD_DOG = gql`
   mutation addDog(
     $name: String!

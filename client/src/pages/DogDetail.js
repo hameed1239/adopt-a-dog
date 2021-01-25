@@ -70,13 +70,12 @@ const DogDetail = () => {
         </div>
 
         <div className="buttons">
-          <Link to="/application-form">
-            <button className="btn-adopt"> Adopt Me </button>
-          </Link>
-          <AdoptionFeeButton />
-          <Link to="/donate">
-            <button className="btn-donate"> Donate </button>
-          </Link>
+
+          
+          <Link to="/application-form"><button className="btn-adopt"> Adopt Me </button></Link>
+         
+          <Link to="/donate"><button className="btn-donate"> Donate </button></Link>
+     
         </div>
       </section>
     </DetailDogEL>

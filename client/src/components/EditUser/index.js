@@ -260,15 +260,19 @@ const EditUser = () => {
                   className="form-control"
                   required="required"
                 />
-                <label className="grey-text">Is the User an Admin</label>
-                <input
+                <label className="grey-text">Is the User an admin</label>
+                <select
+                  className="browser-default custom-select"
+                  value={formState.isAdmin}
+                  onChange={handleChange}
                   type="isAdmin"
                   name="isAdmin"
                   value={formState.isAdmin}
-                  onChange={handleChange}
-                  className="form-control"
-                  required="required"
-                />
+                >
+                  <option>Choose your option</option>
+                  <option value='true'>True</option>
+                  <option value='false'>False</option>
+                </select>
                 <div className="text-center mt-4">
                   <MDBBtn color="success" type="submit" onClick={handleShow}>
                     Submit

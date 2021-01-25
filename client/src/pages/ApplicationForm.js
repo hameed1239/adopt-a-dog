@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
+import {Redirect} from 'react-router-dom';
 import {
     QUERY_USERS
 } from "../utils/queries";
@@ -14,7 +15,14 @@ const ApplicationForm = () => {
     const [formState, setFormState] = useState("");
     const [updateUser, { error }] = useMutation(UPDATE_USER);
 
+   
+
     const {data: userData} = useQuery(QUERY_USERS);
+
+    if(!Auth.loggedIn()){
+        return <Redirect to = "./login"/>
+      };
+
     const emailUser = Auth.getProfile().data.email;
     console.log(emailUser);
     const userDataID = userData?.users || [];
@@ -27,7 +35,8 @@ const ApplicationForm = () => {
             [name]: value,
         });
     };
-
+  
+   
     // submit form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -54,7 +63,10 @@ const ApplicationForm = () => {
         }
     };
 
+   
+
     return (
+
         <main>
             <div >
                 <div >

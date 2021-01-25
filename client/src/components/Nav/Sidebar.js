@@ -1,4 +1,4 @@
-import React ,{useState,useEffect }from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import Auth from "../../utils/auth";
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ const logout = event => {
     Auth.logout();
 };
 
-const Sidebar = ({open,onClick}) => {
+const Sidebar = ({ open, onClick }) => {
 
 
 
@@ -18,50 +18,78 @@ const Sidebar = ({open,onClick}) => {
     return (
         
       <UlContainer open={open}  onClick={onClick}>
-        <li>
-            <Link to='/' className='text-link'>
-            Home
-            </Link>
-        </li>
-        <li>
-            <Link to='/dogs' className='text-link'>
-            Dogs
-            </Link>
-        </li>
-        
-        <li>
-            <Link to='/about' className='text-link'>
-            About
-            </Link>
-        </li>
-        <li>
-            <Link to='/contact' className='text-link'>
-            Contact
-            </Link>
-        </li>
+      
        
-        {Auth.loggedIn() ? (
+      
+            {Auth.loggedIn() && Auth.isAdmin() ?(
+
             <>
-                <li>
-                    <Link to='/login' className='text-link' onClick={logout}>
-                        Logout
+
+                    <Link to='/admin' className='text-link ' onClick={logout}>
+                    <li>
+                        Admin
+                    </li>
                     </Link>
-                </li>
+                
             </>
-        ) : (
+
+            ) : (
             <>
-                <li>
-                    <Link to='/login' className='text-link'>
-                        Login
-                    </Link>
-                </li>
+          
+           
+                <Link to='/' className='text-link'>
+                <li>Home</li>
+                </Link>
+            
+           
+                <Link to='/dogs' className='text-link'>
+                <li> Dogs</li>
+                </Link>
+            
+            
+           
+                <Link to='/about' className='text-link'>
+                <li>About</li>
+                </Link>
+            
+           
+                <Link to='/contact' className='text-link'>
+                <li>Contact</li>
+                </Link>
+            
+           
+                <Link to='/donate' className='text-link'>
+                <li> Donate</li>
+                </Link>
+            
+          
             </>
             )}
-            <li>
-            <Link to='/donate' className='text-link donate'>
-            Donate
-            </Link>
-        </li>
+
+            {Auth.loggedIn() ? (
+
+            <>
+
+               
+                    <Link to='/login' className='text-link donate' onClick={logout}>
+                    <li>Logout</li>
+                        
+                    </Link>
+                
+            </>
+
+            ) : (
+            <>
+               
+                    <Link to='/login' className='text-link donate'>
+                        <li>Login</li>
+                    </Link>
+                
+            </>
+)}
+
+
+       
             
     </UlContainer>
 
@@ -80,7 +108,7 @@ const UlContainer = styled.ul`
        
         text-shadow:0px 0px 39px rgba(13,12,34,0.3);
         font-family:"Source Sans Pro",sans-serif;
-    }
+    }g
     .text-link:hover{
         text-decoration:none;
         color:#11be8b;
@@ -91,13 +119,14 @@ const UlContainer = styled.ul`
     li {
       list-style-type: none;
       font-weight: 600;
-      padding:1rem 1.4rem;
+      padding:1rem 1.5rem;
     }
-    .donate{
+    .donate li{
         background:#11be8b;
         color:white;
-        padding:.4rem 1.3rem;
+        padding:.4rem 1.5rem;
         font-weight:normal;
+        margin-top:.4rem;
         box-shadow:0px 0px 50px 0px rgba(13,12,34,0.2);
     }
     .donate:hover{
@@ -119,7 +148,7 @@ const UlContainer = styled.ul`
       height:100vh;
       width:300px;
       padding:4rem 2rem;
-      transform:${({open}) => open ? 'translateX(0)' : 'translateX(100%)'};
+      transform:${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
       transition: transform 0.3s ease-in-out;
 
     

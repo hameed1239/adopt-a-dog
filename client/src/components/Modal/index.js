@@ -21,3 +21,4 @@ const ModalPage = ({ show, handleClose, handleSuccessClose }) => {
 };
 
 export default ModalPage;
+

@@ -41,7 +41,8 @@ const DogsListAdmin = () => {
   return (
     <main id="breeds">
       <div className="container mt-20">
-        {dogs.length ? (
+        <p className="h4 text-center mb-4">View Dogs</p>
+        { dogs.length ? (
           <div className="flex-container">
             <Table striped bordered hover size="sm">
               <thead>
@@ -55,33 +56,33 @@ const DogsListAdmin = () => {
                 </tr>
               </thead>
               <tbody>
-                {filterDogsBreed().map((dog) => {
+                { filterDogsBreed().map((dog) => {
                   return (
-                    <tr key={dog._id}>
-                      <td>{dog.name}</td>
-                      <td>{dog.size}</td>
-                      <td>{dog.breed.name}</td>
-                      <td>{dog.hypoallergenic.toString()}</td>
+                    <tr key={ dog._id }>
+                      <td>{ dog.name }</td>
+                      <td>{ dog.size }</td>
+                      <td>{ dog.breed.name }</td>
+                      <td>{ dog.hypoallergenic.toString() }</td>
                       <td>
-                        {dog.colors.map((color) => {
+                        { dog.colors.map((color) => {
                           return color.name + ", ";
-                        })}
+                        }) }
                       </td>
                       <td>
-                        {dog.temperaments.map((temperament) => {
+                        { dog.temperaments.map((temperament) => {
                           return temperament.name + ", ";
-                        })}
+                        }) }
                       </td>
                     </tr>
                   );
-                })}
+                }) }
               </tbody>
             </Table>
           </div>
         ) : (
-          <h3>No dogs in the data</h3>
-        )}
-        {loading ? "loading dogs " : null}
+            <h3>No dogs in the data</h3>
+          ) }
+        { loading ? "loading dogs " : null }
       </div>
     </main>
   );
