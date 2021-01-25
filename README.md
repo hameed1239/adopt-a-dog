@@ -22,7 +22,7 @@
 
 ## Description
 
-**Adopt A Dog** is a website for an dog shelter where users (site visitors) can buy and adopt the dogs.
+**Adopt A Dog** is a website for an dog shelter where users (site visitors) can adopt the dogs.
 
 ## Table of Contents
 
