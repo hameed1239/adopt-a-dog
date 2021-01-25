@@ -51,7 +51,7 @@ const Login = (props) => {
                     <Link to="/dogs"><button className="btn-find">Find dog 	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
                 </div>
 
-                <div className="signin-form">
+                <div className="home-img">
                     <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
 
                     
@@ -149,7 +149,7 @@ padding:3rem ;
 
    
  }
- .signin-form {
+ .home-img {
   width:33%;
   height: 90%;
   margin:1rem;
@@ -163,7 +163,6 @@ Form{
 
 }
 .form-control{
-  color:white;
   background:white;
 }
 
@@ -220,7 +219,7 @@ Form{
   }
 
 }
-.signin-form {
+.home-img {
 margin:2rem 0;
 padding:3rem 1rem;
 
@@ -241,7 +240,7 @@ padding:3rem 1rem;
 
 
 }
-.signin-form {
+.home-img {
   margin:4rem 23%;
 
 padding:3rem 4rem;
@@ -261,7 +260,7 @@ width:50%;
       margin:2.6rem .3rem !important;
       }
 }
-.signin-form{
+.home-img{
   width:60%;
   text-align:center;
   margin:0 auto;
@@ -281,7 +280,7 @@ display:block;
       margin:2.6rem .3rem !important;
       }
 }
-.signin-form{
+.home-img{
   width:100%;
   text-align:center;
   margin:0 auto;

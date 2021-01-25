@@ -70,7 +70,7 @@ const DogDetail = () => {
         <div className="buttons">
           
           <Link to="/application-form"><button className="btn-adopt"> Adopt Me </button></Link>
-          <AdoptionFeeButton/>
+         
           <Link to="/donate"><button className="btn-donate"> Donate </button></Link>
      
         </div>
