@@ -21,7 +21,7 @@ const Sidebar = ({open,onClick}) => {
       
        
       
-            {Auth.loggedIn() && Auth.isAdmin ?(
+            {Auth.loggedIn() && Auth.isAdmin() ?(
 
             <>
 
@@ -65,25 +65,26 @@ const Sidebar = ({open,onClick}) => {
           
             </>
             )}
+
             {Auth.loggedIn() ? (
 
-<>
+            <>
 
-    <li>
-        <Link to='/login' className='text-link donate' onClick={logout}>
-            Logout
-        </Link>
-    </li>
-</>
+                <li>
+                    <Link to='/login' className='text-link donate' onClick={logout}>
+                        Logout
+                    </Link>
+                </li>
+            </>
 
-) : (
-<>
-    <li>
-        <Link to='/login' className='text-link donate'>
-            Login
-        </Link>
-    </li>
-</>
+            ) : (
+            <>
+                <li>
+                    <Link to='/login' className='text-link donate'>
+                        Login
+                    </Link>
+                </li>
+            </>
 )}
 
 
