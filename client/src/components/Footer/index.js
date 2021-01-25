@@ -53,7 +53,7 @@ export default Footer;
 const FooterEl = styled.footer`
 background-color:black;
 height: 42vh; 
-postion:relative;
+// postion:relative;
 z-index:10;
 overflow:hidden;
 
