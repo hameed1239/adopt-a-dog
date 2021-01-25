@@ -42,14 +42,19 @@ const CheckoutForm = () => {
       <input type="text" placeholder="Amount" ref={amtRef} style={{
         border: "solid 1px grey",
         padding: "8px 20px",
-        borderRadius: "5px"
+        borderRadius: "5px",
+        margin:" 1rem 0 ",
+        width:"90%",
+
       }}></input>
       <button role="link" onClick={handleClick} style={{
         border: "none",
-        padding: "8px 20px",
-        borderRadius: "5px",
-        backgroundColor: "#ADD8E6",
-        color: "green",
+        padding: ".5rem 3rem",
+        color: "black",
+        margin:" 1rem 0 ",
+        width:"90%",
+        boxShadow: "2px 1px 39px 0px rgba(186,201,227,0.5)",
+
         background: "linear-gradient(90deg,rgba(130,246,165,1) 50%,rgba(147,238,169,1) 100%)"
       }}>
         Pay

@@ -11,9 +11,19 @@ class AuthService {
     return !!token && !this.isTokenExpired(token);
   }
 
+  isAdmin(){
+    
+    const decoded = decode(this.getToken());
+    console.log(decoded);
+    if (decoded.data.isAdmin){
+       return true
+    }
+  }
+
   isTokenExpired(token) {
     try {
       const decoded = decode(token);
+      console.log(decoded);
       if (decoded.exp < Date.now() / 1000) {
         return true;
       } else return false;
@@ -30,8 +40,13 @@ class AuthService {
   login(idToken) {
     // Saves user token to localStorage
     localStorage.setItem('id_token', idToken);
-
-    window.location.assign('/');
+    if (this.isAdmin(idToken)){
+      window.location.assign('/admin');
+    }
+    else{
+      window.location.assign('/');
+    }
+    
   }
 
   logout() {

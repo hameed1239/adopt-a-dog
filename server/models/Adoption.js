@@ -28,6 +28,6 @@ const adoptionSchema = new Schema({
     }
 })
 
-const Adoption = model("Adoption", adoptionSchema);
+const Adoption = model('Adoption', adoptionSchema);
 
 module.exports = Adoption;

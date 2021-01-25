@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
@@ -15,6 +15,8 @@ import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+// import Modal from './components/Modal'
+import ApplicationForm from "./pages/ApplicationForm";
 import "./App.css";
 
 import { Provider } from "react-redux";
@@ -32,11 +34,9 @@ const client = new ApolloClient({
   uri: "/graphql",
 });
 
-console.log(client);
-
-// console.log(store.getState());
 
 function App() {
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -53,8 +53,11 @@ function App() {
               <Route exact path="/about" component={About} />
               <Route exact path="/donate" component={Donate} />
               <Route exact path="/contact" component={Contact} />
+              <Route exact path="/application-form" component={ApplicationForm} />
               <Route component={NoMatch} />
+                            
             </Switch>
+   
           </Provider>
           <Footer />
         </div>

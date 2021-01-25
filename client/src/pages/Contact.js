@@ -54,28 +54,31 @@ const Contact = () => {
   }
 
   return (
-    <div style={ { minHeight: "100vh" } }>
-      <main id="contact">
+    <div style={ {
+       minHeight: "100vh" ,
+       margin:"3rem auto"
+    } }>
+      <main id="contact" style={ {
+       width: "50%" ,
+       margin:"3rem auto"
+    } }>
         <section className="container">
           <h1>Contact Us</h1>
         </section>
 
         <section id="contacts" className="container">
-          <h1>Contact Ahmad El Gamal</h1>
           <form id="contact-form" onSubmit={ handleSubmit }>
             <div>
-              <label htmlFor="name">Name:</label>
-              <input type="text" name="name" placeholder="Please type your full name here" defaultValue={ name } onBlur={ handleChange } />
+              
+              <input type="text" name="name" placeholder=" Name" defaultValue={ name } onBlur={ handleChange } />
             </div>
             <div>
-              <label htmlFor="email">Email:</label>
-              <input type="email" name="email" autoComplete="email" className="validate" placeholder="Please type your email address here" defaultValue={ email } onBlur={ handleChange } />
+              <input type="email" name="email" autoComplete="email" className="validate" placeholder="Email address" defaultValue={ email } onBlur={ handleChange } />
             </div>
             <div>
-              <label htmlFor="message">Message:</label>
-              <textarea id="message-input" type="text" name="message" rows="7" placeholder="Please type your message here" defaultValue={ message } onBlur={ handleChange } />
+              <textarea id="message-input" type="text" name="message" rows="5" placeholder="Please type your message here" defaultValue={ message } onBlur={ handleChange } />
             </div>
-            <button id="contact-submit" type="submit" value="send">Submit</button>
+            <button id="contact-submit" type="submit" value="send">Send</button>
             { errorMessage && (
               <div>
                 <p id="contact-form-error-message">{ errorMessage }</p>
