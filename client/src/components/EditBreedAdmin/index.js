@@ -22,6 +22,7 @@ const EditBreed = () => {
   const { breeds } = state;
 
   const { loading, data: breedsData } = useQuery(QUERY_BREEDS);
+  console.log(breedsData);
   const [updateBreed] = useMutation(UPDATE_A_BREED);
   const { data } = useQuery(QUERY_COLORS);
   const { data: temperamentsData } = useQuery(QUERY_TEMPERAMENTS);
@@ -88,12 +89,16 @@ const EditBreed = () => {
   };
 
   useEffect(() => {
+    console.log(breedsData);
     if (breedsData) {
+      console.log(breedsData);
       dispatch({
         type: UPDATE_BREEDS,
         breeds: breedsData.breeds,
       });
+      console.log(breeds);
     } else if (!loading) {
+      console.log(breedsData);
     }
   }, [breedsData, loading, dispatch]);
 

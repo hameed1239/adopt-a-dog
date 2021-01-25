@@ -51,6 +51,42 @@ export const ADD_BREED = gql`
   }
 `;
 
+export const ADD_ADOPTION = gql`
+  mutation addAdoption(
+    $dog: ID!
+    $user: ID!
+    $requestDate: String
+    $isApproved: Boolean
+    $approvalDate: String
+  ) {
+    addAdoption(
+      dog:$dog
+      user:$user
+      requestDate: $requestDate
+      isApproved: $isApproved
+      approvalDate: $approvalDate
+    ) {
+      _id
+      dog{
+        _id
+        name
+        
+      }
+      user{
+        _id
+        
+        firstName
+        lastName
+        
+        
+      }
+      requestDate
+      isApproved
+      approvalDate
+    }
+  }
+`;
+
 export const UPDATE_A_BREED = gql`
   mutation updateBreed(
     $_id: ID!
@@ -78,6 +114,103 @@ export const UPDATE_A_BREED = gql`
   }
 `;
 
+export const UPDATE_USER = gql`
+  mutation updateUser(
+    $_id: ID!
+    $firstName: String!
+    $lastName: String!
+    $address: String!
+    $city: String!
+    $state: String!
+    $zip: String!
+    $phone: Int!
+    $otherDogs: Int!
+    $noOfKids: Int!
+    $houseOrApartment: String!
+    $isAdmin: Boolean
+  ){
+    updateUser(
+      _id: $_id
+      firstName: $firstName
+      lastName: $lastName
+      
+      address: $address
+      city: $city
+      state: $state
+      zip: $zip
+      phone: $phone
+      otherDogs: $otherDogs
+      noOfKids: $noOfKids
+      houseOrApartment: $houseOrApartment
+      isAdmin: $isAdmin
+    )
+    {
+      _id
+      firstName
+      lastName
+     
+      address
+      city
+      state
+      zip
+      phone
+      otherDogs
+      noOfKids
+      houseOrApartment
+      isAdmin
+    }
+  }
+`
+
+export const UPDATE_AN_ADOPTION = gql`
+  mutation updateAdoption(
+    $_id: ID!
+    $dog: ID!
+    $user: ID!
+    $requestDate: String
+    $isApproved: Boolean
+    $approvalDate: String
+  ){
+    updateAdoption(
+    _id: $_id
+    dog: $dog
+    user: $user
+    requestDate: $requestDate
+    isApproved: $isApproved
+
+    approvalDate: $approvalDate
+    )
+    {
+    _id
+    dog{
+      _id
+      name
+    }
+    user {
+      _id
+      firstName
+      lastName
+    }
+    requestDate
+    isApproved
+    approvalDate
+    }
+  }
+`
+
+export const DELETE_USER = gql`
+    mutation deleteUser(
+      $_id: ID!
+    ){
+      deleteUser(
+        _id: $_id
+      )
+      {
+        _id
+      }
+    }
+`
+=======
 export const ADD_DOG = gql`
   mutation addDog(
     $name: String!
