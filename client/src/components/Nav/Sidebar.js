@@ -1,4 +1,4 @@
-import React ,{useState,useEffect }from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import Auth from "../../utils/auth";
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ const logout = event => {
     Auth.logout();
 };
 
-const Sidebar = ({open,onClick}) => {
+const Sidebar = ({ open, onClick }) => {
 
 
 
@@ -107,7 +107,7 @@ const UlContainer = styled.ul`
        
         text-shadow:0px 0px 39px rgba(13,12,34,0.3);
         font-family:"Source Sans Pro",sans-serif;
-    }
+    }g
     .text-link:hover{
         text-decoration:none;
         color:#11be8b;
@@ -146,7 +146,7 @@ const UlContainer = styled.ul`
       height:100vh;
       width:300px;
       padding:4rem 2rem;
-      transform:${({open}) => open ? 'translateX(0)' : 'translateX(100%)'};
+      transform:${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
       transition: transform 0.3s ease-in-out;
 
     
