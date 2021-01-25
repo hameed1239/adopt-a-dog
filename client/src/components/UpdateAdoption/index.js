@@ -12,6 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 import { Container, Col, Form, Button } from "react-bootstrap";
 
+
+
 const UpdateAdoption = () => {
     const state = useSelector((state) => {
         return state;
@@ -31,7 +33,10 @@ const UpdateAdoption = () => {
     const adoptionData = adoptData?.adoptions || [];
     const [searchInput, setSearchInput] = useState("");
     const [searchedAdoption, setSearchedAdoption] = useState([]);
-
+    const [show, setShow] = useState(false);
+                  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const [formState, setFormState] = useState({
         _id: "",
         dog: "",
@@ -66,6 +71,8 @@ const UpdateAdoption = () => {
 
             if (mutationResponse) {
                 alert("You have successfully Update a User");
+               
+               
             }
         } catch (e) {
             console.error(e);
@@ -131,8 +138,9 @@ const UpdateAdoption = () => {
                 <MDBContainer>
                     <MDBRow>
                         <MDBCol md="6">
+                        
                             <form onSubmit={handleFormSubmit}>
-                               
+                                
                                 <select
                                     className="browser-default custom-select"
                                     value={formState.firstName}
