@@ -164,7 +164,7 @@ const AddDog = () => {
               <option value={ "Female" }>Female</option>
             </select>
 
-            <label className="grey-text">hypoallergenic</label>
+            <label className="grey-text">Hypoallergenic</label>
             <select
               className="browser-default custom-select"
               onChange={ handleChange }
@@ -184,6 +184,7 @@ const AddDog = () => {
               onChange={ handleChange }
               className="form-control"
               required="required"
+              rows="7"
             />
 
             <label className="grey-text">Breed</label>
@@ -221,24 +222,27 @@ const AddDog = () => {
             </select>
 
             <label className="grey-text">Temperaments</label>
-            { temperamentsID.map((temperament) => {
-              return (
-                <>
-                  <input
-                    type="checkbox"
-                    key={ temperament._id }
-                    id={ temperament._id }
-                    name={ temperament.name }
-                    value={ temperament.name }
-                    onChange={ handleChange }
-                  />
-                  <label for={ temperament.name }>
-                    { temperament.name }
-                  </label>
-                  {"\n"}
-                </>
-              );
-            }) }
+            <div className="label-wrapper temperaments">
+              <ul>
+                { temperamentsID.map((temperament) => {
+                  return (
+                    <li>
+                      <label for={ temperament.name }>
+                        { temperament.name }
+                      </label>
+                      <input
+                        type="checkbox"
+                        key={ temperament._id }
+                        id={ temperament._id }
+                        name={ temperament.name }
+                        value={ temperament.name }
+                        onChange={ handleChange }
+                      />
+                    </li>
+                  );
+                }) }
+              </ul>
+            </div>
 
             <div className="text-center mt-4">
               <MDBBtn color="success" type="submit">
