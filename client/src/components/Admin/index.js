@@ -12,11 +12,11 @@ import DeleteUser from "../DeleteUser";
 import AddAdoption from "../AddAdoption";
 import UpdateAdoption from "../UpdateAdoption";
 import Auth from "../../utils/auth";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import AdoptionListAdmin from "../AdoptionListAdmin";
 
 const Admin = () => {
-  
+
   const [openAddBreed, setopenAddBreed] = useState(false);
   const [openAddAdoption, setopenAddAdoption] = useState(false);
   const [openEditBreed, setopenEditBreed] = useState(false);
@@ -24,14 +24,14 @@ const Admin = () => {
   const [openViewUser, setopenViewUser] = useState(false);
   const [openEditUser, setopenEditUser] = useState(false);
   const [openEditAdoption, setopenEditAdoption] = useState(false);
-  const [openDeleteUser,setopenDeleteUser] = useState(false);
+  const [openDeleteUser, setopenDeleteUser] = useState(false);
   const [openViewAdoption, setopenViewAdoption] = useState(false);
   const [openAddDog, setopenAddDog] = useState(false);
   const [openEditDog, setopenEditDog] = useState(false);
   const [openViewDog, setopenViewDog] = useState(false);
-  
- if(!Auth.loggedIn() || !Auth.isAdmin()){
-    return <Redirect to = "/"/>
+
+  if (!Auth.loggedIn() || !Auth.isAdmin()) {
+    return <Redirect to="/" />
   }
   return (
     <main id="admin">
@@ -44,13 +44,13 @@ const Admin = () => {
 
         <>
           <Button
-            onClick={() => setopenAddBreed(!openAddBreed)}
+            onClick={ () => setopenAddBreed(!openAddBreed) }
             aria-controls="example-collapse-text"
-            aria-expanded={openAddBreed}
+            aria-expanded={ openAddBreed }
           >
             Add A Breed
           </Button>
-          <Collapse in={openAddBreed}>
+          <Collapse in={ openAddBreed }>
             <div>
               <AddBreed />
             </div>
@@ -59,13 +59,13 @@ const Admin = () => {
 
         <>
           <Button
-            onClick={() => setopenEditBreed(!openEditBreed)}
+            onClick={ () => setopenEditBreed(!openEditBreed) }
             aria-controls="example-collapse-text"
-            aria-expanded={openEditBreed}
+            aria-expanded={ openEditBreed }
           >
             Find/Edit/Remove Breed
           </Button>
-          <Collapse in={openEditBreed}>
+          <Collapse in={ openEditBreed }>
             <div id="example-collapse-text">
               <EditBreed />
             </div>
@@ -74,15 +74,15 @@ const Admin = () => {
 
         <>
           <Button
-            onClick={() => setopenViewBreed(!openViewBreed)}
+            onClick={ () => setopenViewBreed(!openViewBreed) }
             aria-controls="example-collapse-text"
-            aria-expanded={openViewBreed}
+            aria-expanded={ openViewBreed }
           >
             View Breed
           </Button>
-          <Collapse in={openViewBreed}>
+          <Collapse in={ openViewBreed }>
             <div id="example-collapse-text">
-              View Breeds
+            <p className="h4 text-center mb-4">View Breeds</p>
               <BreedListAdmin />
             </div>
           </Collapse>
@@ -91,13 +91,13 @@ const Admin = () => {
         <>
           <h3>DOGS</h3>
           <Button
-            onClick={() => setopenAddDog(!openAddDog)}
+            onClick={ () => setopenAddDog(!openAddDog) }
             aria-controls="example-collapse-text"
-            aria-expanded={openAddDog}
+            aria-expanded={ openAddDog }
           >
             Add A Dog
           </Button>
-          <Collapse in={openAddDog}>
+          <Collapse in={ openAddDog }>
             <div>
               <AddDog />
             </div>
@@ -106,13 +106,13 @@ const Admin = () => {
 
         <>
           <Button
-            onClick={() => setopenEditDog(!openEditDog)}
+            onClick={ () => setopenEditDog(!openEditDog) }
             aria-controls="example-collapse-text"
-            aria-expanded={openEditDog}
+            aria-expanded={ openEditDog }
           >
             Find/Edit/Remove Dog
           </Button>
-          <Collapse in={openEditDog}>
+          <Collapse in={ openEditDog }>
             <div id="example-collapse-text">
               <EditDog />
             </div>
@@ -121,116 +121,109 @@ const Admin = () => {
 
         <>
           <Button
-            onClick={() => setopenViewDog(!openViewDog)}
+            onClick={ () => setopenViewDog(!openViewDog) }
             aria-controls="example-collapse-text"
-            aria-expanded={openViewDog}
+            aria-expanded={ openViewDog }
           >
             View Dogs
           </Button>
-          <Collapse in={openViewDog}>
+          <Collapse in={ openViewDog }>
             <div id="example-collapse-text">
               <DogsListAdmin />
             </div>
           </Collapse>
         </>
 
-        {/* <h3>DOGS</h3>
-        <ul>
-          <li>Add a Dog</li>
-          <li>Find, Edit & Delete a Dog</li>
-          <li>View dogs</li>
-        </ul> */}
-
         <h3>ADOPTIONS</h3>
 
         <>
           <Button
-            onClick={() => setopenAddAdoption(!openAddAdoption)}
+            onClick={ () => setopenAddAdoption(!openAddAdoption) }
             aria-controls="example-collapse-text"
-            aria-expanded={openAddAdoption}
+            aria-expanded={ openAddAdoption }
           >
-              Add a dog that got adopted.
+            Add a dog that got adopted.
           </Button>
-          <Collapse in={openAddAdoption}>
+          <Collapse in={ openAddAdoption }>
             <div id="example-collapse-text">
               <AddAdoption />
             </div>
           </Collapse>
-          </>
-          <>
+        </>
+        <>
           <Button
-            onClick={() => setopenEditAdoption(!openEditAdoption)}
+            onClick={ () => setopenEditAdoption(!openEditAdoption) }
             aria-controls="example-collapse-text"
-            aria-expanded={openEditAdoption}
+            aria-expanded={ openEditAdoption }
           >
-              Find, Edit & Delete an adoption
+            Find, Edit & Delete an adoption
           </Button>
-          <Collapse in={openEditAdoption}>
+          <Collapse in={ openEditAdoption }>
             <div id="example-collapse-text">
               <UpdateAdoption />
             </div>
           </Collapse>
-          </>
-          
-          <>
+        </>
+
+        <>
           <Button
-            onClick={() => setopenViewAdoption(!openViewAdoption)}
+            onClick={ () => setopenViewAdoption(!openViewAdoption) }
             aria-controls="example-collapse-text"
-            aria-expanded={openViewAdoption}
+            aria-expanded={ openViewAdoption }
           >
-              View all adoptions
+            View all adoptions
           </Button>
-          <Collapse in={openViewAdoption}>
+          <Collapse in={ openViewAdoption }>
             <div id="example-collapse-text">
               <AdoptionListAdmin />
             </div>
           </Collapse>
-          </>
+        </>
 
 
         <h3>USERS</h3>
-       
+
         <>
           <Button
-            onClick={() => setopenViewUser(!openViewUser)}
+            onClick={ () => setopenViewUser(!openViewUser) }
             aria-controls="example-collapse-text"
-            aria-expanded={openEditUser}
+            aria-expanded={ openEditUser }
           >
-              View users
+            View users
           </Button>
-          <Collapse in={openViewUser}>
+          <Collapse in={ openViewUser }>
             <div id="example-collapse-text">
               <UserListAdmin />
             </div>
           </Collapse>
         </>
-          
-          <>
-         
+
+        <>
+
           <Button
-            onClick={() => setopenEditUser(!openEditUser)}
+            onClick={ () => setopenEditUser(!openEditUser) }
             aria-controls="example-collapse-text"
-            aria-expanded={openEditUser}
+            aria-expanded={ openEditUser }
           >
-              Find & Edit a user
+            Find & Edit a user
           </Button>
-          <Collapse in={openEditUser}>
+          <Collapse in={ openEditUser }>
             <div id="example-collapse-text">
               <EditUser />
             </div>
           </Collapse>
-         
-          
-          </>
-          <>
+
+
+        </>
+        <>
           <Button
-            onClick={() => setopenDeleteUser(!openDeleteUser)}
+            onClick={ () => setopenDeleteUser(!openDeleteUser) }
             aria-controls="example-collapse-text"
-            aria-expanded={openDeleteUser}
+            aria-expanded={ openDeleteUser }
           >
-              Delete A User
+            Delete A User
           </Button>
-          <Collapse in={openDeleteUser}>
+          <Collapse in={ openDeleteUser }>
             <div id="example-collapse-text">
               <DeleteUser />
             </div>
