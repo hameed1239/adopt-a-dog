@@ -1,26 +1,37 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
-import { ADD_BREED } from "../../utils/mutations";
-import { QUERY_COLORS, QUERY_TEMPERAMENTS } from "../../utils/queries";
+import { ADD_DOG } from "../../utils/mutations";
+import {
+  QUERY_COLORS,
+  QUERY_TEMPERAMENTS,
+  QUERY_BREEDS,
+} from "../../utils/queries";
 
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 
-const AddBreed = () => {
+const AddDog = () => {
   const [formState, setFormState] = useState({
     name: "",
+    height: "",
+    weight: "",
+    yearOfBirth: "",
     size: "",
+    gender: "",
     hypoallergenic: "",
+    story: "",
     colors: "",
+    breed: "",
     temperaments: "",
   });
 
-  const [addBreed, { error }] = useMutation(ADD_BREED);
+  const [addDog] = useMutation(ADD_DOG);
   const { data } = useQuery(QUERY_COLORS);
   const { data: temperamentsData } = useQuery(QUERY_TEMPERAMENTS);
+  const { data: breedsData } = useQuery(QUERY_BREEDS);
 
   const colorsData = data?.colors || [];
-  console.log(colorsData);
   const temperamentsID = temperamentsData?.temperaments || [];
+  const breedsDataID = breedsData?.breeds || [];
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -40,26 +51,39 @@ const AddBreed = () => {
       formState.hypoallergenic = false;
     }
 
+    formState.yearOfBirth = parseInt(formState.yearOfBirth);
+
     try {
-      const mutationResponse = await addBreed({
+      const mutationResponse = await addDog({
         variables: {
           name: formState.name,
+          height: formState.height,
+          weight: formState.weight,
+          yearOfBirth: formState.yearOfBirth,
+          gender: formState.gender,
           size: formState.size,
           hypoallergenic: formState.hypoallergenic,
+          story: formState.story,
           colors: formState.colors,
+          breed: formState.breed,
           temperaments: formState.temperaments,
         },
       });
 
       if (mutationResponse) {
-        alert("You have successfully Added a New Breed Type");
+        alert("You have successfully Added a New Dog");
       }
     } catch (e) {
       console.error(e);
       setFormState({
         name: "",
+        height: "",
+        weight: "",
+        yearOfBirth: "",
         size: "",
+        gender: "",
         hypoallergenic: "",
+        story: "",
         colors: "",
         temperaments: "",
       });
@@ -71,8 +95,8 @@ const AddBreed = () => {
       <MDBRow className="collapseContent">
         <MDBCol md="6">
           <form onSubmit={handleFormSubmit}>
-            <p className="h4 text-center mb-4">Add a Breed</p>
-            <label className="grey-text">Breed name</label>
+            <p className="h4 text-center mb-4">Add a Dog</p>
+            <label className="grey-text">Dog name</label>
             <input
               name="name"
               type="name"
@@ -82,12 +106,52 @@ const AddBreed = () => {
               onChange={handleChange}
               required="required"
             />
-            <br />
+
+            <label className="grey-text">Height</label>
+            <input
+              type="height"
+              name="height"
+              value={formState.height}
+              onChange={handleChange}
+              className="form-control"
+              required="required"
+            />
+
+            <label className="grey-text">Weight</label>
+            <input
+              type="weight"
+              name="weight"
+              value={formState.weight}
+              onChange={handleChange}
+              className="form-control"
+              required="required"
+            />
+
+            <label className="grey-text">Year Of Birth</label>
+            <input
+              type="yearOfBirth"
+              name="yearOfBirth"
+              value={formState.yearOfBirth}
+              onChange={handleChange}
+              className="form-control"
+              required="required"
+            />
+
             <label className="grey-text">Size</label>
             <input
               type="size"
               name="size"
               value={formState.size}
+              onChange={handleChange}
+              className="form-control"
+              required="required"
+            />
+
+            <label className="grey-text">Gender</label>
+            <input
+              type="gender"
+              name="gender"
+              value={formState.gender}
               onChange={handleChange}
               className="form-control"
               required="required"
@@ -104,6 +168,34 @@ const AddBreed = () => {
               <option>Choose your option</option>
               <option value={"true"}>True</option>
               <option value={"false"}>False</option>
+            </select>
+
+            <label className="grey-text">Story</label>
+            <textarea
+              type="story"
+              name="story"
+              value={formState.story}
+              onChange={handleChange}
+              className="form-control"
+              required="required"
+            />
+
+            <label className="grey-text">Breed</label>
+            <select
+              className="browser-default custom-select"
+              onChange={handleChange}
+              type="breed"
+              name="breed"
+              value={formState.breed}
+            >
+              <option>Choose your option</option>
+              {breedsDataID.map((breedID) => {
+                return (
+                  <option key={breedID._id} value={breedID._id}>
+                    {breedID.name}
+                  </option>
+                );
+              })}
             </select>
 
             <label className="grey-text">Colors</label>
@@ -154,4 +246,4 @@ const AddBreed = () => {
   );
 };
 
-export default AddBreed;
+export default AddDog;
