@@ -59,9 +59,7 @@ const Login = (props) => {
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control type="email" name='email' className='form-input' id='email' value={formState.email} placeholder="Enter email" onChange={handleChange} />
-                                <Form.Text className="text-muted">
-                                    We'll never share your email with anyone else.
-                                </Form.Text>
+                                
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
@@ -70,7 +68,7 @@ const Login = (props) => {
                             </Form.Group>
                             <button className="btn-find" type="submit">Submit	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button>
                             <Form.Text>
-                                New User?  <Link to="/signup"><button className="btn-find" type="submit">Sign Up Now!<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
+                                <Link to="/signup"><button className="btn-find" type="submit">Sign Up Now!<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
                             </Form.Text>
                         </Form>
                         {error && <div>Login failed</div>}

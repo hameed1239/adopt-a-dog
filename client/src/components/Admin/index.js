@@ -13,6 +13,7 @@ import Auth from "../../utils/auth";
 import {Redirect} from "react-router-dom";
 import AdoptionListAdmin from "../AdoptionListAdmin";
 
+
 const Admin = () => {
   
   const [openAddBreed, setopenAddBreed] = useState(false);
@@ -32,8 +33,9 @@ const Admin = () => {
     <main id="admin">
       <section className="container">
         <h1>Admin Data Management</h1>
+        
       </section>
-
+      
       <section className="container mt-20 container-flex-col">
         <h3>BREEDS</h3>
 
