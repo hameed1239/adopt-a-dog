@@ -19,8 +19,8 @@ const AddDog = () => {
     gender: "",
     hypoallergenic: "",
     story: "",
-    colors: "",
     breed: "",
+    colors: "",
     temperaments: "",
   });
 
@@ -34,7 +34,7 @@ const AddDog = () => {
   const breedsDataID = breedsData?.breeds || [];
 
   const handleChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     const { name, value } = event.target;
     setFormState({
       ...formState,
@@ -45,11 +45,17 @@ const AddDog = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    if (formState.hypoallergenic === "true") {
+    if (formState.hypoallergenic === "true" || formState.hypoallergenic === "") {
       formState.hypoallergenic = true;
     } else if (formState.hypoallergenic === "false") {
       formState.hypoallergenic = false;
     }
+
+    if (formState.size === "") formState.size = "Large";
+    if (formState.gender === "") formState.gender = "Male";
+    if (formState.breed === "") formState.breed = breedsDataID[0]._id;
+    if (formState.colors === "") formState.colors = colorsData[0]._id;
+    if (formState.temperaments === "") formState.temperaments = temperamentsID[0]._id;
 
     formState.yearOfBirth = parseInt(formState.yearOfBirth);
 
@@ -144,7 +150,7 @@ const AddDog = () => {
               type="size"
               name="size"
               value={ formState.size }
-              required="required"
+              selected="selected"
             >
               <option value={ "Large" }>Large</option>
               <option value={ "Medium" }>Medium</option>
@@ -158,7 +164,7 @@ const AddDog = () => {
               type="gender"
               name="gender"
               value={ formState.gender }
-              required="required"
+              selected="selected"
             >
               <option value={ "Male" }>Male</option>
               <option value={ "Female" }>Female</option>
@@ -171,6 +177,7 @@ const AddDog = () => {
               type="hypoallergenic"
               name="hypoallergenic"
               value={ formState.hypoallergenic }
+              selected="selected"
             >
               <option value={ "true" }>True</option>
               <option value={ "false" }>False</option>
@@ -227,7 +234,7 @@ const AddDog = () => {
                 { temperamentsID.map((temperament) => {
                   return (
                     <li>
-                      <label for={ temperament.name }>
+                      <label htmlFor={ temperament.name }>
                         { temperament.name }
                       </label>
                       <input
@@ -235,7 +242,7 @@ const AddDog = () => {
                         key={ temperament._id }
                         id={ temperament._id }
                         name={ temperament.name }
-                        value={ temperament.name }
+                        value={ temperament._id }
                         onChange={ handleChange }
                       />
                     </li>

@@ -89,16 +89,16 @@ const UpdateAdoption = () => {
     };
 
     useEffect(() => {
-        console.log(adoptData);
-        console.log(userData);
-        console.log(dogData)
+        // console.log(adoptData);
+        // console.log(userData);
+        // console.log(dogData)
         if (adoptData) {
-            console.log(adoptData.adoptions);
+            // console.log(adoptData.adoptions);
             dispatch({
                 type: UPDATE_ADOPTION,
                 adoptions: adoptData.adoptions,
             });
-            console.log(state);
+            // console.log(state);
         } else if (!loading) {
         }
     }, [adoptData, loading, dispatch,userData, dogData]);
@@ -106,8 +106,8 @@ const UpdateAdoption = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(event);
-        console.log(adoptions);
+        // console.log(event);
+        // console.log(adoptions);
         if (!searchInput) {
             return false;
         }
@@ -123,7 +123,7 @@ const UpdateAdoption = () => {
                 return adopt._id === searchInput;
             });
 
-            console.log(response);
+            // console.log(response);
            
             setFormState(...response);
             setSearchedAdoption(response);

@@ -34,7 +34,7 @@ const BreedMenu = () => {
       type: UPDATE_CURRENT_BREED,
       currentBreed: id,
     });
-    console.log(id);
+    // console.log(id);
   };
 
   return (

@@ -55,7 +55,7 @@ const EditDog = () => {
   });
 
   const handleChange = (event) => {
-    console.log(event);
+    // console.log(event);
     const { name, value } = event.target;
     setFormState({
       ...formState,
@@ -84,7 +84,7 @@ const EditDog = () => {
   const handleEditFormSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(event.target.value);
+    // console.log(event.target.value);
 
     if (formState.hypoallergenic === "true") {
       formState.hypoallergenic = true;

@@ -31,16 +31,16 @@ const DeleteUser = () => {
   
 
   useEffect(() => {
-    console.log(userData);
+    // console.log(userData);
     //console.log(userDataID);
     
     if (delUserState) {
-      console.log(userData.users);
+      // console.log(userData.users);
       dispatch({
         type: DELETE_A_USER,
         users: userData.users,
       });
-      console.log(state);
+      // console.log(state);
       setDeleteUser(false);
     } else if (!loading) {
     }
@@ -49,13 +49,13 @@ const DeleteUser = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
     if (!searchInput) {
       return false;
     }
-    console.log(searchInput);
-    console.log(users);
-    console.log(state);
+    // console.log(searchInput);
+    // console.log(users);
+    // console.log(state);
     try {
       
       if (!users) {
@@ -72,13 +72,13 @@ const DeleteUser = () => {
                               _id: user._id
                             },
                           });
-                          console.log(mutationResponse);
+                          // console.log(mutationResponse);
                           if (mutationResponse) {
                               alert("You have successfully Deleted a User");
-                              console.log(state);
+                              // console.log(state);
                               let index = userData.users.indexOf(user._id);
                               userData.users.splice(index,1);
-                              console.log(userData);
+                              // console.log(userData);
                               setDeleteUser(true);
                           }
                     }

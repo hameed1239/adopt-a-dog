@@ -22,11 +22,11 @@ const AddAdoption = () => {
   const { data: userData } = useQuery(QUERY_USERS);
   const dispatch = useDispatch();
   const dogsData = data?.dogs || [];
-  console.log(dogsData);
+  // console.log(dogsData);
   const userDataID = userData?.users || [];
-  console.log(userDataID);
+  // console.log(userDataID);
   const handleChange = (event) => {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     const { name, value } = event.target;
     setFormState({
       ...formState,
@@ -38,7 +38,7 @@ const AddAdoption = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log('Here... ->')
+    // console.log('Here... ->')
     try {
       if (formState.isApproved === "true"){
           formState.isApproved = true;
@@ -46,7 +46,7 @@ const AddAdoption = () => {
       else{
           formState.isApproved = false;
       }
-      console.log(formState);
+      // console.log(formState);
       const mutationResponse = await addAdoption({
         variables: {
             dog : formState.dog,
@@ -56,11 +56,11 @@ const AddAdoption = () => {
             approvalDate : Date.parse(formState.approvalDate).toString()
         },
       });
-      console.log(mutationResponse);
+      // console.log(mutationResponse);
       if (mutationResponse) {
         alert("You have successfully Added a dog that got adopted");
-        console.log(formState);
-        console.log(mutationResponse);
+        // console.log(formState);
+        // console.log(mutationResponse);
       }
     } catch (e) {
       console.error(e);

@@ -102,16 +102,16 @@ const EditUser = () => {
   };
 
   useEffect(() => {
-    console.log(userData);
+    // console.log(userData);
     //console.log(userDataID);
     
     if (userData) {
-      console.log(userData.users);
+      // console.log(userData.users);
       dispatch({
         type: UPDATE_A_USER,
         users: userData.users,
       });
-      console.log(state);
+      // console.log(state);
     } else if (!loading) {
     }
   }, [userData, loading, dispatch]);
@@ -119,13 +119,13 @@ const EditUser = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
     if (!searchInput) {
       return false;
     }
-    console.log(searchInput);
-    console.log(users);
-    console.log(state);
+    // console.log(searchInput);
+    // console.log(users);
+    // console.log(state);
     try {
        
       if (!users) {
@@ -137,7 +137,7 @@ const EditUser = () => {
         return user._id === searchInput;
       });
 
-      console.log(response);
+      // console.log(response);
       setFormState(...response);
       setSearchedUser(response);
     } catch (err) {

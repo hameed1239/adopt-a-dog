@@ -14,7 +14,7 @@ class AuthService {
   isAdmin(){
     
     const decoded = decode(this.getToken());
-    console.log(decoded);
+    // console.log(decoded);
     if (decoded.data.isAdmin){
        return true
     }
@@ -23,7 +23,7 @@ class AuthService {
   isTokenExpired(token) {
     try {
       const decoded = decode(token);
-      console.log(decoded);
+      // console.log(decoded);
       if (decoded.exp < Date.now() / 1000) {
         return true;
       } else return false;

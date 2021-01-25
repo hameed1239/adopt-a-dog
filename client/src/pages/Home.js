@@ -10,7 +10,7 @@ import { faPaw } from '@fortawesome/free-solid-svg-icons';
 
 
 const Home = () => {
-  console.log(navigator);
+  // console.log(navigator);
   return (
     <HomeContainer>
       <div className="home-content">

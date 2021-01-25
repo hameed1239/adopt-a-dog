@@ -25,7 +25,7 @@ const DogDetail = () => {
 
   const { dogs } = state;
 
-  console.log(dogs);
+  // console.log(dogs);
 
   useEffect(() => {
     if (dogs.length) {

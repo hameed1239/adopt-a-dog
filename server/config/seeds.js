@@ -10,7 +10,7 @@ db.once("open", async () => {
         { name: "Available" },
         { name: "Not Available" }
     ]);
-    console.log("Status seeded");
+    // console.log("Status seeded");
 
     await Color.deleteMany();
     const color = await Color.insertMany([
@@ -37,7 +37,7 @@ db.once("open", async () => {
         { name: "Rust" },
     ]);
 
-    console.log("Colors seeded");
+    // console.log("Colors seeded");
 
     await Temperament.deleteMany();
     const temperament = await Temperament.insertMany([
@@ -121,7 +121,7 @@ db.once("open", async () => {
         { name: "Willful" },
         { name: "Joyful" },
     ]);
-    console.log("Temperaments seeded");
+    // console.log("Temperaments seeded");
 
     await Breed.deleteMany();
 
@@ -246,7 +246,7 @@ db.once("open", async () => {
             temperaments: [temperament[50]._id, temperament[43]._id]
         }
     ]);
-    console.log("Breeds seeded");
+    // console.log("Breeds seeded");
 
     await Dog.deleteMany();
     const dog = await Dog.insertMany(
@@ -809,7 +809,7 @@ db.once("open", async () => {
             },
         ]
     );
-    console.log("Dogs seeded");
+    // console.log("Dogs seeded");
     await User.deleteMany();
     await User.create(
         {
@@ -852,7 +852,7 @@ db.once("open", async () => {
             phone: 123456789
         });
 
-    console.log("Users seeded");
+    // console.log("Users seeded");
 
     process.exit();
 })

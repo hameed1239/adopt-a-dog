@@ -19,11 +19,11 @@ const AddBreed = () => {
   const { data: temperamentsData } = useQuery(QUERY_TEMPERAMENTS);
 
   const colorsData = data?.colors || [];
-  console.log(colorsData);
+  // console.log(colorsData);
   const temperamentsID = temperamentsData?.temperaments || [];
 
   const handleChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     const { name, value } = event.target;
     setFormState({
       ...formState,

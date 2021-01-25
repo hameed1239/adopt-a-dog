@@ -20,7 +20,7 @@ const DogsList = () => {
 
   const dogs = data?.dogs || [];
 
-  console.log(dogs);
+  // console.log(dogs);
 
   useEffect(() => {
     if (data) {

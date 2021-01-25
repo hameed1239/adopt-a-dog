@@ -24,7 +24,7 @@ const ApplicationForm = () => {
       };
 
     const emailUser = Auth.getProfile().data.email;
-    console.log(emailUser);
+    // console.log(emailUser);
     const userDataID = userData?.users || [];
     // update state based on form input changes
     const handleChange = (event) => {
@@ -53,7 +53,7 @@ const ApplicationForm = () => {
             const { data } = await updateUser({
                 variables: { ...formState }
             });
-            console.log(data);
+            // console.log(data);
             if (data) {
                 alert("You have successfully Submitted your form, We will let you know if your application is approved.");
                 window.location.assign('/');
