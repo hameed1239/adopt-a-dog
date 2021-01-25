@@ -12,6 +12,11 @@ import { faPaw } from '@fortawesome/free-solid-svg-icons';
 const Home = () => {
   return (
     <HomeContainer>
+     <div className="home-img">
+      <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
+     
+      <a href='https://www.freepik.com/vectors/dog' target="_blank"> <img src={bgLogo} style={{backgroundColor:"rgb(231,242,247)",opacity:".8"}}/></a>
+      </div>
       <div className="home-content">
         <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
         <h1>Who<span>We</span> Are</h1>
@@ -23,11 +28,7 @@ Our goal is to make shelters the first place potential adopters turn when lookin
         <Link to="/dogs"><button className="btn-find">More	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
       </div>
 
-      <div className="home-img">
-      <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
      
-      <a href='https://www.freepik.com/vectors/dog' target="_blank"> <img src={bgLogo} style={{backgroundColor:"rgb(231,242,247)",opacity:".8"}}/></a>
-      </div>
     </HomeContainer>
   );
 };
@@ -108,11 +109,7 @@ const HomeContainer = styled.div`
   }
 
 
-.shake-paw{
-  color:white;
-  align-self:right;
-  margin-left:1rem;
-}
+
 
    
  }
@@ -122,15 +119,12 @@ const HomeContainer = styled.div`
   padding:2rem;
   align-items:left;
    text-align:center !important;
-   a{
-     ${'' /* width:80%; */}
-     
-   }
+  
 
     img{
       height:90%;
       width:60%;
-      box-shadow: 2px 1px 21px 20px rgba(255,255,255,0.75);
+      box-shadow: 2px 1px 51px 10px rgba(255,255,255,0.95);
     }
     .icon{
         color: #c7d2d9;
@@ -139,7 +133,31 @@ const HomeContainer = styled.div`
 
       }
  }
+ @media only screen and (max-width: 768px){
+  display:block;
+  div{
+   padding:3rem 1rem;
 
+ }
+  .home-content{
+    width:90%;
+    .btn-find{
+        font-family: "Alegreya Sans", sans-serif;
+        padding:.6rem 5rem !important;
+        margin:2.6rem .3rem !important;
+        }
+  }
+  .home-img{
+    width:90%;
+    text-align:center;
+    margin:0 auto;
+      
+    img{
+      height:90%;
+      width:90%;
+    }
+  }      
+}
   
 
 `

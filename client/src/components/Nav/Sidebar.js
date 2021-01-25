@@ -16,46 +16,81 @@ const Sidebar = ({ open, onClick }) => {
 
 
     return (
+        
+      <UlContainer open={open}  onClick={onClick}>
+      
+       
+      
+            {Auth.loggedIn() && Auth.isAdmin() ?(
 
-        <UlContainer open={ open } onClick={ onClick }>
+            <>
+
+
+                <li>
+                    <Link to='/admin' className='text-link ' onClick={logout}>
+                        Admin
+                    </Link>
+                </li>
+            </>
+
+            ) : (
+            <>
+          
+            <li>
             <Link to='/' className='text-link'>
-                <li>Home</li>
-            </Link>
-
-            <Link to='/dogs' className='text-link'>
-                <li>Dogs</li>
-            </Link>
-
-            <Link to='/about' className='text-link'>
-                <li>About</li>
-            </Link>
-
-            <Link to='/contact' className='text-link'>
-                <li>Contact</li>
-            </Link>
+                Home
+                </Link>
+            </li>
+            <li>
+                <Link to='/dogs' className='text-link'>
+                Dogs
+                </Link>
+            </li>
+            
+            <li>
+                <Link to='/about' className='text-link'>
+                About
+                </Link>
+            </li>
+            <li>
+                <Link to='/contact' className='text-link'>
+                Contact
+                </Link>
+            </li>
+            <li>
+                <Link to='/donate' className='text-link '>
+                    Donate
+                </Link>
+            </li>
+          
+            </>
+            )}
 
             {Auth.loggedIn() ? (
-                <>
-                    <li>
-                        <Link to='/login' className='text-link' onClick={ logout }>
-                            Logout
-                    </Link>
-                    </li>
-                </>
-            ) : (
-                    <>
-                        <Link to='/login' className='text-link'>
-                            <li>Login</li>
-                        </Link>
-                    </>
-                ) }
-            <li>
-                <Link to='/donate' className='text-link donate'>
-                    Donate
-            </Link>
-            </li>
 
-        </UlContainer>
+            <>
+
+                <li>
+                    <Link to='/login' className='text-link donate' onClick={logout}>
+                        Logout
+                    </Link>
+                </li>
+            </>
+
+            ) : (
+            <>
+                <li>
+                    <Link to='/login' className='text-link donate'>
+                        Login
+                    </Link>
+                </li>
+            </>
+)}
+
+
+       
+            
+    </UlContainer>
 
     )
 }
