@@ -210,7 +210,7 @@ export const DELETE_USER = gql`
       }
     }
 `
-=======
+
 export const ADD_DOG = gql`
   mutation addDog(
     $name: String!
