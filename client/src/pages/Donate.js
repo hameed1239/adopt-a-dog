@@ -64,7 +64,6 @@ justify-content:space-between;
   text-align:center !important;
 
     img{
-      height:100%;
       width:100%;
     }
  }

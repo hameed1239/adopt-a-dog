@@ -122,7 +122,6 @@ const HomeContainer = styled.div`
   
 
     img{
-      height:90%;
       width:60%;
       box-shadow: 2px 1px 51px 10px rgba(255,255,255,0.95);
     }

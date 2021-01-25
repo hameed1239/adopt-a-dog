@@ -127,7 +127,6 @@ background: rgb(231,242,247);
    }
 
     img{
-      height:90%;
       width:60%;
       box-shadow: 2px 1px 51px 32px rgba(255,255,255,1);
     }
