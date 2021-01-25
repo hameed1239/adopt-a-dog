@@ -288,6 +288,10 @@ main p {
   text-align: center;
 }
 
+#admin button {
+  margin-bottom: 40px;
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;

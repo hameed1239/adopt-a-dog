@@ -94,7 +94,7 @@ const AddDog = () => {
     <MDBContainer>
       <MDBRow className="collapseContent">
         <MDBCol md="6">
-          <form onSubmit={handleFormSubmit}>
+          <form onSubmit={ handleFormSubmit }>
             <p className="h4 text-center mb-4">Add a Dog</p>
             <label className="grey-text">Dog name</label>
             <input
@@ -102,8 +102,8 @@ const AddDog = () => {
               type="name"
               id="breed"
               className="form-control"
-              value={formState.name}
-              onChange={handleChange}
+              value={ formState.name }
+              onChange={ handleChange }
               required="required"
             />
 
@@ -111,8 +111,8 @@ const AddDog = () => {
             <input
               type="height"
               name="height"
-              value={formState.height}
-              onChange={handleChange}
+              value={ formState.height }
+              onChange={ handleChange }
               className="form-control"
               required="required"
             />
@@ -121,8 +121,8 @@ const AddDog = () => {
             <input
               type="weight"
               name="weight"
-              value={formState.weight}
-              onChange={handleChange}
+              value={ formState.weight }
+              onChange={ handleChange }
               className="form-control"
               required="required"
             />
@@ -131,51 +131,57 @@ const AddDog = () => {
             <input
               type="yearOfBirth"
               name="yearOfBirth"
-              value={formState.yearOfBirth}
-              onChange={handleChange}
+              value={ formState.yearOfBirth }
+              onChange={ handleChange }
               className="form-control"
               required="required"
             />
 
             <label className="grey-text">Size</label>
-            <input
+            <select
+              className="browser-default custom-select"
+              onChange={ handleChange }
               type="size"
               name="size"
-              value={formState.size}
-              onChange={handleChange}
-              className="form-control"
+              value={ formState.size }
               required="required"
-            />
+            >
+              <option value={ "Large" }>Large</option>
+              <option value={ "Medium" }>Medium</option>
+              <option value={ "Small" }>Small</option>
+            </select>
 
             <label className="grey-text">Gender</label>
-            <input
+            <select
+              className="browser-default custom-select"
+              onChange={ handleChange }
               type="gender"
               name="gender"
-              value={formState.gender}
-              onChange={handleChange}
-              className="form-control"
+              value={ formState.gender }
               required="required"
-            />
+            >
+              <option value={ "Male" }>Male</option>
+              <option value={ "Female" }>Female</option>
+            </select>
 
             <label className="grey-text">hypoallergenic</label>
             <select
               className="browser-default custom-select"
-              onChange={handleChange}
+              onChange={ handleChange }
               type="hypoallergenic"
               name="hypoallergenic"
-              value={formState.hypoallergenic}
+              value={ formState.hypoallergenic }
             >
-              <option>Choose your option</option>
-              <option value={"true"}>True</option>
-              <option value={"false"}>False</option>
+              <option value={ "true" }>True</option>
+              <option value={ "false" }>False</option>
             </select>
 
             <label className="grey-text">Story</label>
             <textarea
               type="story"
               name="story"
-              value={formState.story}
-              onChange={handleChange}
+              value={ formState.story }
+              onChange={ handleChange }
               className="form-control"
               required="required"
             />
@@ -183,56 +189,56 @@ const AddDog = () => {
             <label className="grey-text">Breed</label>
             <select
               className="browser-default custom-select"
-              onChange={handleChange}
+              onChange={ handleChange }
               type="breed"
               name="breed"
-              value={formState.breed}
+              value={ formState.breed }
             >
-              <option>Choose your option</option>
-              {breedsDataID.map((breedID) => {
+              { breedsDataID.map((breedID) => {
                 return (
-                  <option key={breedID._id} value={breedID._id}>
-                    {breedID.name}
+                  <option key={ breedID._id } value={ breedID._id }>
+                    {breedID.name }
                   </option>
                 );
-              })}
+              }) }
             </select>
 
             <label className="grey-text">Colors</label>
             <select
               className="browser-default custom-select"
-              onChange={handleChange}
+              onChange={ handleChange }
               type="colors"
               name="colors"
-              value={formState.colors}
+              value={ formState.colors }
             >
-              <option>Choose your option</option>
-              {colorsData.map((color) => {
+              { colorsData.map((color) => {
                 return (
-                  <option key={color._id} value={color._id}>
-                    {color.name}
+                  <option key={ color._id } value={ color._id }>
+                    {color.name }
                   </option>
                 );
-              })}
+              }) }
             </select>
 
             <label className="grey-text">Temperaments</label>
-            <select
-              className="browser-default custom-select"
-              onChange={handleChange}
-              type="temperaments"
-              name="temperaments"
-              value={formState.temperaments}
-            >
-              <option>Choose your option</option>
-              {temperamentsID.map((temperament) => {
-                return (
-                  <option key={temperament._id} value={temperament._id}>
-                    {temperament.name}
-                  </option>
-                );
-              })}
-            </select>
+            { temperamentsID.map((temperament) => {
+              return (
+                <>
+                  <input
+                    type="checkbox"
+                    key={ temperament._id }
+                    id={ temperament._id }
+                    name={ temperament.name }
+                    value={ temperament.name }
+                    onChange={ handleChange }
+                  />
+                  <label for={ temperament.name }>
+                    { temperament.name }
+                  </label>
+                  {"\n"}
+                </>
+              );
+            }) }
 
             <div className="text-center mt-4">
               <MDBBtn color="success" type="submit">

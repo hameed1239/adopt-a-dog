@@ -44,7 +44,7 @@ https://adopt-me-hameed1239.herokuapp.com/.
 
 ## Repo URL
 
-https://github.com/hameed1239/adopt-a-dog.
+https://github.com/hameed1239/adopt-me.
 
 ## Features
 
