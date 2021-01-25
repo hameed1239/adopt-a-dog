@@ -92,7 +92,7 @@ const DeleteUser = () => {
               >
                 <option>Choose your option</option>
                 { userDataID.map((user) => {
-                  return <option value={ user._id }>{ user.firstName }</option>;
+                  return <option key={ user._id } value={ user._id }>{ user.firstName }</option>;
                 }) }
               </select>
 

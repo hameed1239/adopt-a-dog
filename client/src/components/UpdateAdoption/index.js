@@ -129,7 +129,7 @@ const UpdateAdoption = () => {
                                 <option>Choose your option</option>
                                 { adoptionData.map((adopt) => {
 
-                                    return <option value={ adopt._id }>{ adopt.dog.name } Adopted by { adopt.user.firstName } { adopt.user.lastName }</option>;
+                                    return <option key={ adopt._id } value={ adopt._id }>{ adopt.dog.name } Adopted by { adopt.user.firstName } { adopt.user.lastName }</option>;
                                 }) }
                             </select>
 
@@ -158,10 +158,10 @@ const UpdateAdoption = () => {
                                     value={ formState.dog }
                                 >
                                     <option>Choose your option</option>
-
                                     { dogDataID.map((dog) => {
-                                        return <option value={ dog._id }>{ dog.name }</option>;
+                                        return <option key={ dog._id } value={ dog._id }>{ dog.name }</option>;
                                     }) }
+
                                 </select>
                                 <label className="grey-text">User's Name</label>
                                 <select
@@ -173,7 +173,7 @@ const UpdateAdoption = () => {
                                 >
                                     <option>Choose your option</option>
                                     { userDataID.map((user) => {
-                                        return <option value={ user._id }>{ user.firstName } { user.lastName }</option>;
+                                        return <option key={ user._id } value={ user._id }>{ user.firstName } { user.lastName }</option>;
                                     }) }
                                 </select>
 

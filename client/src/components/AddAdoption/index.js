@@ -80,7 +80,7 @@ const AddAdoption = () => {
             >
               <option>Choose your option</option>
               { dogsData.map((dog) => {
-                return <option value={ dog._id }>{ dog.name }</option>;
+                return <option key={ dog._id } value={ dog._id }>{ dog.name }</option>;
               }) }
             </select>
             <br />
@@ -94,7 +94,7 @@ const AddAdoption = () => {
             >
               <option>Choose your option</option>
               { userDataID.map((user) => {
-                return <option value={ user._id }>{ user.firstName } { user.lastName }</option>;
+                return <option key={ user._id } value={ user._id }>{ user.firstName } { user.lastName }</option>;
               }) }
             </select>
             <label className="grey-text">Request Date(January 01, 1970)</label>
