@@ -72,9 +72,9 @@ https://github.com/hameed1239/adopt-me.
 
 1.
 
-### Screenshot / Gif Animation
+### Screenshot
 
-![Screenshot / Gif Animation]()
+![Screenshot](./screenshot.png)
 
 ### Video Demo
 
