@@ -45,7 +45,7 @@ const Login = (props) => {
             <HomeContainer>
                 <div className="home-content">
                     <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
-                    <h1>Dont't Buy<span>Adopt</span></h1>
+                    <h1>Dont't Buy <span> Adopt </span></h1>
                     <p>"Before you get a dog, you can't quite imagine what living with one might be like; afterward, you can't imagine living any other way."
                     <span className="quote-name">Caroline Knapp</span></p>
                     <Link to="/dogs"><button className="btn-find">Find dog 	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
@@ -59,15 +59,14 @@ const Login = (props) => {
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control type="email" name='email' className='form-input' id='email' value={formState.email} placeholder="Enter email" onChange={handleChange} />
-                                <Form.Text className="text-muted">
-                                    We'll never share your email with anyone else.
-                                </Form.Text>
+                               
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" name='password' className='form-input' id='password' value={formState.password} placeholder="Password" onChange={handleChange} />
                             </Form.Group>
+                            
                             <button className="btn-find" type="submit">Sign in</button>
                             <Form.Text>
                                  <Link to="/signup"><button className="btn-signup" type="submit">Sign Up Now!</button></Link>
@@ -100,6 +99,7 @@ padding:3rem ;
       h1{
         text-align:left !important;
         margin:2rem 0;
+        font-size:2.3rem;
         span{
           font-size:2.4rem;
           color: #11be8b;
@@ -127,7 +127,7 @@ padding:3rem ;
       }
       .btn-find{
         font-family: "Alegreya Sans", sans-serif;
-        padding:.6rem 5rem !important;
+        padding:.6rem 1rem !important;
         margin:2.6rem .3rem !important;
         text-decoration: none !important;
         border-radius:none;
@@ -188,7 +188,7 @@ Form{
       }
       .btn-find{
         font-family: "Alegreya Sans", sans-serif;
-        padding:.6rem 5rem !important;
+        padding:.6rem 1rem !important;
         margin:2rem 10% !important;
         margin-top:4rem;
         text-decoration: none !important;

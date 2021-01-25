@@ -39,11 +39,7 @@ const Sidebar = ({open,onClick}) => {
             Contact
             </Link>
         </li>
-        <li>
-            <Link to='/donate' className='text-link'>
-            Donate
-            </Link>
-        </li>
+       
         {Auth.loggedIn() ? (
             <>
                 <li>
@@ -61,6 +57,11 @@ const Sidebar = ({open,onClick}) => {
                 </li>
             </>
             )}
+            <li>
+            <Link to='/donate' className='text-link donate'>
+            Donate
+            </Link>
+        </li>
             
     </UlContainer>
 
@@ -82,7 +83,8 @@ const UlContainer = styled.ul`
     }
     .text-link:hover{
         text-decoration:none;
-    background-color:#e5ecf0;
+        color:#11be8b;
+        opacity:.8;
 
     }
 
@@ -90,6 +92,18 @@ const UlContainer = styled.ul`
       list-style-type: none;
       font-weight: 600;
       padding:1rem 1.4rem;
+    }
+    .donate{
+        background:#11be8b;
+        color:white;
+        padding:.4rem 1.3rem;
+        font-weight:normal;
+        box-shadow:0px 0px 50px 0px rgba(13,12,34,0.2);
+    }
+    .donate:hover{
+        color:white;
+        box-shadow:0px 0px 50px 0px rgba(13,12,34,0);
+
     }
 
  

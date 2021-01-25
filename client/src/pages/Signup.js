@@ -55,9 +55,7 @@ const Signup = () => {
                                     <Form.Group controlId="formBasicEmail">
                                         <Form.Label>Email address</Form.Label>
                                         <Form.Control type="email" name='email' className='form-input' id='email' value={formState.email} placeholder="Enter email" onChange={handleChange} />
-                                        <Form.Text className="text-muted">
-                                            We'll never share your email with anyone else.
-                    </Form.Text>
+                                 
                                     </Form.Group>
 
                                     <Form.Group controlId="formBasicPassword">
@@ -92,18 +90,10 @@ const HomeContainer = styled.div`
 
  
   }
-
-
-.shake-paw{
-  color:white;
-  align-self:right;
-  margin-left:1rem;
-}
-
    
  }
  .home-img {
-    width:32%;
+    width:33%;
     height: 10%;
     margin:4rem;
     padding:1rem 4rem;
@@ -143,6 +133,24 @@ box-shadow: 2px 1px 89px 0px rgba(56,101,167,.3);
         transform:rotate(-20deg);
 
       }
+ }
+
+ @media only screen and (max-width: 1168px) {
+     .home-img{ 
+         width:50%;
+     }
+ }
+ @media only screen and (max-width: 768px) {
+     .home-img{ 
+         width:70%;
+         margin:4rem 3rem;
+    padding:1rem 2rem;
+     }
+ }
+ @media only screen and (max-width: 568px) {
+     .home-img{ 
+         width:100%;
+     }
  }
 
 `
