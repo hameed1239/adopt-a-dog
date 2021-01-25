@@ -56,6 +56,9 @@ const FooterEl = styled.footer`
 background-color:#e5ecf0;
 background-color:black;
   height: 42vh; 
+  postion:relative;
+  z-index:10;
+  overflow:hidden;
 
   ul li a{
     color:#7f9195;

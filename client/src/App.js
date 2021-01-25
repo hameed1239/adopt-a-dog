@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
@@ -15,8 +15,8 @@ import Contact from "./pages/Contact";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+// import Modal from './components/Modal'
 import ApplicationForm from "./pages/ApplicationForm";
-
 import "./App.css";
 
 import { Provider } from "react-redux";
@@ -24,22 +24,20 @@ import store from "./redux/store";
 
 
 const client = new ApolloClient({
-   request: (operation) => {
-     const token = localStorage.getItem('id_token')
-     operation.setContext({
-       headers: {
-         authorization: token ? `Bearer ${token}` : ''
-       }
-     })
-   },
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : "",
+      },
+    });
+  },
   uri: "/graphql",
 });
 
-console.log(client);
-
-// console.log(store.getState());
 
 function App() {
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -59,7 +57,9 @@ function App() {
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/application-form" component={ApplicationForm} />
               <Route component={NoMatch} />
+                            
             </Switch>
+   
           </Provider>
           
           <Footer />

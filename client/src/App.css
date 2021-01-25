@@ -87,6 +87,12 @@ body {
   justify-content: space-evenly;
 }
 
+.collapseContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 h1,
 h2,
 h3,
@@ -151,6 +157,45 @@ p {
 
 /* ===========================================================================*/
 /* main styles */
+#contacts {
+  text-align: center;
+}
+#contacts button {
+  width:80%;
+  font-family: "Alegreya Sans", sans-serif;
+  padding: 0.6rem 1rem !important;
+  margin: 2rem auto !important;
+  text-decoration: none !important;
+  border-radius: none;
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+  background: rgb(130, 246, 165);
+  background: linear-gradient(
+    90deg,
+    rgba(130, 246, 165, 1) 50%,
+    rgba(147, 238, 169, 1) 100%
+  );
+  box-shadow: 2px 1px 39px 6px rgba(186, 201, 227, 0.55);
+}
+#contacts button:hover {
+  color: white;
+  box-shadow: 2px 1px 9px 0px rgba(186, 201, 227, 0.75);
+  transform: scale(1.01);
+  background: rgb(130, 246, 165);
+  background: linear-gradient(
+    90deg,
+    rgba(130, 246, 165, 1) 50%,
+    rgba(147, 238, 169, 1) 100%
+  );
+}
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #d6dbdf;
+  padding: 0.4rem;
+  margin: 1rem 0;
+  border-radius: 0.1rem;
+}
 .black-font {
   color: #000000;
 }

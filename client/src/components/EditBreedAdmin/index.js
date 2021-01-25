@@ -12,8 +12,6 @@ import { UPDATE_BREEDS } from "../../utils/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 
-import { Container, Col, Form, Button } from "react-bootstrap";
-
 const EditBreed = () => {
   const state = useSelector((state) => {
     return state;
@@ -120,7 +118,7 @@ const EditBreed = () => {
         return breed._id === searchInput;
       });
 
-      console.log(response);
+      setFormState(...response);
 
       setSearchedBreed(response);
     } catch (err) {
@@ -131,7 +129,7 @@ const EditBreed = () => {
   return (
     <>
       <MDBContainer>
-        <MDBRow>
+        <MDBRow className="collapseContent">
           <MDBCol md="6">
             <form onSubmit={handleFormSubmit}>
               <p className="h4 text-center mb-4">Find a Breed</p>
@@ -143,10 +141,15 @@ const EditBreed = () => {
                 type="searchInput"
                 name="searchInput"
                 value={searchInput}
+                multiple={false}
               >
                 <option>Choose your option</option>
                 {breedsDataID.map((breed) => {
-                  return <option value={breed._id}>{breed.name}</option>;
+                  return (
+                    <option key={breed._id} value={breed._id}>
+                      {breed.name}
+                    </option>
+                  );
                 })}
               </select>
 
@@ -162,11 +165,11 @@ const EditBreed = () => {
 
       {searchedBreed.length > 0 && (
         <MDBContainer>
-          <MDBRow>
+          <MDBRow className="collapseContent">
             <MDBCol md="6">
               <form onSubmit={handleEditFormSubmit}>
                 <label className="grey-text">Breed's ID</label>
-                <input
+                {/* <input
                   name="_id"
                   type="_id"
                   id="_id"
@@ -174,7 +177,7 @@ const EditBreed = () => {
                   value={formState._id}
                   onChange={handleChange}
                   placeholder={searchedBreed._id}
-                />
+                /> */}
                 <label className="grey-text">Update Breed name</label>
                 <input
                   name="name"
@@ -203,6 +206,7 @@ const EditBreed = () => {
                   type="hypoallergenic"
                   name="hypoallergenic"
                   value={formState.hypoallergenic}
+                  multiple={false}
                 >
                   <option>Choose your option</option>
                   <option value={"true"}>True</option>
@@ -217,10 +221,15 @@ const EditBreed = () => {
                   type="colors"
                   name="colors"
                   value={formState.colors}
+                  multiple={false}
                 >
                   <option>Choose your option</option>
                   {colorsData.map((color) => {
-                    return <option value={color._id}>{color._id}</option>;
+                    return (
+                      <option key={color._id} value={color._id}>
+                        {color.name}
+                      </option>
+                    );
                   })}
                 </select>
 
@@ -232,11 +241,12 @@ const EditBreed = () => {
                   type="temperaments"
                   name="temperaments"
                   value={formState.temperaments}
+                  multiple={false}
                 >
                   <option>Choose your option</option>
                   {temperamentsID.map((temperament) => {
                     return (
-                      <option value={temperament._id}>
+                      <option key={temperament._id} value={temperament._id}>
                         {temperament.name}
                       </option>
                     );

@@ -23,7 +23,7 @@ const AddBreed = () => {
   const temperamentsID = temperamentsData?.temperaments || [];
 
   const handleChange = (event) => {
-    console.log(event.target.value)
+    console.log(event.target.value);
     const { name, value } = event.target;
     setFormState({
       ...formState,
@@ -68,7 +68,7 @@ const AddBreed = () => {
 
   return (
     <MDBContainer>
-      <MDBRow>
+      <MDBRow className="collapseContent">
         <MDBCol md="6">
           <form onSubmit={handleFormSubmit}>
             <p className="h4 text-center mb-4">Add a Breed</p>
@@ -116,7 +116,11 @@ const AddBreed = () => {
             >
               <option>Choose your option</option>
               {colorsData.map((color) => {
-                return <option key={color._id} value={color._id}>{color._id}</option>;
+                return (
+                  <option key={color._id} value={color._id}>
+                    {color.name}
+                  </option>
+                );
               })}
             </select>
 
@@ -131,7 +135,9 @@ const AddBreed = () => {
               <option>Choose your option</option>
               {temperamentsID.map((temperament) => {
                 return (
-                  <option value={temperament._id}>{temperament.name}</option>
+                  <option key={temperament._id} value={temperament._id}>
+                    {temperament.name}
+                  </option>
                 );
               })}
             </select>

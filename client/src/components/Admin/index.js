@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Button, Collapse } from "react-bootstrap";
 import AddBreed from "../AddBreed";
-// import DogsListAdmin from "../DogsListAdmin";
+import AddDog from "../AddDog";
+import EditDog from "../EditDogAdmin";
+import DogsListAdmin from "../DogsListAdmin";
 import BreedListAdmin from "../BreedListAdmin";
 import UserListAdmin from "../UserListAdmin";
 import EditBreed from "../EditBreedAdmin";
@@ -25,8 +27,11 @@ const Admin = () => {
   const [openEditAdoption, setopenEditAdoption] = useState(false);
   const [openDeleteUser,setopenDeleteUser] = useState(false);
   const [openViewAdoption, setopenViewAdoption] = useState(false);
-
-  if(!Auth.loggedIn() || !Auth.isAdmin()){
+  const [openAddDog, setopenAddDog] = useState(false);
+  const [openEditDog, setopenEditDog] = useState(false);
+  const [openViewDog, setopenViewDog] = useState(false);
+  
+ if(!Auth.loggedIn() || !Auth.isAdmin()){
     return <Redirect to = "/"/>
   }
   return (
@@ -85,12 +90,58 @@ const Admin = () => {
           </Collapse>
         </>
 
-        <h3>DOGS</h3>
+        <>
+          <h3>Dogs</h3>
+          <Button
+            onClick={() => setopenAddDog(!openAddDog)}
+            aria-controls="example-collapse-text"
+            aria-expanded={openAddDog}
+          >
+            Add A Dog
+          </Button>
+          <Collapse in={openAddDog}>
+            <div>
+              <AddDog />
+            </div>
+          </Collapse>
+        </>
+
+        <>
+          <Button
+            onClick={() => setopenEditDog(!openEditDog)}
+            aria-controls="example-collapse-text"
+            aria-expanded={openEditDog}
+          >
+            Find/Edit/Remove Dog
+          </Button>
+          <Collapse in={openEditDog}>
+            <div id="example-collapse-text">
+              <EditDog />
+            </div>
+          </Collapse>
+        </>
+
+        <>
+          <Button
+            onClick={() => setopenViewDog(!openViewDog)}
+            aria-controls="example-collapse-text"
+            aria-expanded={openViewDog}
+          >
+            View Dogs
+          </Button>
+          <Collapse in={openViewDog}>
+            <div id="example-collapse-text">
+              <DogsListAdmin />
+            </div>
+          </Collapse>
+        </>
+
+        {/* <h3>DOGS</h3>
         <ul>
           <li>Add a Dog</li>
           <li>Find, Edit & Delete a Dog</li>
           <li>View dogs</li>
-        </ul>
+        </ul> */}
 
         <h3>Adoptions</h3>
 

@@ -1,4 +1,4 @@
-import React ,{useState,useEffect }from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import Auth from "../../utils/auth";
 import { Link } from 'react-router-dom';
@@ -10,54 +10,52 @@ const logout = event => {
     Auth.logout();
 };
 
-const Sidebar = ({open,onClick}) => {
+const Sidebar = ({ open, onClick }) => {
 
 
 
 
     return (
-        
-      <UlContainer open={open}  onClick={onClick}>
-        <li>
+
+        <UlContainer open={ open } onClick={ onClick }>
             <Link to='/' className='text-link'>
-            Home
+                <li>Home</li>
             </Link>
-        </li>
-        <li>
+
             <Link to='/dogs' className='text-link'>
-            Dogs
+                <li>Dogs</li>
             </Link>
-        </li>
-        
-        <li>
+
             <Link to='/about' className='text-link'>
-            About
+                <li>About</li>
             </Link>
-        </li>
-        <li>
+
             <Link to='/contact' className='text-link'>
-            Contact
+                <li>Contact</li>
             </Link>
-        </li>
-        {Auth.loggedIn() ? (
-            <>
-                <li>
-                    <Link to='/login' className='text-link' onClick={logout}>
-                        Logout
+
+            {Auth.loggedIn() ? (
+                <>
+                    <li>
+                        <Link to='/login' className='text-link' onClick={ logout }>
+                            Logout
                     </Link>
-                </li>
-            </>
-        ) : (
-            <>
-                <li>
-                    <Link to='/login' className='text-link'>
-                        Login
-                    </Link>
-                </li>
-            </>
-            )}
-            
-    </UlContainer>
+                    </li>
+                </>
+            ) : (
+                    <>
+                        <Link to='/login' className='text-link'>
+                            <li>Login</li>
+                        </Link>
+                    </>
+                ) }
+            <li>
+                <Link to='/donate' className='text-link donate'>
+                    Donate
+            </Link>
+            </li>
+
+        </UlContainer>
 
     )
 }
@@ -77,7 +75,8 @@ const UlContainer = styled.ul`
     }
     .text-link:hover{
         text-decoration:none;
-    background-color:#e5ecf0;
+        color:#11be8b;
+        opacity:.8;
 
     }
 
@@ -85,6 +84,18 @@ const UlContainer = styled.ul`
       list-style-type: none;
       font-weight: 600;
       padding:1rem 1.4rem;
+    }
+    .donate{
+        background:#11be8b;
+        color:white;
+        padding:.4rem 1.3rem;
+        font-weight:normal;
+        box-shadow:0px 0px 50px 0px rgba(13,12,34,0.2);
+    }
+    .donate:hover{
+        color:white;
+        box-shadow:0px 0px 50px 0px rgba(13,12,34,0);
+
     }
 
  
@@ -100,7 +111,7 @@ const UlContainer = styled.ul`
       height:100vh;
       width:300px;
       padding:4rem 2rem;
-      transform:${({open}) => open ? 'translateX(0)' : 'translateX(100%)'};
+      transform:${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
       transition: transform 0.3s ease-in-out;
 
     
