@@ -18,19 +18,14 @@ const EditBreed = () => {
   });
 
   const dispatch = useDispatch();
-
   const { breeds } = state;
-
   const { loading, data: breedsData } = useQuery(QUERY_BREEDS);
-  // console.log(breedsData);
   const [updateBreed] = useMutation(UPDATE_A_BREED);
   const { data } = useQuery(QUERY_COLORS);
   const { data: temperamentsData } = useQuery(QUERY_TEMPERAMENTS);
-
   const colorsData = data?.colors || [];
   const temperamentsID = temperamentsData?.temperaments || [];
   const breedsDataID = breedsData?.breeds || [];
-
   const [searchInput, setSearchInput] = useState("");
   const [searchedBreed, setSearchedBreed] = useState([]);
 
@@ -89,16 +84,12 @@ const EditBreed = () => {
   };
 
   useEffect(() => {
-    // console.log(breedsData);
     if (breedsData) {
-      // console.log(breedsData);
       dispatch({
         type: UPDATE_BREEDS,
         breeds: breedsData.breeds,
       });
-      // console.log(breeds);
     } else if (!loading) {
-      // console.log(breedsData);
     }
   }, [breedsData, loading, dispatch]);
 
@@ -119,7 +110,6 @@ const EditBreed = () => {
       });
 
       setFormState(...response);
-
       setSearchedBreed(response);
     } catch (err) {
       console.log(err);
@@ -135,8 +125,7 @@ const EditBreed = () => {
               <p className="h4 text-center mb-4">Find a Breed</p>
               <select
                 className="browser-default custom-select"
-                value={formState.colors}
-                // onChange={handleChange}
+                // value={formState.colors}
                 onChange={(e) => setSearchInput(e.target.value)}
                 type="searchInput"
                 name="searchInput"
@@ -169,15 +158,6 @@ const EditBreed = () => {
             <MDBCol md="6">
               <form onSubmit={handleEditFormSubmit}>
                 <label className="grey-text">Breed's ID</label>
-                {/* <input
-                  name="_id"
-                  type="_id"
-                  id="_id"
-                  className="form-control"
-                  value={formState._id}
-                  onChange={handleChange}
-                  placeholder={searchedBreed._id}
-                /> */}
                 <label className="grey-text">Update Breed name</label>
                 <input
                   name="name"
@@ -201,7 +181,6 @@ const EditBreed = () => {
                 <label className="grey-text">hypoallergenic</label>
                 <select
                   className="browser-default custom-select"
-                  value={formState.size}
                   onChange={handleChange}
                   type="hypoallergenic"
                   name="hypoallergenic"
@@ -216,7 +195,6 @@ const EditBreed = () => {
                 <label className="grey-text">Colors</label>
                 <select
                   className="browser-default custom-select"
-                  value={formState.colors}
                   onChange={handleChange}
                   type="colors"
                   name="colors"
@@ -236,7 +214,6 @@ const EditBreed = () => {
                 <label className="grey-text">Temperaments</label>
                 <select
                   className="browser-default custom-select"
-                  value={formState.temperaments}
                   onChange={handleChange}
                   type="temperaments"
                   name="temperaments"

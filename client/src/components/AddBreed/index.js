@@ -14,16 +14,14 @@ const AddBreed = () => {
     temperaments: "",
   });
 
-  const [addBreed, { error }] = useMutation(ADD_BREED);
+  const [addBreed] = useMutation(ADD_BREED);
   const { data } = useQuery(QUERY_COLORS);
   const { data: temperamentsData } = useQuery(QUERY_TEMPERAMENTS);
 
   const colorsData = data?.colors || [];
-  // console.log(colorsData);
   const temperamentsID = temperamentsData?.temperaments || [];
 
   const handleChange = (event) => {
-    // console.log(event.target.value);
     const { name, value } = event.target;
     setFormState({
       ...formState,
@@ -70,7 +68,7 @@ const AddBreed = () => {
     <MDBContainer>
       <MDBRow className="collapseContent">
         <MDBCol md="6">
-          <form onSubmit={handleFormSubmit}>
+          <form onSubmit={ handleFormSubmit }>
             <p className="h4 text-center mb-4">Add a Breed</p>
             <label className="grey-text">Breed name</label>
             <input
@@ -78,68 +76,73 @@ const AddBreed = () => {
               type="name"
               id="breed"
               className="form-control"
-              value={formState.name}
-              onChange={handleChange}
+              value={ formState.name }
+              onChange={ handleChange }
               required="required"
             />
             <br />
             <label className="grey-text">Size</label>
-            <input
+            <select
+              className="browser-default custom-select"
+              onChange={ handleChange }
               type="size"
               name="size"
-              value={formState.size}
-              onChange={handleChange}
-              className="form-control"
+              value={ formState.size }
               required="required"
-            />
+            >
+              <option>Choose your option</option>
+              <option value={ "Large" }>Large</option>
+              <option value={ "Medium" }>Medium</option>
+              <option value={ "Small" }>Small</option>
+            </select>
 
             <label className="grey-text">hypoallergenic</label>
             <select
               className="browser-default custom-select"
-              onChange={handleChange}
+              onChange={ handleChange }
               type="hypoallergenic"
               name="hypoallergenic"
-              value={formState.hypoallergenic}
+              value={ formState.hypoallergenic }
             >
               <option>Choose your option</option>
-              <option value={"true"}>True</option>
-              <option value={"false"}>False</option>
+              <option value={ "true" }>True</option>
+              <option value={ "false" }>False</option>
             </select>
 
             <label className="grey-text">Colors</label>
             <select
               className="browser-default custom-select"
-              onChange={handleChange}
+              onChange={ handleChange }
               type="colors"
               name="colors"
-              value={formState.colors}
+              value={ formState.colors }
             >
               <option>Choose your option</option>
-              {colorsData.map((color) => {
+              { colorsData.map((color) => {
                 return (
-                  <option key={color._id} value={color._id}>
-                    {color.name}
+                  <option key={ color._id } value={ color._id }>
+                    {color.name }
                   </option>
                 );
-              })}
+              }) }
             </select>
 
             <label className="grey-text">Temperaments</label>
             <select
               className="browser-default custom-select"
-              onChange={handleChange}
+              onChange={ handleChange }
               type="temperaments"
               name="temperaments"
-              value={formState.temperaments}
+              value={ formState.temperaments }
             >
               <option>Choose your option</option>
-              {temperamentsID.map((temperament) => {
+              { temperamentsID.map((temperament) => {
                 return (
-                  <option key={temperament._id} value={temperament._id}>
-                    {temperament.name}
+                  <option key={ temperament._id } value={ temperament._id }>
+                    {temperament.name }
                   </option>
                 );
-              })}
+              }) }
             </select>
 
             <div className="text-center mt-4">

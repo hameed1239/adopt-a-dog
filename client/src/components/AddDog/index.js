@@ -233,7 +233,7 @@ const AddDog = () => {
               <ul>
                 { temperamentsID.map((temperament) => {
                   return (
-                    <li>
+                    <li key={ temperament._id }>
                       <label htmlFor={ temperament.name }>
                         { temperament.name }
                       </label>

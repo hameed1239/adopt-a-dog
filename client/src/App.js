@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 
 import Nav from "./components/Nav";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import AdminPage from "./pages/Admin";
 import Dogs from "./pages/Dogs";
@@ -39,30 +39,30 @@ const client = new ApolloClient({
 function App() {
 
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={ client }>
       <Router>
         <div>
-          <Provider store={store}>
+          <Provider store={ store }>
             <Nav />
 
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/admin" component={AdminPage} />
-              <Route exact path="/dogs" component={Dogs} />
-              <Route exact path="/dogs/:id" component={DogDetail} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/donate" component={Donate} />
-              <Route exact path="/contact" component={Contact} />
-              <Route exact path="/application-form" component={ApplicationForm} />
-              <Route component={NoMatch} />
-                            
+              <Route exact path="/" component={ Home } />
+              <Route exact path="/admin" component={ AdminPage } />
+              <Route exact path="/dogs" component={ Dogs } />
+              <Route exact path="/dogs/:id" component={ DogDetail } />
+              <Route exact path="/login" component={ Login } />
+              <Route exact path="/signup" component={ Signup } />
+              <Route exact path="/about" component={ About } />
+              <Route exact path="/donate" component={ Donate } />
+              <Route exact path="/contact" component={ Contact } />
+              <Route exact path="/application-form" component={ ApplicationForm } />
+              <Route component={ NoMatch } />
+
             </Switch>
-   
+
           </Provider>
-          
-          <Footer />
+
+          {/* <Footer /> */ }
         </div>
       </Router>
     </ApolloProvider>
