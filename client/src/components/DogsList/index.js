@@ -7,6 +7,8 @@ import { QUERY_DOGS } from "../../utils/queries";
 import { UPDATE_DOGS } from "../../utils/actions";
 import { useDispatch, useSelector } from "react-redux";
 
+import { idbPromise } from "../../utils/helpers";
+
 const DogsList = () => {
   const state = useSelector((state) => {
     return state;
@@ -28,8 +30,18 @@ const DogsList = () => {
         type: UPDATE_DOGS,
         dogs: data.dogs,
       });
+      data.dogs.forEach((dog) => {
+        idbPromise("dogs", "put", dog);
+      });
     } else if (!loading) {
       console.log(loading);
+      idbPromise("dogs", "get").then((dogs) => {
+        //use retrieved data to set global state for offline browsing
+        dispatch({
+          type: UPDATE_DOGS,
+          dogs: dogs,
+        });
+      });
     }
   }, [dispatch, data, loading]);
 
