@@ -49,14 +49,18 @@ const EditDog = () => {
     gender: "",
     hypoallergenic: "",
     story: "",
-    colors: [],
+    colors: "",
     breed: "",
     temperaments: "",
   });
 
   const handleChange = (event) => {
+<<<<<<< HEAD
     // console.log(event);
+=======
+>>>>>>> 6dd2bd98e9f3a811e2401eb7f796aa2965520451
     const { name, value } = event.target;
+   
     setFormState({
       ...formState,
       [name]: value,
@@ -83,8 +87,13 @@ const EditDog = () => {
 
   const handleEditFormSubmit = async (event) => {
     event.preventDefault();
+<<<<<<< HEAD
 
     // console.log(event.target.value);
+=======
+    console.log(formState)
+    console.log(event.target.value);
+>>>>>>> 6dd2bd98e9f3a811e2401eb7f796aa2965520451
 
     if (formState.hypoallergenic === "true") {
       formState.hypoallergenic = true;
@@ -306,7 +315,7 @@ const EditDog = () => {
                   type="colors"
                   name="colors"
                   value={formState.colors}
-                  multiple={true}
+                  multiple={false}
                 >
                   <option>Choose your option</option>
                   {colorsData.map((color) => {
