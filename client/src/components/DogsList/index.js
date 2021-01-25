@@ -22,26 +22,13 @@ const DogsList = () => {
 
   const dogs = data?.dogs || [];
 
-  console.log(dogs);
-
   useEffect(() => {
     if (data) {
       dispatch({
         type: UPDATE_DOGS,
         dogs: data.dogs,
       });
-      // data.dogs.forEach((dog) => {
-      //   idbPromise("dogs", "put", dog);
-      // });
     } else if (!loading) {
-      console.log(loading);
-      // idbPromise("dogs", "get").then((dogs) => {
-      //   //use retrieved data to set global state for offline browsing
-      //   dispatch({
-      //     type: UPDATE_DOGS,
-      //     dogs: dogs,
-      //   });
-      // });
     }
   }, [dispatch, data, loading]);
 

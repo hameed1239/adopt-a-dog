@@ -214,6 +214,7 @@ export const ADD_DOG = gql`
     $breed: ID!
     $temperaments: [ID]!
     $status: [ID]
+    $imgUrl: String
   ) {
     addDog(
       name: $name
@@ -228,6 +229,7 @@ export const ADD_DOG = gql`
       breed: $breed
       temperaments: $temperaments
       status: $status
+      imgUrl: $imgUrl
     ) {
       _id
       name
@@ -238,6 +240,7 @@ export const ADD_DOG = gql`
       hypoallergenic
       story
       size
+      imgUrl
       colors {
         name
       }

@@ -1,39 +1,66 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
-import bgLogo from "../assets/dog-bg-5.jpg"
-import { faBone } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaw } from '@fortawesome/free-solid-svg-icons';
-
-
-
+import styled from "styled-components";
+import bgLogo from "../assets/dog-bg-5.jpg";
+import { faBone } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaw } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
-  console.log(navigator);
   return (
     <HomeContainer>
       <div className="home-content">
-        <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
-        <h1>Don't Buy<span> Adopt</span></h1>
-        <p>"Before you get a dog, you can't quite imagine what living with one might be like; afterward, you can't imagine living any other way."
-        <span className="quote-name"><br></br>Caroline Knapp</span></p>
-        <p>"If you don't own a dog, at least one, there may not necessarily be anything wrong with you, but there may be something wrong with your life."
-        <span className="quote-name"><br></br> RogerCaras</span></p>
-        <Link to="/dogs"><button className="btn-find">Find dog 	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
+        <h2 className="icon icon-bone">
+          {" "}
+          <FontAwesomeIcon icon={faBone} />
+        </h2>
+        <h1>
+          Don't Buy<span> Adopt</span>
+        </h1>
+        <p>
+          "Before you get a dog, you can't quite imagine what living with one
+          might be like; afterward, you can't imagine living any other way."
+          <span className="quote-name">
+            <br></br>Caroline Knapp
+          </span>
+        </p>
+        <p>
+          "If you don't own a dog, at least one, there may not necessarily be
+          anything wrong with you, but there may be something wrong with your
+          life."
+          <span className="quote-name">
+            <br></br> RogerCaras
+          </span>
+        </p>
+        <Link to="/dogs">
+          <button className="btn-find">
+            Find dog{" "}
+            <span className="shake-paw">
+              <FontAwesomeIcon icon={faPaw} />
+            </span>
+          </button>
+        </Link>
       </div>
 
       <div className="home-img">
-      <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
-     
-      <a href='https://www.freepik.com/vectors/dog' target="_blank"> <img src={bgLogo} style={{backgroundColor:"rgb(231,242,247)",opacity:"1"}}/></a>
+        <h2 className="icon icon-bone">
+          {" "}
+          <FontAwesomeIcon icon={faBone} />
+        </h2>
+
+        <a href="https://www.freepik.com/vectors/dog" target="_blank">
+          {" "}
+          <img
+            src={bgLogo}
+            style={{ backgroundColor: "rgb(231,242,247)", opacity: "1" }}
+          />
+        </a>
       </div>
     </HomeContainer>
   );
 };
 
 export default Home;
-
 
 //background: rgb(231, 230, 226);
 const HomeContainer = styled.div`
@@ -122,7 +149,7 @@ background: rgb(231,242,247);
   align-items:left;
    text-align:center !important;
    a{
-     ${'' /* width:80%; */}
+     ${"" /* width:80%; */}
      
    }
 
@@ -154,7 +181,7 @@ background: rgb(231,242,247);
     img{
       height:70%;
       width:90%;
-      ${'' /* box-shadow: 2px 1px 21px 20px rgba(255,255,255,0.75); */}
+      ${"" /* box-shadow: 2px 1px 21px 20px rgba(255,255,255,0.75); */}
     }
    
  }
@@ -212,4 +239,4 @@ background: rgb(231,242,247);
   }      
 }
 
-`
+`;

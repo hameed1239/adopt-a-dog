@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-
-import {
-  QUERY_USERS,
-  QUERY_USER
-} from "../../utils/queries";
+import ModalPage from "../Modal";
+import { QUERY_USERS, QUERY_USER } from "../../utils/queries";
 import { UPDATE_A_USER } from "../../utils/actions";
 import { UPDATE_USER } from "../../utils/mutations";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,8 +38,22 @@ const EditUser = () => {
     otherDogs: 0,
     noOfKids: 0,
     houseOrApartment: "",
-    isAdmin: ""
+    isAdmin: "",
   });
+
+  // Modal
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+  };
+  const handleSuccessClose = () => {
+    setShow(false);
+    window.location.reload(false);
+  };
+  const handleShow = () => setShow(true);
+
+  const [response, setResponse] = useState();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -56,88 +67,58 @@ const EditUser = () => {
     event.preventDefault();
 
     try {
-        if (formState.isAdmin === "true"){
-            formState.isAdmin = true;
-        }
-        else{
-            formState.isAdmin = false;
-        }
-      const mutationResponse = await updateUser({
-      variables: {
-        _id: formState._id,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
-        address: formState.address,
-        city: formState.city,
-        state: formState.state,
-        zip: formState.zip,
-        phone: parseInt(formState.phone),
-        otherDogs: parseInt(formState.otherDogs),
-        noOfKids: parseInt(formState.noOfKids),
-        houseOrApartment: formState.houseOrApartment,
-        isAdmin: formState.isAdmin
-    },
-    });
-
-    if (mutationResponse) {
-        alert("You have successfully Update a User");
+      if (formState.isAdmin === "true") {
+        formState.isAdmin = true;
+      } else {
+        formState.isAdmin = false;
       }
-    } catch (e) {
-      console.error(e);
-      setFormState({
-        _id: "",
-        firstName: "",
-        lastName: "",
-        address: "",
-        city: "",
-        state: "",
-        zip: "",
-        phone: "",
-        otherDogs: "",
-        noOfKids: "",
-        houseOrApartment: "",
-        isAdmin: ""
+      const mutationResponse = await updateUser({
+        variables: {
+          _id: formState._id,
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+          address: formState.address,
+          city: formState.city,
+          state: formState.state,
+          zip: formState.zip,
+          phone: parseInt(formState.phone),
+          otherDogs: parseInt(formState.otherDogs),
+          noOfKids: parseInt(formState.noOfKids),
+          houseOrApartment: formState.houseOrApartment,
+          isAdmin: formState.isAdmin,
+        },
       });
+
+      setResponse(mutationResponse);
+    } catch (e) {
+      alert("Please Fill Out all of the fields");
     }
   };
 
   useEffect(() => {
-    console.log(userData);
-    //console.log(userDataID);
-    
     if (userData) {
-      console.log(userData.users);
       dispatch({
         type: UPDATE_A_USER,
         users: userData.users,
       });
-      console.log(state);
     } else if (!loading) {
     }
   }, [userData, loading, dispatch]);
 
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(event);
     if (!searchInput) {
       return false;
     }
-    console.log(searchInput);
-    console.log(users);
-    console.log(state);
     try {
-       
       if (!users) {
         throw new Error("Unable to Find any User");
       }
-      
+
       const response = users.filter((user) => {
-    
         return user._id === searchInput;
       });
 
-      console.log(response);
       setFormState(...response);
       setSearchedUser(response);
     } catch (err) {
@@ -148,7 +129,7 @@ const EditUser = () => {
   return (
     <>
       <MDBContainer>
-        <MDBRow>
+        <MDBRow className="collapseContent">
           <MDBCol md="6">
             <form onSubmit={handleFormSubmit}>
               <p className="h4 text-center mb-4">Find a User</p>
@@ -163,7 +144,11 @@ const EditUser = () => {
               >
                 <option>Choose your option</option>
                 {userDataID.map((user) => {
-                  return <option value={user._id}>{user.firstName}</option>;
+                  return (
+                    <option key={user._id} value={user._id}>
+                      {user.firstName}
+                    </option>
+                  );
                 })}
               </select>
 
@@ -179,10 +164,9 @@ const EditUser = () => {
 
       {searchedUser.length > 0 && (
         <MDBContainer>
-          <MDBRow>
+          <MDBRow className="collapseContent">
             <MDBCol md="6">
               <form onSubmit={handleEditFormSubmit}>
-            
                 <label className="grey-text">Update User First Name</label>
                 <input
                   name="firstName"
@@ -202,7 +186,7 @@ const EditUser = () => {
                   className="form-control"
                   required="required"
                 />
-                
+
                 <label className="grey-text">Address</label>
                 <input
                   type="address"
@@ -212,7 +196,7 @@ const EditUser = () => {
                   className="form-control"
                   required="required"
                 />
-                
+
                 <label className="grey-text">City</label>
                 <input
                   type="city"
@@ -286,7 +270,7 @@ const EditUser = () => {
                   required="required"
                 />
                 <div className="text-center mt-4">
-                  <MDBBtn color="success" type="submit">
+                  <MDBBtn color="success" type="submit" onClick={handleShow}>
                     Submit
                   </MDBBtn>
                 </div>
@@ -294,6 +278,14 @@ const EditUser = () => {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
+      )}
+
+      {response && (
+        <ModalPage
+          show={show}
+          handleClose={handleClose}
+          handleSuccessClose={handleSuccessClose}
+        />
       )}
     </>
   );

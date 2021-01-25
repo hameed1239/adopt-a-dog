@@ -1,40 +1,62 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled, { keyframes } from 'styled-components';
-import bgLogo from "../assets/dog-bg.jpg"
-import { faBone } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaw } from '@fortawesome/free-solid-svg-icons';
-
-
-
+import styled from "styled-components";
+import bgLogo from "../assets/dog-bg.jpg";
+import { faBone } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaw } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   return (
     <HomeContainer>
       <div className="home-content">
-        <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
-        <h1>Who<span>We</span> Are</h1>
-        <p>The Shelter Pet Project is the result of a collaborative effort between two leading animal welfare groups, the Humane Society of the United States and Maddie’s Fund, and the leading producer of public service advertising (PSA) campaigns, The Ad Council.
-
-Our goal is to make shelters the first place potential adopters turn when looking to get a new pet, ensuring that all healthy and treatable pets find loving homes. We do this by breaking down misconceptions surrounding shelter pets and celebrating the unique bond between every shelter pet and parent.
-
-</p>
-        <Link to="/dogs"><button className="btn-find">More	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
+        <h2 className="icon icon-bone">
+          {" "}
+          <FontAwesomeIcon icon={faBone} />
+        </h2>
+        <h1>
+          Who<span>We</span> Are
+        </h1>
+        <p>
+          The Shelter Pet Project is the result of a collaborative effort
+          between two leading animal welfare groups, the Humane Society of the
+          United States and Maddie’s Fund, and the leading producer of public
+          service advertising (PSA) campaigns, The Ad Council. Our goal is to
+          make shelters the first place potential adopters turn when looking to
+          get a new pet, ensuring that all healthy and treatable pets find
+          loving homes. We do this by breaking down misconceptions surrounding
+          shelter pets and celebrating the unique bond between every shelter pet
+          and parent.
+        </p>
+        <Link to="/dogs">
+          <button className="btn-find">
+            More{" "}
+            <span className="shake-paw">
+              <FontAwesomeIcon icon={faPaw} />
+            </span>
+          </button>
+        </Link>
       </div>
 
       <div className="home-img">
-      <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
-     
-      <a href='https://www.freepik.com/vectors/dog' target="_blank"> <img src={bgLogo} style={{backgroundColor:"rgb(231,242,247)",opacity:".8"}}/></a>
+        <h2 className="icon icon-bone">
+          {" "}
+          <FontAwesomeIcon icon={faBone} />
+        </h2>
+
+        <a href="https://www.freepik.com/vectors/dog" target="_blank">
+          {" "}
+          <img
+            src={bgLogo}
+            style={{ backgroundColor: "rgb(231,242,247)", opacity: ".8" }}
+          />
+        </a>
       </div>
     </HomeContainer>
   );
 };
 
 export default Home;
-
-
 
 const HomeContainer = styled.div`
  min-height:100vh;
@@ -123,7 +145,7 @@ const HomeContainer = styled.div`
   align-items:left;
    text-align:center !important;
    a{
-     ${'' /* width:80%; */}
+     ${"" /* width:80%; */}
      
    }
 
@@ -142,4 +164,4 @@ const HomeContainer = styled.div`
 
   
 
-`
+`;
