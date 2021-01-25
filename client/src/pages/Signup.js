@@ -50,17 +50,17 @@ const Signup = () => {
                                 <Form onSubmit={ handleFormSubmit }>
                                     <Form.Group controlId="formBasicUsername">
                                         <Form.Label>Username</Form.Label>
-                                        <Form.Control type="text" name='userName' className='form-input' id='userName' value={ formState.userName } placeholder="Enter username" onChange={ handleChange } />
+                                        <Form.Control type="text" name='userName' autoComplete='username' className='form-input' id='userName' value={ formState.userName } placeholder="Enter username" onChange={ handleChange } />
                                     </Form.Group>
                                     <Form.Group controlId="formBasicEmail">
                                         <Form.Label>Email address</Form.Label>
-                                        <Form.Control type="email" name='email' className='form-input' id='email' value={ formState.email } placeholder="Enter email" onChange={ handleChange } />
+                                        <Form.Control type="email" autoComplete='email' name='email' className='form-input' id='email' value={ formState.email } placeholder="Enter email" onChange={ handleChange } />
 
                                     </Form.Group>
 
                                     <Form.Group controlId="formBasicPassword">
                                         <Form.Label>Password</Form.Label>
-                                        <Form.Control type="password" name='password' className='form-input' id='password' value={ formState.password } placeholder="Password" onChange={ handleChange } />
+                                        <Form.Control type="password" name='password' autoComplete='new-password' className='form-input' id='password' value={ formState.password } placeholder="Password" onChange={ handleChange } />
                                     </Form.Group>
                                     <button className="btn-find" type="submit">Submit	<span className="shake-paw"><FontAwesomeIcon icon={ faPaw } /></span></button>
 

@@ -50,7 +50,7 @@ const ApplicationForm = () => {
             const { data } = await updateUser({
                 variables: { ...formState }
             });
-            
+
             if (data) {
                 alert("You have successfully Submitted your form, We will let you know if your application is approved.");
                 window.location.assign('/');

@@ -56,12 +56,12 @@ const Login = (props) => {
           <Form onSubmit={ handleFormSubmit }>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" name='email' className='form-input' id='email' value={ formState.email } placeholder="Enter email" onChange={ handleChange } />
+              <Form.Control type="email" name='email' autoComplete='email' className='form-input' id='email' value={ formState.email } placeholder="Enter email" onChange={ handleChange } />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" name='password' className='form-input' id='password' value={ formState.password } placeholder="Password" onChange={ handleChange } />
+              <Form.Control type="password" name='password' autoComplete='current-password' className='form-input' id='password' value={ formState.password } placeholder="Password" onChange={ handleChange } />
             </Form.Group>
 
             <button className="btn-find" type="submit">Sign in</button>
