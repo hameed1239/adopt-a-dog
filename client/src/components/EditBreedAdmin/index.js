@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
 
+import ModalPage from "../Modal";
+
 import {
   QUERY_BREEDS,
   QUERY_COLORS,
@@ -22,7 +24,6 @@ const EditBreed = () => {
   const { breeds } = state;
 
   const { loading, data: breedsData } = useQuery(QUERY_BREEDS);
-  console.log(breedsData);
   const [updateBreed] = useMutation(UPDATE_A_BREED);
   const { data } = useQuery(QUERY_COLORS);
   const { data: temperamentsData } = useQuery(QUERY_TEMPERAMENTS);
@@ -42,6 +43,20 @@ const EditBreed = () => {
     colors: "",
     temperaments: "",
   });
+
+  // Modal
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+  };
+  const handleSuccessClose = () => {
+    setShow(false);
+    window.location.reload(false);
+  };
+  const handleShow = () => setShow(true);
+
+  const [response, setResponse] = useState();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -72,33 +87,20 @@ const EditBreed = () => {
         },
       });
 
-      if (mutationResponse) {
-        alert("You have successfully Update a Breed");
-      }
+      setResponse(mutationResponse);
     } catch (e) {
       console.error(e);
-      setFormState({
-        _id: "",
-        name: "",
-        size: "",
-        hypoallergenic: "",
-        colors: "",
-        temperaments: "",
-      });
+      alert("Please Fill Out all of the fields");
     }
   };
 
   useEffect(() => {
-    console.log(breedsData);
     if (breedsData) {
-      console.log(breedsData);
       dispatch({
         type: UPDATE_BREEDS,
         breeds: breedsData.breeds,
       });
-      console.log(breeds);
     } else if (!loading) {
-      console.log(breedsData);
     }
   }, [breedsData, loading, dispatch]);
 
@@ -169,15 +171,6 @@ const EditBreed = () => {
             <MDBCol md="6">
               <form onSubmit={handleEditFormSubmit}>
                 <label className="grey-text">Breed's ID</label>
-                {/* <input
-                  name="_id"
-                  type="_id"
-                  id="_id"
-                  className="form-control"
-                  value={formState._id}
-                  onChange={handleChange}
-                  placeholder={searchedBreed._id}
-                /> */}
                 <label className="grey-text">Update Breed name</label>
                 <input
                   name="name"
@@ -189,14 +182,18 @@ const EditBreed = () => {
                   required="required"
                 />
                 <label className="grey-text">Size</label>
-                <input
+                <select
+                  className="browser-default custom-select"
+                  onChange={handleChange}
                   type="size"
                   name="size"
                   value={formState.size}
-                  onChange={handleChange}
-                  className="form-control"
-                  required="required"
-                />
+                >
+                  <option>Choose your option</option>
+                  <option value={"Small"}>Small</option>
+                  <option value={"Medium"}>Medium</option>
+                  <option value={"Large"}>Large</option>
+                </select>
 
                 <label className="grey-text">hypoallergenic</label>
                 <select
@@ -254,7 +251,7 @@ const EditBreed = () => {
                 </select>
 
                 <div className="text-center mt-4">
-                  <MDBBtn color="success" type="submit">
+                  <MDBBtn color="success" type="submit" onClick={handleShow}>
                     Submit
                   </MDBBtn>
                 </div>
@@ -262,6 +259,14 @@ const EditBreed = () => {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
+      )}
+
+      {response && (
+        <ModalPage
+          show={show}
+          handleClose={handleClose}
+          handleSuccessClose={handleSuccessClose}
+        />
       )}
     </>
   );

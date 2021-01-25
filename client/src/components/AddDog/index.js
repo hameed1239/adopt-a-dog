@@ -7,6 +7,8 @@ import {
   QUERY_BREEDS,
 } from "../../utils/queries";
 
+import ModalPage from "../Modal";
+
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 
 const AddDog = () => {
@@ -22,8 +24,25 @@ const AddDog = () => {
     colors: "",
     breed: "",
     temperaments: "",
+    // imgUrl: "",
+    // status: ""
   });
 
+  // Modal
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+  };
+  const handleSuccessClose = () => {
+    setShow(false);
+    window.location.reload(false);
+  };
+  const handleShow = () => setShow(true);
+
+  const [response, setResponse] = useState();
+
+  // Dogs, Colors, and Breeds Data Query
   const [addDog] = useMutation(ADD_DOG);
   const { data } = useQuery(QUERY_COLORS);
   const { data: temperamentsData } = useQuery(QUERY_TEMPERAMENTS);
@@ -34,7 +53,6 @@ const AddDog = () => {
   const breedsDataID = breedsData?.breeds || [];
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     const { name, value } = event.target;
     setFormState({
       ...formState,
@@ -67,192 +85,186 @@ const AddDog = () => {
           colors: formState.colors,
           breed: formState.breed,
           temperaments: formState.temperaments,
+          imgUrl: "0.jpg",
         },
       });
 
-      if (mutationResponse) {
-        alert("You have successfully Added a New Dog");
-      }
+      setResponse(mutationResponse);
     } catch (e) {
-      console.error(e);
-      setFormState({
-        name: "",
-        height: "",
-        weight: "",
-        yearOfBirth: "",
-        size: "",
-        gender: "",
-        hypoallergenic: "",
-        story: "",
-        colors: "",
-        temperaments: "",
-      });
+      alert("Please Fill Out all of the fields");
     }
   };
 
   return (
-    <MDBContainer>
-      <MDBRow className="collapseContent">
-        <MDBCol md="6">
-          <form onSubmit={ handleFormSubmit }>
-            <p className="h4 text-center mb-4">Add a Dog</p>
-            <label className="grey-text">Dog name</label>
-            <input
-              name="name"
-              type="name"
-              id="breed"
-              className="form-control"
-              value={ formState.name }
-              onChange={ handleChange }
-              required="required"
-            />
+    <>
+      <MDBContainer>
+        <MDBRow className="collapseContent">
+          <MDBCol md="6">
+            <form onSubmit={handleFormSubmit}>
+              <p className="h4 text-center mb-4">Add a Dog</p>
+              <label className="grey-text">Dog name</label>
+              <input
+                name="name"
+                type="name"
+                id="breed"
+                className="form-control"
+                value={formState.name}
+                onChange={handleChange}
+                required="required"
+              />
 
-            <label className="grey-text">Height</label>
-            <input
-              type="height"
-              name="height"
-              value={ formState.height }
-              onChange={ handleChange }
-              className="form-control"
-              required="required"
-            />
+              <label className="grey-text">Height</label>
+              <input
+                type="height"
+                name="height"
+                value={formState.height}
+                onChange={handleChange}
+                className="form-control"
+                required="required"
+              />
 
-            <label className="grey-text">Weight</label>
-            <input
-              type="weight"
-              name="weight"
-              value={ formState.weight }
-              onChange={ handleChange }
-              className="form-control"
-              required="required"
-            />
+              <label className="grey-text">Weight</label>
+              <input
+                type="weight"
+                name="weight"
+                value={formState.weight}
+                onChange={handleChange}
+                className="form-control"
+                required="required"
+              />
 
-            <label className="grey-text">Year Of Birth</label>
-            <input
-              type="yearOfBirth"
-              name="yearOfBirth"
-              value={ formState.yearOfBirth }
-              onChange={ handleChange }
-              className="form-control"
-              required="required"
-            />
+              <label className="grey-text">Year Of Birth</label>
+              <input
+                type="yearOfBirth"
+                name="yearOfBirth"
+                value={formState.yearOfBirth}
+                onChange={handleChange}
+                className="form-control"
+                required="required"
+              />
 
-            <label className="grey-text">Size</label>
-            <select
-              className="browser-default custom-select"
-              onChange={ handleChange }
-              type="size"
-              name="size"
-              value={ formState.size }
-              required="required"
-            >
-              <option value={ "Large" }>Large</option>
-              <option value={ "Medium" }>Medium</option>
-              <option value={ "Small" }>Small</option>
-            </select>
+              <label className="grey-text">Size</label>
+              <select
+                className="browser-default custom-select"
+                onChange={handleChange}
+                type="size"
+                name="size"
+                value={formState.size}
+              >
+                <option>Choose your option</option>
+                <option value={"Small"}>Small</option>
+                <option value={"Medium"}>Medium</option>
+                <option value={"Large"}>Large</option>
+              </select>
 
-            <label className="grey-text">Gender</label>
-            <select
-              className="browser-default custom-select"
-              onChange={ handleChange }
-              type="gender"
-              name="gender"
-              value={ formState.gender }
-              required="required"
-            >
-              <option value={ "Male" }>Male</option>
-              <option value={ "Female" }>Female</option>
-            </select>
+              <label className="grey-text">Gender</label>
+              <select
+                className="browser-default custom-select"
+                onChange={handleChange}
+                type="gender"
+                name="gender"
+                value={formState.gender}
+              >
+                <option>Choose your option</option>
+                <option value={"Female"}>Female</option>
+                <option value={"Male"}>Male</option>
+              </select>
 
-            <label className="grey-text">Hypoallergenic</label>
-            <select
-              className="browser-default custom-select"
-              onChange={ handleChange }
-              type="hypoallergenic"
-              name="hypoallergenic"
-              value={ formState.hypoallergenic }
-            >
-              <option value={ "true" }>True</option>
-              <option value={ "false" }>False</option>
-            </select>
+              <label className="grey-text">hypoallergenic</label>
+              <select
+                className="browser-default custom-select"
+                onChange={handleChange}
+                type="hypoallergenic"
+                name="hypoallergenic"
+                value={formState.hypoallergenic}
+              >
+                <option>Choose your option</option>
+                <option value={"true"}>True</option>
+                <option value={"false"}>False</option>
+              </select>
 
-            <label className="grey-text">Story</label>
-            <textarea
-              type="story"
-              name="story"
-              value={ formState.story }
-              onChange={ handleChange }
-              className="form-control"
-              required="required"
-              rows="7"
-            />
+              <label className="grey-text">Story</label>
+              <textarea
+                type="story"
+                name="story"
+                value={formState.story}
+                onChange={handleChange}
+                className="form-control"
+                required="required"
+              />
 
-            <label className="grey-text">Breed</label>
-            <select
-              className="browser-default custom-select"
-              onChange={ handleChange }
-              type="breed"
-              name="breed"
-              value={ formState.breed }
-            >
-              { breedsDataID.map((breedID) => {
-                return (
-                  <option key={ breedID._id } value={ breedID._id }>
-                    {breedID.name }
-                  </option>
-                );
-              }) }
-            </select>
-
-            <label className="grey-text">Colors</label>
-            <select
-              className="browser-default custom-select"
-              onChange={ handleChange }
-              type="colors"
-              name="colors"
-              value={ formState.colors }
-            >
-              { colorsData.map((color) => {
-                return (
-                  <option key={ color._id } value={ color._id }>
-                    {color.name }
-                  </option>
-                );
-              }) }
-            </select>
-
-            <label className="grey-text">Temperaments</label>
-            <div className="label-wrapper temperaments">
-              <ul>
-                { temperamentsID.map((temperament) => {
+              <label className="grey-text">Breed</label>
+              <select
+                className="browser-default custom-select"
+                onChange={handleChange}
+                type="breed"
+                name="breed"
+                value={formState.breed}
+              >
+                <option>Choose your option</option>
+                {breedsDataID.map((breedID) => {
                   return (
-                    <li>
-                      <label for={ temperament.name }>
-                        { temperament.name }
-                      </label>
-                      <input
-                        type="checkbox"
-                        key={ temperament._id }
-                        id={ temperament._id }
-                        name={ temperament.name }
-                        value={ temperament.name }
-                        onChange={ handleChange }
-                      />
-                    </li>
+                    <option key={breedID._id} value={breedID._id}>
+                      {breedID.name}
+                    </option>
                   );
-                }) }
-              </ul>
-            </div>
+                })}
+              </select>
 
-            <div className="text-center mt-4">
-              <MDBBtn color="success" type="submit">
-                Submit
-              </MDBBtn>
-            </div>
-          </form>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+              <label className="grey-text">Colors</label>
+              <select
+                className="browser-default custom-select"
+                onChange={handleChange}
+                type="colors"
+                name="colors"
+                value={formState.colors}
+              >
+                <option>Choose your option</option>
+                {colorsData.map((color) => {
+                  return (
+                    <option key={color._id} value={color._id}>
+                      {color.name}
+                    </option>
+                  );
+                })}
+              </select>
+
+              <label className="grey-text">Temperaments</label>
+              <select
+                className="browser-default custom-select"
+                onChange={handleChange}
+                type="temperaments"
+                name="temperaments"
+                value={formState.temperaments}
+              >
+                <option>Choose your option</option>
+                {temperamentsID.map((temperament) => {
+                  return (
+                    <option key={temperament._id} value={temperament._id}>
+                      {temperament.name}
+                    </option>
+                  );
+                })}
+              </select>
+
+              <div className="text-center mt-4">
+                <MDBBtn color="success" type="submit" onClick={handleShow}>
+                  Submit
+                </MDBBtn>
+              </div>
+            </form>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+
+      {response && (
+        <ModalPage
+          show={show}
+          handleClose={handleClose}
+          handleSuccessClose={handleSuccessClose}
+        />
+      )}
+    </>
   );
 };
 

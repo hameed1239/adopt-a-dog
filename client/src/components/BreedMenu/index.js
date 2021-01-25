@@ -34,7 +34,6 @@ const BreedMenu = () => {
       type: UPDATE_CURRENT_BREED,
       currentBreed: id,
     });
-    console.log(id);
   };
 
   return (
@@ -79,27 +78,26 @@ const BreedMenu = () => {
 export default BreedMenu;
 
 const BreedMenuEL = styled.main`
-.breed-labels{
-  width:100%;
-  text-align:left;
-}
+  .breed-labels {
+    width: 100%;
+    text-align: left;
+  }
 
-.dropdown-item{
-  width:100%;
-  ${'' /* color:#767777; */}
-  font-size:.9rem;
-
-}
-h1{
-  text-align:left;
-  font-size:1rem;
-  ${'' /* background:#f2f6f9; */}
-  border-radius:.5rem;
-  border:1px solid #e6ebee;
-  width:100%;
-  margin:1rem 0;
-  padding:.3rem;
-  line-height:2rem;
-  font-weight:bold;
-}
+  .dropdown-item {
+    width: 100%;
+    ${"" /* color:#767777; */}
+    font-size:.9rem;
+  }
+  h1 {
+    text-align: left;
+    font-size: 1rem;
+    ${"" /* background:#f2f6f9; */}
+    border-radius:.5rem;
+    border: 1px solid #e6ebee;
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0.3rem;
+    line-height: 2rem;
+    font-weight: bold;
+  }
 `;

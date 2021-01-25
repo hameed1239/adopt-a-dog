@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
-
+import ModalPage from "../Modal";
 import {
   QUERY_BREEDS,
   QUERY_COLORS,
@@ -54,6 +53,20 @@ const EditDog = () => {
     temperaments: "",
   });
 
+  // Modal
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+  };
+  const handleSuccessClose = () => {
+    setShow(false);
+    window.location.reload(false);
+  };
+  const handleShow = () => setShow(true);
+
+  const [response, setResponse] = useState();
+
   const handleChange = (event) => {
     const { name, value } = event.target;
    
@@ -76,15 +89,12 @@ const EditDog = () => {
       if (mutationRemoveResponse) {
         alert("You have successfully Remove a Dog");
       }
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
 
   const handleEditFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState)
-    console.log(event.target.value);
+
 
     if (formState.hypoallergenic === "true") {
       formState.hypoallergenic = true;
@@ -112,11 +122,10 @@ const EditDog = () => {
         },
       });
 
-      if (mutationResponse) {
-        alert("You have successfully Update a Dog");
-      }
+      setResponse(mutationResponse);
     } catch (e) {
       console.error(e);
+      alert("You have Fill Out all the Fields");
     }
   };
 
@@ -152,12 +161,6 @@ const EditDog = () => {
       console.log(err);
     }
   };
-
-  // const optionsArray = [
-  //   { key: "600cac99fa140515d2be4ca0", label: "Brown" },
-  //   { key: "600cac99fa140515d2be4ca1", label: "Red" },
-  //   { key: "600cac99fa140515d2be4ca2", label: "Gold" },
-  // ];
 
   return (
     <>
@@ -204,15 +207,6 @@ const EditDog = () => {
           <MDBRow className="collapseContent">
             <MDBCol md="6">
               <form onSubmit={handleEditFormSubmit}>
-                {/* <label className="grey-text">Dog's ID</label>
-                <input
-                  name="_id"
-                  type="_id"
-                  id="_id"
-                  className="form-control"
-                  value={formState._id}
-                  onChange={handleChange}
-                /> */}
                 <label className="grey-text">Update Dog name</label>
                 <input
                   name="name"
@@ -255,25 +249,31 @@ const EditDog = () => {
                 />
 
                 <label className="grey-text">Size</label>
-                <input
+                <select
+                  className="browser-default custom-select"
+                  onChange={handleChange}
                   type="size"
                   name="size"
                   value={formState.size}
-                  onChange={handleChange}
-                  className="form-control"
-                  required="required"
-                />
+                >
+                  <option>Choose your option</option>
+                  <option value={"Small"}>Small</option>
+                  <option value={"Medium"}>Medium</option>
+                  <option value={"Large"}>Large</option>
+                </select>
 
                 <label className="grey-text">Gender</label>
-                <input
+                <select
+                  className="browser-default custom-select"
+                  onChange={handleChange}
                   type="gender"
                   name="gender"
                   value={formState.gender}
-                  onChange={handleChange}
-                  className="form-control"
-                  required="required"
-                />
-
+                >
+                  <option>Choose your option</option>
+                  <option value={"Female"}>Female</option>
+                  <option value={"Male"}>Male</option>
+                </select>
                 <label className="grey-text">Story</label>
                 <textarea
                   type="story"
@@ -306,7 +306,7 @@ const EditDog = () => {
                   type="colors"
                   name="colors"
                   value={formState.colors}
-                  multiple={false}
+
                 >
                   <option>Choose your option</option>
                   {colorsData.map((color) => {
@@ -317,13 +317,6 @@ const EditDog = () => {
                     );
                   })}
                 </select>
-
-                {/* <DropdownMultiselect
-                  options={optionsArray}
-                  name="colors"
-                  value={formState.colors}
-                  onChange={handleChange}
-                /> */}
 
                 <label className="grey-text">Breed</label>
                 <select
@@ -361,7 +354,7 @@ const EditDog = () => {
                 </select>
 
                 <div className="text-center mt-4">
-                  <MDBBtn color="success" type="submit">
+                  <MDBBtn color="success" type="submit" onClick={handleShow}>
                     Submit
                   </MDBBtn>
                 </div>
@@ -369,6 +362,14 @@ const EditDog = () => {
             </MDBCol>
           </MDBRow>
         </MDBContainer>
+      )}
+
+      {response && (
+        <ModalPage
+          show={show}
+          handleClose={handleClose}
+          handleSuccessClose={handleSuccessClose}
+        />
       )}
     </>
   );

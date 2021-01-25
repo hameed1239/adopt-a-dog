@@ -7,6 +7,8 @@ import { QUERY_DOGS } from "../../utils/queries";
 import { UPDATE_DOGS } from "../../utils/actions";
 import { useDispatch, useSelector } from "react-redux";
 
+// import { idbPromise } from "../../utils/helpers";
+
 const DogsList = () => {
   const state = useSelector((state) => {
     return state;
@@ -20,8 +22,6 @@ const DogsList = () => {
 
   const dogs = data?.dogs || [];
 
-  console.log(dogs);
-
   useEffect(() => {
     if (data) {
       dispatch({
@@ -29,7 +29,6 @@ const DogsList = () => {
         dogs: data.dogs,
       });
     } else if (!loading) {
-      console.log(loading);
     }
   }, [dispatch, data, loading]);
 

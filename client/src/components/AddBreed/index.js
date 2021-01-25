@@ -5,6 +5,8 @@ import { QUERY_COLORS, QUERY_TEMPERAMENTS } from "../../utils/queries";
 
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 
+import ModalPage from "../Modal";
+
 const AddBreed = () => {
   const [formState, setFormState] = useState({
     name: "",
@@ -14,22 +16,34 @@ const AddBreed = () => {
     temperaments: "",
   });
 
-  const [addBreed, { error }] = useMutation(ADD_BREED);
+  const [addBreed] = useMutation(ADD_BREED);
   const { data } = useQuery(QUERY_COLORS);
   const { data: temperamentsData } = useQuery(QUERY_TEMPERAMENTS);
 
   const colorsData = data?.colors || [];
-  console.log(colorsData);
   const temperamentsID = temperamentsData?.temperaments || [];
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     const { name, value } = event.target;
     setFormState({
       ...formState,
       [name]: value,
     });
   };
+
+  // Modal
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+  };
+  const handleSuccessClose = () => {
+    setShow(false);
+    window.location.reload(false);
+  };
+  const handleShow = () => setShow(true);
+
+  const [response, setResponse] = useState();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -51,106 +65,111 @@ const AddBreed = () => {
         },
       });
 
-      if (mutationResponse) {
-        alert("You have successfully Added a New Breed Type");
-      }
+      setResponse(mutationResponse);
     } catch (e) {
       console.error(e);
-      setFormState({
-        name: "",
-        size: "",
-        hypoallergenic: "",
-        colors: "",
-        temperaments: "",
-      });
+      alert("Please Fill Out all of the fields");
     }
   };
 
   return (
-    <MDBContainer>
-      <MDBRow className="collapseContent">
-        <MDBCol md="6">
-          <form onSubmit={handleFormSubmit}>
-            <p className="h4 text-center mb-4">Add a Breed</p>
-            <label className="grey-text">Breed name</label>
-            <input
-              name="name"
-              type="name"
-              id="breed"
-              className="form-control"
-              value={formState.name}
-              onChange={handleChange}
-              required="required"
-            />
-            <br />
-            <label className="grey-text">Size</label>
-            <input
-              type="size"
-              name="size"
-              value={formState.size}
-              onChange={handleChange}
-              className="form-control"
-              required="required"
-            />
+    <>
+      <MDBContainer>
+        <MDBRow className="collapseContent">
+          <MDBCol md="6">
+            <form onSubmit={handleFormSubmit}>
+              <p className="h4 text-center mb-4">Add a Breed</p>
+              <label className="grey-text">Breed name</label>
+              <input
+                name="name"
+                type="name"
+                id="breed"
+                className="form-control"
+                value={formState.name}
+                onChange={handleChange}
+                required="required"
+              />
+              <br />
+              <label className="grey-text">Size</label>
+              <select
+                className="browser-default custom-select"
+                onChange={handleChange}
+                type="size"
+                name="size"
+                value={formState.size}
+              >
+                <option>Choose your option</option>
+                <option value={"Small"}>Small</option>
+                <option value={"Medium"}>Medium</option>
+                <option value={"Large"}>Large</option>
+              </select>
 
-            <label className="grey-text">hypoallergenic</label>
-            <select
-              className="browser-default custom-select"
-              onChange={handleChange}
-              type="hypoallergenic"
-              name="hypoallergenic"
-              value={formState.hypoallergenic}
-            >
-              <option>Choose your option</option>
-              <option value={"true"}>True</option>
-              <option value={"false"}>False</option>
-            </select>
+              <label className="grey-text">hypoallergenic</label>
+              <select
+                className="browser-default custom-select"
+                onChange={handleChange}
+                type="hypoallergenic"
+                name="hypoallergenic"
+                value={formState.hypoallergenic}
+              >
+                <option>Choose your option</option>
+                <option value={"true"}>True</option>
+                <option value={"false"}>False</option>
+              </select>
 
-            <label className="grey-text">Colors</label>
-            <select
-              className="browser-default custom-select"
-              onChange={handleChange}
-              type="colors"
-              name="colors"
-              value={formState.colors}
-            >
-              <option>Choose your option</option>
-              {colorsData.map((color) => {
-                return (
-                  <option key={color._id} value={color._id}>
-                    {color.name}
-                  </option>
-                );
-              })}
-            </select>
+              <label className="grey-text">Colors</label>
+              <select
+                className="browser-default custom-select"
+                onChange={handleChange}
+                type="colors"
+                name="colors"
+                value={formState.colors}
+              >
+                <option>Choose your option</option>
+                {colorsData.map((color) => {
+                  return (
+                    <option key={color._id} value={color._id}>
+                      {color.name}
+                    </option>
+                  );
+                })}
+              </select>
 
-            <label className="grey-text">Temperaments</label>
-            <select
-              className="browser-default custom-select"
-              onChange={handleChange}
-              type="temperaments"
-              name="temperaments"
-              value={formState.temperaments}
-            >
-              <option>Choose your option</option>
-              {temperamentsID.map((temperament) => {
-                return (
-                  <option key={temperament._id} value={temperament._id}>
-                    {temperament.name}
-                  </option>
-                );
-              })}
-            </select>
+              <label className="grey-text">Temperaments</label>
+              <select
+                className="browser-default custom-select"
+                onChange={handleChange}
+                type="temperaments"
+                name="temperaments"
+                value={formState.temperaments}
+              >
+                <option>Choose your option</option>
+                {temperamentsID.map((temperament) => {
+                  return (
+                    <option key={temperament._id} value={temperament._id}>
+                      {temperament.name}
+                    </option>
+                  );
+                })}
+              </select>
 
-            <div className="text-center mt-4">
-              <MDBBtn color="success" type="submit">
-                Submit
-              </MDBBtn>
-            </div>
-          </form>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+              <div className="text-center mt-4">
+                <MDBBtn color="success" type="submit" onClick={handleShow}>
+                  Submit
+                </MDBBtn>
+              </div>
+            </form>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+      {response && (
+        <ModalPage
+          show={show}
+          handleClose={handleClose}
+          handleSuccessClose={handleSuccessClose}
+        />
+      )}
+    </>
   );
 };
 
