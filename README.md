@@ -89,9 +89,9 @@ https://github.com/hameed1239/adopt-me.
 
 ![Dogs List Page](./lib/screenshot-dogs.png)
 
-### Dog Page
+### Dog Details Page
 
-![Dogs Page](./lib/screenshot-dog.png)
+![Dog Deatils Page](./lib/screenshot-dog.png)
 
 ## Technologies Used
 
