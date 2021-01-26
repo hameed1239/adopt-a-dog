@@ -32,6 +32,7 @@
 - [Pre-Requisites](#Pre-Requisites)
 - [Installation](#Installation)
 - [Usage](#Usage)
+- [Screenshot](#Screenshot)
 - [Technologies Used](#Technologies-Used)
 - [Credits](#Credits)
 - [Roadmap](#Roadmap)
@@ -78,7 +79,7 @@ https://github.com/hameed1239/adopt-me.
 6. Donate page: is the page that gives you an option to donate.
 7. Admin page: This requires that you have admin access. You can test this by login in with username: `admin1@test.com`, password: `password`.
 
-### Screenshot
+## Screenshot
 
 ![Screenshot](./screenshot.png)
 
@@ -101,14 +102,14 @@ https://github.com/hameed1239/adopt-me.
 
 ## Collaborators
 
-| DEVELOPER                                            | ROLE                | CONTRIBUTIONS                                                                |
-| ---------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------- |
-| [AADITI PAI](https://github.com/aadi1988)            | Project Manager     | User/Admin authentication (JWT) & account services, Application form         |
-| [AHMAD EL GAMAL](https://github.com/ahmadelgamal)    | Front-end Developer | UI Design (HTML & CSS Contact form)                                          |
-| [HAMEED KAZEEM](https://github.com/hameed1239/)      | Back-end Developer  | Repo, MongoDB, Mongoose ODM, Seeds file, GraphQL & Database API & Deployment |
-| [RONGBANG (BRYAN) YE](https://github.com/rongbangye) | Front-end Developer | React and Redux                                                              |
-| [SHAWNA GOHEL](https://github.com/shawnagohel)       | Back-end Developer  | Wireframes, Stripe Payment platform                                          |
-| [SOLOMON MERESA](https://github.com/solomonmeresa)   | Front-end Developer | UI, GraphQL & PWA                                                            |
+| DEVELOPER                                            | ROLE                | CONTRIBUTIONS                                                                 |
+| ---------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------- |
+| [AADITI PAI](https://github.com/aadi1988)            | Project Manager     | User/Admin authentication (JWT), admin page and Application form.             |
+| [AHMAD EL GAMAL](https://github.com/ahmadelgamal)    | Front-end Developer | UI Design (HTML & CSS) and Contact Form. form)                                |
+| [HAMEED KAZEEM](https://github.com/hameed1239/)      | Back-end Developer  | Repo, MongoDB, Mongoose ODM, Seeds file, GraphQL & Database API & Deployment. |
+| [RONGBANG (BRYAN) YE](https://github.com/rongbangye) | Front-end Developer | React and Redux.                                                              |
+| [SHAWNA GOHEL](https://github.com/shawnagohel)       | Back-end Developer  | Wireframes and Stripe Payment platform.                                       |
+| [SOLOMON MERESA](https://github.com/solomonmeresa)   | Front-end Developer | UI, GraphQL & PWA.                                                            |
 
 ## Roadmap
 
