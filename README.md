@@ -48,18 +48,18 @@ https://github.com/hameed1239/adopt-me.
 
 ## Features
 
-1. Sensitive API key info is protected on the server using `dotenv`
+1. Sensitive API key info is protected on the server using `dotenv`.
 1. MongoDB Collections:
-   1. Dogs
-   1. Taxonomy (classification)
-   1. Users
-   1. Orders
-   1. Shopping Cart (DB or local storage?)
+   1. Dogs.
+   1. Taxonomy (classification).
+   1. Users.
+   1. Orders.
+   1. Shopping Cart (DB or local storage?).
 
 ## Pre-Requisites
 
-1. Install `node.js`
-1. Install `MongoDB`
+1. Install `node.js`.
+1. Install `MongoDB`.
 1. Create a database in a service such as `Atlas` on [mongodb](https://cloud.mongodb.com/).
 
 ## Installation
@@ -113,13 +113,14 @@ https://github.com/hameed1239/adopt-me.
 ## Roadmap
 
 1. Add `emailjs` to generate emails when adopters submit an application form.
-1. Add `About` page.
+1. Add Footer.
 1. Optimize Picture Sizes.
 1. Add `rootAdmin` in addition to existing `admin`.
 1. Allow admin sign up for separate admin accounts, pending `rootAdmin` approval, or by receiving a link from the `rootAdmin`.
 1. Add OAuth2 for login options.
 1. Add validation for form inputs.
-1. Allow dog-picture uploads (currently not supported by Heroku)
+1. Allow dog-picture uploads (currently not supported by Heroku).
+1. Add more icon-size options in `manifest.json`.
 
 ## Questions
 
