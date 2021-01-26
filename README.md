@@ -83,11 +83,15 @@ https://github.com/hameed1239/adopt-me.
 
 ### Home Page
 
-![Home Page](./screenshot-1.png)
+![Home Page](./lib/screenshot-home.png)
 
-### Dogs Page
+### Dogs List Page
 
-![Dogs Page](./screenshot-2.png)
+![Dogs List Page](./lib/screenshot-dogs.png)
+
+### Dog Page
+
+![Dogs Page](./lib/screenshot-dog.png)
 
 ## Technologies Used
 
