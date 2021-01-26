@@ -93,6 +93,10 @@ https://github.com/hameed1239/adopt-me.
 
 ![Dog Deatils Page](./lib/screenshot-dog.png)
 
+### Admin Page
+
+![Admin Page](./lib/screenshot-admin.png)
+
 ## Technologies Used
 
 This is a MERN full-stack PWA. MERN stands for MongoDB, Express.js, React and Node.js.
