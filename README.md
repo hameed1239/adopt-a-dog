@@ -22,7 +22,7 @@
 
 ## Description
 
-**Adopt Me** is a website for a dog shelter where users (site visitors) can adopt the dogs.
+**Adopt Me** is a website for a dog shelter where users (site visitors) can adopt the dogs. It is a MERN stack app.
 
 ## Table of Contents
 
@@ -95,10 +95,12 @@ https://github.com/hameed1239/adopt-me.
 
 ## Technologies Used
 
+This is a MERN full-stack app.
 1. HTML5
 1. CSS3
 1. JavaScript
 1. Node.js
+1. Express.js
 1. MongoDB
 1. Mongoose ODM
 1. React
