@@ -22,7 +22,7 @@
 
 ## Description
 
-**Adopt Me** is a website for a dog shelter where users (site visitors) can adopt the dogs. It is a MERN stack app.
+**Adopt Me** is a platform for a dog shelter where users (site visitors) can adopt the dogs. It is a Progressive Web Application (PWA) that was built using the MERN stack.
 
 ## Table of Contents
 
@@ -95,22 +95,25 @@ https://github.com/hameed1239/adopt-me.
 
 ## Technologies Used
 
-This is a MERN full-stack app.
-1. HTML5
-1. CSS3
-1. JavaScript
-1. Node.js
-1. Express.js
-1. MongoDB
-1. Mongoose ODM
-1. React
-1. Redux
-1. GraphQL
+This is a MERN full-stack PWA. MERN stands for MongoDB, Express.js, React and Node.js.
+
+1. [HTML5](https://www.w3schools.com/html/)
+1. [CSS3](https://www.w3schools.com/css/)
+1. [JavaScript](https://www.w3schools.com/js)
+1. [Node.js](https://nodejs.org/en/)
+1. [Express.js](https://www.npmjs.com/package/express)
+1. [Apollo Server Express](https://www.npmjs.com/package/apollo-server-express)
+1. [MongoDB](https://www.mongodb.com/)
+1. [Mongoose ODM](https://www.npmjs.com/package/mongoose)
+1. [React](https://www.npmjs.com/package/react)
+1. [React Redux](https://react-redux.js.org/)
+1. [Styled Components](https://www.npmjs.com/package/styled-components)
+1. [GraphQL](https://www.npmjs.com/package/graphql)
+1. [EmailJS-COM](https://www.npmjs.com/package/emailjs-com)
 1. Authentication:
-   1. Sessions
-   1. JWT (Jason Web Tokens)
-1. Stripe (Payment Platform)
-1. PWA
+   1. [Bcrypt](https://www.npmjs.com/package/bcrypt)
+   1. [JWT](https://www.npmjs.com/package/jsonwebtoken) (Jason Web Tokens)
+1. [Stripe](https://stripe.com/) (Payment Platform)
 
 ## Collaborators
 
