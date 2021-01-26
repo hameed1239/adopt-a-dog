@@ -1,4 +1,4 @@
-# Adopt A Dog
+# Adopt Me
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/hameed1239/adopt-me?style=plastic)
 ![GitHub code size](https://img.shields.io/github/languages/code-size/hameed1239/adopt-me?style=plastic)
@@ -22,7 +22,7 @@
 
 ## Description
 
-**Adopt A Dog** is a website for an dog shelter where users (site visitors) can adopt the dogs.
+**Adopt Me** is a website for a dog shelter where users (site visitors) can adopt the dogs.
 
 ## Table of Contents
 
@@ -65,28 +65,27 @@ https://github.com/hameed1239/adopt-me.
 ## Installation
 
 1. In the root directory of the app, run `npm i`.
-1. run `npm run seed` to seed the database.
+1. Run `npm run seed` to seed the database.
 1. Run `npm start`.
 
 ## Usage
 
 1. Home page: is the Landing page
-2. dogs page: is the page that shows the list of dogs with filter option for the breed type. you can get more information including the option to adopt or donate on a dog by clicking on the dog.
-3. about page: is the page that gives more information about the adoption agency.
-4. contact page: is where you can fill out a contact form.
-5. login page: is the page that gives the user an option to login or signup for an account.
-6. Donate page: is the page that gives you an option to donate
-7. Admin page: This requires that you have admin access. You can test this by login in with username: "admin1@test.com", password: "password"
+2. Dogs page: is the page that shows the list of dogs with a filter option for the breed type. You can get more information including the option to adopt or donate on a dog by clicking on the dog.
+3. About page: is the page that gives more information about the adoption agency.
+4. Contact page: is where you can fill out a contact form.
+5. Login page: is the page that gives the user the option to login or signup for an account.
+6. Donate page: is the page that gives you an option to donate.
+7. Admin page: This requires that you have admin access. You can test this by login in with username: `admin1@test.com`, password: `password`.
 
 ### Screenshot
 
 ![Screenshot](./screenshot.png)
 
-
 ## Technologies Used
 
-1. HTML
-1. CSS
+1. HTML5
+1. CSS3
 1. JavaScript
 1. Node.js
 1. MongoDB
@@ -100,26 +99,27 @@ https://github.com/hameed1239/adopt-me.
 1. Stripe (Payment Platform)
 1. PWA
 
-
 ## Collaborators
 
-| DEVELOPER           | ROLE                | CONTRIBUTIONS                                              |
-| ------------------- | ------------------- | ---------------------------------------------------------------- |
-| [AADITI PAI](https://github.com/aadi1988)          | Project Manager     | User/Admin authentication (JWT) & account services, Application form          |
-| [AHMAD EL GAMAL](https://github.com/ahmadelgamal)      | Front-end Developer | UI Design (HTML & CSS Contact form)                                           |
-| [HAMEED KAZEEM](https://github.com/hameed1239/)       | Back-end Developer  | Repo, MongoDB, Mongoose ODM, Seeds file, GraphQL & Database API & Deployment |
-| [RONGBANG (BRYAN) YE](https://github.com/rongbangye) | Front-end Developer | React and Redux                                                  |
-| [SHAWNA GOHEL](https://github.com/shawnagohel)        | Back-end Developer  | Wireframes, Stripe Payment platform            |
-| [SOLOMON MERESA](https://github.com/solomonmeresa)      | Front-end Developer | UI, GraphQL & PWA                                                    |
+| DEVELOPER                                            | ROLE                | CONTRIBUTIONS                                                                |
+| ---------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------- |
+| [AADITI PAI](https://github.com/aadi1988)            | Project Manager     | User/Admin authentication (JWT) & account services, Application form         |
+| [AHMAD EL GAMAL](https://github.com/ahmadelgamal)    | Front-end Developer | UI Design (HTML & CSS Contact form)                                          |
+| [HAMEED KAZEEM](https://github.com/hameed1239/)      | Back-end Developer  | Repo, MongoDB, Mongoose ODM, Seeds file, GraphQL & Database API & Deployment |
+| [RONGBANG (BRYAN) YE](https://github.com/rongbangye) | Front-end Developer | React and Redux                                                              |
+| [SHAWNA GOHEL](https://github.com/shawnagohel)       | Back-end Developer  | Wireframes, Stripe Payment platform                                          |
+| [SOLOMON MERESA](https://github.com/solomonmeresa)   | Front-end Developer | UI, GraphQL & PWA                                                            |
 
 ## Roadmap
 
-1. Add application form for adopters.
+1. Add `emailjs` to generate emails when adopters submit an application form.
 1. Add `About` page.
 1. Optimize Picture Sizes.
 1. Add `rootAdmin` in addition to existing `admin`.
 1. Allow admin sign up for separate admin accounts, pending `rootAdmin` approval, or by receiving a link from the `rootAdmin`.
 1. Add OAuth2 for login options.
+1. Add validation for form inputs.
+1. Allow dog-picture uploads (currently not supported by Heroku)
 
 ## Questions
 
