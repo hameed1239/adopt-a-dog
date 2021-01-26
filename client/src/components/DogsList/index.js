@@ -39,11 +39,16 @@ const DogsList = () => {
     }
     return state.dogs.filter((dog) => dog.breed._id === currentBreed);
   }
-
+// if(loading){
+//   return 'Loading';
+// }
   return (
+
     <main id="breeds">
       <div className="container mt-20">
-        {dogs.length ? (
+        {!dogs.length ? (
+         <div>loading</div>
+        ) : (
           <div className="flex-container">
             {filterDogsBreed().map((dog) => {
               return (
@@ -56,10 +61,7 @@ const DogsList = () => {
               );
             })}
           </div>
-        ) : (
-          <h3>No dogs in the data</h3>
         )}
-        {loading ? "loading dogs " : null}
       </div>
     </main>
   );
