@@ -18,7 +18,7 @@
 
 ![GitHub version](https://img.shields.io/github/package-json/v/hameed1239/adopt-me?color=red&style=plastic)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-ISC-yellow.svg)](https://opensource.org/licenses/ISC)
 
 ## Description
 
@@ -116,6 +116,8 @@ https://github.com/hameed1239/adopt-me.
 1. Add `emailjs` to generate emails when adopters submit an application form.
 1. Add Footer.
 1. Optimize Picture Sizes.
+1. Sort lists alphabetically.
+1. Replace `alerts` with stylish `modals`.
 1. Add `rootAdmin` in addition to existing `admin`.
 1. Allow admin sign up for separate admin accounts, pending `rootAdmin` approval, or by receiving a link from the `rootAdmin`.
 1. Add OAuth2 for login options.
