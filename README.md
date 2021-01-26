@@ -77,7 +77,7 @@ https://github.com/hameed1239/adopt-me.
 4. Contact page: is where you can fill out a contact form.
 5. Login page: is the page that gives the user the option to login or signup for an account.
 6. Donate page: is the page that gives you an option to donate.
-7. Admin page: This requires that you have admin access. You can test this by login in with username: `admin1@test.com`, password: `password`.
+7. Admin page: This requires that you have admin access. You can test this by logging in with username: `admin1@test.com`, password: `password`.
 
 ## Screenshots
 
