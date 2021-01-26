@@ -104,7 +104,7 @@ https://github.com/hameed1239/adopt-me.
 | DEVELOPER                                            | ROLE                | CONTRIBUTIONS                                                                |
 | ---------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------- |
 | [AADITI PAI](https://github.com/aadi1988)            | Project Manager     | User/Admin authentication (JWT) & account services, Application form         |
-| [AHMAD EL GAMAL](https://github.com/ahmadelgamal)    | Front-end Developer | UI Design (HTML & CSS Contact form)                                          |
+| [AHMAD EL GAMAL](https://github.com/ahmadelgamal)    | Front-end Developer | UI Design (HTML & CSS Contact form)                                          |
 | [HAMEED KAZEEM](https://github.com/hameed1239/)      | Back-end Developer  | Repo, MongoDB, Mongoose ODM, Seeds file, GraphQL & Database API & Deployment |
 | [RONGBANG (BRYAN) YE](https://github.com/rongbangye) | Front-end Developer | React and Redux                                                              |
 | [SHAWNA GOHEL](https://github.com/shawnagohel)       | Back-end Developer  | Wireframes, Stripe Payment platform                                          |
