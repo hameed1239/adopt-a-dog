@@ -60,25 +60,22 @@ export const ADD_ADOPTION = gql`
     $approvalDate: String
   ) {
     addAdoption(
-      dog:$dog
-      user:$user
+      dog: $dog
+      user: $user
       requestDate: $requestDate
       isApproved: $isApproved
       approvalDate: $approvalDate
     ) {
       _id
-      dog{
+      dog {
         _id
         name
-        
       }
-      user{
+      user {
         _id
-        
+
         firstName
         lastName
-        
-        
       }
       requestDate
       isApproved
@@ -128,12 +125,12 @@ export const UPDATE_USER = gql`
     $noOfKids: Int!
     $houseOrApartment: String!
     $isAdmin: Boolean
-  ){
+  ) {
     updateUser(
       _id: $_id
       firstName: $firstName
       lastName: $lastName
-      
+
       address: $address
       city: $city
       state: $state
@@ -143,12 +140,11 @@ export const UPDATE_USER = gql`
       noOfKids: $noOfKids
       houseOrApartment: $houseOrApartment
       isAdmin: $isAdmin
-    )
-    {
+    ) {
       _id
       firstName
       lastName
-     
+
       address
       city
       state
@@ -160,7 +156,7 @@ export const UPDATE_USER = gql`
       isAdmin
     }
   }
-`
+`;
 
 export const UPDATE_AN_ADOPTION = gql`
   mutation updateAdoption(
@@ -170,48 +166,41 @@ export const UPDATE_AN_ADOPTION = gql`
     $requestDate: String
     $isApproved: Boolean
     $approvalDate: String
-  ){
+  ) {
     updateAdoption(
-    _id: $_id
-    dog: $dog
-    user: $user
-    requestDate: $requestDate
-    isApproved: $isApproved
+      _id: $_id
+      dog: $dog
+      user: $user
+      requestDate: $requestDate
+      isApproved: $isApproved
 
-    approvalDate: $approvalDate
-    )
-    {
-    _id
-    dog{
+      approvalDate: $approvalDate
+    ) {
       _id
-      name
-    }
-    user {
-      _id
-      firstName
-      lastName
-    }
-    requestDate
-    isApproved
-    approvalDate
+      dog {
+        _id
+        name
+      }
+      user {
+        _id
+        firstName
+        lastName
+      }
+      requestDate
+      isApproved
+      approvalDate
     }
   }
-`
+`;
 
 export const DELETE_USER = gql`
-    mutation deleteUser(
-      $_id: ID!
-    ){
-      deleteUser(
-        _id: $_id
-      )
-      {
-        _id
-      }
+  mutation deleteUser($_id: ID!) {
+    deleteUser(_id: $_id) {
+      _id
     }
-`
+
 export const ADD_DOG = gql`
-  mutation addDog(
+  mutation addDog (
     $name: String!
     $height: String!
     $weight: String!
@@ -224,7 +213,8 @@ export const ADD_DOG = gql`
     $breed: ID!
     $temperaments: [ID]!
     $status: [ID]
-  ) {
+    $imgUrl: String
+) {
     addDog(
       name: $name
       height: $height
@@ -238,6 +228,7 @@ export const ADD_DOG = gql`
       breed: $breed
       temperaments: $temperaments
       status: $status
+      imgUrl: $imgUrl
     ) {
       _id
       name
@@ -248,6 +239,7 @@ export const ADD_DOG = gql`
       hypoallergenic
       story
       size
+      imgUrl
       colors {
         name
       }

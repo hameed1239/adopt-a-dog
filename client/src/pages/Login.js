@@ -1,85 +1,119 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
-import { LOGIN_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
-import { Button } from 'react-bootstrap';
-import { Form } from 'react-bootstrap';
+import React, { useState } from "react";
+import { useMutation } from "@apollo/react-hooks";
+import { LOGIN_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
+import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaw } from '@fortawesome/free-solid-svg-icons';
-import styled, { keyframes } from 'styled-components';
-import bgLogo from "../assets/dog-bg.jpg"
-import { faBone } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaw } from "@fortawesome/free-solid-svg-icons";
+import styled from "styled-components";
+import { faBone } from "@fortawesome/free-solid-svg-icons";
 
 const Login = (props) => {
-    const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { error }] = useMutation(LOGIN_USER);
-    // update state based on form input changes
-    const handleChange = (event) => {
-        const { name, value } = event.target;
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [login, { error }] = useMutation(LOGIN_USER);
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-        setFormState({
-            ...formState,
-            [name]: value,
-        });
-    };
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-    // submit form
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
 
-        try {
-            const { data } = await login({
-                variables: { ...formState }
-            });
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
 
-            console.log(data);
-            Auth.login(data.login.token);
-        } catch (e) {
-            console.error(e);
-        }
-    };
-    
-    return (
-        <main >
-            <HomeContainer>
-                <div className="home-content">
-                    <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
-                    <h1>Dont't Buy <span> Adopt </span></h1>
-                    <p>"Before you get a dog, you can't quite imagine what living with one might be like; afterward, you can't imagine living any other way."
-                    <span className="quote-name">Caroline Knapp</span></p>
-                    <Link to="/dogs"><button className="btn-find">Find dog 	<span className="shake-paw"><FontAwesomeIcon icon={faPaw} /></span></button></Link>
-                </div>
+      console.log(data);
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
-                <div className="home-img">
-                    <h2 className="icon icon-bone"> <FontAwesomeIcon icon={faBone} /></h2>
+  return (
+    <main>
+      <HomeContainer>
+        <div className="home-content">
+          <h2 className="icon icon-bone">
+            {" "}
+            <FontAwesomeIcon icon={faBone} />
+          </h2>
+          <h1>
+            Dont't Buy <span> Adopt </span>
+          </h1>
+          <p>
+            "Before you get a dog, you can't quite imagine what living with one
+            might be like; afterward, you can't imagine living any other way."
+            <span className="quote-name">Caroline Knapp</span>
+          </p>
+          <Link to="/dogs">
+            <button className="btn-find">
+              Find dog{" "}
+              <span className="shake-paw">
+                <FontAwesomeIcon icon={faPaw} />
+              </span>
+            </button>
+          </Link>
+        </div>
 
-                    
-                        <Form onSubmit={handleFormSubmit}>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" name='email' className='form-input' id='email' value={formState.email} placeholder="Enter email" onChange={handleChange} />
-                            </Form.Group>
+        <div className="home-img">
+          <h2 className="icon icon-bone">
+            {" "}
+            <FontAwesomeIcon icon={faBone} />
+          </h2>
 
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" name='password' className='form-input' id='password' value={formState.password} placeholder="Password" onChange={handleChange} />
-                            </Form.Group>
-                            
-                            <button className="btn-find" type="submit">Sign in</button>
-                            <Form.Text>
-                                 <Link to="/signup"><button className="btn-signup" type="submit">Sign Up Now!</button></Link>
+          <Form onSubmit={handleFormSubmit}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                name="email"
+                className="form-input"
+                id="email"
+                value={formState.email}
+                placeholder="Enter email"
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-                            </Form.Text>
-                        </Form>
-                        {error && <div>Login failed</div>}
-                    
-                </div>
-            </HomeContainer>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                name="password"
+                className="form-input"
+                id="password"
+                value={formState.password}
+                placeholder="Password"
+                onChange={handleChange}
+              />
+            </Form.Group>
 
+            <button className="btn-find" type="submit">
+              Sign in
+            </button>
+            <Form.Text>
+              <Link to="/signup">
+                <button className="btn-signup" type="submit">
+                  Sign Up Now!
+                </button>
+              </Link>
+            </Form.Text>
+          </Form>
+          {error && <div>Login failed</div>}
+        </div>
+      </HomeContainer>
+    </main>
+  );
 
-        </main>
-    );
 };
 
 export default Login;
@@ -198,7 +232,7 @@ Form{
 
         background: rgb(130,246,165);
         background: linear-gradient(90deg, rgba(130,246,165,1) 50%, rgba(147,238,169,1) 100%);
-        ${'' /* box-shadow: 2px 1px 39px 6px rgba(186,201,227,0.55); */}
+        ${"" /* box-shadow: 2px 1px 39px 6px rgba(186,201,227,0.55); */}
        
       }
       .btn-signup:hover,
@@ -288,5 +322,4 @@ display:block;
 }      
 }
 
-`
-
+`;

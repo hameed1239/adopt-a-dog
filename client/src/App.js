@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
@@ -35,9 +35,7 @@ const client = new ApolloClient({
   uri: "/graphql",
 });
 
-
 function App() {
-
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -55,11 +53,13 @@ function App() {
               <Route exact path="/about" component={About} />
               <Route exact path="/donate" component={Donate} />
               <Route exact path="/contact" component={Contact} />
-              <Route exact path="/application-form" component={ApplicationForm} />
+              <Route
+                exact
+                path="/application-form"
+                component={ApplicationForm}
+              />
               <Route component={NoMatch} />
-                            
             </Switch>
-   
           </Provider>
           
           <Footer />
