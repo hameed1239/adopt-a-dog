@@ -32,7 +32,7 @@
 - [Pre-Requisites](#Pre-Requisites)
 - [Installation](#Installation)
 - [Usage](#Usage)
-- [Screenshot](#Screenshot)
+- [Screenshots](#Screenshots)
 - [Technologies Used](#Technologies-Used)
 - [Credits](#Credits)
 - [Roadmap](#Roadmap)
@@ -79,9 +79,15 @@ https://github.com/hameed1239/adopt-me.
 6. Donate page: is the page that gives you an option to donate.
 7. Admin page: This requires that you have admin access. You can test this by login in with username: `admin1@test.com`, password: `password`.
 
-## Screenshot
+## Screenshots
 
-![Screenshot](./screenshot.png)
+### Home Page
+
+![Home Page](./screenshot-1.png)
+
+### Dogs Page
+
+![Dogs Page](./screenshot-2.png)
 
 ## Technologies Used
 
