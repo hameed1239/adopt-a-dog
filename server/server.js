@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
@@ -30,7 +31,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const Stripe = require('stripe');
-const stripe = Stripe('sk_test_51IB2FYDWlFXjkhsbjkzqTRKrbh9B69KDfMtE5g30PQhOmNFIF1drpzHcFeEj6aaSddWpfHLiuQOvGlVSPv9H9Dhk00tZTGEgAA');
+const stripe = Stripe(process.env.STRIPE);
 
 app.post('/create-checkout-session', async (req, res) => {
 
