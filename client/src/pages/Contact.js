@@ -36,7 +36,7 @@ const Contact = () => {
   function handleSubmit(event) {
     event.preventDefault();
 
-    emailjs.sendForm('service_xbl8m76', 'template_91xqatp', event.target, 'user_3QlmspmFC6ohkE8C94IEp')
+    emailjs.sendForm(process.env.REACT_APP_EJSserviceId, process.env.REACT_APP_EJStemplateID, event.target, process.env.REACT_APP_EJSuserID)
       .then((result) => {
         // console.log(result.text);
       }, (error) => {
@@ -55,13 +55,13 @@ const Contact = () => {
 
   return (
     <div style={ {
-       minHeight: "100vh" ,
-       margin:"3rem auto"
+      minHeight: "100vh",
+      margin: "3rem auto"
     } }>
       <main id="contact" style={ {
-       width: "50%" ,
-       margin:"3rem auto"
-    } }>
+        width: "50%",
+        margin: "3rem auto"
+      } }>
         <section className="container">
           <h1>Contact Us</h1>
         </section>
@@ -69,7 +69,7 @@ const Contact = () => {
         <section id="contacts" className="container">
           <form id="contact-form" onSubmit={ handleSubmit }>
             <div>
-              
+
               <input type="text" name="name" placeholder=" Name" defaultValue={ name } onBlur={ handleChange } />
             </div>
             <div>

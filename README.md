@@ -60,14 +60,22 @@ https://github.com/hameed1239/adopt-me.
 ## Pre-Requisites
 
 1. Install `node.js`.
-1. Install `MongoDB`.
-1. Create a database in a service such as `Atlas` on [mongodb](https://cloud.mongodb.com/).
+1. Install `MongoDB` OR Create a database in a service such as `Atlas` on [mongodb](https://cloud.mongodb.com/).
+1. Create an account with `EmailJS` for the contact form.
+1. Create a `Stripe` account for payment (a developer account is sufficient).
 
 ## Installation
 
 1. In the root directory of the app, run `npm i`.
 1. Run `npm run seed` to seed the database.
 1. Run `npm start`.
+1. Create a `.env` file in the `server` folder to store:
+   1. An `AUTH_SECRET` variable (`auth.js` line 4) with some random string to be used for JWT encryption.
+   1. A `STRIPE` variable (`server.js` line 34) that corresponds to the account created in "Pre-Requisites".
+1. Create another `.env` file in the `client` folder (no need to install `dotenv` on the client side as it is already readable in React) and create 3 variables in the file and fill in the corresponding values from the `EmailJS` account mentioned in the "Pre-Requisites".:
+   1. `REACT_APP_EJSserviceId`
+   1. `REACT_APP_EJStemplateID`
+   1. `REACT_APP_EJSuserID`
 
 ## Usage
 
